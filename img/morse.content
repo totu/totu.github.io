@@ -1,0 +1,74 @@
+        <div id='main' class='box'>
+            <input type='button' id='play' value='play'>
+            <input type='text' id='text'>
+            <div id='current-char'></div>
+            <div id='morse' onmouseup='stop()' onmousedown='start()'>push me</div>
+        </div>
+        <div id='morse-footer' class='box'>
+            <div id='alpha'>
+                <ul>
+                    <li><span class='morse-letter'>A</span>.-</li>
+                    <li><span class='morse-letter'>B</span>-...</li>
+                    <li><span class='morse-letter'>C</span>-.-.</li>
+                    <li><span class='morse-letter'>D</span>-..</li>
+                    <li><span class='morse-letter'>E</span>.</li>
+                </ul>
+                <ul>
+                    <li><span class='morse-letter'>F</span>..-.</li>
+                    <li><span class='morse-letter'>G</span>--.</li>
+                    <li><span class='morse-letter'>H</span>....</li>
+                    <li><span class='morse-letter'>I</span>..</li>
+                    <li><span class='morse-letter'>J</span>.---</li>
+                </ul>
+                <ul>
+                    <li><span class='morse-letter'>K</span>-.-</li>
+                    <li><span class='morse-letter'>L</span>.-..</li>
+                    <li><span class='morse-letter'>M</span>--</li>
+                    <li><span class='morse-letter'>N</span>-.</li>
+                    <li><span class='morse-letter'>O</span>---</li>
+                </ul>
+                <ul>
+                    <li><span class='morse-letter'>P</span>.--.</li>
+                    <li><span class='morse-letter'>Q</span>--.-</li>
+                    <li><span class='morse-letter'>R</span>.-.</li>
+                    <li><span class='morse-letter'>S</span>...</li>
+                    <li><span class='morse-letter'>T</span>-</li>
+                </ul>
+                <ul class='morse-push'>
+                    <li><span class='morse-letter'>U</span>..-</li>
+                    <li><span class='morse-letter'>V</span>...-</li>
+                    <li><span class='morse-letter'>W</span>.--</li>
+                    <li><span class='morse-letter'>X</span>-..-</li>
+                    <li><span class='morse-letter'>Y</span>-.--</li>
+                    <li><span class='morse-letter'>Z</span>--..</li>
+                </ul>
+            </div>
+            <div style='margin-left:10%; width:80%;border-top:dashed 1.2px rgb(219,219,219,0.9);height:0'></div>
+            <div id='nums'>
+                <ul>
+                    <li><span class='morse-letter'>1</span>.----</li>
+                    <li><span class='morse-letter'>2</span>..---</li>
+                    <li><span class='morse-letter'>3</span>...--</li>
+                    <li><span class='morse-letter'>4</span>....-</li>
+                    <li><span class='morse-letter'>5</span>.....</li>
+                </ul>
+                <ul>
+                    <li><span class='morse-letter'>6</span>-....</li>
+                    <li><span class='morse-letter'>7</span>--...</li>
+                    <li><span class='morse-letter'>8</span>---..</li>
+                    <li><span class='morse-letter'>9</span>----.</li>
+                    <li><span class='morse-letter'>0</span>-----</li>
+                </ul>
+            </div>
+        </div>
+        </div>
+        <div style='margin-left:10%; width:80%;border-top:dashed 1.2px rgb(219,219,219,0.9);height:0'></div>
+        <div id='morse-controls'>
+            Volume<input type='textbox' name='volume' id='volume' value='50'>
+            <label id='volume-label' for='volume'>%</label>
+            Pitch<input type='textbox' name='freq' id='freq' value='500'>
+            <label id='freq-label' for='freq'>Hz</label>
+            Delay<input type='textbox' name='unit' id='unit' value='50'>
+            <label id='unit-label' for='unit'>ms</label>
+
+
