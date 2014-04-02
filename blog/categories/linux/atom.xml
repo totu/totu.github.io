@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Octopress Test]]></title>
-  <link href="http://totu.github.io/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Linux | Octopress Test]]></title>
+  <link href="http://totu.github.io/blog/categories/linux/atom.xml" rel="self"/>
   <link href="http://totu.github.io/"/>
   <updated>2014-04-02T19:53:28+00:00</updated>
   <id>http://totu.github.io/</id>
@@ -49,16 +49,13 @@ Once you have Crouton downloaded, press Ctrl+Alt+T in Chrome OS to open crosh te
 
 <p>Now, to install Crouton all you have to do is run following command:</p>
 
-<figure class='code'><figcaption><span>sudo sh -e ~/Downloads/crouton -t xfce &#8220;`</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>The actual installation process will take 25-40 minutes <span class="k">while </span>all the necessary software is downloaded and installed.
-</span><span class='line'>
-</span><span class='line'>Once the installation is <span class="nb">complete </span>you can start your brand new Ubuntu with typing following <span class="nb">command </span>in the shell:
-</span></code></pre></td></tr></table></div></figure>
+<p><code>bash sudo sh -e ~/Downloads/crouton -t xfce</code></p>
 
+<p>The actual installation process will take 25-40 minutes while all the necessary software is downloaded and installed.</p>
 
-<p>bash sudo startxfce4 &#8220;`</p>
+<p>Once the installation is complete you can start your brand new Ubuntu with typing following command in the shell:</p>
+
+<p><code>bash sudo startxfce4</code></p>
 
 <p>Switching between the environments is simple just press Ctrl+Alt+Shit+Back (F1) or Ctrl+Alt+Shit+Forward (F2)</p>
 
