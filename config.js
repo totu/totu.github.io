@@ -11,7 +11,17 @@ config = {
     // Configure your URL and mail settings here
     production: {
         url: 'http://topituulensuu.com',
-        mail: {},
+        mail: {
+              from: '"GhostIO" <ghost@topituulensuu.com>',
+              transport: 'SMTP',
+              options: {
+                  service: 'Mailgun',
+                  auth: {
+                      user: 'postmaster@topituulensuu.com', // mailgun username
+                      pass: '37bbd7e77415b030fce6dbbdf19cfd64'  // mailgun password
+                  }
+              }
+          },
         database: {
             client: 'sqlite3',
             connection: {
