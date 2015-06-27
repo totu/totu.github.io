@@ -67,6 +67,18 @@
         },
         "ghost_foot": {
             "defaultValue" : ""
+        },
+        "labs": {
+            "defaultValue": "{}"
+        },
+        "navigation": {
+            "defaultValue": "[{\"label\":\"Home\", \"url\":\"/\"}]"
+        },
+        "isPrivate": {
+            "defaultValue": "false"
+        },
+        "password": {
+            "defaultValue": ""
         }
     },
     "theme": {
