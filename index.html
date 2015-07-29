@@ -63,8 +63,44 @@
     
       <li>
         <header class="post-header">
-          <a class="post-link" href="/2015/07/29/pvcc6.html">PVCC #6: Ethernet kehys</a>
+          <a class="post-link" href="/2015/07/29/pvcc5.html">PVCC #5: Binäärejä</a>
           <p class="post-meta">29.7.2015</p>
+        </header>
+
+        <article class="post-content">
+          <p><em>Etkö tiedä mikä on PVCC? <a href="/2015/07/20/fdfcc.html">Klikkaa tästä</a>.</em></p>
+
+<p>Viidennessä kysymys ei ole niinkään kysymys, kuin kasa ykkösiä ja nollia.</p>
+
+<pre><code class="language-bash">00101001 00111000 00110111 00101010 00111011 00101011
+01111000 01101111 01110010 01011000 01001111 01010010
+</code></pre>
+
+<p>Selkeästi kyseessä on binäärejä.</p>
+
+<p>Käydään nopeasti lävitse bitin ja tavun ero. Bitti on tietokoneiden perusyksikkö, se on numero joka voi olla joko 1 tai 0. Tavu on kahdeksan bittiä. Kuten nokkelimmat jo huomasivat, binäärimme on jaettu kahdeksaan kahdeksan bitin sarjaan, eli kahdeksaan tavuun.</p>
+
+<p>Ensimmäinen tavu on <code>00101001</code>. Bitit luetaan oikealta vasemmalle ja niiden arvot aina tuplaantuu, eli ensimmäinen tavu aivan oikealla vastaa numeroa 1. Seuraava vasemmalle, eli toinen tavu vastaa numeroa 2. Kolmas vasemmalle vastaa numeroa 4. Seuraava on 8 ja sitten 16 jne. Koska tavussa on kahdeksan bittiä voi se saada arvon väliltä 0 - 255. Kyseinen tavu siis vastaa \(00101001 = 1 + 8 + 32 = 41\).</p>
+
+<p>Koska tehtävässä ei erikseen mainita mitä binäärillä tulee tehdä, oletan että kyseessä on jonkinlainen ASCII jono. <a href="http://www.asciitable.com/">ASCII table</a> -sivun mukaan numero 41 vastaa merkkiä “)”. Nyt tietty voidaan laskea kaikki tavut käsin yhteen ja etsiä ne tuolta taulusta, taikka sitten voidaan kokeilla jotain muuta.</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; import binascii
+&gt;&gt;&gt; b = "00101001 00111000 00110111 00101010 00111011 00101011 01111000 01101111 01110010 01011000 01001111 01010010".replace(" ", "")
+&gt;&gt;&gt; n = int('0b'+b, 2)
+&gt;&gt;&gt; binascii.unhexlify('%x' % n)
+b')87*;+xorXOR'
+</code></pre>
+
+<p>Ja siinä saatiin vastaus joka näyttää olevan: <code>)87*;+xorXOR</code>.</p>
+
+        </article>
+      </li>
+      <div class="post-divider"></div>
+    
+      <li>
+        <header class="post-header">
+          <a class="post-link" href="/2015/07/22/pvcc6.html">PVCC #6: Ethernet kehys</a>
+          <p class="post-meta">22.7.2015</p>
         </header>
 
         <article class="post-content">
@@ -261,42 +297,6 @@ A: IP on verkkokerroksen protokola, eli L3 osoite on 8.8.8.8. Aluksi oletin ett�
 
 <p><strong>Q: Pääseekö paketti kohteeseen? Jos ei, niin miksi?</strong>
 A: Koska kysymys on tässä muodossa voisin helposti olettaa että paketti ei pääse kohteeseensa, mutten löydä siitä mitään vikaa. Ehkä checksummat ovat väärin, mutten jaksa alkaa tarkistamaan niitä, joten vastaan: <strong>kyllä</strong> paketti pääsee kohteeseensa.</p>
-
-        </article>
-      </li>
-      <div class="post-divider"></div>
-    
-      <li>
-        <header class="post-header">
-          <a class="post-link" href="/2015/07/29/pvcc5.html">PVCC #5: Binäärejä</a>
-          <p class="post-meta">29.7.2015</p>
-        </header>
-
-        <article class="post-content">
-          <p><em>Etkö tiedä mikä on PVCC? <a href="/2015/07/20/fdfcc.html">Klikkaa tästä</a>.</em></p>
-
-<p>Viidennessä kysymys ei ole niinkään kysymys, kuin kasa ykkösiä ja nollia.</p>
-
-<pre><code class="language-bash">00101001 00111000 00110111 00101010 00111011 00101011
-01111000 01101111 01110010 01011000 01001111 01010010
-</code></pre>
-
-<p>Selkeästi kyseessä on binäärejä.</p>
-
-<p>Käydään nopeasti lävitse bitin ja tavun ero. Bitti on tietokoneiden perusyksikkö, se on numero joka voi olla joko 1 tai 0. Tavu on kahdeksan bittiä. Kuten nokkelimmat jo huomasivat, binäärimme on jaettu kahdeksaan kahdeksan bitin sarjaan, eli kahdeksaan tavuun.</p>
-
-<p>Ensimmäinen tavu on <code>00101001</code>. Bitit luetaan oikealta vasemmalle ja niiden arvot aina tuplaantuu, eli ensimmäinen tavu aivan oikealla vastaa numeroa 1. Seuraava vasemmalle, eli toinen tavu vastaa numeroa 2. Kolmas vasemmalle vastaa numeroa 4. Seuraava on 8 ja sitten 16 jne. Koska tavussa on kahdeksan bittiä voi se saada arvon väliltä 0 - 255. Kyseinen tavu siis vastaa \(00101001 = 1 + 8 + 32 = 41\).</p>
-
-<p>Koska tehtävässä ei erikseen mainita mitä binäärillä tulee tehdä, oletan että kyseessä on jonkinlainen ASCII jono. <a href="http://www.asciitable.com/">ASCII table</a> -sivun mukaan numero 41 vastaa merkkiä “)”. Nyt tietty voidaan laskea kaikki tavut käsin yhteen ja etsiä ne tuolta taulusta, taikka sitten voidaan kokeilla jotain muuta.</p>
-
-<pre><code class="language-python">&gt;&gt;&gt; import binascii
-&gt;&gt;&gt; b = "00101001 00111000 00110111 00101010 00111011 00101011 01111000 01101111 01110010 01011000 01001111 01010010".replace(" ", "")
-&gt;&gt;&gt; n = int('0b'+b, 2)
-&gt;&gt;&gt; binascii.unhexlify('%x' % n)
-b')87*;+xorXOR'
-</code></pre>
-
-<p>Ja siinä saatiin vastaus joka näyttää olevan: <code>)87*;+xorXOR</code>.</p>
 
         </article>
       </li>
