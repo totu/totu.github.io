@@ -5,43 +5,9 @@
     <description>Ajatuksia, tarinoita ja ideoita.</description>
     <link>http://ajatusrikos.fi/</link>
     <atom:link href="http://ajatusrikos.fi/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 29 Jul 2015 22:32:40 +0300</pubDate>
-    <lastBuildDate>Wed, 29 Jul 2015 22:32:40 +0300</lastBuildDate>
+    <pubDate>Wed, 29 Jul 2015 22:34:11 +0300</pubDate>
+    <lastBuildDate>Wed, 29 Jul 2015 22:34:11 +0300</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
-    
-      <item>
-        <title>PVCC #5: Binäärejä</title>
-        <description>&lt;p&gt;&lt;em&gt;Etkö tiedä mikä on PVCC? &lt;a href=&quot;/2015/07/20/fdfcc.html&quot;&gt;Klikkaa tästä&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Viidennessä kysymys ei ole niinkään kysymys, kuin kasa ykkösiä ja nollia.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;00101001 00111000 00110111 00101010 00111011 00101011
-01111000 01101111 01110010 01011000 01001111 01010010
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Selkeästi kyseessä on binäärejä.&lt;/p&gt;
-
-&lt;p&gt;Käydään nopeasti lävitse bitin ja tavun ero. Bitti on tietokoneiden perusyksikkö, se on numero joka voi olla joko 1 tai 0. Tavu on kahdeksan bittiä. Kuten nokkelimmat jo huomasivat, binäärimme on jaettu kahdeksaan kahdeksan bitin sarjaan, eli kahdeksaan tavuun.&lt;/p&gt;
-
-&lt;p&gt;Ensimmäinen tavu on &lt;code&gt;00101001&lt;/code&gt;. Bitit luetaan oikealta vasemmalle ja niiden arvot aina tuplaantuu, eli ensimmäinen tavu aivan oikealla vastaa numeroa 1. Seuraava vasemmalle, eli toinen tavu vastaa numeroa 2. Kolmas vasemmalle vastaa numeroa 4. Seuraava on 8 ja sitten 16 jne. Koska tavussa on kahdeksan bittiä voi se saada arvon väliltä 0 - 255. Kyseinen tavu siis vastaa \(00101001 = 1 + 8 + 32 = 41\).&lt;/p&gt;
-
-&lt;p&gt;Koska tehtävässä ei erikseen mainita mitä binäärillä tulee tehdä, oletan että kyseessä on jonkinlainen ASCII jono. &lt;a href=&quot;http://www.asciitable.com/&quot;&gt;ASCII table&lt;/a&gt; -sivun mukaan numero 41 vastaa merkkiä “)”. Nyt tietty voidaan laskea kaikki tavut käsin yhteen ja etsiä ne tuolta taulusta, taikka sitten voidaan kokeilla jotain muuta.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;&amp;gt;&amp;gt;&amp;gt; import binascii
-&amp;gt;&amp;gt;&amp;gt; b = &quot;00101001 00111000 00110111 00101010 00111011 00101011 01111000 01101111 01110010 01011000 01001111 01010010&quot;.replace(&quot; &quot;, &quot;&quot;)
-&amp;gt;&amp;gt;&amp;gt; n = int(&#39;0b&#39;+b, 2)
-&amp;gt;&amp;gt;&amp;gt; binascii.unhexlify(&#39;%x&#39; % n)
-b&#39;)87*;+xorXOR&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Ja siinä saatiin vastaus joka näyttää olevan: &lt;code&gt;)87*;+xorXOR&lt;/code&gt;.&lt;/p&gt;
-</description>
-        <pubDate>Wed, 29 Jul 2015 21:16:32 +0300</pubDate>
-        <link>http://ajatusrikos.fi/2015/07/29/pvcc5.html</link>
-        <guid isPermaLink="true">http://ajatusrikos.fi/2015/07/29/pvcc5.html</guid>
-        
-        
-      </item>
     
       <item>
         <title>PVCC #6: Ethernet kehys</title>
@@ -242,6 +208,40 @@ A: Koska kysymys on tässä muodossa voisin helposti olettaa että paketti ei p�
         <pubDate>Wed, 22 Jul 2015 11:31:28 +0300</pubDate>
         <link>http://ajatusrikos.fi/2015/07/22/pvcc6.html</link>
         <guid isPermaLink="true">http://ajatusrikos.fi/2015/07/22/pvcc6.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>PVCC #5: Binäärejä</title>
+        <description>&lt;p&gt;&lt;em&gt;Etkö tiedä mikä on PVCC? &lt;a href=&quot;/2015/07/20/fdfcc.html&quot;&gt;Klikkaa tästä&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Viidennessä kysymys ei ole niinkään kysymys, kuin kasa ykkösiä ja nollia.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;00101001 00111000 00110111 00101010 00111011 00101011
+01111000 01101111 01110010 01011000 01001111 01010010
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Selkeästi kyseessä on binäärejä.&lt;/p&gt;
+
+&lt;p&gt;Käydään nopeasti lävitse bitin ja tavun ero. Bitti on tietokoneiden perusyksikkö, se on numero joka voi olla joko 1 tai 0. Tavu on kahdeksan bittiä. Kuten nokkelimmat jo huomasivat, binäärimme on jaettu kahdeksaan kahdeksan bitin sarjaan, eli kahdeksaan tavuun.&lt;/p&gt;
+
+&lt;p&gt;Ensimmäinen tavu on &lt;code&gt;00101001&lt;/code&gt;. Bitit luetaan oikealta vasemmalle ja niiden arvot aina tuplaantuu, eli ensimmäinen tavu aivan oikealla vastaa numeroa 1. Seuraava vasemmalle, eli toinen tavu vastaa numeroa 2. Kolmas vasemmalle vastaa numeroa 4. Seuraava on 8 ja sitten 16 jne. Koska tavussa on kahdeksan bittiä voi se saada arvon väliltä 0 - 255. Kyseinen tavu siis vastaa \(00101001 = 1 + 8 + 32 = 41\).&lt;/p&gt;
+
+&lt;p&gt;Koska tehtävässä ei erikseen mainita mitä binäärillä tulee tehdä, oletan että kyseessä on jonkinlainen ASCII jono. &lt;a href=&quot;http://www.asciitable.com/&quot;&gt;ASCII table&lt;/a&gt; -sivun mukaan numero 41 vastaa merkkiä “)”. Nyt tietty voidaan laskea kaikki tavut käsin yhteen ja etsiä ne tuolta taulusta, taikka sitten voidaan kokeilla jotain muuta.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;&amp;gt;&amp;gt;&amp;gt; import binascii
+&amp;gt;&amp;gt;&amp;gt; b = &quot;00101001 00111000 00110111 00101010 00111011 00101011 01111000 01101111 01110010 01011000 01001111 01010010&quot;.replace(&quot; &quot;, &quot;&quot;)
+&amp;gt;&amp;gt;&amp;gt; n = int(&#39;0b&#39;+b, 2)
+&amp;gt;&amp;gt;&amp;gt; binascii.unhexlify(&#39;%x&#39; % n)
+b&#39;)87*;+xorXOR&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ja siinä saatiin vastaus joka näyttää olevan: &lt;code&gt;)87*;+xorXOR&lt;/code&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 21 Jul 2015 21:16:32 +0300</pubDate>
+        <link>http://ajatusrikos.fi/2015/07/21/pvcc5.html</link>
+        <guid isPermaLink="true">http://ajatusrikos.fi/2015/07/21/pvcc5.html</guid>
         
         
       </item>
