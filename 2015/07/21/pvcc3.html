@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <link rel="shortcut icon" href="/favicon.ico"/>
   <title>PVCC #3: Base64</title>
   <meta name="description" content="Etkö tiedä mikä on PVCC? Klikkaa tästä.">
 
@@ -26,7 +26,7 @@
 
   <div class="wrapper">
 
-    <a class="site-title" href="/">Ajatusrikos</a>
+    <a class="site-title" href="/">Ajatusrikos</a> <span class='slogan'>— Ajatuksia, tarinoita ja ideoita.</span>
 <!--
     <nav class="site-nav">
       <a href="#" class="menu-icon">
@@ -38,6 +38,8 @@
       </a>
 
       <div class="trigger">
+        
+          
         
           
         
@@ -113,7 +115,7 @@ True
 &lt;_sre.SRE_Match object; span=(0, 4), match='ZW1+'&gt;
 </code></pre>
 
-<p>Ja ne löytyvät! Seuraavat neljä <code>SXBz</code> pitäisi löytyä myös.</p>
+<p>Ja löytyyhän ne! Seuraavat neljä <code>SXBz</code> pitäisi löytyä myös.</p>
 
 <pre><code class="language-python">&gt;&gt;&gt; import re
 &gt;&gt;&gt; re.match('^[A-Za-z0-9+]{4}$', 'SXBz')

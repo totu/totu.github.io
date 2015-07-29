@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="/favicon.ico"/>
-  <title>PVCC2 #2: 700 miljardia salasanaa sekunnissa</title>
+  <title>PVCC #5: Binäärejä</title>
   <meta name="description" content="Etkö tiedä mikä on PVCC? Klikkaa tästä.">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://ajatusrikos.fi/2015/07/20/pvcc2.html">
+  <link rel="canonical" href="http://ajatusrikos.fi/2015/07/29/pvcc5.html">
   <link rel="alternate" type="application/rss+xml" title="Ajatusrikos" href="http://ajatusrikos.fi/feed.xml" />
   <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   <link rel="stylesheet" href="/css/prism.css">
@@ -60,24 +60,35 @@
           <div class="post">
 
   <header class="post-header">
-    <strong class="post-title">PVCC2 #2: 700 miljardia salasanaa sekunnissa</strong>
-    <p class="post-meta">20.7.2015</p>
+    <strong class="post-title">PVCC #5: Binäärejä</strong>
+    <p class="post-meta">29.7.2015</p>
   </header>
 
   <article class="post-content">
     <p><em>Etkö tiedä mikä on PVCC? <a href="/2015/07/20/fdfcc.html">Klikkaa tästä</a>.</em></p>
 
-<p>Tokassa kysymyksessä cräkätään salasanoja. Tarkoitus on laskea teoreettinen maksimi aika kahdella eri tavalla luodulle salasanalle. Ensimmäinen salasana luodaan liittämällä yhteen sattumanvaraisesti neljä sanaa 31337 sanan tiedetystä listasta. Toinen salasana luodaan yhdeksästä sattumanvaraisesta printattavasta ASCII merkistä. Molemmat salasanat puretaan koneella joka pystyy tekemään 700 miljardia hash operaatiota sekunnissa. Nyt matikkamyssyt päähän ja cräkkäämään.</p>
+<p>Viidennessä kysymys ei ole niinkään kysymys, kuin kasa ykkösiä ja nollia.</p>
 
-<p>Neljä sanaa 31337 sanan listasta täysin sattuman varaisesti tuottaa \(3133^4\) mahdollista yhdistelmää, kun se jaetaan 700 miljardilla saadaan tulokseksi \(31337^4 / 700 \times 10^9\) mikä on sama kuin \(1.38 \times 10^6\) sekuntia. Vastaus pitää kuitenkin antaa päivän tarkkuudella joten lopullinen yhtälö näyttää tältä:</p>
+<pre><code class="language-bash">00101001 00111000 00110111 00101010 00111011 00101011
+01111000 01101111 01110010 01011000 01001111 01010010
+</code></pre>
 
-<script type="math/tex; mode=display">\dfrac{3133^4}{700 \times 10^9 \times 3600 \times 24} \approx 16</script>
+<p>Selkeästi kyseessä on binäärejä.</p>
 
-<p>Toka salasana on perinteisempi ongelma. <a href="https://fi.wikipedia.org/wiki/ASCII">Wikipedian</a> mukaan ASCII sisältää 95 näkyvää merkkiä. Mikä tarkoittaa meillä voi olla \(95^9\) mahdollista salasanaa ja koska meillä on käytössä sama kone kuin edellisen salasanan kanssa lopullinen yhtälö on:</p>
+<p>Käydään nopeasti lävitse bitin ja tavun ero. Bitti on tietokoneiden perusyksikkö, se on numero joka voi olla joko 1 tai 0. Tavu on kahdeksan bittiä. Kuten nokkelimmat jo huomasivat, binäärimme on jaettu kahdeksaan kahdeksan bitin sarjaan, eli kahdeksaan tavuun.</p>
 
-<script type="math/tex; mode=display">\dfrac{95^9}{700 \times 10^9 \times 3600 \times 24} \approx 10</script>
+<p>Ensimmäinen tavu on <code>00101001</code>. Bitit luetaan oikealta vasemmalle ja niiden arvot aina tuplaantuu, eli ensimmäinen tavu aivan oikealla vastaa numeroa 1. Seuraava vasemmalle, eli toinen tavu vastaa numeroa 2. Kolmas vasemmalle vastaa numeroa 4. Seuraava on 8 ja sitten 16 jne. Koska tavussa on kahdeksan bittiä voi se saada arvon väliltä 0 - 255. Kyseinen tavu siis vastaa \(00101001 = 1 + 8 + 32 = 41\).</p>
 
-<p>Tehtävän vastaukset ovat siis <strong>a)</strong> 16 päivää ja <strong>b)</strong> 10 päivää.</p>
+<p>Koska tehtävässä ei erikseen mainita mitä binäärillä tulee tehdä, oletan että kyseessä on jonkinlainen ASCII jono. <a href="http://www.asciitable.com/">ASCII table</a> -sivun mukaan numero 41 vastaa merkkiä “)”. Nyt tietty voidaan laskea kaikki tavut käsin yhteen ja etsiä ne tuolta taulusta, taikka sitten voidaan kokeilla jotain muuta.</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; import binascii
+&gt;&gt;&gt; b = "00101001 00111000 00110111 00101010 00111011 00101011 01111000 01101111 01110010 01011000 01001111 01010010".replace(" ", "")
+&gt;&gt;&gt; n = int('0b'+b, 2)
+&gt;&gt;&gt; binascii.unhexlify('%x' % n)
+b')87*;+xorXOR'
+</code></pre>
+
+<p>Ja siinä saatiin vastaus joka näyttää olevan: <code>)87*;+xorXOR</code>.</p>
 
   </article>
 
