@@ -1,40 +1,155 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Your awesome title</title>
-    <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
-</description>
-    <link>http://yourdomain.com/</link>
-    <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 29 Jul 2015 14:48:30 +0300</pubDate>
-    <lastBuildDate>Wed, 29 Jul 2015 14:48:30 +0300</lastBuildDate>
+    <title>Ajatusrikos</title>
+    <description>Ajatuksia, tarinoita ja ideoita.</description>
+    <link>http://ajatusrikos.fi/</link>
+    <atom:link href="http://ajatusrikos.fi/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 29 Jul 2015 19:34:02 +0300</pubDate>
+    <lastBuildDate>Wed, 29 Jul 2015 19:34:02 +0300</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
-        <title>Welcome to Jekyll!</title>
-        <description>&lt;p&gt;You’ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+        <title>PVCC #3: Base64</title>
+        <description>&lt;p&gt;&lt;em&gt;Etkö tiedä mikä on PVCC? &lt;a href=&quot;/2015/07/20/fdfcc.html&quot;&gt;Klikkaa tästä&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;p&gt;Kolmannessa kysymyksessä meille annettiin ainoastaan merkkijono &lt;code&gt;TG9yZW1+SXBzdW0=&lt;/code&gt; mikä vaikuttaa joltain hashilta? Oikeastaan ei, kyseinen jono näyttää base64 pätkältä.&lt;/p&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+&lt;p&gt;Miten base64 tarkistetaan? No sen voisi vaan rykästä jollekkin Googlesta löytyvälle decodaus sivustolle, mutta tarkistetaan itse, niin opitaan jotain. Tässä on yksinkertainen tarkistuslista base64 merkkijonolle:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Tom&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &amp;#39;Hi, Tom&amp;#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;Jono alkaa millä tahansa määrällä neljän (4) merkin ryhmiä jotka voivat olla väliltä &lt;code&gt;[A-Za-z0-9+]&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Jota seuraa yksi seuraavista tai ei mitään:
+    &lt;ul&gt;
+      &lt;li&gt;Neljä merkkiä joista
+        &lt;ul&gt;
+          &lt;li&gt;Ensimmäinen ja toinen sopivat &lt;code&gt;[A-Za-z0-9+]&lt;/code&gt;&lt;/li&gt;
+          &lt;li&gt;Kolmas merkki sopii &lt;code&gt;[AEIMQUYcgkosw048]&lt;/code&gt;&lt;/li&gt;
+          &lt;li&gt;Viimeinen merkki on &lt;code&gt;=&lt;/code&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Neljä merkkiä joista
+        &lt;ul&gt;
+          &lt;li&gt;Ensimmäinen sopii &lt;code&gt;[A-Za-z0-9+]&lt;/code&gt;&lt;/li&gt;
+          &lt;li&gt;Toinen sopii &lt;code&gt;[AQgw]&lt;/code&gt;&lt;/li&gt;
+          &lt;li&gt;Kolmas ja neljäs ovat molemmat &lt;code&gt;=&lt;/code&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://github.com/jekyll/jekyll-help&quot;&gt;Jekyll’s dedicated Help repository&lt;/a&gt;.&lt;/p&gt;
+&lt;h1 id=&quot;regular-expressions&quot;&gt;Regular Expressions&lt;/h1&gt;
 
+&lt;p&gt;Kuten heti edellä mainitusta listasta voidaan huomata base64 jonot voidaan jakaa neljän merkin jonoihin, joten ensimmäinen tarkistus tulee olla tarkistaa jakautuuko meidän jono neljällä.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;&amp;gt;&amp;gt;&amp;gt; len(&#39;TG9yZW1+SXBzdW0=&#39;) % 4 == 0
+True
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Hyvältä näyttää. Seuraavaksi tarkistetaan löytyvätkö ensimmäiset neljä merkkiä &lt;code&gt;TG9y&lt;/code&gt; seuraavasta regular expressionista &lt;code&gt;[A-Za-z0-9+]&lt;/code&gt;, mikä sopii isoihin ja pieniin kirjaimiin väliltä A - Z, numeroihin 0 - 9 sekä + -merkkiin. Jono näyttää sopivan, mutta tarkistetaan vielä.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;&amp;gt;&amp;gt;&amp;gt; import re
+&amp;gt;&amp;gt;&amp;gt; re.match(&#39;^[A-Za-z0-9+]{4}$&#39;, &#39;TG9y&#39;)
+&amp;lt;_sre.SRE_Match object; span=(0, 4), match=&#39;TG9y&#39;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Seuraavat neljä merkkiä &lt;code&gt;ZW1+&lt;/code&gt; pitäisi löytyä samalla regexillä&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;&amp;gt;&amp;gt;&amp;gt; import re
+&amp;gt;&amp;gt;&amp;gt; re.match(&#39;^[A-Za-z0-9+]{4}$&#39;, &#39;ZW1+&#39;)
+&amp;lt;_sre.SRE_Match object; span=(0, 4), match=&#39;ZW1+&#39;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ja ne löytyvät! Seuraavat neljä &lt;code&gt;SXBz&lt;/code&gt; pitäisi löytyä myös.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;&amp;gt;&amp;gt;&amp;gt; import re
+&amp;gt;&amp;gt;&amp;gt; re.match(&#39;^[A-Za-z0-9+]{4}$&#39;, &#39;SXBz&#39;)
+&amp;lt;_sre.SRE_Match object; span=(0, 4), match=&#39;SXBz&#39;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Kas kummaa ne löytyvät. Nyt ollaan neljässä viimeisessä merkissä &lt;code&gt;dW0=&lt;/code&gt; joista ensimmäisen tulisi sopia vanhaan tuttuun &lt;code&gt;[A-Za-z0-9+]&lt;/code&gt;, toisen merkin tulisi sopia joko &lt;code&gt;[A-Za-z0-9+]&lt;/code&gt; tai &lt;code&gt;[AQgw]&lt;/code&gt;, kolmas merkki tulisi sopia &lt;code&gt;[AEIMQUYcgkosw048]&lt;/code&gt; tai &lt;code&gt;=&lt;/code&gt; ja viimeinen merkki tulisi olla &lt;code&gt;=&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;&amp;gt;&amp;gt;&amp;gt; import re
+&amp;gt;&amp;gt;&amp;gt; re.match(&#39;^[A-Za-z0-9+]([A-Za-z0-9+]|[AQgw])([AEIMQUYcgkosw048]|=)=$&#39;, &#39;dW0=&#39;)
+&amp;lt;_sre.SRE_Match object; span=(0, 4), match=&#39;dW0=&#39;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Jopa viimeinen osa sopii. Nyt yhdistetään kaikki yllä olevat regular expressionit yhteen.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;&amp;gt;&amp;gt;&amp;gt; import re
+&amp;gt;&amp;gt;&amp;gt; re.match(&#39;^([A-Za-z0-9+])*([A-Za-z0-9+]([A-Za-z0-9+]|[AQgw])([AEIMQUYcgkosw048]|=)=)$&#39;, &#39;TG9yZW1+SXBzdW0=&#39;)
+&amp;lt;_sre.SRE_Match object; span=(0, 16), match=&#39;TG9yZW1+SXBzdW0=&#39;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ja siinä meillä on yksinkertainen tarkistus skripti base64 jonoille, jonka mukaan kyseessä on base64 jono.&lt;/p&gt;
+
+&lt;h1 id=&quot;dekoodaus&quot;&gt;Dekoodaus&lt;/h1&gt;
+
+&lt;p&gt;Nyt kun tiedetään että meillä on base64 jono, voidaan se dekoodata. Tämäkin voitaisiin tehdä manuaalisesti, &lt;a href=&quot;https://en.wikipedia.org/wiki/Base64&quot;&gt;Base64 Wikipedia artikkelista&lt;/a&gt; löytyy jopa koodi esimerkki, mutta se olisi tylsää copy-pastea ja tämä postaus alkaa jo olemaan vähän liiankin pitkä. Joten on aika ripotella vähän Pythonia päälle ja pyyhkiä kyseinen ongelma pois päiväjärjestyksestä.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;&amp;gt;&amp;gt;&amp;gt; import base64
+&amp;gt;&amp;gt;&amp;gt; base64.b64decode(bytes(&#39;TG9yZW1+SXBzdW0=&#39;, &#39;utf-8&#39;))
+b&#39;Lorem~Ipsum&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Siinä meillä on vastaus &lt;code&gt;Lorem~Ipsum&lt;/code&gt;.&lt;/p&gt;
 </description>
-        <pubDate>Wed, 29 Jul 2015 17:36:09 +0300</pubDate>
-        <link>http://yourdomain.com/jekyll/update/2015/07/29/welcome-to-jekyll.html</link>
-        <guid isPermaLink="true">http://yourdomain.com/jekyll/update/2015/07/29/welcome-to-jekyll.html</guid>
+        <pubDate>Tue, 21 Jul 2015 10:04:09 +0300</pubDate>
+        <link>http://ajatusrikos.fi/2015/07/21/pvcc3.html</link>
+        <guid isPermaLink="true">http://ajatusrikos.fi/2015/07/21/pvcc3.html</guid>
         
         
-        <category>jekyll</category>
+      </item>
+    
+      <item>
+        <title>PVCC2 #2: 700 miljardia salasanaa sekunnissa</title>
+        <description>&lt;p&gt;&lt;em&gt;Etkö tiedä mikä on PVCC? &lt;a href=&quot;/2015/07/20/fdfcc.html&quot;&gt;Klikkaa tästä&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Tokassa kysymyksessä cräkätään salasanoja. Tarkoitus on laskea teoreettinen maksimi aika kahdella eri tavalla luodulle salasanalle. Ensimmäinen salasana luodaan liittämällä yhteen sattumanvaraisesti neljä sanaa 31337 sanan tiedetystä listasta. Toinen salasana luodaan yhdeksästä sattumanvaraisesta printattavasta ASCII merkistä. Molemmat salasanat puretaan koneella joka pystyy tekemään 700 miljardia hash operaatiota sekunnissa. Nyt matikkamyssyt päähän ja cräkkäämään.&lt;/p&gt;
+
+&lt;p&gt;Neljä sanaa 31337 sanan listasta täysin sattuman varaisesti tuottaa \(3133^4\) mahdollista yhdistelmää, kun se jaetaan 700 miljardilla saadaan tulokseksi \(31337^4 / 700 \times 10^9\) mikä on sama kuin \(1.38 \times 10^6\) sekuntia. Vastaus pitää kuitenkin antaa päivän tarkkuudella joten lopullinen yhtälö näyttää tältä:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\dfrac{3133^4}{700 \times 10^9 \times 3600 \times 24} \approx 16&lt;/script&gt;
+
+&lt;p&gt;Toka salasana on perinteisempi ongelma. &lt;a href=&quot;https://fi.wikipedia.org/wiki/ASCII&quot;&gt;Wikipedian&lt;/a&gt; mukaan ASCII sisältää 95 näkyvää merkkiä. Mikä tarkoittaa meillä voi olla \(95^9\) mahdollista salasanaa ja koska meillä on käytössä sama kone kuin edellisen salasanan kanssa lopullinen yhtälö on:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\dfrac{95^9}{700 \times 10^9 \times 3600 \times 24} \approx 10&lt;/script&gt;
+
+&lt;p&gt;Tehtävän vastaukset ovat siis &lt;strong&gt;a)&lt;/strong&gt; 16 päivää ja &lt;strong&gt;b)&lt;/strong&gt; 10 päivää.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 20 Jul 2015 20:33:43 +0300</pubDate>
+        <link>http://ajatusrikos.fi/2015/07/20/pvcc2.html</link>
+        <guid isPermaLink="true">http://ajatusrikos.fi/2015/07/20/pvcc2.html</guid>
         
-        <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>Puollustusvoimien Cyberchallenge</title>
+        <description>&lt;p&gt;Viime viikonloppuna bongasin HackerNewsitä &lt;a href=&quot;http://erityistehtavat.puolustusvoimat.fi/cyberchallenge.html&quot;&gt;tämän linkin&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Näköjään PV etsii porukkaa uuteen kyber yksikköön. En ole oikein varma onko tämä oikein tarkoitettu siviileille vai vain sisäiseen hakuun, mutta aion käydä haasteen lävitse kysymys kysymykseltä ja avata niitä niin paljon kun näen tarpeelliseksi. Osa kysymyksistä vaikuttaa haastavilta, osa taas lähes triviaaleja. Katsotaan kuinka pitkälle päästään.&lt;/p&gt;
+
+&lt;h1 id=&quot;pvcc-1-mik-epilytt&quot;&gt;PVCC #1: Mikä epäilyttää?&lt;/h1&gt;
+
+&lt;p&gt;Ekassa tehtävässä annetaan kuva prosesseja ja kysymys kuuluu kaikessa yksinkertaisuudessaan: &lt;em&gt;“Onko listalla mitään epäilyttävää?”&lt;/em&gt;
+Aluksi Googletin kaikki *.exet jotka eivät näyttäneet tutuilta ja löysin pari epäilyttävää prosessia.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/process.jpg&quot; alt=&quot;prosessit&quot; title=&quot;Epäilyttävät prosessit&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;En väitä tietäväni ihan tarkkaan miten Internet Explorer toimii, mutta tuo &lt;code&gt;cmd.exe&lt;/code&gt; vaikuttaa jokseenkin epäilyttävältä tuolla &lt;code&gt;iexeplre.exe&lt;/code&gt; alla. Toinen outous on tuo &lt;code&gt;rundll322.exe&lt;/code&gt; jossa näyttää olevan extra &lt;code&gt;2&lt;/code&gt; ja se ei ole ryhmitelty tuonne alemmas muiden &lt;code&gt;rundll32.exe&lt;/code&gt; kanssa.&lt;/p&gt;
+
+&lt;h1 id=&quot;eik-tss-viel-kaikki&quot;&gt;Eikä tässä vielä kaikki!&lt;/h1&gt;
+
+&lt;p&gt;Tutkiessa noita eri *.exejä huomasin että ne saattaa kertoa vähän enemmän tästä kohde koneesta. Nuo &lt;code&gt;igfcEM.exe&lt;/code&gt; ja &lt;code&gt;igfxHK.exe&lt;/code&gt; on osa Intelin Graphics ajureita. &lt;code&gt;iusb3mon.exe&lt;/code&gt; on osa Intelin USB3 ajureita. &lt;code&gt;RCIMGDIR.exe&lt;/code&gt; on osana jotain webcamera ajureita. Lopuksi &lt;code&gt;SynTPHelper.exe&lt;/code&gt; on Synapticsin trackpad ajuri. Näitä voidaan päätellä että kyseessä on kannettava tietokone ja koska kaikki maininnat tuosta &lt;code&gt;RCIMGDIR.exe&lt;/code&gt; löytyi ThinkPad foorumeilta uskallan väittää että kyseessä on Lenovon ThinkPadi. ThinkPadit on myös aika yleisiä “business” läppäreitä, joten en yllättyisi ollenkaan vaikka olisin oikeassa.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;P.S. Tuolla saataa olla vielä jotain outoa koska &lt;code&gt;Monitor.exe&lt;/code&gt; ja &lt;code&gt;RCIMGDIR.exe&lt;/code&gt; on molemmat webcam ajureita, mutten voi sanoa varman päälle&lt;/em&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 20 Jul 2015 16:18:26 +0300</pubDate>
+        <link>http://ajatusrikos.fi/2015/07/20/fdfcc.html</link>
+        <guid isPermaLink="true">http://ajatusrikos.fi/2015/07/20/fdfcc.html</guid>
+        
         
       </item>
     

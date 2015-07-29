@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Puollustusvoimien Cyberchallenge</title>
+  <meta name="description" content="Viime viikonloppuna bongasin HackerNewsitä tämän linkin.">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://ajatusrikos.fi/2015/07/20/fdfcc.html">
+  <link rel="alternate" type="application/rss+xml" title="Ajatusrikos" href="http://ajatusrikos.fi/feed.xml" />
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <link rel="stylesheet" href="/css/prism.css">
+
+  <script type="text/javascript" src="/js/prism.js"></script>
+
+</head>
+
+
+  <body>
+    <div class='container'>
+      <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Ajatusrikos</a>
+<!--
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+-->
+  </div>
+
+</header>
+
+
+      <div class="page-content">
+        <div class="wrapper">
+          <div class="post">
+
+  <header class="post-header">
+    <strong class="post-title">Puollustusvoimien Cyberchallenge</strong>
+    <p class="post-meta">20.7.2015</p>
+  </header>
+
+  <article class="post-content">
+    <p>Viime viikonloppuna bongasin HackerNewsitä <a href="http://erityistehtavat.puolustusvoimat.fi/cyberchallenge.html">tämän linkin</a>.</p>
+
+<p>Näköjään PV etsii porukkaa uuteen kyber yksikköön. En ole oikein varma onko tämä oikein tarkoitettu siviileille vai vain sisäiseen hakuun, mutta aion käydä haasteen lävitse kysymys kysymykseltä ja avata niitä niin paljon kun näen tarpeelliseksi. Osa kysymyksistä vaikuttaa haastavilta, osa taas lähes triviaaleja. Katsotaan kuinka pitkälle päästään.</p>
+
+<h1 id="pvcc-1-mik-epilytt">PVCC #1: Mikä epäilyttää?</h1>
+
+<p>Ekassa tehtävässä annetaan kuva prosesseja ja kysymys kuuluu kaikessa yksinkertaisuudessaan: <em>“Onko listalla mitään epäilyttävää?”</em>
+Aluksi Googletin kaikki *.exet jotka eivät näyttäneet tutuilta ja löysin pari epäilyttävää prosessia.</p>
+
+<p><img src="/img/process.jpg" alt="prosessit" title="Epäilyttävät prosessit" /></p>
+
+<p>En väitä tietäväni ihan tarkkaan miten Internet Explorer toimii, mutta tuo <code>cmd.exe</code> vaikuttaa jokseenkin epäilyttävältä tuolla <code>iexeplre.exe</code> alla. Toinen outous on tuo <code>rundll322.exe</code> jossa näyttää olevan extra <code>2</code> ja se ei ole ryhmitelty tuonne alemmas muiden <code>rundll32.exe</code> kanssa.</p>
+
+<h1 id="eik-tss-viel-kaikki">Eikä tässä vielä kaikki!</h1>
+
+<p>Tutkiessa noita eri *.exejä huomasin että ne saattaa kertoa vähän enemmän tästä kohde koneesta. Nuo <code>igfcEM.exe</code> ja <code>igfxHK.exe</code> on osa Intelin Graphics ajureita. <code>iusb3mon.exe</code> on osa Intelin USB3 ajureita. <code>RCIMGDIR.exe</code> on osana jotain webcamera ajureita. Lopuksi <code>SynTPHelper.exe</code> on Synapticsin trackpad ajuri. Näitä voidaan päätellä että kyseessä on kannettava tietokone ja koska kaikki maininnat tuosta <code>RCIMGDIR.exe</code> löytyi ThinkPad foorumeilta uskallan väittää että kyseessä on Lenovon ThinkPadi. ThinkPadit on myös aika yleisiä “business” läppäreitä, joten en yllättyisi ollenkaan vaikka olisin oikeassa.</p>
+
+<p><em>P.S. Tuolla saataa olla vielä jotain outoa koska <code>Monitor.exe</code> ja <code>RCIMGDIR.exe</code> on molemmat webcam ajureita, mutten voi sanoa varman päälle</em></p>
+
+  </article>
+
+</div>
+
+        </div>
+      </div>
+
+      <footer class="site-footer">
+
+
+    <div class="footer-col-wrapper">
+
+      <div class='copy'>
+        &copy; 2015. All the rights reserved. All the wrongs also reserved. But you can use it, just give me a shout-out, ok? Thanks.
+      </div>
+
+
+  </div>
+
+</footer>
+
+    </div>
+  </body>
+
+</html>
