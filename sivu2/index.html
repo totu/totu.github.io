@@ -63,6 +63,126 @@
     
       <li>
         <header class="post-header">
+          <a class="post-link" href="/2015/07/21/pvcc3.html">PVCC #3: Base64</a>
+          <p class="post-meta">21.7.2015</p>
+        </header>
+
+        <article class="post-content">
+          <p><em>Etkö tiedä mikä on PVCC? <a href="/2015/07/20/fdfcc.html">Klikkaa tästä</a>.</em></p>
+
+<p>Kolmannessa kysymyksessä meille annettiin ainoastaan merkkijono <code>TG9yZW1+SXBzdW0=</code> mikä vaikuttaa joltain hashilta? Oikeastaan ei, kyseinen jono näyttää base64 pätkältä.</p>
+
+<p>Miten base64 tarkistetaan? No sen voisi vaan rykästä jollekkin Googlesta löytyvälle decodaus sivustolle, mutta tarkistetaan itse, niin opitaan jotain. Tässä on yksinkertainen tarkistuslista base64 merkkijonolle:</p>
+
+<ul>
+  <li>Jono alkaa millä tahansa määrällä neljän (4) merkin ryhmiä jotka voivat olla väliltä <code>[A-Za-z0-9+]</code></li>
+  <li>Jota seuraa yksi seuraavista tai ei mitään:
+    <ul>
+      <li>Neljä merkkiä joista
+        <ul>
+          <li>Ensimmäinen ja toinen sopivat <code>[A-Za-z0-9+]</code></li>
+          <li>Kolmas merkki sopii <code>[AEIMQUYcgkosw048]</code></li>
+          <li>Viimeinen merkki on <code>=</code></li>
+        </ul>
+      </li>
+      <li>Neljä merkkiä joista
+        <ul>
+          <li>Ensimmäinen sopii <code>[A-Za-z0-9+]</code></li>
+          <li>Toinen sopii <code>[AQgw]</code></li>
+          <li>Kolmas ja neljäs ovat molemmat <code>=</code></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="regular-expressions">Regular Expressions</h1>
+
+<p>Kuten heti edellä mainitusta listasta voidaan huomata base64 jonot voidaan jakaa neljän merkin jonoihin, joten ensimmäinen tarkistus tulee olla tarkistaa jakautuuko meidän jono neljällä.</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; len('TG9yZW1+SXBzdW0=') % 4 == 0
+True
+</code></pre>
+
+<p>Hyvältä näyttää. Seuraavaksi tarkistetaan löytyvätkö ensimmäiset neljä merkkiä <code>TG9y</code> seuraavasta regular expressionista <code>[A-Za-z0-9+]</code>, mikä sopii isoihin ja pieniin kirjaimiin väliltä A - Z, numeroihin 0 - 9 sekä + -merkkiin. Jono näyttää sopivan, mutta tarkistetaan vielä.</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; import re
+&gt;&gt;&gt; re.match('^[A-Za-z0-9+]{4}$', 'TG9y')
+&lt;_sre.SRE_Match object; span=(0, 4), match='TG9y'&gt;
+</code></pre>
+
+<p>Seuraavat neljä merkkiä <code>ZW1+</code> pitäisi löytyä samalla regexillä</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; import re
+&gt;&gt;&gt; re.match('^[A-Za-z0-9+]{4}$', 'ZW1+')
+&lt;_sre.SRE_Match object; span=(0, 4), match='ZW1+'&gt;
+</code></pre>
+
+<p>Ja löytyyhän ne! Seuraavat neljä <code>SXBz</code> pitäisi löytyä myös.</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; import re
+&gt;&gt;&gt; re.match('^[A-Za-z0-9+]{4}$', 'SXBz')
+&lt;_sre.SRE_Match object; span=(0, 4), match='SXBz'&gt;
+</code></pre>
+
+<p>Kas kummaa ne löytyvät. Nyt ollaan neljässä viimeisessä merkissä <code>dW0=</code> joista ensimmäisen tulisi sopia vanhaan tuttuun <code>[A-Za-z0-9+]</code>, toisen merkin tulisi sopia joko <code>[A-Za-z0-9+]</code> tai <code>[AQgw]</code>, kolmas merkki tulisi sopia <code>[AEIMQUYcgkosw048]</code> tai <code>=</code> ja viimeinen merkki tulisi olla <code>=</code>.</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; import re
+&gt;&gt;&gt; re.match('^[A-Za-z0-9+]([A-Za-z0-9+]|[AQgw])([AEIMQUYcgkosw048]|=)=$', 'dW0=')
+&lt;_sre.SRE_Match object; span=(0, 4), match='dW0='&gt;
+</code></pre>
+
+<p>Jopa viimeinen osa sopii. Nyt yhdistetään kaikki yllä olevat regular expressionit yhteen.</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; import re
+&gt;&gt;&gt; re.match('^([A-Za-z0-9+])*([A-Za-z0-9+]([A-Za-z0-9+]|[AQgw])([AEIMQUYcgkosw048]|=)=)$', 'TG9yZW1+SXBzdW0=')
+&lt;_sre.SRE_Match object; span=(0, 16), match='TG9yZW1+SXBzdW0='&gt;
+</code></pre>
+
+<p>Ja siinä meillä on yksinkertainen tarkistus skripti base64 jonoille, jonka mukaan kyseessä on base64 jono.</p>
+
+<h1 id="dekoodaus">Dekoodaus</h1>
+
+<p>Nyt kun tiedetään että meillä on base64 jono, voidaan se dekoodata. Tämäkin voitaisiin tehdä manuaalisesti, <a href="https://en.wikipedia.org/wiki/Base64">Base64 Wikipedia artikkelista</a> löytyy jopa koodi esimerkki, mutta se olisi tylsää copy-pastea ja tämä postaus alkaa jo olemaan vähän liiankin pitkä. Joten on aika ripotella vähän Pythonia päälle ja pyyhkiä kyseinen ongelma pois päiväjärjestyksestä.</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; import base64
+&gt;&gt;&gt; base64.b64decode(bytes('TG9yZW1+SXBzdW0=', 'utf-8'))
+b'Lorem~Ipsum'
+</code></pre>
+
+<p>Siinä meillä on vastaus <code>Lorem~Ipsum</code>.</p>
+
+        </article>
+      </li>
+      <div class="post-divider"></div>
+    
+      <li>
+        <header class="post-header">
+          <a class="post-link" href="/2015/07/20/pvcc2.html">PVCC2 #2: 700 miljardia salasanaa sekunnissa</a>
+          <p class="post-meta">20.7.2015</p>
+        </header>
+
+        <article class="post-content">
+          <p><em>Etkö tiedä mikä on PVCC? <a href="/2015/07/20/fdfcc.html">Klikkaa tästä</a>.</em></p>
+
+<p>Tokassa kysymyksessä cräkätään salasanoja. Tarkoitus on laskea teoreettinen maksimi aika kahdella eri tavalla luodulle salasanalle. Ensimmäinen salasana luodaan liittämällä yhteen sattumanvaraisesti neljä sanaa 31337 sanan tiedetystä listasta. Toinen salasana luodaan yhdeksästä sattumanvaraisesta printattavasta ASCII merkistä. Molemmat salasanat puretaan koneella joka pystyy tekemään 700 miljardia hash operaatiota sekunnissa. Nyt matikkamyssyt päähän ja cräkkäämään.</p>
+
+<p>Neljä sanaa 31337 sanan listasta täysin sattuman varaisesti tuottaa \(3133^4\) mahdollista yhdistelmää, kun se jaetaan 700 miljardilla saadaan tulokseksi \(31337^4 / 700 \times 10^9\) mikä on sama kuin \(1.38 \times 10^6\) sekuntia. Vastaus pitää kuitenkin antaa päivän tarkkuudella joten lopullinen yhtälö näyttää tältä:</p>
+
+<script type="math/tex; mode=display">\dfrac{3133^4}{700 \times 10^9 \times 3600 \times 24} \approx 16</script>
+
+<p>Toka salasana on perinteisempi ongelma. <a href="https://fi.wikipedia.org/wiki/ASCII">Wikipedian</a> mukaan ASCII sisältää 95 näkyvää merkkiä. Mikä tarkoittaa meillä voi olla \(95^9\) mahdollista salasanaa ja koska meillä on käytössä sama kone kuin edellisen salasanan kanssa lopullinen yhtälö on:</p>
+
+<script type="math/tex; mode=display">\dfrac{95^9}{700 \times 10^9 \times 3600 \times 24} \approx 10</script>
+
+<p>Tehtävän vastaukset ovat siis <strong>a)</strong> 16 päivää ja <strong>b)</strong> 10 päivää.</p>
+
+        </article>
+      </li>
+      <div class="post-divider"></div>
+    
+      <li>
+        <header class="post-header">
           <a class="post-link" href="/2015/07/20/fdfcc.html">Puollustusvoimien Cyberchallenge</a>
           <p class="post-meta">20.7.2015</p>
         </header>
