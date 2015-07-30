@@ -47,6 +47,8 @@
         
           
         
+          
+        
       </div>
     </nav>
 -->
@@ -60,6 +62,343 @@
           <div class="home">
 
   <ul class="post-list">
+    
+      <li>
+        <header class="post-header">
+          <a class="post-link" href="/2015/07/22/pvcc6.html">PVCC #6: Ethernet kehys</a>
+          <p class="post-meta">22.7.2015</p>
+        </header>
+
+        <article class="post-content">
+          <p><em>Etkö tiedä mikä on PVCC? <a href="/2015/07/20/fdfcc.html">Klikkaa tästä</a>.</em></p>
+
+<p>Kuudennessa kysymyksessä käsitellään Ethernet kehystä. Meille annettiin vain seuraava hexa dumppi ja muutama kysymys.</p>
+
+<blockquote>
+  <p>5254 0012 3502 0800
+274A A3B1 0800 4500
+0034 DA63 0000 4011
+8A37 0A00 020F 0808
+0808 DD7C 0035 0020
+1C50 519F 0100 0001
+0000 0000 0000 036D
+696C 0266 6900 0001
+0001</p>
+</blockquote>
+
+<p>Ennen kuin mennään kysymyksiin pitää meidän kuitenkin dekoodata kehys. Koska itseltä löytyy heikosti tietoa Ethernet kehysten purkamisesta, ensi vaistoni oli lyödä hexa <a href="https://www.wireshark.org/">Wiresharkkiin</a> ja tökkiä sitä kunnes se paljastaa salaisuutensa. Wireshark ei kuitenkaan suostunut avaamaan kyseistä dumppia, en tiedä onko kehys puukotettu toimimattomaksi Wiresharkin kanssa, vai pitäisikö sille tehdä jotain erikoista ennen kun Wireshark suosuu syömään sen, mutta ei hätä ole tämän näköinen. Aina voidaan dekoodata kehys käsin speksistä.</p>
+
+<h1 id="mac-otsikko">MAC-otsikko</h1>
+
+<p>Ethernet kehys alkaa 20 tavun MAC-otsikolla, josta ensinmäiset 12 tavua kertoo kohteen ja lähteen MAC-osoitteet.</p>
+
+<pre><code class="language-code">Kohde MAC:      52 54 00 12 35 02
+Lähde MAC:      08 00 27 4A A3 B1
+</code></pre>
+
+<p>Seuraavat kaksi tavua kertovat kehyksen tyypin ja merkkaavat otsikon lopun.</p>
+
+<pre><code class="language-code">EtherType:      08 00
+</code></pre>
+
+<p>Ether tyyppi <code>0x0800</code> kertoo meille että kyseessä on IPv4 paketti, joten seuraavaksi tulee IP-otsikko.</p>
+
+<h1 id="ip-otsikko">IP-otsikko</h1>
+
+<p>IPv4-otsikon ensinmäinen tavu kertoo meille version ja otsikon pituuden.</p>
+
+<pre><code class="language-code">IP Versio:      45
+</code></pre>
+
+<p>Seuraava tavu on hieman erikoinen, ennen se oli “Type of Service (ToS)”, mutta nykyään se on jaettu kahtia “Differentiated Services Code Poit (DSCP)” ja “Exokicit Congestion Notification (ECN)” kesken. DSCP käyttää ensinmäiset 6 tavua ja ECN loput kaks. Niitä käytetään verkon laadun monitorointiin.</p>
+
+<pre><code class="language-code">QoS:             00
+</code></pre>
+
+<p>Seuraavat kaksi tavua kertoo koko paketin (otsikko + data) koon. Minimi on 20 tavua, koska se on otsikon koko. the header.</p>
+
+<pre><code class="language-code">IP Koko:         00 34
+</code></pre>
+
+<p>Seuraavia kahta tavua käytetään paketti osan uniikkiin tunnistamiseen.</p>
+
+<pre><code class="language-code">ID:              DA 63
+</code></pre>
+
+<p>Seuraavat kaksi tavua on jaettu ns. lippujen (flags) ja osoittamaan kyseisen paketin osuuden sijainti ensinmäisestä paketista (fragment offset). Lipput käyttävät ensimmäiset kolme bittiä ja fragment offset loput.
+~~~ code
+Liput/Offset     00 00<br />
+~~~</p>
+
+<p>Seuraava tavu osoittaa paketin eloajan (Time to Live)</p>
+
+<pre><code class="language-code">TTL:             40
+</code></pre>
+
+<p>Seuraava tavu kertoo mikä protokola on kyseessä.</p>
+
+<pre><code class="language-code">Protocol:        11
+</code></pre>
+
+<p>Ja jos tutkitaan mikä ihme paketti on <code>0x11</code> se osoittautuu User Datagram Protokolaksi (UDP) <a href="https://en.wikipedia.org/wiki/List_of_IP_protocol_numbers">tämän IP protokola numer listan</a> mukaan.</p>
+
+<p>Seuraavat kaksi tavua ovat tarkistus summa otsikolle.</p>
+
+<pre><code class="language-code">Checksum:        8A 37
+</code></pre>
+
+<p>Seuraavat kahdeksan tavua kertoo lähde ja kohde IP-osoitteet.</p>
+
+<pre><code class="language-code">Lähde IP:        0A 00 02 0F
+Kohde IP:        08 08 08 08
+</code></pre>
+
+<p>Muutetaan IP-osoitteet hieman tutumpaan muotoon.</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; res = ''
+&gt;&gt;&gt; source = '0A 00 02 0F'.split(' ')
+&gt;&gt;&gt; for s in source:
+...   res += str(int('0x'+s, 0)) + '.'
+&gt;&gt;&gt; print(res)
+10.0.2.15.
+</code></pre>
+
+<p>Kohde osoitetta ei tarvitse edes ajaa skriptistä lävitse, sillä <code>0x08</code> = 8, joten kohde IP näyttää olevan Googlen DNS palvelin <code>8.8.8.8</code>. Tähän myös loppuu IP osio. Seuraavaksi tulee itse protokolan otsikko, joka on tässä tapauksessa UDP.</p>
+
+<h1 id="udp-otsikko">UDP-otsikko</h1>
+
+<p>UDP-otsikko koostuu kahdeksasta tavusta. Ensimmäiset neljä kuvaa lähde ja kohde portteja.</p>
+
+<pre><code class="language-code">Lähde Portti:   DD 7C
+Kohde Portti:   00 35
+</code></pre>
+
+<p>Dekoodataan portit.</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; print(int('0xdd7c',0))
+56700
+&gt;&gt;&gt; print(int('0x0035',0))
+53
+</code></pre>
+
+<p>Seuraavat kaksi tavua kertoo UDP paketin koon (otsikko + data)</p>
+
+<pre><code class="language-code">UDP koko:        00 20
+</code></pre>
+
+<p>Viimeiset kaksi tavua on taas tarkistus summa</p>
+
+<pre><code>UDP checksum:    1C 50
+</code></pre>
+
+<h1 id="dns-otsikko">DNS-otsikko</h1>
+
+<p>Koska kyseinen kehys on menossa Googlen DNS palvelimelle ja vielä porttiin 53 (DNS oletus portti on 53), oletan että meillä on tässä käsissä DNS kysely.</p>
+
+<p>Ensimmäisiä kahta tavua käytetään tunnistautumiseen.</p>
+
+<pre><code class="language-code">ID:              51 9F
+</code></pre>
+
+<p>Kaksi seuraavilla kahdella tavulla on monta tehtävää, mutta lyhyesti se on vastaus koodi, joka kertoo mitä seuraavaksi tulee tehdä.</p>
+
+<pre><code class="language-code">Vastaus koodi:   01 00
+</code></pre>
+
+<p>Seuraavat kahdeksan tavua pitää kirjaa paketin sisällöstä. QDCount kertoo montako kysymystä paketissa on. ANCount kertoo vastausten määrän. NSCount kertoo nimipalveluiden resurssien määrän mitkä ovat “auktoriitti” osiossa. ARCount kertoo jos paketissa on ylimäärästä tietoa.</p>
+
+<pre><code class="language-code">Qdcount:         00 01
+Ancount:         00 00
+Nscount:         00 00
+Arcount:         00 00
+</code></pre>
+
+<h1 id="data">Data</h1>
+
+<p>Vihdoinkin päästään käsiksi itse dataan. Dekoodataan loput 12 tavua tekstiksi.</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; bytes.fromhex('036D 696C 0266 6900 0001 0001').decode('utf-8')
+'\x03mil\x02fi\x00\x00\x01\x00\x01'
+</code></pre>
+
+<p>Ensimmäinen hexa tavu <code>0x03</code> kertoo kuinka monta kirjainta sitä seuraa, eli 3. Ensimmäinen osa DNS kyselyä on siis <code>mil</code>. Seuraava hexa tavu <code>0x02</code> kertoo jälleen seuraavaksi tulevien kirjain määrän, eli 2, joten toinen osa kyselyä on <code>fi</code>. Loput tavut kyselyssä kertovat kyselyn lopun palvelimelle. Kun kyselyn osat yhdistetään pisteellä saadaan <code>mil.fi</code>, joka on puolustusvoimien vanha verkko-osoite.</p>
+
+<p>Kerätään vielä kaikki data yhdeksi tauluksi tähän loppuun.</p>
+
+<pre><code class="language-code">Kohde MAC:       52 54 00 12 35 02
+Lähde MAC:       08 00 27 4A A3 B1
+EtherType:       08 00
+IP Versio:       45
+QoS:             00
+IP koko:         00 34
+ID:              DA 63
+Liput/Offset     00 00  
+TTL:             40
+Protokola:       11
+Checksum:        8A 37
+Lähde IP:        0A 00 02 0F
+Kohde IP:        08 08 08 08
+Lähde Portti:    DD 7C
+Kohde Portti:    00 35
+UDP koko:        00 20
+Checksum:        1C 50
+ID:              51 9F
+Vastaus koodi:   01 00
+Qdcount:         00 01
+Ancount:         00 00
+Nscount:         00 00
+Arcount:         00 00
+Data:            03 6D 69 6C 02 66 69 00 00 01 00 01
+</code></pre>
+
+<p>Vastataanpa nyt niihin kysymyksiin.</p>
+
+<blockquote>
+  <p>Mikä on kehyksen tarkoitus?</p>
+</blockquote>
+
+<p>Näyttäisi olevan DNS kehys.</p>
+
+<blockquote>
+  <p>Mitä protokolia käytetään?</p>
+</blockquote>
+
+<p>IPv4, UDP ja DNS</p>
+
+<blockquote>
+  <p>Mihin L3 (verkkokerros) ja L4 (kuljetuskerros) osoitteisiin kehys on matkalla?</p>
+</blockquote>
+
+<p>IP on verkkokerroksen protokola, eli L3 osoite on 8.8.8.8. Aluksi oletin että kysymys oli väärin muotoiltu, sillä MAC osoite on siirtokerroksen (L2) protokola, mutta oletan että kysymys on portista, eli L4 osoite on 53.</p>
+
+<blockquote>
+  <p>Pääseekö paketti kohteeseen? Jos ei, niin miksi?</p>
+</blockquote>
+
+<p>Koska kysymys on tässä muodossa voisin helposti olettaa että paketti ei pääse kohteeseensa, mutten löydä siitä mitään vikaa. Ehkä checksummat ovat väärin, mutten jaksa alkaa tarkistamaan niitä, joten vastaan: <strong>kyllä</strong> paketti pääsee kohteeseensa.</p>
+
+        </article>
+      </li>
+      <div class="post-divider"></div>
+    
+      <li>
+        <header class="post-header">
+          <a class="post-link" href="/2015/07/21/pvcc5.html">PVCC #5: Binäärejä</a>
+          <p class="post-meta">21.7.2015</p>
+        </header>
+
+        <article class="post-content">
+          <p><em>Etkö tiedä mikä on PVCC? <a href="/2015/07/20/fdfcc.html">Klikkaa tästä</a>.</em></p>
+
+<p>Viidennessä kysymys ei ole niinkään kysymys, kuin kasa ykkösiä ja nollia.</p>
+
+<blockquote>
+  <p>00101001 00111000 00110111 00101010 00111011 00101011
+01111000 01101111 01110010 01011000 01001111 01010010</p>
+</blockquote>
+
+<p>Selkeästi kyseessä on binäärejä.</p>
+
+<p>Käydään nopeasti lävitse bitin ja tavun ero. Bitti on tietokoneiden perusyksikkö, se on numero joka voi olla joko 1 tai 0. Tavu on kahdeksan bittiä. Kuten nokkelimmat jo huomasivat, binäärimme on jaettu kahdeksaan kahdeksan bitin sarjaan, eli kahdeksaan tavuun.</p>
+
+<p>Ensimmäinen tavu on <code>00101001</code>. Bitit luetaan oikealta vasemmalle ja niiden arvot aina tuplaantuu, eli ensimmäinen tavu aivan oikealla vastaa numeroa 1. Seuraava vasemmalle, eli toinen tavu vastaa numeroa 2. Kolmas vasemmalle vastaa numeroa 4. Seuraava on 8 ja sitten 16 jne. Koska tavussa on kahdeksan bittiä voi se saada arvon väliltä 0 - 255. Kyseinen tavu siis vastaa \(00101001 = 1 + 8 + 32 = 41\).</p>
+
+<p>Koska tehtävässä ei erikseen mainita mitä binäärillä tulee tehdä, oletan että kyseessä on jonkinlainen ASCII jono. <a href="http://www.asciitable.com/">ASCII table</a> -sivun mukaan numero 41 vastaa merkkiä “)”. Nyt tietty voidaan laskea kaikki tavut käsin yhteen ja etsiä ne tuolta taulusta, taikka sitten voidaan kokeilla jotain muuta.</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; import binascii
+&gt;&gt;&gt; b = "00101001 00111000 00110111 00101010 00111011 00101011 01111000 01101111 01110010 01011000 01001111 01010010".replace(" ", "")
+&gt;&gt;&gt; n = int('0b'+b, 2)
+&gt;&gt;&gt; binascii.unhexlify('%x' % n)
+b')87*;+xorXOR'
+</code></pre>
+
+<p>Ja siinä saatiin vastaus joka näyttää olevan: <code>)87*;+xorXOR</code>.</p>
+
+        </article>
+      </li>
+      <div class="post-divider"></div>
+    
+      <li>
+        <header class="post-header">
+          <a class="post-link" href="/2015/07/21/pvcc4.html">PVCC #4: Logiikkaa!</a>
+          <p class="post-meta">21.7.2015</p>
+        </header>
+
+        <article class="post-content">
+          <p><em>Etkö tiedä mikä on PVCC? <a href="/2015/07/20/fdfcc.html">Klikkaa tästä</a>.</em></p>
+
+<p>Neljäs kysymys on logiikka puzzle, jossa kaksi toisistaan eristettyä ohjelmaa luovat sattumanvaraisesti bitin. Generoituaan bitin ohjelmat arvaavat mikä toisen ohjelman bitti oli. Ohjelmat voivat olla erilaisia ja voivat käyttää eri strategioita. Jos yhden kierroksen jälkeen edes toinen ohjelma arvaa oikein voittavat ohjelmat palkinnon.</p>
+
+<p>Kysymys kuuluu:</p>
+
+<blockquote>
+  <p>“Onko mahdollista luoda strategia joka tuottaa aina voiton?”</p>
+</blockquote>
+
+<p>Kartoitetaan aluksi kaikki mahdolliset outputit näistä ohjelmista, olkoon ohjelmien nimet <code>A</code> ja <code>B</code></p>
+
+<pre><code class="language-bash"> | A | 0 | 1 | 0 | 1 |
+ | B | 0 | 0 | 1 | 1 |
+</code></pre>
+
+<p>Vaikka yllä oleva totuustaulukko näyttääkin kaikki mahdolliset tulokset, ajetaan vielä varmuudeksi pieni simulaatio.</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; import random
+&gt;&gt;&gt; for i in range(10):
+...   rand1 = random.randint(0,2)
+...   rand2 = random.randint(0,2)
+...   print(rand1, rand2)
+...
+1 0
+0 0
+1 1
+0 0
+0 1
+1 1
+0 0
+0 1
+0 1
+0 0
+</code></pre>
+
+<p>Tehtävänä on siis arvata ohjelmien tulokset yhden loopin jälkeen, mutta vain yhden arvon täytyy olla oikein. Tehtävään on helppo ratkaisu: toinen ohjelmista arvaa tuloksensa vastakohdan ja toinen arvaa saman kuin oma tuloksensa. Varmistetaan tämä vielä tekemällä totuustaulukko, jossa <code>T</code> on tulos ja <code>R</code> on arvaus.</p>
+
+<pre><code class="language-bash">    | T | R |           | T | R |           | T | R |           | T | R |
+| A | 0 | 0 |       | A | 1 | 1 |       | A | 0 | 0 |       | A | 1 | 1 |
+| B | 0 | 1 |       | B | 0 | 1 |       | B | 1 | 0 |       | B | 1 | 0 |
+</code></pre>
+
+<p>Kuten taulukosta käyt ilmi aina toinen, joko <code>A</code> tai <code>B</code>, ohjelma arvaa toisen tuloksen oikein. Näin voimme 100% varmuudella voittaa palkinnon joka kerta.
+Jos joku tahtoo itse kokeilla tätä ohjelmallisesti, tässä on lyhyt Python pätkä.</p>
+
+<pre><code class="language-python">import random
+for i in range(10):
+    rand1  = random.randint(0, 2)
+    rand2  = random.randint(0, 2)
+    quess1 = rand1
+    guess2 = 1 - rand2
+
+print(rand1, ":", quess1, "|", rand2, ":", guess2)
+</code></pre>
+
+<p>Tässä esimerkki tuloste:</p>
+
+<pre><code class="language-bash">py question3.py
+1 : 1 | 1 : 0
+0 : 0 | 0 : 1
+1 : 1 | 0 : 1
+1 : 1 | 0 : 1
+1 : 1 | 0 : 1
+1 : 1 | 1 : 0
+1 : 1 | 0 : 1
+1 : 1 | 0 : 1
+0 : 0 | 0 : 1
+0 : 0 | 0 : 1
+</code></pre>
+
+        </article>
+      </li>
+      <div class="post-divider"></div>
     
       <li>
         <header class="post-header">
@@ -181,36 +520,6 @@ b'Lorem~Ipsum'
       </li>
       <div class="post-divider"></div>
     
-      <li>
-        <header class="post-header">
-          <a class="post-link" href="/2015/07/20/fdfcc.html">Puollustusvoimien Cyberchallenge</a>
-          <p class="post-meta">20.7.2015</p>
-        </header>
-
-        <article class="post-content">
-          <p>Viime viikonloppuna bongasin HackerNewsitä <a href="http://erityistehtavat.puolustusvoimat.fi/cyberchallenge.html">tämän linkin</a>.</p>
-
-<p>Näköjään PV etsii porukkaa uuteen kyber yksikköön. En ole oikein varma onko tämä oikein tarkoitettu siviileille vai vain sisäiseen hakuun, mutta aion käydä haasteen lävitse kysymys kysymykseltä ja avata niitä niin paljon kun näen tarpeelliseksi. Osa kysymyksistä vaikuttaa haastavilta, osa taas lähes triviaaleja. Katsotaan kuinka pitkälle päästään.</p>
-
-<h1 id="pvcc-1-mik-epilytt">PVCC #1: Mikä epäilyttää?</h1>
-
-<p>Ekassa tehtävässä annetaan kuva prosesseja ja kysymys kuuluu kaikessa yksinkertaisuudessaan: <em>“Onko listalla mitään epäilyttävää?”</em>
-Aluksi Googletin kaikki *.exet jotka eivät näyttäneet tutuilta ja löysin pari epäilyttävää prosessia.</p>
-
-<p><img src="/img/process.jpg" alt="prosessit" title="Epäilyttävät prosessit" /></p>
-
-<p>En väitä tietäväni ihan tarkkaan miten Internet Explorer toimii, mutta tuo <code>cmd.exe</code> vaikuttaa jokseenkin epäilyttävältä tuolla <code>iexeplre.exe</code> alla. Toinen outous on tuo <code>rundll322.exe</code> jossa näyttää olevan extra <code>2</code> ja se ei ole ryhmitelty tuonne alemmas muiden <code>rundll32.exe</code> kanssa.</p>
-
-<h1 id="eik-tss-viel-kaikki">Eikä tässä vielä kaikki!</h1>
-
-<p>Tutkiessa noita eri *.exejä huomasin että ne saattaa kertoa vähän enemmän tästä kohde koneesta. Nuo <code>igfcEM.exe</code> ja <code>igfxHK.exe</code> on osa Intelin Graphics ajureita. <code>iusb3mon.exe</code> on osa Intelin USB3 ajureita. <code>RCIMGDIR.exe</code> on osana jotain webcamera ajureita. Lopuksi <code>SynTPHelper.exe</code> on Synapticsin trackpad ajuri. Näitä voidaan päätellä että kyseessä on kannettava tietokone ja koska kaikki maininnat tuosta <code>RCIMGDIR.exe</code> löytyi ThinkPad foorumeilta uskallan väittää että kyseessä on Lenovon ThinkPadi. ThinkPadit on myös aika yleisiä “business” läppäreitä, joten en yllättyisi ollenkaan vaikka olisin oikeassa.</p>
-
-<p><em>P.S. Tuolla saataa olla vielä jotain outoa koska <code>Monitor.exe</code> ja <code>RCIMGDIR.exe</code> on molemmat webcam ajureita, mutten voi sanoa varman päälle</em></p>
-
-        </article>
-      </li>
-      <div class="post-divider"></div>
-    
   </ul>
 
 
@@ -220,7 +529,7 @@ Aluksi Googletin kaikki *.exet jotka eivät näyttäneet tutuilta ja löysin par
       <a href="/index.html" class="previous">Edellinen</a>
     
     
-      <a class="disabled next">Seuraava</a>
+      <a href="/sivu3/" class="next">Seuraava</a>
     
   </div>
   <!--<p class="rss-subscribe">Tilaa <a href="/feed.xml">RSS:llä</a></p>-->

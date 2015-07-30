@@ -47,6 +47,8 @@
         
           
         
+          
+        
       </div>
     </nav>
 -->
@@ -69,7 +71,8 @@
 
 <p>Kuudennessa kysymyksessä käsitellään Ethernet kehystä. Meille annettiin vain seuraava hexa dumppi ja muutama kysymys.</p>
 
-<pre><code class="language-code">5254 0012 3502 0800
+<blockquote>
+  <p>5254 0012 3502 0800
 274A A3B1 0800 4500
 0034 DA63 0000 4011
 8A37 0A00 020F 0808
@@ -77,8 +80,8 @@
 1C50 519F 0100 0001
 0000 0000 0000 036D
 696C 0266 6900 0001
-0001
-</code></pre>
+0001</p>
+</blockquote>
 
 <p>Ennen kuin mennään kysymyksiin pitää meidän kuitenkin dekoodata kehys. Koska itseltä löytyy heikosti tietoa Ethernet kehysten purkamisesta, ensi vaistoni oli lyödä hexa <a href="https://www.wireshark.org/">Wiresharkkiin</a> ja tökkiä sitä kunnes se paljastaa salaisuutensa. Wireshark ei kuitenkaan suostunut avaamaan kyseistä dumppia, en tiedä onko kehys puukotettu toimimattomaksi Wiresharkin kanssa, vai pitäisikö sille tehdä jotain erikoista ennen kun Wireshark suosuu syömään sen, mutta ei hätä ole tämän näköinen. Aina voidaan dekoodata kehys käsin speksistä.</p>
 
@@ -247,17 +250,29 @@ Data:            03 6D 69 6C 02 66 69 00 00 01 00 01
 
 <p>Vastataanpa nyt niihin kysymyksiin.</p>
 
-<p><strong>Q: Mikä on kehyksen tarkoitus?</strong>
-A: Näyttäisi olevan DNS kehys.</p>
+<blockquote>
+  <p>Mikä on kehyksen tarkoitus?</p>
+</blockquote>
 
-<p><strong>Q: Mitä protokolia käytetään?</strong>
-A: IPv4, UDP ja DNS</p>
+<p>Näyttäisi olevan DNS kehys.</p>
 
-<p><strong>Q: Mihin L3 (verkkokerros) ja L4 (kuljetuskerros) osoitteisiin kehys on matkalla?</strong>
-A: IP on verkkokerroksen protokola, eli L3 osoite on 8.8.8.8. Aluksi oletin että kysymys oli väärin muotoiltu, sillä MAC osoite on siirtokerroksen (L2) protokola, mutta oletan että kysymys on portista, eli L4 osoite on 53.</p>
+<blockquote>
+  <p>Mitä protokolia käytetään?</p>
+</blockquote>
 
-<p><strong>Q: Pääseekö paketti kohteeseen? Jos ei, niin miksi?</strong>
-A: Koska kysymys on tässä muodossa voisin helposti olettaa että paketti ei pääse kohteeseensa, mutten löydä siitä mitään vikaa. Ehkä checksummat ovat väärin, mutten jaksa alkaa tarkistamaan niitä, joten vastaan: <strong>kyllä</strong> paketti pääsee kohteeseensa.</p>
+<p>IPv4, UDP ja DNS</p>
+
+<blockquote>
+  <p>Mihin L3 (verkkokerros) ja L4 (kuljetuskerros) osoitteisiin kehys on matkalla?</p>
+</blockquote>
+
+<p>IP on verkkokerroksen protokola, eli L3 osoite on 8.8.8.8. Aluksi oletin että kysymys oli väärin muotoiltu, sillä MAC osoite on siirtokerroksen (L2) protokola, mutta oletan että kysymys on portista, eli L4 osoite on 53.</p>
+
+<blockquote>
+  <p>Pääseekö paketti kohteeseen? Jos ei, niin miksi?</p>
+</blockquote>
+
+<p>Koska kysymys on tässä muodossa voisin helposti olettaa että paketti ei pääse kohteeseensa, mutten löydä siitä mitään vikaa. Ehkä checksummat ovat väärin, mutten jaksa alkaa tarkistamaan niitä, joten vastaan: <strong>kyllä</strong> paketti pääsee kohteeseensa.</p>
 
   </article>
 

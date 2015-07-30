@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="/favicon.ico"/>
-  <title>PVCC #7: Ämpärillä päähän</title>
+  <title>PVCC #11: Todennäköisyys</title>
   <meta name="description" content="Etkö tiedä mikä on PVCC? Klikkaa tästä.">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://ajatusrikos.fi/2015/07/22/pvcc7.html">
+  <link rel="canonical" href="http://ajatusrikos.fi/2015/07/25/pvcc11.html">
   <link rel="alternate" type="application/rss+xml" title="Ajatusrikos" href="http://ajatusrikos.fi/feed.xml" />
   <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   <link rel="stylesheet" href="/css/prism.css">
@@ -62,68 +62,35 @@
           <div class="post">
 
   <header class="post-header">
-    <strong class="post-title">PVCC #7: Ämpärillä päähän</strong>
-    <p class="post-meta">22.7.2015</p>
+    <strong class="post-title">PVCC #11: Todennäköisyys</strong>
+    <p class="post-meta">25.7.2015</p>
   </header>
 
   <article class="post-content">
     <p><em>Etkö tiedä mikä on PVCC? <a href="/2015/07/20/fdfcc.html">Klikkaa tästä</a>.</em></p>
 
-<p>Seitsemännessä kysymyksessä meille annetaan vesihana ja kaksi ämpäriä (4.3l ja 4.7l). Meidän tehtävänä on mitata tarkkaan 4.6l vettä. Ja ämpäreissä ei ole mitään merkintöjä.</p>
+<p>11. kysymyksessä on pitkä tekstinpätkä josta puolet voi heti heittää menemään. Oikea kysymys kuuluu:</p>
 
-<p>Kyseessä on logiikka ongelma, mutta itselle tuttu. Kun tämän pulman tuntee, on se suhteellisen helppo suorittaa.</p>
+<blockquote>
+  <p>“Jos huoneessa on kolme tietokonetta, joilla kaikilla on yhtäläinen mahdollisuus pyörittää Windows, Linux tai OS X käyttöjärjestelmää, mikä on todennäköisyys että huoneessa on vähintään kaksi Linux konetta?”</p>
+</blockquote>
 
-<p>Ideana on kaataa pienemmästä ämpäristä vettä suurempaan ja tyhjätä suurempi aina kun se täyttyy. Näin pienempään asiaan jää joka toisella kaato kerralla vähemmän ja vähemmän vettä kunnes pohjalle jää 0.3l ja koska \(0.3 + 4.3 = 4.6\) saamme oikean määrän vettä isompaan ämpäriin.</p>
+<p>Koska vaihtoehtoja on vähän, aloitetaan totuustaulukolla selventämään tilannetta, tässä taulukossa on kaikki tilat jotka täyttävät kysymyksen kriteerit.</p>
 
-<p>Alla on lista tarvittavaista askeleista toteuttaa mittaus.</p>
-
-<pre><code class="language-python">A: 4.3 B: 0.0
-A: 0.0 B: 4.3
-A: 4.3 B: 4.3
-A: 3.9 B: 4.7
-A: 3.9 B: 0.0
-A: 0.0 B: 3.9
-A: 4.3 B: 3.9
-A: 3.5 B: 4.7
-A: 3.5 B: 0.0
-A: 0.0 B: 3.5
-A: 4.3 B: 3.5
-A: 3.1 B: 4.7
-A: 3.1 B: 0.0
-A: 0.0 B: 3.1
-A: 4.3 B: 3.1
-A: 2.7 B: 4.7
-A: 2.7 B: 0.0
-A: 0.0 B: 2.7
-A: 4.3 B: 2.7
-A: 2.3 B: 4.7
-A: 2.3 B: 0.0
-A: 0.0 B: 2.3
-A: 4.3 B: 2.3
-A: 1.9 B: 4.7
-A: 1.9 B: 0.0
-A: 0.0 B: 1.9
-A: 4.3 B: 1.9
-A: 1.5 B: 4.7
-A: 1.5 B: 0.0
-A: 0.0 B: 1.5
-A: 4.3 B: 1.5
-A: 1.1 B: 4.7
-A: 1.1 B: 0.0
-A: 0.0 B: 1.1
-A: 4.3 B: 1.1
-A: 0.7 B: 4.7
-A: 0.7 B: 0.0
-A: 0.0 B: 0.7
-A: 4.3 B: 0.7
-A: 0.3 B: 4.7
-A: 0.3 B: 0.0
-A: 0.0 B: 0.3
-A: 4.3 B: 0.3
-A: 0.0 B: 4.6
+<pre><code class="language-None">L, L, L       L = Linux
+L, L, W       W = Windows
+W, L, L       X = OSX
+L, W, L
+L, L, X
+X, L, L
+L, X, L
 </code></pre>
 
-<p>Tämä oli vähän tylsä tehtävä, koska suurin osa on tekemistä. Tietenkin tehtävän ratkaisuun voisi kehittää skriptin joka brute frocaisin vastauksen, mutta näin pienissä luvuissa tämä on nopeampaa tehdä käsin.</p>
+<p>Kuten huomataan kokoonpanoja, joissa on vähintään kaksi Linux konetta, on \(7\). Kaiken kaikkiaan mahdollisia kokoonpanoja on \(3^3\), eli \(27\), joten todennäköisyys \(P\) on.</p>
+
+<script type="math/tex; mode=display">P = 7/27 \approx 0.2593</script>
+
+<p>Mikä tarkoittaa että todennäköisyys sille, että huoneessa on vähintään kaksi Linux konetta, on \( \approx 26 \%\).</p>
 
   </article>
 

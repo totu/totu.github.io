@@ -5,9 +5,202 @@
     <description>Ajatuksia, tarinoita ja ideoita.</description>
     <link>http://ajatusrikos.fi/</link>
     <atom:link href="http://ajatusrikos.fi/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 30 Jul 2015 00:22:07 +0300</pubDate>
-    <lastBuildDate>Thu, 30 Jul 2015 00:22:07 +0300</lastBuildDate>
+    <pubDate>Thu, 30 Jul 2015 10:37:40 +0300</pubDate>
+    <lastBuildDate>Thu, 30 Jul 2015 10:37:40 +0300</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>PVCC #11: Todennäköisyys</title>
+        <description>&lt;p&gt;&lt;em&gt;Etkö tiedä mikä on PVCC? &lt;a href=&quot;/2015/07/20/fdfcc.html&quot;&gt;Klikkaa tästä&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;11. kysymyksessä on pitkä tekstinpätkä josta puolet voi heti heittää menemään. Oikea kysymys kuuluu:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“Jos huoneessa on kolme tietokonetta, joilla kaikilla on yhtäläinen mahdollisuus pyörittää Windows, Linux tai OS X käyttöjärjestelmää, mikä on todennäköisyys että huoneessa on vähintään kaksi Linux konetta?”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Koska vaihtoehtoja on vähän, aloitetaan totuustaulukolla selventämään tilannetta, tässä taulukossa on kaikki tilat jotka täyttävät kysymyksen kriteerit.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-None&quot;&gt;L, L, L       L = Linux
+L, L, W       W = Windows
+W, L, L       X = OSX
+L, W, L
+L, L, X
+X, L, L
+L, X, L
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Kuten huomataan kokoonpanoja, joissa on vähintään kaksi Linux konetta, on \(7\). Kaiken kaikkiaan mahdollisia kokoonpanoja on \(3^3\), eli \(27\), joten todennäköisyys \(P\) on.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;P = 7/27 \approx 0.2593&lt;/script&gt;
+
+&lt;p&gt;Mikä tarkoittaa että todennäköisyys sille, että huoneessa on vähintään kaksi Linux konetta, on \( \approx 26 \%\).&lt;/p&gt;
+</description>
+        <pubDate>Sat, 25 Jul 2015 20:17:46 +0300</pubDate>
+        <link>http://ajatusrikos.fi/2015/07/25/pvcc11.html</link>
+        <guid isPermaLink="true">http://ajatusrikos.fi/2015/07/25/pvcc11.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>PVCC #10: Regex</title>
+        <description>&lt;p&gt;&lt;em&gt;Etkö tiedä mikä on PVCC? &lt;a href=&quot;/2015/07/20/fdfcc.html&quot;&gt;Klikkaa tästä&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;10. kysymys käsittelee yleisön suosikkia: Regular Expressioneja!&lt;/p&gt;
+
+&lt;p&gt;Meidän tulee tehdä Regex, joka sopii sanoihin jotka alkaa ja loppuu samalla konsonantilla ja joiden pituus on jaollinen kolmella. Regex ei saa olla yli 40 merkkiä pitkä ja jokaisesta merkistä 30 jälkeen sakotetaan.&lt;/p&gt;
+
+&lt;p&gt;Ensimmäinen yritys oli aika karkea, kuten yleensä.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;^([cdhjklmnnprstvbfgz])+.+([cdhjklmnnprstvbfgz])$
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Mikä ei ihan tehnyt mikä piti.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;&amp;gt;&amp;gt;&amp;gt; import regex
+&amp;gt;&amp;gt;&amp;gt; strings = [&#39;test&#39;, &#39;teeest&#39;, &#39;asd&#39;, &#39;lol&#39;, &#39;dead&#39;, &#39;cat&#39;]
+&amp;gt;&amp;gt;&amp;gt; for s in strings:
+...   if regex.match(r&#39;^([cdhjklmnnprstvbfgz])+.+([cdhjklmnnprstvbfgz])$&#39;, s):
+...     print(s)
+...
+test
+teeest
+lol
+dead
+cat
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Lisäksi &lt;code&gt;len(&#39;^([cdhjklmnnprstvbfgz])+.+([cdhjklmnnprstvbfgz])$&#39;)&lt;/code&gt; on 49, eli regex on aivan liian pitkä. Sitten aloin lukemaan POSIX regular expressionin dokumentaatiota ja löysin regexp ryhmät. Ryhmä on regex jok on sulkujen välissä ja niihin voi viitata ryhmän järjestysluvulla esim. &lt;code&gt;\1&lt;/code&gt;. Pistetään käytäntöön.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;^([cdhjklmnnprstvbfgz]).*\1$
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Mikä on jo parempi, kuten seuraavasta voidaan huomata sana &lt;code&gt;cat&lt;/code&gt; on kadonnut, eikä pituus ole enään kuin 27 merkkiä.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;&amp;gt;&amp;gt;&amp;gt; import regex
+&amp;gt;&amp;gt;&amp;gt; strings = [&#39;test&#39;, &#39;teeest&#39;, &#39;asd&#39;, &#39;lol&#39;, &#39;dead&#39;, &#39;cat&#39;]
+&amp;gt;&amp;gt;&amp;gt; for s in strings:
+...   if regex.match(r&#39;^([cdhjklmnnprstvbfgz]).*\1$&#39;, s):
+...     print(s)
+...
+test
+teeest
+lol
+dead
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Tässä kohtaa jäin vähän jumiin. Koetin erilaisia juttuja &lt;code&gt;(){3}&lt;/code&gt; tyylisellä syntaksilla, muttei mikään ottanut tuulta alleen. Onneksi olin heittänyt tämän pallon jo alkuvaiheella myös kaverilleni joka keksi seuraavan parannuksen.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;^([dhjklmnnprstvbfgz]).(...)*\1$
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ja se toimii täydellisesti.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;&amp;gt;&amp;gt;&amp;gt; import regex
+&amp;gt;&amp;gt;&amp;gt; strings = [&#39;test&#39;, &#39;teeest&#39;, &#39;asd&#39;, &#39;lol&#39;, &#39;dead&#39;, &#39;cat&#39;]
+&amp;gt;&amp;gt;&amp;gt; for s in strings:
+...   if regex.match(r&#39;^([dhjklmnnprstvbfgz]).(...)*\1$&#39;, s):
+...     print(s)
+...
+teeest
+lol
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Mutta meillä on nyt pienehkö pulma. Pituus regexillä on 31 merkkiä, mikä on toki alta 40 merkkiä, mutta juuri yli 30 merkin. Sitten saimme sellaisen “Ahaa!” ajatuksen, koska regexiä ajetaan kasaa suomenkielisiä sanoa vastaan meidän ei kannata etsiä konsonantteja vaan sulkea pois vokaaleja ja saamme seuraavan.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;^([^aeiouy]).(...)*\1$
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Tämä regex toimii aivan kuten edellinen, mutta on vain 21 merkkiä pitkä, mikä on reippaasti tehtävän 30 merkki rajan alapuolella.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 25 Jul 2015 14:02:58 +0300</pubDate>
+        <link>http://ajatusrikos.fi/2015/07/25/pvcc10.html</link>
+        <guid isPermaLink="true">http://ajatusrikos.fi/2015/07/25/pvcc10.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>PVCC #9: Leo, Adi ja Ron</title>
+        <description>&lt;p&gt;&lt;em&gt;Etkö tiedä mikä on PVCC? &lt;a href=&quot;/2015/07/20/fdfcc.html&quot;&gt;Klikkaa tästä&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Yhdeksäs kysymys oli hieman erikoinen.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Leonard: N = 779191667&lt;br /&gt;
+Adi: e = 65537&lt;br /&gt;
+Ron: 706790887 ?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Aluksi ei ollut mitään hajua mitä tässä oikein kysyttiin. Aluksi luulin että \(n\) ja \(e\) voisi olla koordinaatteja, mutta &lt;a href=&quot;https://www.google.com/maps/place/77%C2%B055&#39;09.0%22N+6%C2%B033&#39;13.3%22E/@77.9192819,6.5534358,4.42z/data=!4m2!3m1!1s0x0:0x0?hl=fi&quot;&gt;sitten päätin tätä vastaan&lt;/a&gt;. Joten seuraava looginen askel oli Googlettaa nimet. Ensimmäiset tulokset käsitteli RSAta kuten &lt;a href=&quot;https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29&quot;&gt;tämä Wikipedia artikkeli&lt;/a&gt;. Julkisella avaimella salaus kuulostaa ihan järkevältä aiheelta kysymykselle. Kun äkkiä silmäilin tekstin lävitse, osui silmään &lt;em&gt;Encryption&lt;/em&gt; kohdan alta. “Alice transmits her public key \((n, e)\) to Bob and keeps the private key \(d\) secret”. Ehkä tuo viimeinen arvo on \(d\)?&lt;/p&gt;
+
+&lt;h1 id=&quot;rsa&quot;&gt;RSA&lt;/h1&gt;
+
+&lt;p&gt;Käydään lävitse hieman, miten RSA toimii. Perus idea julkisen avaimen suojauksen takana on kahden avaimen pari, julkinen ja yksityinen. Kun viesti salataan käyttämällä julkista avainta sen voi avata ainoastaan julkisen avaimen yksityisellä parilla ja päin vastoin. Julkisella avaimella salatessa vain yksityinen avain tulee pitää salassa, viestit salataan aina toisen henkilön julkisella avaimella. Omalla yksityisavaimella voi kuitenkin allekirjoittaa viestin, ja näin todentaa viestin lähettäjän.&lt;/p&gt;
+
+&lt;h1 id=&quot;avainten-luonti&quot;&gt;Avainten luonti&lt;/h1&gt;
+
+&lt;p&gt;Ensiksi tarvitaan kaksi jaotonta, eli prime, lukua (\(p\) ja \(q\)) joilla on samanlainen bittipituus.&lt;/p&gt;
+
+&lt;p&gt;Seuraavaksi lasketaan \(n\) kertomalla \(p\) ja \(q\). \(n\) käytetään jakojäännös, eli modulo operaattorina molemmissa avaimissa \(\pmod{n}\).&lt;/p&gt;
+
+&lt;p&gt;Seuraavaksi lasketaan \(φ(n)\) mikä on sama kuin \((p − 1)(q − 1)\).&lt;/p&gt;
+
+&lt;p&gt;Sitten valitaan \(e\) niin että se on positiivinen numero \(1\) ja \(φ(n)\) väliltä. \(e\) ja \(φ(n)\) suurin&lt;/p&gt;
+
+&lt;p&gt;\(e\) ja \(φ(n)\) suurin yhteinen tekijä (greatest common divisor, eli gcd) tulee olla \(1\) (\(gcd(e, φ(n)) = 1\)). Meidän tapauksessa \(e = 65537\) Mikä on &lt;a href=&quot;https://www.dlitz.net/software/pycrypto/api/current/Crypto.PublicKey.RSA-module.html&quot;&gt;Pythonin RSA moduulin dokumentaation&lt;/a&gt; mukaan “turvallinen” valinta.&lt;/p&gt;
+
+&lt;p&gt;Lopuksi lasketaan \(d\) kaavasta \(d = e^{-1}\pmod{φ(n)}\)&lt;/p&gt;
+
+&lt;p&gt;Kuten huomataan, jotta voidaan tarkistaa onko meidän mysteeri numero \(d\) tulee ensiksi saada selville alkuperäiset prime luvut. (\(p\) ja \(q\)).&lt;/p&gt;
+
+&lt;h1 id=&quot;revitn-luvut-osiin&quot;&gt;Revitään luvut osiin&lt;/h1&gt;
+
+&lt;p&gt;Onneksi meidän \(n\) on suhteellisen pieni luku, niin &lt;a href=&quot;https://www.wolframalpha.com/input/?i=x*y%3D779191667&quot;&gt;WolframAlphan&lt;/a&gt; ] voi suoraan pyytää jakamaan sen komponentteihinsa. Mitkä ovat.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;p = 25523, q = 30529&lt;/script&gt;
+
+&lt;p&gt;Nyt voidaan laskea loput yhtälöt.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;n = pq = 25523 \times 30529 = 779191667&lt;/script&gt;
+
+&lt;p&gt;\(n\) oletetusti näyttää hyvältä. Lasketaanpas \(\phi(n)\).&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;φ(n) = (p − 1)(q − 1) = (30529 - 1)(25523 - 1) = 779135616&lt;/script&gt;
+
+&lt;p&gt;Sitten muistetaan tarkistaa että \(φ(n)\) ja \(e\) suurin yhteinen tekijä on \(1\).&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;gcd(φ(n), e) = gcd(779135616, 65537) = 1&lt;/script&gt;
+
+&lt;p&gt;Näyttää toimivan, joten nyt voidaan laskea \(d\).&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;e^{−1} \pmod{φ(n)} = 65537^{-1} \pmod{779135616} = 728918657&lt;/script&gt;
+
+&lt;p&gt;Nyt ei näytä enää toimivan, koska \(728918657 \neq 706790887\) joten vastaus ei voi olla “\(d\)”, mutta RSA salauksessa on vielä kaksi muuttuja joita ei olla käyty lävitse. Itse salattu viesti. Salattu viesti \(c\)  viestin \(M\) desimaaliksi muunnos \(m\) potenssiin \(e\) kertaa modulus \(n\).&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;c = m^e \pmod{n}&lt;/script&gt;
+
+&lt;p&gt;Julkisella avaamilla salatessa \(m\) tulee myös sopia sääntöön \(gcd(m, n) = 1\), joten ensiksi meidän tulee saada selville \(m\) jos mysteeri lukumme &lt;code&gt;706790887&lt;/code&gt; on \(c\).&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;c = m^e \pmod{n} = m^65537 \times \pmod{779191667}, m = 3141592&lt;/script&gt;
+
+&lt;p&gt;Eli jos &lt;code&gt;706790887&lt;/code&gt; olisi \(c\) \(m\) olisi \(3141592\). Tarkistetaan \(gcd(m, n)\).&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;gcd(m, n) = gcd(3141592, 779135616) = 8&lt;/script&gt;
+
+&lt;p&gt;Valitettavasti \(8\) on suurempi kuin \(1\), joten &lt;code&gt;706790887&lt;/code&gt; ei voi olla \(c\), no entä \(m\)?&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;gcd(m, n) = gcd(706790887, 779191667) = 1&lt;/script&gt;
+
+&lt;p&gt;Nyt &lt;code&gt;706790887&lt;/code&gt; sopii yhtälöön ja koska \(m\) on viimeinen muuttuja, RSA salauksessa se on pakko olla tehtävän vastaus.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 24 Jul 2015 09:18:46 +0300</pubDate>
+        <link>http://ajatusrikos.fi/2015/07/24/pvcc9.html</link>
+        <guid isPermaLink="true">http://ajatusrikos.fi/2015/07/24/pvcc9.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>PVCC #8: Salasanojen varjostusta</title>
@@ -167,7 +360,8 @@ A: 0.0 B: 4.6
 
 &lt;p&gt;Kuudennessa kysymyksessä käsitellään Ethernet kehystä. Meille annettiin vain seuraava hexa dumppi ja muutama kysymys.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-code&quot;&gt;5254 0012 3502 0800
+&lt;blockquote&gt;
+  &lt;p&gt;5254 0012 3502 0800
 274A A3B1 0800 4500
 0034 DA63 0000 4011
 8A37 0A00 020F 0808
@@ -175,8 +369,8 @@ A: 0.0 B: 4.6
 1C50 519F 0100 0001
 0000 0000 0000 036D
 696C 0266 6900 0001
-0001
-&lt;/code&gt;&lt;/pre&gt;
+0001&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;Ennen kuin mennään kysymyksiin pitää meidän kuitenkin dekoodata kehys. Koska itseltä löytyy heikosti tietoa Ethernet kehysten purkamisesta, ensi vaistoni oli lyödä hexa &lt;a href=&quot;https://www.wireshark.org/&quot;&gt;Wiresharkkiin&lt;/a&gt; ja tökkiä sitä kunnes se paljastaa salaisuutensa. Wireshark ei kuitenkaan suostunut avaamaan kyseistä dumppia, en tiedä onko kehys puukotettu toimimattomaksi Wiresharkin kanssa, vai pitäisikö sille tehdä jotain erikoista ennen kun Wireshark suosuu syömään sen, mutta ei hätä ole tämän näköinen. Aina voidaan dekoodata kehys käsin speksistä.&lt;/p&gt;
 
@@ -345,17 +539,29 @@ Data:            03 6D 69 6C 02 66 69 00 00 01 00 01
 
 &lt;p&gt;Vastataanpa nyt niihin kysymyksiin.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Q: Mikä on kehyksen tarkoitus?&lt;/strong&gt;
-A: Näyttäisi olevan DNS kehys.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Mikä on kehyksen tarkoitus?&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;&lt;strong&gt;Q: Mitä protokolia käytetään?&lt;/strong&gt;
-A: IPv4, UDP ja DNS&lt;/p&gt;
+&lt;p&gt;Näyttäisi olevan DNS kehys.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Q: Mihin L3 (verkkokerros) ja L4 (kuljetuskerros) osoitteisiin kehys on matkalla?&lt;/strong&gt;
-A: IP on verkkokerroksen protokola, eli L3 osoite on 8.8.8.8. Aluksi oletin että kysymys oli väärin muotoiltu, sillä MAC osoite on siirtokerroksen (L2) protokola, mutta oletan että kysymys on portista, eli L4 osoite on 53.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Mitä protokolia käytetään?&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;&lt;strong&gt;Q: Pääseekö paketti kohteeseen? Jos ei, niin miksi?&lt;/strong&gt;
-A: Koska kysymys on tässä muodossa voisin helposti olettaa että paketti ei pääse kohteeseensa, mutten löydä siitä mitään vikaa. Ehkä checksummat ovat väärin, mutten jaksa alkaa tarkistamaan niitä, joten vastaan: &lt;strong&gt;kyllä&lt;/strong&gt; paketti pääsee kohteeseensa.&lt;/p&gt;
+&lt;p&gt;IPv4, UDP ja DNS&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Mihin L3 (verkkokerros) ja L4 (kuljetuskerros) osoitteisiin kehys on matkalla?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;IP on verkkokerroksen protokola, eli L3 osoite on 8.8.8.8. Aluksi oletin että kysymys oli väärin muotoiltu, sillä MAC osoite on siirtokerroksen (L2) protokola, mutta oletan että kysymys on portista, eli L4 osoite on 53.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Pääseekö paketti kohteeseen? Jos ei, niin miksi?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Koska kysymys on tässä muodossa voisin helposti olettaa että paketti ei pääse kohteeseensa, mutten löydä siitä mitään vikaa. Ehkä checksummat ovat väärin, mutten jaksa alkaa tarkistamaan niitä, joten vastaan: &lt;strong&gt;kyllä&lt;/strong&gt; paketti pääsee kohteeseensa.&lt;/p&gt;
 </description>
         <pubDate>Wed, 22 Jul 2015 11:31:28 +0300</pubDate>
         <link>http://ajatusrikos.fi/2015/07/22/pvcc6.html</link>
@@ -370,9 +576,10 @@ A: Koska kysymys on tässä muodossa voisin helposti olettaa että paketti ei p�
 
 &lt;p&gt;Viidennessä kysymys ei ole niinkään kysymys, kuin kasa ykkösiä ja nollia.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;00101001 00111000 00110111 00101010 00111011 00101011
-01111000 01101111 01110010 01011000 01001111 01010010
-&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;00101001 00111000 00110111 00101010 00111011 00101011
+01111000 01101111 01110010 01011000 01001111 01010010&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;Selkeästi kyseessä on binäärejä.&lt;/p&gt;
 
@@ -404,7 +611,11 @@ b&#39;)87*;+xorXOR&#39;
 
 &lt;p&gt;Neljäs kysymys on logiikka puzzle, jossa kaksi toisistaan eristettyä ohjelmaa luovat sattumanvaraisesti bitin. Generoituaan bitin ohjelmat arvaavat mikä toisen ohjelman bitti oli. Ohjelmat voivat olla erilaisia ja voivat käyttää eri strategioita. Jos yhden kierroksen jälkeen edes toinen ohjelma arvaa oikein voittavat ohjelmat palkinnon.&lt;/p&gt;
 
-&lt;p&gt;Kysymys kuuluu: &lt;em&gt;“Onko mahdollista luoda strategia joka tuottaa aina voiton?”&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Kysymys kuuluu:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“Onko mahdollista luoda strategia joka tuottaa aina voiton?”&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;Kartoitetaan aluksi kaikki mahdolliset outputit näistä ohjelmista, olkoon ohjelmien nimet &lt;code&gt;A&lt;/code&gt; ja &lt;code&gt;B&lt;/code&gt;&lt;/p&gt;
 
@@ -586,34 +797,6 @@ b&#39;Lorem~Ipsum&#39;
         <pubDate>Mon, 20 Jul 2015 20:33:43 +0300</pubDate>
         <link>http://ajatusrikos.fi/2015/07/20/pvcc2.html</link>
         <guid isPermaLink="true">http://ajatusrikos.fi/2015/07/20/pvcc2.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Puollustusvoimien Cyberchallenge</title>
-        <description>&lt;p&gt;Viime viikonloppuna bongasin HackerNewsitä &lt;a href=&quot;http://erityistehtavat.puolustusvoimat.fi/cyberchallenge.html&quot;&gt;tämän linkin&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Näköjään PV etsii porukkaa uuteen kyber yksikköön. En ole oikein varma onko tämä oikein tarkoitettu siviileille vai vain sisäiseen hakuun, mutta aion käydä haasteen lävitse kysymys kysymykseltä ja avata niitä niin paljon kun näen tarpeelliseksi. Osa kysymyksistä vaikuttaa haastavilta, osa taas lähes triviaaleja. Katsotaan kuinka pitkälle päästään.&lt;/p&gt;
-
-&lt;h1 id=&quot;pvcc-1-mik-epilytt&quot;&gt;PVCC #1: Mikä epäilyttää?&lt;/h1&gt;
-
-&lt;p&gt;Ekassa tehtävässä annetaan kuva prosesseja ja kysymys kuuluu kaikessa yksinkertaisuudessaan: &lt;em&gt;“Onko listalla mitään epäilyttävää?”&lt;/em&gt;
-Aluksi Googletin kaikki *.exet jotka eivät näyttäneet tutuilta ja löysin pari epäilyttävää prosessia.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/process.jpg&quot; alt=&quot;prosessit&quot; title=&quot;Epäilyttävät prosessit&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;En väitä tietäväni ihan tarkkaan miten Internet Explorer toimii, mutta tuo &lt;code&gt;cmd.exe&lt;/code&gt; vaikuttaa jokseenkin epäilyttävältä tuolla &lt;code&gt;iexeplre.exe&lt;/code&gt; alla. Toinen outous on tuo &lt;code&gt;rundll322.exe&lt;/code&gt; jossa näyttää olevan extra &lt;code&gt;2&lt;/code&gt; ja se ei ole ryhmitelty tuonne alemmas muiden &lt;code&gt;rundll32.exe&lt;/code&gt; kanssa.&lt;/p&gt;
-
-&lt;h1 id=&quot;eik-tss-viel-kaikki&quot;&gt;Eikä tässä vielä kaikki!&lt;/h1&gt;
-
-&lt;p&gt;Tutkiessa noita eri *.exejä huomasin että ne saattaa kertoa vähän enemmän tästä kohde koneesta. Nuo &lt;code&gt;igfcEM.exe&lt;/code&gt; ja &lt;code&gt;igfxHK.exe&lt;/code&gt; on osa Intelin Graphics ajureita. &lt;code&gt;iusb3mon.exe&lt;/code&gt; on osa Intelin USB3 ajureita. &lt;code&gt;RCIMGDIR.exe&lt;/code&gt; on osana jotain webcamera ajureita. Lopuksi &lt;code&gt;SynTPHelper.exe&lt;/code&gt; on Synapticsin trackpad ajuri. Näitä voidaan päätellä että kyseessä on kannettava tietokone ja koska kaikki maininnat tuosta &lt;code&gt;RCIMGDIR.exe&lt;/code&gt; löytyi ThinkPad foorumeilta uskallan väittää että kyseessä on Lenovon ThinkPadi. ThinkPadit on myös aika yleisiä “business” läppäreitä, joten en yllättyisi ollenkaan vaikka olisin oikeassa.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;P.S. Tuolla saataa olla vielä jotain outoa koska &lt;code&gt;Monitor.exe&lt;/code&gt; ja &lt;code&gt;RCIMGDIR.exe&lt;/code&gt; on molemmat webcam ajureita, mutten voi sanoa varman päälle&lt;/em&gt;&lt;/p&gt;
-</description>
-        <pubDate>Mon, 20 Jul 2015 16:18:26 +0300</pubDate>
-        <link>http://ajatusrikos.fi/2015/07/20/fdfcc.html</link>
-        <guid isPermaLink="true">http://ajatusrikos.fi/2015/07/20/fdfcc.html</guid>
         
         
       </item>
