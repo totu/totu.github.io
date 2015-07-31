@@ -5,9 +5,216 @@
     <description>Ajatuksia, tarinoita ja ideoita.</description>
     <link>http://ajatusrikos.fi/</link>
     <atom:link href="http://ajatusrikos.fi/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 30 Jul 2015 10:37:40 +0300</pubDate>
-    <lastBuildDate>Thu, 30 Jul 2015 10:37:40 +0300</lastBuildDate>
+    <pubDate>Fri, 31 Jul 2015 16:00:59 +0300</pubDate>
+    <lastBuildDate>Fri, 31 Jul 2015 16:00:59 +0300</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Superäly: Tiet, Vaarat ja Strategiat</title>
+        <description>&lt;p&gt;Viime aikoina olen lukenut, tai pikemmin kuunnellut, kirjoja ja sain eilen loppuun Nick Bostromin kirjan Superintelligence: Paths, Dangers, Strategies.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/superintelligence.jpg&quot; alt=&quot;Kansi&quot; title=&quot;Kansi&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Kirjan aihe on mielenkiintoinen, kuinka tekoäly tai jokin muu ihmistä-tehokkaampi-superäly muuttaa maailmaa ja kuinka siihen tulisi varautua, mutta kirja esittää paljon terminologiaa jota käytetään harvakseen ja lyhenteitä joita käytetään koko ajan, mutta molempien selitykselle annetaan sama määrä aikaa jolloin helposti menee ohitse tärkeä lyhenne jota kirjassa käytetään usean kappaleen ajan.&lt;/p&gt;
+
+&lt;p&gt;Kun minulle suositeltiin tätä kirjaa, sain kuulla että kirjan alku on tylsä, mutta kahdeksannen kappaleen jälkeen se muuttuu mielenkiintoiseksi, joten lähdin kirjaan pienellä varauksella. Alku ei kuitenkaan ollu loputtoman tylsä tai sekava, asiat tuotiin esille ehkä hieman liian hitaasti ja kaikkea pohdittiin erittäin pitkään. Mielestäni kirja oli keskivaiheilla parhaillaan, kun se esitti erilaisia superäly vaihtoehtoja ja mahdollisia vaaroja kontrolli ongelmien kanssa, mutta nämä ongelmat tuntuivat vain jatkuvan ja jatkuvan. Loppupuolella kirjaa tuntui että samoja ajatuksia pyöritettiin edestakaisin ilman sen suurempia johtopäätöksiä suuntaan tai toiseen. En tiedä johtuiko kirjan kiertely ja kaartelu siitä että kirjoittaja on filosofian tohtori ja täten kaikki ajatukset on pakko pureskella luuytimeen asti, vai oliko kyseessä vain vähän huono kirja.&lt;/p&gt;
+
+&lt;p&gt;Kirja on hieman liian tekninen ja etenee liian hitaasti ja se tuntuu ajoittain jaarittelevalta. Jos tekoäly kiinnostaa aiheena, voi kirja olla hyvä, mutta hieman raskas luku. Itselle olisi hyvin riittänyt puolta lyhyempikin epos.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 31 Jul 2015 16:18:26 +0300</pubDate>
+        <link>http://ajatusrikos.fi/2015/07/31/superintelligence.html</link>
+        <guid isPermaLink="true">http://ajatusrikos.fi/2015/07/31/superintelligence.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>PVCC #13-20: Mega postaus</title>
+        <description>&lt;p&gt;&lt;em&gt;Etkö tiedä mikä on PVCC? &lt;a href=&quot;/2015/07/20/fdfcc.html&quot;&gt;Klikkaa tästä&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Koska tehtävät 13. - 20. ovat lähinnä Googlen käyttöä pistän ne kaikki tähän yhdeksi postauksesta. Käyn tehtävät lävitse hyvin pintapuolisesti, jos jotain kiinnostaa tietää tarkemmin niin Wikipedia on aika hyvä lähde näille.&lt;/p&gt;
+
+&lt;h1 id=&quot;selaimella-hykkys&quot;&gt;13. Selaimella hyökkäys&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Mitä seuraavista haavoittuvuuksia voidaan hyödyntää käyttämällä vain normaalia web selainta (kuten Mozilla Firefoxia tai Google Chromea)?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Directory traversal attack&lt;/li&gt;
+  &lt;li&gt;LDAP injection&lt;/li&gt;
+  &lt;li&gt;Command injection&lt;/li&gt;
+  &lt;li&gt;Poison Null Byte&lt;/li&gt;
+  &lt;li&gt;SQL injection&lt;/li&gt;
+  &lt;li&gt;XSS&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Tässä tehtävässä oletan että “normaaliksi” selaimeksi lasketaan myös helposti saatavat selain lisäosat, ne eivät toki ole pakollisia kaikkiin hyökkäyksiin, mutta helpottavat niitä huomattavasti. Kaikki listatut hyökkäykset ovat käyttäjän syötteen sanitoimatta jättämisestä johtuvia ongelmia, eli kaikkiin vastaus on &lt;strong&gt;kyllä&lt;/strong&gt;, kaikkia näitä haavoittuvuuksia voi hyväksikäyttää vain selaimella ilman erillisiä työkaluja.&lt;/p&gt;
+
+&lt;h1 id=&quot;bitti-vs-64-bitti&quot;&gt;14. 32 bittiä vs. 64 bittiä&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Mitkä seuraavista ovat tyypillisiä x86 järjestelmälle, mutta ei x86_64 järjestelmälle?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Puskurin ylivuoto haavoittuvuus&lt;/li&gt;
+  &lt;li&gt;DDOS hyökkäyksiä on usein vaikea estää&lt;/li&gt;
+  &lt;li&gt;Roikkuvat osoittimet&lt;/li&gt;
+  &lt;li&gt;Palomuurin puuttuminen&lt;/li&gt;
+  &lt;li&gt;Natiivi mustin rajoitus 2^32 tavuun&lt;/li&gt;
+  &lt;li&gt;Symmetriset avain algoritmit on helpompi murtaa&lt;/li&gt;
+  &lt;li&gt;TCP porttien määrä on 2^16&lt;/li&gt;
+  &lt;li&gt;Järjestelmän suojaksuun käytetään MD5 ja SHA-1 yhdistelmää&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Omien tietojen ja Googlen mukaan ainoa eri 32 bittisellä (x86) ja 64 bittisellä (x86_64) järjestelmillä on muistin rajoitus 4 Gigatavuun, eli vastaus on 5.&lt;/p&gt;
+
+&lt;h1 id=&quot;oikeutta&quot;&gt;15. Oikeutta!&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Tiedostolla on oikeudet -rwx-wxr-x. Mitkä seuraavista rajoittavat omistus ryhmän oikeuksia?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;chmod 322 file&lt;/li&gt;
+  &lt;li&gt;chmod 333 file&lt;/li&gt;
+  &lt;li&gt;chmod 700 file&lt;/li&gt;
+  &lt;li&gt;chmod 735 file&lt;/li&gt;
+  &lt;li&gt;chmod 754 file&lt;/li&gt;
+  &lt;li&gt;chmod 755 file&lt;/li&gt;
+  &lt;li&gt;chmod a-x file&lt;/li&gt;
+  &lt;li&gt;chmod w-r file&lt;/li&gt;
+  &lt;li&gt;chmod u-r,g-r file&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;-rwx-wxr-x on sama kuin 735. Sarjassa toinen numero osoittaa ryhmän oikeuksia, eli oikea lotto numero on: 1, 3, 5, 6, 7.&lt;/p&gt;
+
+&lt;h1 id=&quot;sanitaatiota&quot;&gt;16. Sanitaatiota&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Mitkä seuraavista haavoittuvuuksista voidaan estää kokonaan kunnollisella käyttäjän syötteen validoinnilla?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Bruteforcing&lt;/li&gt;
+  &lt;li&gt;CSRF&lt;/li&gt;
+  &lt;li&gt;DDOS&lt;/li&gt;
+  &lt;li&gt;Command injection&lt;/li&gt;
+  &lt;li&gt;SQL injection&lt;/li&gt;
+  &lt;li&gt;XSS&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;4, 5 ja 6, kuten kohdassa 14. mainittiin. Brute forcing on salasanojen murtamista (kuten tehtävässä &lt;a href=&quot;/2015/07/23/pvcc8.html&quot;&gt;8. Salasanojen varjostus&lt;/a&gt; todettiin). CSRF on sivuston suorittama hyökkäys käyttäjän selaimen kautta. DDOS on palvelunestohyökkäys jolla ei ole tekemistä käyttäjän syötteen kanssa.&lt;/p&gt;
+
+&lt;h1 id=&quot;selaimen-skriptikielet&quot;&gt;17. Selaimen skriptikielet&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Mitkä seuraavista ohjelmoint/skripti/markup kielistä yleensä pyörivät käyttäjän puolella (esim. web selaimessa)?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;ASP&lt;/li&gt;
+  &lt;li&gt;ASP.NET&lt;/li&gt;
+  &lt;li&gt;C#&lt;/li&gt;
+  &lt;li&gt;CSS&lt;/li&gt;
+  &lt;li&gt;HTML&lt;/li&gt;
+  &lt;li&gt;Javascript&lt;/li&gt;
+  &lt;li&gt;PHP&lt;/li&gt;
+  &lt;li&gt;Ruby&lt;/li&gt;
+  &lt;li&gt;SQL&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Oikeat vastaukset: 4, 5, 6. Loput ovat palvelinpään kieliä.&lt;/p&gt;
+
+&lt;h1 id=&quot;palomuuri&quot;&gt;18. Palomuuri&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Mikä seuraavista on tyypillistä palomuurille?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Estää epäilyttävien ohjelmien ajo&lt;/li&gt;
+  &lt;li&gt;Koodata datasiirto käyttäen UDP protokollaa&lt;/li&gt;
+  &lt;li&gt;Suodattaa TCP paketit jotka eivät vastaa sen sääntöjä&lt;/li&gt;
+  &lt;li&gt;Mahdollistaa SSH verkko protokollan käyttö&lt;/li&gt;
+  &lt;li&gt;Verkko-osoitteiden kääntäminen&lt;/li&gt;
+  &lt;li&gt;Tietokoneen tutkiminen ja käyttäjän varoittaminen jos haittaohjelmia löydetään.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Palomuurilla on yksi tehtävä. Suodattaa liikennettä, eli ainoastaan 3. kuuluu palomuurin tehtäviin.&lt;/p&gt;
+
+&lt;h1 id=&quot;jrjestelmn-suojaaminen&quot;&gt;19. Järjestelmän suojaaminen&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Mitkä seuraavista ohjeista auttavat järjestelmän suojaamisessa?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Käytä aina vahvaa salasanaa&lt;/li&gt;
+  &lt;li&gt;Antivirus ohjelma pitää poistaa päältä kun käytetään TCP protokollaa&lt;/li&gt;
+  &lt;li&gt;Antivirus ohjelma pitää poistaa päältä kun käytetään UDP protokollaa&lt;/li&gt;
+  &lt;li&gt;Salasanat tulee tallentaa käyttäen vahvaa, kaksisuuntaista salausta&lt;/li&gt;
+  &lt;li&gt;Järjestelmän tulee automaattisesti kirjata käyttäjän ulos muutaman minuutin seisonnan jälkeen&lt;/li&gt;
+  &lt;li&gt;Uusinta versiota järjestelmästä tulee välttää sillä siinä saattaa olla tuntemattomia turva-aukkoja&lt;/li&gt;
+  &lt;li&gt;Järjestelmän lokit tulee poistaa viikoittain&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Vahvat salasanat ovat hyväksi, mutta ei niitä tule tallentaa kaksisuuntaisella salauksella. Uusi versio järjestelmästä tulee ensiksi testata ettei se häiritse järjestelmää, mutta päivityksiä tehdään syystä ja järjestelmä tulee aina päivittää mahdollisimman pian. Lokit ovat hyödyllisiä tietoturvalle. Ainoa oikea kysymys on käyttäjien uloskirjaus seisonnan jälkeen. Se voi olla hyvä käytäntö jos käyttäjän ymmärtävät sen arvon, mutta todellisuudessa useat käyttäjän tulevat varmaan sen takia käyttämään lyhyitä salasanoja, joten vastaan: 1.&lt;/p&gt;
+
+&lt;h1 id=&quot;sql&quot;&gt;20. SQL&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Mikä seuraavista SQL lauseista valitsee kaikki rivit pöydästä Customers jossa kolumnin Age arvo on suurempi kuin 19, mutta pienempi kuin 21?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;SELECT Customers WHERE Age &amp;gt; 19 and Age &amp;lt; 21&lt;/li&gt;
+  &lt;li&gt;SELECT Customers IF Age &amp;gt; 19 and Age &amp;lt; 21&lt;/li&gt;
+  &lt;li&gt;SELECT * FROM Customers WHERE Age &amp;gt; 19 and Age &amp;lt; 21&lt;/li&gt;
+  &lt;li&gt;SELECT * FROM Customers IF Age &amp;gt; 19 and Age &amp;lt; 21&lt;/li&gt;
+  &lt;li&gt;IF Age &amp;gt; 19 and Age &amp;lt; 21 THEN SELECT Customers&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Vastaus on 3. &lt;code&gt;SELECT * FROM Customers WHERE Age &amp;gt; 19 and Age &amp;lt; 21&lt;/code&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 29 Jul 2015 15:22:56 +0300</pubDate>
+        <link>http://ajatusrikos.fi/2015/07/29/pvcc13-20.html</link>
+        <guid isPermaLink="true">http://ajatusrikos.fi/2015/07/29/pvcc13-20.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>PVCC #12: 128 sattumanvaraista bittiä</title>
+        <description>&lt;p&gt;&lt;em&gt;Etkö tiedä mikä on PVCC? &lt;a href=&quot;/2015/07/20/fdfcc.html&quot;&gt;Klikkaa tästä&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;12. tehtävässä meille annetaan 128 merkkinen täysin sattumanvarainen bittijono, josta saamme flipata yhden bitin ympäri. Kysymys kuuluu:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Kuinka monta bittiä informaatiota voidaan siirtää tällä bitti jonolla?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Tämä alkaa jo olemaan suhteellisen haastava matemaattinen kysymys, mutta samalla viimeinen “teoria” kysymys.&lt;/p&gt;
+
+&lt;p&gt;Aloitetaan helposta. Tehtävässä tulee käyttää pariteettia. Jos meillä on sattumanvarainen neljän bitin jono, kuten &lt;code&gt;0110&lt;/code&gt; voidaan sillä koodata kaksi bittiä informaatiota. Pariteetti bitit lasketaan kahden potenssien väliltä, eli \(2^0\) askelväli on 1, \(2^1\) askelväli on 2, mikä on suurin askelväli, mitä neljän bitin jonossa voidaan suorittaa.&lt;/p&gt;
+
+&lt;p&gt;\(2^0\) vastaa loogista AND funktiota 01 kanssa.
+\(2^1\) vastaa loogista AND funktiota 10 kanssa.
+Ja niin edelleen.&lt;/p&gt;
+
+&lt;p&gt;Pariteetti saadaan laskemalla kaikki alueen &lt;code&gt;1&lt;/code&gt;, jos niitä on parilline määrä aroksi tulee &lt;code&gt;0&lt;/code&gt; jos pariton &lt;code&gt;1&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Esimerkiksi jonossa &lt;code&gt;0110&lt;/code&gt; \(2^0\) pariteetti on &lt;code&gt;1&lt;/code&gt; koska se saa arvon &lt;code&gt;01&lt;/code&gt;. Jonon \(2^1\) pariteetti on myös &lt;code&gt;1&lt;/code&gt; koska se saa myös arvon &lt;code&gt;01&lt;/code&gt;. Näin ollen loogisten AND funktioiden jälkeen pariteetti jonolle on &lt;code&gt;11&lt;/code&gt;. Jos nyt halutaan osoittaa jotain arvoa mikä voidaan jonolla koodata (koska jono on sattumanvarainen voidaan sillä koodata vain kahden bitin arvo, eli 0-3), esim. numero 2, käytetään vedetään arvo &lt;code&gt;10&lt;/code&gt; loogisella XOR functiolla lävitse jonon pariteetista: \(10 \oplus 11 = 01\). Näin ollen bitti kohdassa &lt;code&gt;01&lt;/code&gt; tulee kääntää, eli saamme arvon &lt;code&gt;0100&lt;/code&gt; (koska ensimmäinen bitti on arvo &lt;code&gt;00&lt;/code&gt;). Nyt kun bittijonoa dekoodataan, eli yritetään saada se arvo ulos jonka lähetimme (numero 2), lasketaan uudesta jonosta pariteetti ja se vedetään lävitse itse jonosta. Jonon &lt;code&gt;0100&lt;/code&gt; \(2^0\) pariteetti on &lt;code&gt;0&lt;/code&gt; koska se saa arvon &lt;code&gt;00&lt;/code&gt;. Jonon \(2^1\) pariteetti on &lt;code&gt;1&lt;/code&gt; koska se saa arvoksi &lt;code&gt;10&lt;/code&gt;. Loogisten AND funktioiden jälkeen saamme arvon &lt;code&gt;10&lt;/code&gt;. Kun käännetään bitti kohdasta &lt;code&gt;01&lt;/code&gt; saadaan uudeksi jonoksi &lt;code&gt;0110&lt;/code&gt;, kun nyt tämä uusi arvo ja pöydän arvo vedetään lävitse loogisesta XOR funktiosta saadaan selville lähetetty arvo. \(0100 \oplus 0110 = 0010\), eli 2.&lt;/p&gt;
+
+&lt;p&gt;Tällä logiikalla aina kun satunnaisen bittijonon, josta saadaan kääntää yksi bitti mielivaltaisesti, pituus tuplaantuu voidaan sillä siirtää yksi bitti lisää informaatiota, eli kahdeksalla satunnaisella bitillä voidaan siirtää kolme bittiä informaatiota. Näin ollen 128 merkkiä pitkällä sattumanvaraisella bitti jonolla voidaan siirtää seitsemän bittiä informaatiota.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 27 Jul 2015 14:39:22 +0300</pubDate>
+        <link>http://ajatusrikos.fi/2015/07/27/pvcc12.html</link>
+        <guid isPermaLink="true">http://ajatusrikos.fi/2015/07/27/pvcc12.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>PVCC #11: Todennäköisyys</title>
@@ -601,202 +808,6 @@ b&#39;)87*;+xorXOR&#39;
         <pubDate>Tue, 21 Jul 2015 21:16:32 +0300</pubDate>
         <link>http://ajatusrikos.fi/2015/07/21/pvcc5.html</link>
         <guid isPermaLink="true">http://ajatusrikos.fi/2015/07/21/pvcc5.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>PVCC #4: Logiikkaa!</title>
-        <description>&lt;p&gt;&lt;em&gt;Etkö tiedä mikä on PVCC? &lt;a href=&quot;/2015/07/20/fdfcc.html&quot;&gt;Klikkaa tästä&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Neljäs kysymys on logiikka puzzle, jossa kaksi toisistaan eristettyä ohjelmaa luovat sattumanvaraisesti bitin. Generoituaan bitin ohjelmat arvaavat mikä toisen ohjelman bitti oli. Ohjelmat voivat olla erilaisia ja voivat käyttää eri strategioita. Jos yhden kierroksen jälkeen edes toinen ohjelma arvaa oikein voittavat ohjelmat palkinnon.&lt;/p&gt;
-
-&lt;p&gt;Kysymys kuuluu:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“Onko mahdollista luoda strategia joka tuottaa aina voiton?”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Kartoitetaan aluksi kaikki mahdolliset outputit näistä ohjelmista, olkoon ohjelmien nimet &lt;code&gt;A&lt;/code&gt; ja &lt;code&gt;B&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt; | A | 0 | 1 | 0 | 1 |
- | B | 0 | 0 | 1 | 1 |
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Vaikka yllä oleva totuustaulukko näyttääkin kaikki mahdolliset tulokset, ajetaan vielä varmuudeksi pieni simulaatio.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;&amp;gt;&amp;gt;&amp;gt; import random
-&amp;gt;&amp;gt;&amp;gt; for i in range(10):
-...   rand1 = random.randint(0,2)
-...   rand2 = random.randint(0,2)
-...   print(rand1, rand2)
-...
-1 0
-0 0
-1 1
-0 0
-0 1
-1 1
-0 0
-0 1
-0 1
-0 0
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Tehtävänä on siis arvata ohjelmien tulokset yhden loopin jälkeen, mutta vain yhden arvon täytyy olla oikein. Tehtävään on helppo ratkaisu: toinen ohjelmista arvaa tuloksensa vastakohdan ja toinen arvaa saman kuin oma tuloksensa. Varmistetaan tämä vielä tekemällä totuustaulukko, jossa &lt;code&gt;T&lt;/code&gt; on tulos ja &lt;code&gt;R&lt;/code&gt; on arvaus.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;    | T | R |           | T | R |           | T | R |           | T | R |
-| A | 0 | 0 |       | A | 1 | 1 |       | A | 0 | 0 |       | A | 1 | 1 |
-| B | 0 | 1 |       | B | 0 | 1 |       | B | 1 | 0 |       | B | 1 | 0 |
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Kuten taulukosta käyt ilmi aina toinen, joko &lt;code&gt;A&lt;/code&gt; tai &lt;code&gt;B&lt;/code&gt;, ohjelma arvaa toisen tuloksen oikein. Näin voimme 100% varmuudella voittaa palkinnon joka kerta.
-Jos joku tahtoo itse kokeilla tätä ohjelmallisesti, tässä on lyhyt Python pätkä.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import random
-for i in range(10):
-    rand1  = random.randint(0, 2)
-    rand2  = random.randint(0, 2)
-    quess1 = rand1
-    guess2 = 1 - rand2
-
-print(rand1, &quot;:&quot;, quess1, &quot;|&quot;, rand2, &quot;:&quot;, guess2)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Tässä esimerkki tuloste:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;py question3.py
-1 : 1 | 1 : 0
-0 : 0 | 0 : 1
-1 : 1 | 0 : 1
-1 : 1 | 0 : 1
-1 : 1 | 0 : 1
-1 : 1 | 1 : 0
-1 : 1 | 0 : 1
-1 : 1 | 0 : 1
-0 : 0 | 0 : 1
-0 : 0 | 0 : 1
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-        <pubDate>Tue, 21 Jul 2015 17:05:09 +0300</pubDate>
-        <link>http://ajatusrikos.fi/2015/07/21/pvcc4.html</link>
-        <guid isPermaLink="true">http://ajatusrikos.fi/2015/07/21/pvcc4.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>PVCC #3: Base64</title>
-        <description>&lt;p&gt;&lt;em&gt;Etkö tiedä mikä on PVCC? &lt;a href=&quot;/2015/07/20/fdfcc.html&quot;&gt;Klikkaa tästä&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Kolmannessa kysymyksessä meille annettiin ainoastaan merkkijono &lt;code&gt;TG9yZW1+SXBzdW0=&lt;/code&gt; mikä vaikuttaa joltain hashilta? Oikeastaan ei, kyseinen jono näyttää base64 pätkältä.&lt;/p&gt;
-
-&lt;p&gt;Miten base64 tarkistetaan? No sen voisi vaan rykästä jollekkin Googlesta löytyvälle decodaus sivustolle, mutta tarkistetaan itse, niin opitaan jotain. Tässä on yksinkertainen tarkistuslista base64 merkkijonolle:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Jono alkaa millä tahansa määrällä neljän (4) merkin ryhmiä jotka voivat olla väliltä &lt;code&gt;[A-Za-z0-9+]&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Jota seuraa yksi seuraavista tai ei mitään:
-    &lt;ul&gt;
-      &lt;li&gt;Neljä merkkiä joista
-        &lt;ul&gt;
-          &lt;li&gt;Ensimmäinen ja toinen sopivat &lt;code&gt;[A-Za-z0-9+]&lt;/code&gt;&lt;/li&gt;
-          &lt;li&gt;Kolmas merkki sopii &lt;code&gt;[AEIMQUYcgkosw048]&lt;/code&gt;&lt;/li&gt;
-          &lt;li&gt;Viimeinen merkki on &lt;code&gt;=&lt;/code&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Neljä merkkiä joista
-        &lt;ul&gt;
-          &lt;li&gt;Ensimmäinen sopii &lt;code&gt;[A-Za-z0-9+]&lt;/code&gt;&lt;/li&gt;
-          &lt;li&gt;Toinen sopii &lt;code&gt;[AQgw]&lt;/code&gt;&lt;/li&gt;
-          &lt;li&gt;Kolmas ja neljäs ovat molemmat &lt;code&gt;=&lt;/code&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;regular-expressions&quot;&gt;Regular Expressions&lt;/h1&gt;
-
-&lt;p&gt;Kuten heti edellä mainitusta listasta voidaan huomata base64 jonot voidaan jakaa neljän merkin jonoihin, joten ensimmäinen tarkistus tulee olla tarkistaa jakautuuko meidän jono neljällä.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;&amp;gt;&amp;gt;&amp;gt; len(&#39;TG9yZW1+SXBzdW0=&#39;) % 4 == 0
-True
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Hyvältä näyttää. Seuraavaksi tarkistetaan löytyvätkö ensimmäiset neljä merkkiä &lt;code&gt;TG9y&lt;/code&gt; seuraavasta regular expressionista &lt;code&gt;[A-Za-z0-9+]&lt;/code&gt;, mikä sopii isoihin ja pieniin kirjaimiin väliltä A - Z, numeroihin 0 - 9 sekä + -merkkiin. Jono näyttää sopivan, mutta tarkistetaan vielä.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;&amp;gt;&amp;gt;&amp;gt; import re
-&amp;gt;&amp;gt;&amp;gt; re.match(&#39;^[A-Za-z0-9+]{4}$&#39;, &#39;TG9y&#39;)
-&amp;lt;_sre.SRE_Match object; span=(0, 4), match=&#39;TG9y&#39;&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Seuraavat neljä merkkiä &lt;code&gt;ZW1+&lt;/code&gt; pitäisi löytyä samalla regexillä&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;&amp;gt;&amp;gt;&amp;gt; import re
-&amp;gt;&amp;gt;&amp;gt; re.match(&#39;^[A-Za-z0-9+]{4}$&#39;, &#39;ZW1+&#39;)
-&amp;lt;_sre.SRE_Match object; span=(0, 4), match=&#39;ZW1+&#39;&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Ja löytyyhän ne! Seuraavat neljä &lt;code&gt;SXBz&lt;/code&gt; pitäisi löytyä myös.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;&amp;gt;&amp;gt;&amp;gt; import re
-&amp;gt;&amp;gt;&amp;gt; re.match(&#39;^[A-Za-z0-9+]{4}$&#39;, &#39;SXBz&#39;)
-&amp;lt;_sre.SRE_Match object; span=(0, 4), match=&#39;SXBz&#39;&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Kas kummaa ne löytyvät. Nyt ollaan neljässä viimeisessä merkissä &lt;code&gt;dW0=&lt;/code&gt; joista ensimmäisen tulisi sopia vanhaan tuttuun &lt;code&gt;[A-Za-z0-9+]&lt;/code&gt;, toisen merkin tulisi sopia joko &lt;code&gt;[A-Za-z0-9+]&lt;/code&gt; tai &lt;code&gt;[AQgw]&lt;/code&gt;, kolmas merkki tulisi sopia &lt;code&gt;[AEIMQUYcgkosw048]&lt;/code&gt; tai &lt;code&gt;=&lt;/code&gt; ja viimeinen merkki tulisi olla &lt;code&gt;=&lt;/code&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;&amp;gt;&amp;gt;&amp;gt; import re
-&amp;gt;&amp;gt;&amp;gt; re.match(&#39;^[A-Za-z0-9+]([A-Za-z0-9+]|[AQgw])([AEIMQUYcgkosw048]|=)=$&#39;, &#39;dW0=&#39;)
-&amp;lt;_sre.SRE_Match object; span=(0, 4), match=&#39;dW0=&#39;&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Jopa viimeinen osa sopii. Nyt yhdistetään kaikki yllä olevat regular expressionit yhteen.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;&amp;gt;&amp;gt;&amp;gt; import re
-&amp;gt;&amp;gt;&amp;gt; re.match(&#39;^([A-Za-z0-9+])*([A-Za-z0-9+]([A-Za-z0-9+]|[AQgw])([AEIMQUYcgkosw048]|=)=)$&#39;, &#39;TG9yZW1+SXBzdW0=&#39;)
-&amp;lt;_sre.SRE_Match object; span=(0, 16), match=&#39;TG9yZW1+SXBzdW0=&#39;&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Ja siinä meillä on yksinkertainen tarkistus skripti base64 jonoille, jonka mukaan kyseessä on base64 jono.&lt;/p&gt;
-
-&lt;h1 id=&quot;dekoodaus&quot;&gt;Dekoodaus&lt;/h1&gt;
-
-&lt;p&gt;Nyt kun tiedetään että meillä on base64 jono, voidaan se dekoodata. Tämäkin voitaisiin tehdä manuaalisesti, &lt;a href=&quot;https://en.wikipedia.org/wiki/Base64&quot;&gt;Base64 Wikipedia artikkelista&lt;/a&gt; löytyy jopa koodi esimerkki, mutta se olisi tylsää copy-pastea ja tämä postaus alkaa jo olemaan vähän liiankin pitkä. Joten on aika ripotella vähän Pythonia päälle ja pyyhkiä kyseinen ongelma pois päiväjärjestyksestä.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;&amp;gt;&amp;gt;&amp;gt; import base64
-&amp;gt;&amp;gt;&amp;gt; base64.b64decode(bytes(&#39;TG9yZW1+SXBzdW0=&#39;, &#39;utf-8&#39;))
-b&#39;Lorem~Ipsum&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Siinä meillä on vastaus &lt;code&gt;Lorem~Ipsum&lt;/code&gt;.&lt;/p&gt;
-</description>
-        <pubDate>Tue, 21 Jul 2015 10:04:09 +0300</pubDate>
-        <link>http://ajatusrikos.fi/2015/07/21/pvcc3.html</link>
-        <guid isPermaLink="true">http://ajatusrikos.fi/2015/07/21/pvcc3.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>PVCC2 #2: 700 miljardia salasanaa sekunnissa</title>
-        <description>&lt;p&gt;&lt;em&gt;Etkö tiedä mikä on PVCC? &lt;a href=&quot;/2015/07/20/fdfcc.html&quot;&gt;Klikkaa tästä&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Tokassa kysymyksessä cräkätään salasanoja. Tarkoitus on laskea teoreettinen maksimi aika kahdella eri tavalla luodulle salasanalle. Ensimmäinen salasana luodaan liittämällä yhteen sattumanvaraisesti neljä sanaa 31337 sanan tiedetystä listasta. Toinen salasana luodaan yhdeksästä sattumanvaraisesta printattavasta ASCII merkistä. Molemmat salasanat puretaan koneella joka pystyy tekemään 700 miljardia hash operaatiota sekunnissa. Nyt matikkamyssyt päähän ja cräkkäämään.&lt;/p&gt;
-
-&lt;p&gt;Neljä sanaa 31337 sanan listasta täysin sattuman varaisesti tuottaa \(3133^4\) mahdollista yhdistelmää, kun se jaetaan 700 miljardilla saadaan tulokseksi \(31337^4 / 700 \times 10^9\) mikä on sama kuin \(1.38 \times 10^6\) sekuntia. Vastaus pitää kuitenkin antaa päivän tarkkuudella joten lopullinen yhtälö näyttää tältä:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\dfrac{3133^4}{700 \times 10^9 \times 3600 \times 24} \approx 16&lt;/script&gt;
-
-&lt;p&gt;Toka salasana on perinteisempi ongelma. &lt;a href=&quot;https://fi.wikipedia.org/wiki/ASCII&quot;&gt;Wikipedian&lt;/a&gt; mukaan ASCII sisältää 95 näkyvää merkkiä. Mikä tarkoittaa meillä voi olla \(95^9\) mahdollista salasanaa ja koska meillä on käytössä sama kone kuin edellisen salasanan kanssa lopullinen yhtälö on:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\dfrac{95^9}{700 \times 10^9 \times 3600 \times 24} \approx 10&lt;/script&gt;
-
-&lt;p&gt;Tehtävän vastaukset ovat siis &lt;strong&gt;a)&lt;/strong&gt; 16 päivää ja &lt;strong&gt;b)&lt;/strong&gt; 10 päivää.&lt;/p&gt;
-</description>
-        <pubDate>Mon, 20 Jul 2015 20:33:43 +0300</pubDate>
-        <link>http://ajatusrikos.fi/2015/07/20/pvcc2.html</link>
-        <guid isPermaLink="true">http://ajatusrikos.fi/2015/07/20/pvcc2.html</guid>
         
         
       </item>

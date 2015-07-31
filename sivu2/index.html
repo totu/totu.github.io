@@ -65,6 +65,245 @@
     
       <li>
         <header class="post-header">
+          <a class="post-link" href="/2015/07/24/pvcc9.html">PVCC #9: Leo, Adi ja Ron</a>
+          <p class="post-meta">24.7.2015</p>
+        </header>
+
+        <article class="post-content">
+          <p><em>Etkö tiedä mikä on PVCC? <a href="/2015/07/20/fdfcc.html">Klikkaa tästä</a>.</em></p>
+
+<p>Yhdeksäs kysymys oli hieman erikoinen.</p>
+
+<blockquote>
+  <p>Leonard: N = 779191667<br />
+Adi: e = 65537<br />
+Ron: 706790887 ?</p>
+</blockquote>
+
+<p>Aluksi ei ollut mitään hajua mitä tässä oikein kysyttiin. Aluksi luulin että \(n\) ja \(e\) voisi olla koordinaatteja, mutta <a href="https://www.google.com/maps/place/77%C2%B055'09.0%22N+6%C2%B033'13.3%22E/@77.9192819,6.5534358,4.42z/data=!4m2!3m1!1s0x0:0x0?hl=fi">sitten päätin tätä vastaan</a>. Joten seuraava looginen askel oli Googlettaa nimet. Ensimmäiset tulokset käsitteli RSAta kuten <a href="https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29">tämä Wikipedia artikkeli</a>. Julkisella avaimella salaus kuulostaa ihan järkevältä aiheelta kysymykselle. Kun äkkiä silmäilin tekstin lävitse, osui silmään <em>Encryption</em> kohdan alta. “Alice transmits her public key \((n, e)\) to Bob and keeps the private key \(d\) secret”. Ehkä tuo viimeinen arvo on \(d\)?</p>
+
+<h1 id="rsa">RSA</h1>
+
+<p>Käydään lävitse hieman, miten RSA toimii. Perus idea julkisen avaimen suojauksen takana on kahden avaimen pari, julkinen ja yksityinen. Kun viesti salataan käyttämällä julkista avainta sen voi avata ainoastaan julkisen avaimen yksityisellä parilla ja päin vastoin. Julkisella avaimella salatessa vain yksityinen avain tulee pitää salassa, viestit salataan aina toisen henkilön julkisella avaimella. Omalla yksityisavaimella voi kuitenkin allekirjoittaa viestin, ja näin todentaa viestin lähettäjän.</p>
+
+<h1 id="avainten-luonti">Avainten luonti</h1>
+
+<p>Ensiksi tarvitaan kaksi jaotonta, eli prime, lukua (\(p\) ja \(q\)) joilla on samanlainen bittipituus.</p>
+
+<p>Seuraavaksi lasketaan \(n\) kertomalla \(p\) ja \(q\). \(n\) käytetään jakojäännös, eli modulo operaattorina molemmissa avaimissa \(\pmod{n}\).</p>
+
+<p>Seuraavaksi lasketaan \(φ(n)\) mikä on sama kuin \((p − 1)(q − 1)\).</p>
+
+<p>Sitten valitaan \(e\) niin että se on positiivinen numero \(1\) ja \(φ(n)\) väliltä. \(e\) ja \(φ(n)\) suurin</p>
+
+<p>\(e\) ja \(φ(n)\) suurin yhteinen tekijä (greatest common divisor, eli gcd) tulee olla \(1\) (\(gcd(e, φ(n)) = 1\)). Meidän tapauksessa \(e = 65537\) Mikä on <a href="https://www.dlitz.net/software/pycrypto/api/current/Crypto.PublicKey.RSA-module.html">Pythonin RSA moduulin dokumentaation</a> mukaan “turvallinen” valinta.</p>
+
+<p>Lopuksi lasketaan \(d\) kaavasta \(d = e^{-1}\pmod{φ(n)}\)</p>
+
+<p>Kuten huomataan, jotta voidaan tarkistaa onko meidän mysteeri numero \(d\) tulee ensiksi saada selville alkuperäiset prime luvut. (\(p\) ja \(q\)).</p>
+
+<h1 id="revitn-luvut-osiin">Revitään luvut osiin</h1>
+
+<p>Onneksi meidän \(n\) on suhteellisen pieni luku, niin <a href="https://www.wolframalpha.com/input/?i=x*y%3D779191667">WolframAlphan</a> ] voi suoraan pyytää jakamaan sen komponentteihinsa. Mitkä ovat.</p>
+
+<script type="math/tex; mode=display">p = 25523, q = 30529</script>
+
+<p>Nyt voidaan laskea loput yhtälöt.</p>
+
+<script type="math/tex; mode=display">n = pq = 25523 \times 30529 = 779191667</script>
+
+<p>\(n\) oletetusti näyttää hyvältä. Lasketaanpas \(\phi(n)\).</p>
+
+<script type="math/tex; mode=display">φ(n) = (p − 1)(q − 1) = (30529 - 1)(25523 - 1) = 779135616</script>
+
+<p>Sitten muistetaan tarkistaa että \(φ(n)\) ja \(e\) suurin yhteinen tekijä on \(1\).</p>
+
+<script type="math/tex; mode=display">gcd(φ(n), e) = gcd(779135616, 65537) = 1</script>
+
+<p>Näyttää toimivan, joten nyt voidaan laskea \(d\).</p>
+
+<script type="math/tex; mode=display">e^{−1} \pmod{φ(n)} = 65537^{-1} \pmod{779135616} = 728918657</script>
+
+<p>Nyt ei näytä enää toimivan, koska \(728918657 \neq 706790887\) joten vastaus ei voi olla “\(d\)”, mutta RSA salauksessa on vielä kaksi muuttuja joita ei olla käyty lävitse. Itse salattu viesti. Salattu viesti \(c\)  viestin \(M\) desimaaliksi muunnos \(m\) potenssiin \(e\) kertaa modulus \(n\).</p>
+
+<script type="math/tex; mode=display">c = m^e \pmod{n}</script>
+
+<p>Julkisella avaamilla salatessa \(m\) tulee myös sopia sääntöön \(gcd(m, n) = 1\), joten ensiksi meidän tulee saada selville \(m\) jos mysteeri lukumme <code>706790887</code> on \(c\).</p>
+
+<script type="math/tex; mode=display">c = m^e \pmod{n} = m^65537 \times \pmod{779191667}, m = 3141592</script>
+
+<p>Eli jos <code>706790887</code> olisi \(c\) \(m\) olisi \(3141592\). Tarkistetaan \(gcd(m, n)\).</p>
+
+<script type="math/tex; mode=display">gcd(m, n) = gcd(3141592, 779135616) = 8</script>
+
+<p>Valitettavasti \(8\) on suurempi kuin \(1\), joten <code>706790887</code> ei voi olla \(c\), no entä \(m\)?</p>
+
+<script type="math/tex; mode=display">gcd(m, n) = gcd(706790887, 779191667) = 1</script>
+
+<p>Nyt <code>706790887</code> sopii yhtälöön ja koska \(m\) on viimeinen muuttuja, RSA salauksessa se on pakko olla tehtävän vastaus.</p>
+
+        </article>
+      </li>
+      <div class="post-divider"></div>
+    
+      <li>
+        <header class="post-header">
+          <a class="post-link" href="/2015/07/23/pvcc8.html">PVCC #8: Salasanojen varjostusta</a>
+          <p class="post-meta">23.7.2015</p>
+        </header>
+
+        <article class="post-content">
+          <p><em>Etkö tiedä mikä on PVCC? <a href="/2015/07/20/fdfcc.html">Klikkaa tästä</a>.</em></p>
+
+<p>Kahdeksannessa kysymyksessä meille annetaan seuraava rivi <code>/etc/shaow</code> tiedostosta</p>
+
+<pre><code class="language-bash">admin:65kKfJ.oFg1/Y:16615:0:99999:7:::
+</code></pre>
+
+<p>Sekä kaksi kysymystä</p>
+
+<ol>
+  <li>Mikä on salasana?</li>
+  <li>Miltä rivi näyttäisi jos salasana generoitaisiin 5000 kierroksella sha512 ja käytettäisiin salttina/suolana jonoa <code>saltsaltsaltsalt</code>?</li>
+</ol>
+
+<p>Käydään ekana vähän läpi <code>/etc/shadow</code> tiedoston koostomusta. Jokainen rivi on jaettu osiin kaksoispisteellä (:). Ensimmäinen osa on käyttäjätunnus. Toinen osa on salasanan hash. Kolmas kertoo milloin salasana on viimeksi vaihdettu. Neljäs numero kertoo milloin salasanan saa seuraavaksi vaihtaa. Viides numero kertoo milloin salasana pitää viimeistään vaihtaa. Kuudes numero kertoo kuinka kauan ennen salasanan vanhenemista käyttäjää varoitetaan. Seitsemäs kertoo kuinka monta päivää salasanan vanhenemisen jälkeen käyttäjätunnus pystyy aktiivisena. Viimeinen luku kertoo päivän milloin käyttäjä tunnukselle ei enää voi kirjautua.</p>
+
+<p>Aluksi meidän tulee tunnistaa mitä hashia salasanassa käytetään, joten löin salasanan <a href="https://code.google.com/p/hash-identifier/">Hash Identifier</a> skriptin lävitse.</p>
+
+<pre><code class="language-python">HASH: 65kKfJ.oFg1/Y
+
+Possible Hashs:
+[+]  DES(Unix)
+</code></pre>
+
+<p>Tässä kohtaa itseltä lähti vähän homma lapasesta. Vaikka DES on ollutkin “rikki” jo kymmeniä vuosia menee sen brute forcaukseen silti tunteja hyvällä laitteistolla ja päiviä huonolla laitteistolla. Päätin silti koittaa brute forcausta ja kirjoitin seuraavan hyvin naivin ohjelman ja pistin pyörimään.</p>
+
+<pre><code class="language-python">import itertools
+import crypt
+import hmac
+
+def brute(chars, hash):
+    chars = 'abcdefghijklmnopqrstuvwtxyz'
+    for length in range(1, 9):
+        attempt = itertools.product(chars, repeat=length)
+        for a in attempt:
+            password = ''.join(a)
+            if hmac.compare_digest(crypt.crypt(password, hash), hash):
+                print('%s = %s' % (hash, password))
+                return
+</code></pre>
+
+<p>Kun kyseinen skripti oli pyörinyt pari tuntia, eikä ollut vielä päässyt lähellekään lyhyttä loppuaan aloin huolestua hyökkäyksestä. IRCin puolella jo ehdotettiin että koettaisin ajaa skriptiä nVidian Cuda kirjaston päällä, näin saaden paljon enemmän laskenta tehoa irti koneesta, mutta sain paremman idea: Sanakirja hyökkäys! Googletin erinäköisiä salasana kirjastoja ja päädyin käyttämään <a href="http://stricture-group.com/files/adobe-top100.txt">Stricture Groupin Top 100 Adobe salasana listaa</a>. Ja kirjoitin seuraavan hyökkäys skriptin.</p>
+
+<pre><code class="language-python">import crypt
+import hmac
+
+def dictionaryAttack(wordlist, hash):
+    passwords = open(wordlist, encoding='utf-8')
+
+    for password in passwords:
+        if hmac.compare_digest(crypt.crypt(password, hash), hash):
+            print('%s = %s' % (hash, password))
+            return
+</code></pre>
+
+<p>Mikä löysi tuloksen lähes välittömästi, mutta lähinnä koska salasana oli <code>password</code> ja se sattui olemaan kolmanneksi yleisin salasana kyseisellä listalla. En oikein tiedä olinko vain onnellinen vai oliko tämä suunniteltu lopputulos, mutta salasana on nyt tiedossa joten kohti seuraavaa kysymystä: Hashataan salasana <code>password</code> 5000 kertaa käyttäen <code>SHA512</code> kryptausta ja <code>saltsaltsaltsalt</code> merkkijonoa suolana.</p>
+
+<pre><code class="language-python">import hashlib
+
+password = 'password'
+
+for i in range(5000):
+    h = hashlib.new('sha512')
+    h.update(b'saltsaltsaltsalt')
+    h.update(bytes(password, 'utf-8'))
+    password = h.hexdigest()
+    print(password)
+</code></pre>
+
+<p>Loppu tuloksena on aikamoinen hirviö <code>243b5bee3315ce38400393d5965116260e6ec99f1648179a14f3b33ac3d8d46c8e03a99a4196fffa591aabb89e6fc8a41d3e3c3982a9c7277cc1e375e3100d7c</code>. Oikea kysymys oli kuitenkin miltä <code>/etc/shadow</code> tiedoston rivi näyttää uuden salasanan kanssa. Jos Shadow tiedostossa on tarvetta useammalle kentälle salasana kenttä sisällä käytetään <code>$</code> merkkiä erottamaan eri kentät toisistaan. Ensimmäinen kenttä kertoo mitä hashia käytetään. Unix käyttöjärjestelmien salasanoissa <code>6</code> tarkoittaa <code>SHA512</code> kryptausta. Toisessa kentässä on suolaus, eli <code>saltsaltsaltsalt</code>. Kolmannessa kentässä on itse salasanan hash.</p>
+
+<pre><code class="language-bash">admin:$6$saltsaltsaltsalt$243b5bee3315ce38400393d5965116260e6ec99f1648179a14f3b33ac3d8d46c8e03a99a4196fffa591aabb89e6fc8a41d3e3c3982a9c7277cc1e375e3100d7c:16615:0:99999:7:::
+</code></pre>
+
+<p>Tässä meni yllättävän kauan aikaa, aluksi en tiennyt toimiko brute force skripti (toimi, mutta hitaasti) ja olin jo luopua toivosta ja maksaa pilvi cräkkäys palvelusta kuten <a href="http://hashcrack.org/">Hashcrack</a>, mutta onneksi tuli mieleen tuo sanakirja hyökkäys.</p>
+
+        </article>
+      </li>
+      <div class="post-divider"></div>
+    
+      <li>
+        <header class="post-header">
+          <a class="post-link" href="/2015/07/22/pvcc7.html">PVCC #7: Ämpärillä päähän</a>
+          <p class="post-meta">22.7.2015</p>
+        </header>
+
+        <article class="post-content">
+          <p><em>Etkö tiedä mikä on PVCC? <a href="/2015/07/20/fdfcc.html">Klikkaa tästä</a>.</em></p>
+
+<p>Seitsemännessä kysymyksessä meille annetaan vesihana ja kaksi ämpäriä (4.3l ja 4.7l). Meidän tehtävänä on mitata tarkkaan 4.6l vettä. Ja ämpäreissä ei ole mitään merkintöjä.</p>
+
+<p>Kyseessä on logiikka ongelma, mutta itselle tuttu. Kun tämän pulman tuntee, on se suhteellisen helppo suorittaa.</p>
+
+<p>Ideana on kaataa pienemmästä ämpäristä vettä suurempaan ja tyhjätä suurempi aina kun se täyttyy. Näin pienempään asiaan jää joka toisella kaato kerralla vähemmän ja vähemmän vettä kunnes pohjalle jää 0.3l ja koska \(0.3 + 4.3 = 4.6\) saamme oikean määrän vettä isompaan ämpäriin.</p>
+
+<p>Alla on lista tarvittavaista askeleista toteuttaa mittaus.</p>
+
+<pre><code class="language-python">A: 4.3 B: 0.0
+A: 0.0 B: 4.3
+A: 4.3 B: 4.3
+A: 3.9 B: 4.7
+A: 3.9 B: 0.0
+A: 0.0 B: 3.9
+A: 4.3 B: 3.9
+A: 3.5 B: 4.7
+A: 3.5 B: 0.0
+A: 0.0 B: 3.5
+A: 4.3 B: 3.5
+A: 3.1 B: 4.7
+A: 3.1 B: 0.0
+A: 0.0 B: 3.1
+A: 4.3 B: 3.1
+A: 2.7 B: 4.7
+A: 2.7 B: 0.0
+A: 0.0 B: 2.7
+A: 4.3 B: 2.7
+A: 2.3 B: 4.7
+A: 2.3 B: 0.0
+A: 0.0 B: 2.3
+A: 4.3 B: 2.3
+A: 1.9 B: 4.7
+A: 1.9 B: 0.0
+A: 0.0 B: 1.9
+A: 4.3 B: 1.9
+A: 1.5 B: 4.7
+A: 1.5 B: 0.0
+A: 0.0 B: 1.5
+A: 4.3 B: 1.5
+A: 1.1 B: 4.7
+A: 1.1 B: 0.0
+A: 0.0 B: 1.1
+A: 4.3 B: 1.1
+A: 0.7 B: 4.7
+A: 0.7 B: 0.0
+A: 0.0 B: 0.7
+A: 4.3 B: 0.7
+A: 0.3 B: 4.7
+A: 0.3 B: 0.0
+A: 0.0 B: 0.3
+A: 4.3 B: 0.3
+A: 0.0 B: 4.6
+</code></pre>
+
+<p>Tämä oli vähän tylsä tehtävä, koska suurin osa on tekemistä. Tietenkin tehtävän ratkaisuun voisi kehittää skriptin joka brute frocaisin vastauksen, mutta näin pienissä luvuissa tämä on nopeampaa tehdä käsin.</p>
+
+        </article>
+      </li>
+      <div class="post-divider"></div>
+    
+      <li>
+        <header class="post-header">
           <a class="post-link" href="/2015/07/22/pvcc6.html">PVCC #6: Ethernet kehys</a>
           <p class="post-meta">22.7.2015</p>
         </header>
@@ -318,218 +557,16 @@ b')87*;+xorXOR'
       </li>
       <div class="post-divider"></div>
     
-      <li>
-        <header class="post-header">
-          <a class="post-link" href="/2015/07/21/pvcc4.html">PVCC #4: Logiikkaa!</a>
-          <p class="post-meta">21.7.2015</p>
-        </header>
-
-        <article class="post-content">
-          <p><em>Etkö tiedä mikä on PVCC? <a href="/2015/07/20/fdfcc.html">Klikkaa tästä</a>.</em></p>
-
-<p>Neljäs kysymys on logiikka puzzle, jossa kaksi toisistaan eristettyä ohjelmaa luovat sattumanvaraisesti bitin. Generoituaan bitin ohjelmat arvaavat mikä toisen ohjelman bitti oli. Ohjelmat voivat olla erilaisia ja voivat käyttää eri strategioita. Jos yhden kierroksen jälkeen edes toinen ohjelma arvaa oikein voittavat ohjelmat palkinnon.</p>
-
-<p>Kysymys kuuluu:</p>
-
-<blockquote>
-  <p>“Onko mahdollista luoda strategia joka tuottaa aina voiton?”</p>
-</blockquote>
-
-<p>Kartoitetaan aluksi kaikki mahdolliset outputit näistä ohjelmista, olkoon ohjelmien nimet <code>A</code> ja <code>B</code></p>
-
-<pre><code class="language-bash"> | A | 0 | 1 | 0 | 1 |
- | B | 0 | 0 | 1 | 1 |
-</code></pre>
-
-<p>Vaikka yllä oleva totuustaulukko näyttääkin kaikki mahdolliset tulokset, ajetaan vielä varmuudeksi pieni simulaatio.</p>
-
-<pre><code class="language-python">&gt;&gt;&gt; import random
-&gt;&gt;&gt; for i in range(10):
-...   rand1 = random.randint(0,2)
-...   rand2 = random.randint(0,2)
-...   print(rand1, rand2)
-...
-1 0
-0 0
-1 1
-0 0
-0 1
-1 1
-0 0
-0 1
-0 1
-0 0
-</code></pre>
-
-<p>Tehtävänä on siis arvata ohjelmien tulokset yhden loopin jälkeen, mutta vain yhden arvon täytyy olla oikein. Tehtävään on helppo ratkaisu: toinen ohjelmista arvaa tuloksensa vastakohdan ja toinen arvaa saman kuin oma tuloksensa. Varmistetaan tämä vielä tekemällä totuustaulukko, jossa <code>T</code> on tulos ja <code>R</code> on arvaus.</p>
-
-<pre><code class="language-bash">    | T | R |           | T | R |           | T | R |           | T | R |
-| A | 0 | 0 |       | A | 1 | 1 |       | A | 0 | 0 |       | A | 1 | 1 |
-| B | 0 | 1 |       | B | 0 | 1 |       | B | 1 | 0 |       | B | 1 | 0 |
-</code></pre>
-
-<p>Kuten taulukosta käyt ilmi aina toinen, joko <code>A</code> tai <code>B</code>, ohjelma arvaa toisen tuloksen oikein. Näin voimme 100% varmuudella voittaa palkinnon joka kerta.
-Jos joku tahtoo itse kokeilla tätä ohjelmallisesti, tässä on lyhyt Python pätkä.</p>
-
-<pre><code class="language-python">import random
-for i in range(10):
-    rand1  = random.randint(0, 2)
-    rand2  = random.randint(0, 2)
-    quess1 = rand1
-    guess2 = 1 - rand2
-
-print(rand1, ":", quess1, "|", rand2, ":", guess2)
-</code></pre>
-
-<p>Tässä esimerkki tuloste:</p>
-
-<pre><code class="language-bash">py question3.py
-1 : 1 | 1 : 0
-0 : 0 | 0 : 1
-1 : 1 | 0 : 1
-1 : 1 | 0 : 1
-1 : 1 | 0 : 1
-1 : 1 | 1 : 0
-1 : 1 | 0 : 1
-1 : 1 | 0 : 1
-0 : 0 | 0 : 1
-0 : 0 | 0 : 1
-</code></pre>
-
-        </article>
-      </li>
-      <div class="post-divider"></div>
-    
-      <li>
-        <header class="post-header">
-          <a class="post-link" href="/2015/07/21/pvcc3.html">PVCC #3: Base64</a>
-          <p class="post-meta">21.7.2015</p>
-        </header>
-
-        <article class="post-content">
-          <p><em>Etkö tiedä mikä on PVCC? <a href="/2015/07/20/fdfcc.html">Klikkaa tästä</a>.</em></p>
-
-<p>Kolmannessa kysymyksessä meille annettiin ainoastaan merkkijono <code>TG9yZW1+SXBzdW0=</code> mikä vaikuttaa joltain hashilta? Oikeastaan ei, kyseinen jono näyttää base64 pätkältä.</p>
-
-<p>Miten base64 tarkistetaan? No sen voisi vaan rykästä jollekkin Googlesta löytyvälle decodaus sivustolle, mutta tarkistetaan itse, niin opitaan jotain. Tässä on yksinkertainen tarkistuslista base64 merkkijonolle:</p>
-
-<ul>
-  <li>Jono alkaa millä tahansa määrällä neljän (4) merkin ryhmiä jotka voivat olla väliltä <code>[A-Za-z0-9+]</code></li>
-  <li>Jota seuraa yksi seuraavista tai ei mitään:
-    <ul>
-      <li>Neljä merkkiä joista
-        <ul>
-          <li>Ensimmäinen ja toinen sopivat <code>[A-Za-z0-9+]</code></li>
-          <li>Kolmas merkki sopii <code>[AEIMQUYcgkosw048]</code></li>
-          <li>Viimeinen merkki on <code>=</code></li>
-        </ul>
-      </li>
-      <li>Neljä merkkiä joista
-        <ul>
-          <li>Ensimmäinen sopii <code>[A-Za-z0-9+]</code></li>
-          <li>Toinen sopii <code>[AQgw]</code></li>
-          <li>Kolmas ja neljäs ovat molemmat <code>=</code></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<h1 id="regular-expressions">Regular Expressions</h1>
-
-<p>Kuten heti edellä mainitusta listasta voidaan huomata base64 jonot voidaan jakaa neljän merkin jonoihin, joten ensimmäinen tarkistus tulee olla tarkistaa jakautuuko meidän jono neljällä.</p>
-
-<pre><code class="language-python">&gt;&gt;&gt; len('TG9yZW1+SXBzdW0=') % 4 == 0
-True
-</code></pre>
-
-<p>Hyvältä näyttää. Seuraavaksi tarkistetaan löytyvätkö ensimmäiset neljä merkkiä <code>TG9y</code> seuraavasta regular expressionista <code>[A-Za-z0-9+]</code>, mikä sopii isoihin ja pieniin kirjaimiin väliltä A - Z, numeroihin 0 - 9 sekä + -merkkiin. Jono näyttää sopivan, mutta tarkistetaan vielä.</p>
-
-<pre><code class="language-python">&gt;&gt;&gt; import re
-&gt;&gt;&gt; re.match('^[A-Za-z0-9+]{4}$', 'TG9y')
-&lt;_sre.SRE_Match object; span=(0, 4), match='TG9y'&gt;
-</code></pre>
-
-<p>Seuraavat neljä merkkiä <code>ZW1+</code> pitäisi löytyä samalla regexillä</p>
-
-<pre><code class="language-python">&gt;&gt;&gt; import re
-&gt;&gt;&gt; re.match('^[A-Za-z0-9+]{4}$', 'ZW1+')
-&lt;_sre.SRE_Match object; span=(0, 4), match='ZW1+'&gt;
-</code></pre>
-
-<p>Ja löytyyhän ne! Seuraavat neljä <code>SXBz</code> pitäisi löytyä myös.</p>
-
-<pre><code class="language-python">&gt;&gt;&gt; import re
-&gt;&gt;&gt; re.match('^[A-Za-z0-9+]{4}$', 'SXBz')
-&lt;_sre.SRE_Match object; span=(0, 4), match='SXBz'&gt;
-</code></pre>
-
-<p>Kas kummaa ne löytyvät. Nyt ollaan neljässä viimeisessä merkissä <code>dW0=</code> joista ensimmäisen tulisi sopia vanhaan tuttuun <code>[A-Za-z0-9+]</code>, toisen merkin tulisi sopia joko <code>[A-Za-z0-9+]</code> tai <code>[AQgw]</code>, kolmas merkki tulisi sopia <code>[AEIMQUYcgkosw048]</code> tai <code>=</code> ja viimeinen merkki tulisi olla <code>=</code>.</p>
-
-<pre><code class="language-python">&gt;&gt;&gt; import re
-&gt;&gt;&gt; re.match('^[A-Za-z0-9+]([A-Za-z0-9+]|[AQgw])([AEIMQUYcgkosw048]|=)=$', 'dW0=')
-&lt;_sre.SRE_Match object; span=(0, 4), match='dW0='&gt;
-</code></pre>
-
-<p>Jopa viimeinen osa sopii. Nyt yhdistetään kaikki yllä olevat regular expressionit yhteen.</p>
-
-<pre><code class="language-python">&gt;&gt;&gt; import re
-&gt;&gt;&gt; re.match('^([A-Za-z0-9+])*([A-Za-z0-9+]([A-Za-z0-9+]|[AQgw])([AEIMQUYcgkosw048]|=)=)$', 'TG9yZW1+SXBzdW0=')
-&lt;_sre.SRE_Match object; span=(0, 16), match='TG9yZW1+SXBzdW0='&gt;
-</code></pre>
-
-<p>Ja siinä meillä on yksinkertainen tarkistus skripti base64 jonoille, jonka mukaan kyseessä on base64 jono.</p>
-
-<h1 id="dekoodaus">Dekoodaus</h1>
-
-<p>Nyt kun tiedetään että meillä on base64 jono, voidaan se dekoodata. Tämäkin voitaisiin tehdä manuaalisesti, <a href="https://en.wikipedia.org/wiki/Base64">Base64 Wikipedia artikkelista</a> löytyy jopa koodi esimerkki, mutta se olisi tylsää copy-pastea ja tämä postaus alkaa jo olemaan vähän liiankin pitkä. Joten on aika ripotella vähän Pythonia päälle ja pyyhkiä kyseinen ongelma pois päiväjärjestyksestä.</p>
-
-<pre><code class="language-python">&gt;&gt;&gt; import base64
-&gt;&gt;&gt; base64.b64decode(bytes('TG9yZW1+SXBzdW0=', 'utf-8'))
-b'Lorem~Ipsum'
-</code></pre>
-
-<p>Siinä meillä on vastaus <code>Lorem~Ipsum</code>.</p>
-
-        </article>
-      </li>
-      <div class="post-divider"></div>
-    
-      <li>
-        <header class="post-header">
-          <a class="post-link" href="/2015/07/20/pvcc2.html">PVCC2 #2: 700 miljardia salasanaa sekunnissa</a>
-          <p class="post-meta">20.7.2015</p>
-        </header>
-
-        <article class="post-content">
-          <p><em>Etkö tiedä mikä on PVCC? <a href="/2015/07/20/fdfcc.html">Klikkaa tästä</a>.</em></p>
-
-<p>Tokassa kysymyksessä cräkätään salasanoja. Tarkoitus on laskea teoreettinen maksimi aika kahdella eri tavalla luodulle salasanalle. Ensimmäinen salasana luodaan liittämällä yhteen sattumanvaraisesti neljä sanaa 31337 sanan tiedetystä listasta. Toinen salasana luodaan yhdeksästä sattumanvaraisesta printattavasta ASCII merkistä. Molemmat salasanat puretaan koneella joka pystyy tekemään 700 miljardia hash operaatiota sekunnissa. Nyt matikkamyssyt päähän ja cräkkäämään.</p>
-
-<p>Neljä sanaa 31337 sanan listasta täysin sattuman varaisesti tuottaa \(3133^4\) mahdollista yhdistelmää, kun se jaetaan 700 miljardilla saadaan tulokseksi \(31337^4 / 700 \times 10^9\) mikä on sama kuin \(1.38 \times 10^6\) sekuntia. Vastaus pitää kuitenkin antaa päivän tarkkuudella joten lopullinen yhtälö näyttää tältä:</p>
-
-<script type="math/tex; mode=display">\dfrac{3133^4}{700 \times 10^9 \times 3600 \times 24} \approx 16</script>
-
-<p>Toka salasana on perinteisempi ongelma. <a href="https://fi.wikipedia.org/wiki/ASCII">Wikipedian</a> mukaan ASCII sisältää 95 näkyvää merkkiä. Mikä tarkoittaa meillä voi olla \(95^9\) mahdollista salasanaa ja koska meillä on käytössä sama kone kuin edellisen salasanan kanssa lopullinen yhtälö on:</p>
-
-<script type="math/tex; mode=display">\dfrac{95^9}{700 \times 10^9 \times 3600 \times 24} \approx 10</script>
-
-<p>Tehtävän vastaukset ovat siis <strong>a)</strong> 16 päivää ja <strong>b)</strong> 10 päivää.</p>
-
-        </article>
-      </li>
-      <div class="post-divider"></div>
-    
   </ul>
 
 
   <!-- Pagination links -->
   <div class="pagination">
     
-      <a href="/index.html" class="previous">Edellinen</a>
+      <a href="/index.html" class="previous">Uudempia</a>
     
     
-      <a href="/sivu3/" class="next">Seuraava</a>
+      <a href="/sivu3/" class="next">Vanhempia</a>
     
   </div>
   <!--<p class="rss-subscribe">Tilaa <a href="/feed.xml">RSS:llä</a></p>-->
