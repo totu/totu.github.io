@@ -5,8 +5,8 @@
     <description>Ajatuksia, tarinoita ja ideoita.</description>
     <link>http://ajatusrikos.fi/</link>
     <atom:link href="http://ajatusrikos.fi/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 01 Aug 2015 12:10:35 +0300</pubDate>
-    <lastBuildDate>Sat, 01 Aug 2015 12:10:35 +0300</lastBuildDate>
+    <pubDate>Sat, 01 Aug 2015 12:57:41 +0300</pubDate>
+    <lastBuildDate>Sat, 01 Aug 2015 12:57:41 +0300</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -44,7 +44,7 @@ cmp     edx, 0x452f2c4e
 
 &lt;p&gt;&lt;code&gt;mov&lt;/code&gt; komento hakee datan &lt;code&gt;esi&lt;/code&gt; osoittamasta muistista ja siirtää sen &lt;code&gt;edx&lt;/code&gt; arvoksi. Seuraavaksi &lt;code&gt;edx&lt;/code&gt; arvo vedetään loogisesta XOR funktiosta läpi &lt;code&gt;0x31415926&lt;/code&gt; kanssa. Lopuksi &lt;code&gt;edx&lt;/code&gt; arvoa verrataan &lt;code&gt;cmp&lt;/code&gt; komennolla arvoon &lt;code&gt;0x452f2c4e&lt;/code&gt; jonka tulisi olla tosi.&lt;/p&gt;
 
-&lt;p&gt;Nyt voidaan kulkea logiikkaa läpi takaperin. Jos &lt;code&gt;edx&lt;/code&gt; on &lt;code&gt;0x452f2c4e&lt;/code&gt; XOR funktion jälkeen, jos XOR tehdään toisinpäin, saadaan &lt;code&gt;edx&lt;/code&gt; alkuperäinen arvo. \(0x452f2c4e \oplus 0x31415926 = 0x746e7568\). Ennen dekoodausta otetaan selvää seuraavasta kohdasta.&lt;/p&gt;
+&lt;p&gt;Nyt voidaan kulkea logiikkaa läpi takaperin. Jos &lt;code&gt;edx&lt;/code&gt; on &lt;code&gt;0x452f2c4e&lt;/code&gt; XOR funktion jälkeen, jos XOR tehdään toisinpäin, saadaan &lt;code&gt;edx&lt;/code&gt; alkuperäinen arvo. &lt;code&gt;0x452f2c4e&lt;/code&gt; \(\oplus\) &lt;code&gt;0x31415926&lt;/code&gt; \(=\) &lt;code&gt;0x746e7568&lt;/code&gt;. Ennen dekoodausta otetaan selvää seuraavasta kohdasta.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;mov     edx, [esi + 4]
 not     edx

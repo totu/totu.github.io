@@ -103,7 +103,7 @@ cmp     edx, 0x452f2c4e
 
 <p><code>mov</code> komento hakee datan <code>esi</code> osoittamasta muistista ja siirtää sen <code>edx</code> arvoksi. Seuraavaksi <code>edx</code> arvo vedetään loogisesta XOR funktiosta läpi <code>0x31415926</code> kanssa. Lopuksi <code>edx</code> arvoa verrataan <code>cmp</code> komennolla arvoon <code>0x452f2c4e</code> jonka tulisi olla tosi.</p>
 
-<p>Nyt voidaan kulkea logiikkaa läpi takaperin. Jos <code>edx</code> on <code>0x452f2c4e</code> XOR funktion jälkeen, jos XOR tehdään toisinpäin, saadaan <code>edx</code> alkuperäinen arvo. \(0x452f2c4e \oplus 0x31415926 = 0x746e7568\). Ennen dekoodausta otetaan selvää seuraavasta kohdasta.</p>
+<p>Nyt voidaan kulkea logiikkaa läpi takaperin. Jos <code>edx</code> on <code>0x452f2c4e</code> XOR funktion jälkeen, jos XOR tehdään toisinpäin, saadaan <code>edx</code> alkuperäinen arvo. <code>0x452f2c4e</code> \(\oplus\) <code>0x31415926</code> \(=\) <code>0x746e7568</code>. Ennen dekoodausta otetaan selvää seuraavasta kohdasta.</p>
 
 <pre><code class="language-bash">mov     edx, [esi + 4]
 not     edx
