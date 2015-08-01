@@ -65,6 +65,86 @@
     
       <li>
         <header class="post-header">
+          <a class="post-link" href="/2015/07/25/pvcc10.html">PVCC #10: Regex</a>
+          <p class="post-meta">25.7.2015</p>
+        </header>
+
+        <article class="post-content">
+          <p><em>Etkö tiedä mikä on PVCC? <a href="/2015/07/20/fdfcc.html">Klikkaa tästä</a>.</em></p>
+
+<p>10. kysymys käsittelee yleisön suosikkia: Regular Expressioneja!</p>
+
+<p>Meidän tulee tehdä Regex, joka sopii sanoihin jotka alkaa ja loppuu samalla konsonantilla ja joiden pituus on jaollinen kolmella. Regex ei saa olla yli 40 merkkiä pitkä ja jokaisesta merkistä 30 jälkeen sakotetaan.</p>
+
+<p>Ensimmäinen yritys oli aika karkea, kuten yleensä.</p>
+
+<pre><code class="language-python">^([cdhjklmnnprstvbfgz])+.+([cdhjklmnnprstvbfgz])$
+</code></pre>
+
+<p>Mikä ei ihan tehnyt mikä piti.</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; import regex
+&gt;&gt;&gt; strings = ['test', 'teeest', 'asd', 'lol', 'dead', 'cat']
+&gt;&gt;&gt; for s in strings:
+...   if regex.match(r'^([cdhjklmnnprstvbfgz])+.+([cdhjklmnnprstvbfgz])$', s):
+...     print(s)
+...
+test
+teeest
+lol
+dead
+cat
+</code></pre>
+
+<p>Lisäksi <code>len('^([cdhjklmnnprstvbfgz])+.+([cdhjklmnnprstvbfgz])$')</code> on 49, eli regex on aivan liian pitkä. Sitten aloin lukemaan POSIX regular expressionin dokumentaatiota ja löysin regexp ryhmät. Ryhmä on regex jok on sulkujen välissä ja niihin voi viitata ryhmän järjestysluvulla esim. <code>\1</code>. Pistetään käytäntöön.</p>
+
+<pre><code class="language-python">^([cdhjklmnnprstvbfgz]).*\1$
+</code></pre>
+
+<p>Mikä on jo parempi, kuten seuraavasta voidaan huomata sana <code>cat</code> on kadonnut, eikä pituus ole enään kuin 27 merkkiä.</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; import regex
+&gt;&gt;&gt; strings = ['test', 'teeest', 'asd', 'lol', 'dead', 'cat']
+&gt;&gt;&gt; for s in strings:
+...   if regex.match(r'^([cdhjklmnnprstvbfgz]).*\1$', s):
+...     print(s)
+...
+test
+teeest
+lol
+dead
+</code></pre>
+
+<p>Tässä kohtaa jäin vähän jumiin. Koetin erilaisia juttuja <code>(){3}</code> tyylisellä syntaksilla, muttei mikään ottanut tuulta alleen. Onneksi olin heittänyt tämän pallon jo alkuvaiheella myös kaverilleni joka keksi seuraavan parannuksen.</p>
+
+<pre><code class="language-python">^([dhjklmnnprstvbfgz]).(...)*\1$
+</code></pre>
+
+<p>Ja se toimii täydellisesti.</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; import regex
+&gt;&gt;&gt; strings = ['test', 'teeest', 'asd', 'lol', 'dead', 'cat']
+&gt;&gt;&gt; for s in strings:
+...   if regex.match(r'^([dhjklmnnprstvbfgz]).(...)*\1$', s):
+...     print(s)
+...
+teeest
+lol
+</code></pre>
+
+<p>Mutta meillä on nyt pienehkö pulma. Pituus regexillä on 31 merkkiä, mikä on toki alta 40 merkkiä, mutta juuri yli 30 merkin. Sitten saimme sellaisen “Ahaa!” ajatuksen, koska regexiä ajetaan kasaa suomenkielisiä sanoa vastaan meidän ei kannata etsiä konsonantteja vaan sulkea pois vokaaleja ja saamme seuraavan.</p>
+
+<pre><code class="language-python">^([^aeiouy]).(...)*\1$
+</code></pre>
+
+<p>Tämä regex toimii aivan kuten edellinen, mutta on vain 21 merkkiä pitkä, mikä on reippaasti tehtävän 30 merkki rajan alapuolella.</p>
+
+        </article>
+      </li>
+      <div class="post-divider"></div>
+    
+      <li>
+        <header class="post-header">
           <a class="post-link" href="/2015/07/24/pvcc9.html">PVCC #9: Leo, Adi ja Ron</a>
           <p class="post-meta">24.7.2015</p>
         </header>
@@ -515,43 +595,6 @@ Data:            03 6D 69 6C 02 66 69 00 00 01 00 01
 </blockquote>
 
 <p>Koska kysymys on tässä muodossa voisin helposti olettaa että paketti ei pääse kohteeseensa, mutten löydä siitä mitään vikaa. Ehkä checksummat ovat väärin, mutten jaksa alkaa tarkistamaan niitä, joten vastaan: <strong>kyllä</strong> paketti pääsee kohteeseensa.</p>
-
-        </article>
-      </li>
-      <div class="post-divider"></div>
-    
-      <li>
-        <header class="post-header">
-          <a class="post-link" href="/2015/07/21/pvcc5.html">PVCC #5: Binäärejä</a>
-          <p class="post-meta">21.7.2015</p>
-        </header>
-
-        <article class="post-content">
-          <p><em>Etkö tiedä mikä on PVCC? <a href="/2015/07/20/fdfcc.html">Klikkaa tästä</a>.</em></p>
-
-<p>Viidennessä kysymys ei ole niinkään kysymys, kuin kasa ykkösiä ja nollia.</p>
-
-<blockquote>
-  <p>00101001 00111000 00110111 00101010 00111011 00101011
-01111000 01101111 01110010 01011000 01001111 01010010</p>
-</blockquote>
-
-<p>Selkeästi kyseessä on binäärejä.</p>
-
-<p>Käydään nopeasti lävitse bitin ja tavun ero. Bitti on tietokoneiden perusyksikkö, se on numero joka voi olla joko 1 tai 0. Tavu on kahdeksan bittiä. Kuten nokkelimmat jo huomasivat, binäärimme on jaettu kahdeksaan kahdeksan bitin sarjaan, eli kahdeksaan tavuun.</p>
-
-<p>Ensimmäinen tavu on <code>00101001</code>. Bitit luetaan oikealta vasemmalle ja niiden arvot aina tuplaantuu, eli ensimmäinen tavu aivan oikealla vastaa numeroa 1. Seuraava vasemmalle, eli toinen tavu vastaa numeroa 2. Kolmas vasemmalle vastaa numeroa 4. Seuraava on 8 ja sitten 16 jne. Koska tavussa on kahdeksan bittiä voi se saada arvon väliltä 0 - 255. Kyseinen tavu siis vastaa \(00101001 = 1 + 8 + 32 = 41\).</p>
-
-<p>Koska tehtävässä ei erikseen mainita mitä binäärillä tulee tehdä, oletan että kyseessä on jonkinlainen ASCII jono. <a href="http://www.asciitable.com/">ASCII table</a> -sivun mukaan numero 41 vastaa merkkiä “)”. Nyt tietty voidaan laskea kaikki tavut käsin yhteen ja etsiä ne tuolta taulusta, taikka sitten voidaan kokeilla jotain muuta.</p>
-
-<pre><code class="language-python">&gt;&gt;&gt; import binascii
-&gt;&gt;&gt; b = "00101001 00111000 00110111 00101010 00111011 00101011 01111000 01101111 01110010 01011000 01001111 01010010".replace(" ", "")
-&gt;&gt;&gt; n = int('0b'+b, 2)
-&gt;&gt;&gt; binascii.unhexlify('%x' % n)
-b')87*;+xorXOR'
-</code></pre>
-
-<p>Ja siinä saatiin vastaus joka näyttää olevan: <code>)87*;+xorXOR</code>.</p>
 
         </article>
       </li>
