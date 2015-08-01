@@ -5,8 +5,8 @@
     <description>Ajatuksia, tarinoita ja ideoita.</description>
     <link>http://ajatusrikos.fi/</link>
     <atom:link href="http://ajatusrikos.fi/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 01 Aug 2015 12:57:41 +0300</pubDate>
-    <lastBuildDate>Sat, 01 Aug 2015 12:57:41 +0300</lastBuildDate>
+    <pubDate>Sat, 01 Aug 2015 12:59:58 +0300</pubDate>
+    <lastBuildDate>Sat, 01 Aug 2015 12:59:58 +0300</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -51,7 +51,7 @@ not     edx
 cmp     edx, 0xcdcb8d9a
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;code&gt;edx&lt;/code&gt; saa uuden arvon mikä on &lt;code&gt;esi&lt;/code&gt; osoittama muisti plus neljä tavua, &lt;code&gt;esi&lt;/code&gt; arvoa siirretään neljällä koska &lt;code&gt;mov&lt;/code&gt; palauttaa neljä tavua dataa. Seuraavaksi &lt;code&gt;edx&lt;/code&gt; menee lävitse loogisesta NOT funktiosta joka kääntää jokaisen bitin, eli &lt;code&gt;1&lt;/code&gt; tulee &lt;code&gt;0&lt;/code&gt; ja &lt;code&gt;0&lt;/code&gt; tulee &lt;code&gt;1&lt;/code&gt;. Ja lopputuloksena &lt;code&gt;edx&lt;/code&gt; on sama kuin &lt;code&gt;0xcdcb8d9a&lt;/code&gt;. Taas logiikkaa kulkea toiseen suuntaan. Jos &lt;code&gt;[esi + 4]&lt;/code&gt; arvo on &lt;code&gt;0xcdcb8d9a&lt;/code&gt; loogisen NOT jälkeen, on &lt;code&gt;0xcdcb8d9a&lt;/code&gt; arvo loogisen NOT jälkeen sama kuin &lt;code&gt;[esi + 4]&lt;/code&gt;.  &lt;code&gt;~0xcdcb8d9a = 0x32347265&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;edx&lt;/code&gt; saa uuden arvon mikä on &lt;code&gt;esi&lt;/code&gt; osoittama muisti plus neljä tavua, &lt;code&gt;esi&lt;/code&gt; arvoa siirretään neljällä koska &lt;code&gt;mov&lt;/code&gt; palauttaa neljä tavua dataa. Seuraavaksi &lt;code&gt;edx&lt;/code&gt; menee lävitse loogisesta NOT funktiosta joka kääntää jokaisen bitin, eli &lt;code&gt;1&lt;/code&gt; tulee &lt;code&gt;0&lt;/code&gt; ja &lt;code&gt;0&lt;/code&gt; tulee &lt;code&gt;1&lt;/code&gt;. Ja lopputuloksena &lt;code&gt;edx&lt;/code&gt; on sama kuin &lt;code&gt;0xcdcb8d9a&lt;/code&gt;. Taas logiikkaa kulkea toiseen suuntaan. Jos &lt;code&gt;[esi + 4]&lt;/code&gt; arvo on &lt;code&gt;0xcdcb8d9a&lt;/code&gt; loogisen NOT jälkeen, on &lt;code&gt;0xcdcb8d9a&lt;/code&gt; arvo loogisen NOT jälkeen sama kuin &lt;code&gt;[esi + 4]&lt;/code&gt;.  &lt;code&gt;~0xcdcb8d9a&lt;/code&gt; \(=\) &lt;code&gt;0x32347265&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h1 id=&quot;dekoodaus&quot;&gt;Dekoodaus&lt;/h1&gt;
 &lt;p&gt;Käännetään hexat ascii arvoiksi.&lt;/p&gt;

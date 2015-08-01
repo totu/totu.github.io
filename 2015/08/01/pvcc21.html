@@ -107,7 +107,7 @@ not     edx
 cmp     edx, 0xcdcb8d9a
 </code></pre>
 
-<p><code>edx</code> saa uuden arvon mikä on <code>esi</code> osoittama muisti plus neljä tavua, <code>esi</code> arvoa siirretään neljällä koska <code>mov</code> palauttaa neljä tavua dataa. Seuraavaksi <code>edx</code> menee lävitse loogisesta NOT funktiosta joka kääntää jokaisen bitin, eli <code>1</code> tulee <code>0</code> ja <code>0</code> tulee <code>1</code>. Ja lopputuloksena <code>edx</code> on sama kuin <code>0xcdcb8d9a</code>. Taas logiikkaa kulkea toiseen suuntaan. Jos <code>[esi + 4]</code> arvo on <code>0xcdcb8d9a</code> loogisen NOT jälkeen, on <code>0xcdcb8d9a</code> arvo loogisen NOT jälkeen sama kuin <code>[esi + 4]</code>.  <code>~0xcdcb8d9a = 0x32347265</code>.</p>
+<p><code>edx</code> saa uuden arvon mikä on <code>esi</code> osoittama muisti plus neljä tavua, <code>esi</code> arvoa siirretään neljällä koska <code>mov</code> palauttaa neljä tavua dataa. Seuraavaksi <code>edx</code> menee lävitse loogisesta NOT funktiosta joka kääntää jokaisen bitin, eli <code>1</code> tulee <code>0</code> ja <code>0</code> tulee <code>1</code>. Ja lopputuloksena <code>edx</code> on sama kuin <code>0xcdcb8d9a</code>. Taas logiikkaa kulkea toiseen suuntaan. Jos <code>[esi + 4]</code> arvo on <code>0xcdcb8d9a</code> loogisen NOT jälkeen, on <code>0xcdcb8d9a</code> arvo loogisen NOT jälkeen sama kuin <code>[esi + 4]</code>.  <code>~0xcdcb8d9a</code> \(=\) <code>0x32347265</code>.</p>
 
 <h1 id="dekoodaus">Dekoodaus</h1>
 <p>Käännetään hexat ascii arvoiksi.</p>
