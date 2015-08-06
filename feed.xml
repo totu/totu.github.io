@@ -5,9 +5,62 @@
     <description>Ajatuksia, tarinoita ja ideoita.</description>
     <link>http://ajatusrikos.fi/</link>
     <atom:link href="http://ajatusrikos.fi/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 01 Aug 2015 12:59:58 +0300</pubDate>
-    <lastBuildDate>Sat, 01 Aug 2015 12:59:58 +0300</lastBuildDate>
+    <pubDate>Thu, 06 Aug 2015 10:33:24 +0300</pubDate>
+    <lastBuildDate>Thu, 06 Aug 2015 10:33:24 +0300</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Fyysinen turvallisuus on parasta</title>
+        <description>&lt;p&gt;Eilen kävelyllä kuljin ohitse tästä talosta, ja piti kävellä takaisin kun jokin jäi häiritsemään.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/talo1.jpg&quot; alt=&quot;Kuva talon edustalta&quot; title=&quot;Kuva talon edustalta&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Ohitse kulkiessa aluksi mietin pystyisikö tuon esteen ohittaa astumalla oikealla olevalle kiinnikkeelle ja sen jälkeen vetämällä itsensä ylös, mutta jokin muu osui silmään.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/talo2.jpg&quot; alt=&quot;Kuva tikkaiden esteestä&quot; title=&quot;Kuva tikkaiden esteestä&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Lukkohan se siinä, varmaan pitämässä tota tikkaiden estettä kiinni tikkaissa… Mutta miksi se roikkuu tuolla? Miten ihmeessä tämä este on kiinni tikkaissa?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/talo3.jpg&quot; alt=&quot;Kuva lukosta&quot; title=&quot;Kuva lukosta&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Siinähän se lukko roikkuu, eli tikkaiden este ei ole kiinnitetty yhtään millään. Lukosta voi nähdä ruosteisen kohdat joista esteen saisi kiinni tikkaaseen. Fyysinen turvallisuus on välillä jännää.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 06 Aug 2015 10:22:30 +0300</pubDate>
+        <link>http://ajatusrikos.fi/2015/08/06/fyysinen-turvallisuus.html</link>
+        <guid isPermaLink="true">http://ajatusrikos.fi/2015/08/06/fyysinen-turvallisuus.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Lukko</title>
+        <description>&lt;p&gt;Viime viikolla tuli eteen fyysisen turvallisuuden puolelta projekti. Matkalaukun lukon yhdistelmä oli unohtunut. Lukko oli yleinen kolmen numeron yhdistelmälukko. Aluksi harkitsin brute forcausta, mutta en tahtonut viettää loppu iltaa lukon kanssa, joten irroitin lukon ja avasin sen.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/lukko.jpg&quot; alt=&quot;Kuva lukon sisälmyksistä&quot; title=&quot;Lukon sisälmykset&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Kuvassa alhaalla on lukon numeroyhdistelmän kiekot, jotka oikeassa asennossa antavat salvan liikkua vasemmalle, salpa jousen ansiosta, ja näin antavat kuvan keskiosassa olevan keltaisen lukon painautua alaspäin.&lt;/p&gt;
+
+&lt;p&gt;Lukko on suunniteltu turvallisuuden kannalta suhteellisen hyvin, mutta siinä on yksi suunnitteluvirhe minkä takia lukon yhdistelmä on alunperinkin päässyt unohtumaan/hukkumaan.&lt;/p&gt;
+
+&lt;h1 id=&quot;hyvt&quot;&gt;Hyvät&lt;/h1&gt;
+
+&lt;p&gt;Koska salpa on yhtenäinen kaikille kiekoille, eli yhtä kiekkoa pyörittämällä tunne hampaiden paikkaa. Lisäksi kun lukon painaa alas salvan ollessa lukittuna estää se salvan liikkumisen, eli brute forcattaessa lukon avaus pitää suorittaa joka yhdistelmän kanssa erikseen, lukkoa ei voi vain pitää pohjassa ja pyöritellä kiekkoja.&lt;/p&gt;
+
+&lt;h1 id=&quot;huonot&quot;&gt;Huonot&lt;/h1&gt;
+
+&lt;p&gt;Koska lukon yhdistelmä on tehty vaihdettavaksi koostuvat lukon numero kiekot kahdesta osasta. Itse kiekosta jota pyöritetään, sekä hammas kiekosta jota numero kiekko pyörittää. Hammas kiekon päällä olevien jousien on tarkoitus pitää kiekot yhdessä, mutta kiekon numero 1. jousi ei ole tarpeeksi vahva pitämään kiekkoa paikallaan jos kiekkoa käännetään numerojärjestyksessä (kuvassa alaspäin). Kun 1. kiekkoa käännetään alaspäin, salvan ollessa auki, aiheutuu salpa jousesta, sekä salvan hampaasta enemmän kitkaa kuin hammas kiekon jousesta jolloin hammas kiekko hyppää numeron ylitse, joka vaihtaa yhdistelmää. Oletettavasti tämä on se syy miksi yhdistelmä on alunperinkin unohtunut.&lt;/p&gt;
+
+&lt;h1 id=&quot;korjaus&quot;&gt;Korjaus&lt;/h1&gt;
+
+&lt;p&gt;1. kiekon hyppäys on suunnitteluvirhe, muut kiekot toimivat normaalisti ja 1. kiekko toimii normaalisti käännettäessä ylöspäin, eikä alaspäin käännettäessä ole ongelmia kunhan salpa ei ole auki, eli jos salpa numero 2. tai 3. käännetään ensiksi. Ongelman “korjaus” on käytön muuttaminen, nopea nyrkkisääntö on: “lukitse lukko aina ensiksi keskimmäisellä numerolla”, mikä on aika huono korjaus, muttei lukolle oikein voi muuta tehdä.&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 03 Aug 2015 09:49:00 +0300</pubDate>
+        <link>http://ajatusrikos.fi/2015/08/03/lukko.html</link>
+        <guid isPermaLink="true">http://ajatusrikos.fi/2015/08/03/lukko.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>PVCC #21: Assemblya</title>
@@ -553,289 +606,6 @@ for i in range(5000):
         <pubDate>Thu, 23 Jul 2015 09:50:51 +0300</pubDate>
         <link>http://ajatusrikos.fi/2015/07/23/pvcc8.html</link>
         <guid isPermaLink="true">http://ajatusrikos.fi/2015/07/23/pvcc8.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>PVCC #7: Ämpärillä päähän</title>
-        <description>&lt;p&gt;&lt;em&gt;Etkö tiedä mikä on PVCC? &lt;a href=&quot;/2015/07/20/fdfcc.html&quot;&gt;Klikkaa tästä&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Seitsemännessä kysymyksessä meille annetaan vesihana ja kaksi ämpäriä (4.3l ja 4.7l). Meidän tehtävänä on mitata tarkkaan 4.6l vettä. Ja ämpäreissä ei ole mitään merkintöjä.&lt;/p&gt;
-
-&lt;p&gt;Kyseessä on logiikka ongelma, mutta itselle tuttu. Kun tämän pulman tuntee, on se suhteellisen helppo suorittaa.&lt;/p&gt;
-
-&lt;p&gt;Ideana on kaataa pienemmästä ämpäristä vettä suurempaan ja tyhjätä suurempi aina kun se täyttyy. Näin pienempään asiaan jää joka toisella kaato kerralla vähemmän ja vähemmän vettä kunnes pohjalle jää 0.3l ja koska \(0.3 + 4.3 = 4.6\) saamme oikean määrän vettä isompaan ämpäriin.&lt;/p&gt;
-
-&lt;p&gt;Alla on lista tarvittavaista askeleista toteuttaa mittaus.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;A: 4.3 B: 0.0
-A: 0.0 B: 4.3
-A: 4.3 B: 4.3
-A: 3.9 B: 4.7
-A: 3.9 B: 0.0
-A: 0.0 B: 3.9
-A: 4.3 B: 3.9
-A: 3.5 B: 4.7
-A: 3.5 B: 0.0
-A: 0.0 B: 3.5
-A: 4.3 B: 3.5
-A: 3.1 B: 4.7
-A: 3.1 B: 0.0
-A: 0.0 B: 3.1
-A: 4.3 B: 3.1
-A: 2.7 B: 4.7
-A: 2.7 B: 0.0
-A: 0.0 B: 2.7
-A: 4.3 B: 2.7
-A: 2.3 B: 4.7
-A: 2.3 B: 0.0
-A: 0.0 B: 2.3
-A: 4.3 B: 2.3
-A: 1.9 B: 4.7
-A: 1.9 B: 0.0
-A: 0.0 B: 1.9
-A: 4.3 B: 1.9
-A: 1.5 B: 4.7
-A: 1.5 B: 0.0
-A: 0.0 B: 1.5
-A: 4.3 B: 1.5
-A: 1.1 B: 4.7
-A: 1.1 B: 0.0
-A: 0.0 B: 1.1
-A: 4.3 B: 1.1
-A: 0.7 B: 4.7
-A: 0.7 B: 0.0
-A: 0.0 B: 0.7
-A: 4.3 B: 0.7
-A: 0.3 B: 4.7
-A: 0.3 B: 0.0
-A: 0.0 B: 0.3
-A: 4.3 B: 0.3
-A: 0.0 B: 4.6
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Tämä oli vähän tylsä tehtävä, koska suurin osa on tekemistä. Tietenkin tehtävän ratkaisuun voisi kehittää skriptin joka brute frocaisin vastauksen, mutta näin pienissä luvuissa tämä on nopeampaa tehdä käsin.&lt;/p&gt;
-</description>
-        <pubDate>Wed, 22 Jul 2015 22:39:42 +0300</pubDate>
-        <link>http://ajatusrikos.fi/2015/07/22/pvcc7.html</link>
-        <guid isPermaLink="true">http://ajatusrikos.fi/2015/07/22/pvcc7.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>PVCC #6: Ethernet kehys</title>
-        <description>&lt;p&gt;&lt;em&gt;Etkö tiedä mikä on PVCC? &lt;a href=&quot;/2015/07/20/fdfcc.html&quot;&gt;Klikkaa tästä&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Kuudennessa kysymyksessä käsitellään Ethernet kehystä. Meille annettiin vain seuraava hexa dumppi ja muutama kysymys.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;5254 0012 3502 0800
-274A A3B1 0800 4500
-0034 DA63 0000 4011
-8A37 0A00 020F 0808
-0808 DD7C 0035 0020
-1C50 519F 0100 0001
-0000 0000 0000 036D
-696C 0266 6900 0001
-0001&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Ennen kuin mennään kysymyksiin pitää meidän kuitenkin dekoodata kehys. Koska itseltä löytyy heikosti tietoa Ethernet kehysten purkamisesta, ensi vaistoni oli lyödä hexa &lt;a href=&quot;https://www.wireshark.org/&quot;&gt;Wiresharkkiin&lt;/a&gt; ja tökkiä sitä kunnes se paljastaa salaisuutensa. Wireshark ei kuitenkaan suostunut avaamaan kyseistä dumppia, en tiedä onko kehys puukotettu toimimattomaksi Wiresharkin kanssa, vai pitäisikö sille tehdä jotain erikoista ennen kun Wireshark suosuu syömään sen, mutta ei hätä ole tämän näköinen. Aina voidaan dekoodata kehys käsin speksistä.&lt;/p&gt;
-
-&lt;h1 id=&quot;mac-otsikko&quot;&gt;MAC-otsikko&lt;/h1&gt;
-
-&lt;p&gt;Ethernet kehys alkaa 20 tavun MAC-otsikolla, josta ensinmäiset 12 tavua kertoo kohteen ja lähteen MAC-osoitteet.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-code&quot;&gt;Kohde MAC:      52 54 00 12 35 02
-Lähde MAC:      08 00 27 4A A3 B1
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Seuraavat kaksi tavua kertovat kehyksen tyypin ja merkkaavat otsikon lopun.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-code&quot;&gt;EtherType:      08 00
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Ether tyyppi &lt;code&gt;0x0800&lt;/code&gt; kertoo meille että kyseessä on IPv4 paketti, joten seuraavaksi tulee IP-otsikko.&lt;/p&gt;
-
-&lt;h1 id=&quot;ip-otsikko&quot;&gt;IP-otsikko&lt;/h1&gt;
-
-&lt;p&gt;IPv4-otsikon ensinmäinen tavu kertoo meille version ja otsikon pituuden.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-code&quot;&gt;IP Versio:      45
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Seuraava tavu on hieman erikoinen, ennen se oli “Type of Service (ToS)”, mutta nykyään se on jaettu kahtia “Differentiated Services Code Poit (DSCP)” ja “Exokicit Congestion Notification (ECN)” kesken. DSCP käyttää ensinmäiset 6 tavua ja ECN loput kaks. Niitä käytetään verkon laadun monitorointiin.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-code&quot;&gt;QoS:             00
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Seuraavat kaksi tavua kertoo koko paketin (otsikko + data) koon. Minimi on 20 tavua, koska se on otsikon koko. the header.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-code&quot;&gt;IP Koko:         00 34
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Seuraavia kahta tavua käytetään paketti osan uniikkiin tunnistamiseen.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-code&quot;&gt;ID:              DA 63
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Seuraavat kaksi tavua on jaettu ns. lippujen (flags) ja osoittamaan kyseisen paketin osuuden sijainti ensinmäisestä paketista (fragment offset). Lipput käyttävät ensimmäiset kolme bittiä ja fragment offset loput.
-~~~ code
-Liput/Offset     00 00&lt;br /&gt;
-~~~&lt;/p&gt;
-
-&lt;p&gt;Seuraava tavu osoittaa paketin eloajan (Time to Live)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-code&quot;&gt;TTL:             40
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Seuraava tavu kertoo mikä protokola on kyseessä.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-code&quot;&gt;Protocol:        11
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Ja jos tutkitaan mikä ihme paketti on &lt;code&gt;0x11&lt;/code&gt; se osoittautuu User Datagram Protokolaksi (UDP) &lt;a href=&quot;https://en.wikipedia.org/wiki/List_of_IP_protocol_numbers&quot;&gt;tämän IP protokola numer listan&lt;/a&gt; mukaan.&lt;/p&gt;
-
-&lt;p&gt;Seuraavat kaksi tavua ovat tarkistus summa otsikolle.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-code&quot;&gt;Checksum:        8A 37
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Seuraavat kahdeksan tavua kertoo lähde ja kohde IP-osoitteet.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-code&quot;&gt;Lähde IP:        0A 00 02 0F
-Kohde IP:        08 08 08 08
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Muutetaan IP-osoitteet hieman tutumpaan muotoon.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;&amp;gt;&amp;gt;&amp;gt; res = &#39;&#39;
-&amp;gt;&amp;gt;&amp;gt; source = &#39;0A 00 02 0F&#39;.split(&#39; &#39;)
-&amp;gt;&amp;gt;&amp;gt; for s in source:
-...   res += str(int(&#39;0x&#39;+s, 0)) + &#39;.&#39;
-&amp;gt;&amp;gt;&amp;gt; print(res)
-10.0.2.15.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Kohde osoitetta ei tarvitse edes ajaa skriptistä lävitse, sillä &lt;code&gt;0x08&lt;/code&gt; = 8, joten kohde IP näyttää olevan Googlen DNS palvelin &lt;code&gt;8.8.8.8&lt;/code&gt;. Tähän myös loppuu IP osio. Seuraavaksi tulee itse protokolan otsikko, joka on tässä tapauksessa UDP.&lt;/p&gt;
-
-&lt;h1 id=&quot;udp-otsikko&quot;&gt;UDP-otsikko&lt;/h1&gt;
-
-&lt;p&gt;UDP-otsikko koostuu kahdeksasta tavusta. Ensimmäiset neljä kuvaa lähde ja kohde portteja.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-code&quot;&gt;Lähde Portti:   DD 7C
-Kohde Portti:   00 35
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Dekoodataan portit.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;&amp;gt;&amp;gt;&amp;gt; print(int(&#39;0xdd7c&#39;,0))
-56700
-&amp;gt;&amp;gt;&amp;gt; print(int(&#39;0x0035&#39;,0))
-53
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Seuraavat kaksi tavua kertoo UDP paketin koon (otsikko + data)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-code&quot;&gt;UDP koko:        00 20
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Viimeiset kaksi tavua on taas tarkistus summa&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;UDP checksum:    1C 50
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&quot;dns-otsikko&quot;&gt;DNS-otsikko&lt;/h1&gt;
-
-&lt;p&gt;Koska kyseinen kehys on menossa Googlen DNS palvelimelle ja vielä porttiin 53 (DNS oletus portti on 53), oletan että meillä on tässä käsissä DNS kysely.&lt;/p&gt;
-
-&lt;p&gt;Ensimmäisiä kahta tavua käytetään tunnistautumiseen.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-code&quot;&gt;ID:              51 9F
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Kaksi seuraavilla kahdella tavulla on monta tehtävää, mutta lyhyesti se on vastaus koodi, joka kertoo mitä seuraavaksi tulee tehdä.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-code&quot;&gt;Vastaus koodi:   01 00
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Seuraavat kahdeksan tavua pitää kirjaa paketin sisällöstä. QDCount kertoo montako kysymystä paketissa on. ANCount kertoo vastausten määrän. NSCount kertoo nimipalveluiden resurssien määrän mitkä ovat “auktoriitti” osiossa. ARCount kertoo jos paketissa on ylimäärästä tietoa.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-code&quot;&gt;Qdcount:         00 01
-Ancount:         00 00
-Nscount:         00 00
-Arcount:         00 00
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&quot;data&quot;&gt;Data&lt;/h1&gt;
-
-&lt;p&gt;Vihdoinkin päästään käsiksi itse dataan. Dekoodataan loput 12 tavua tekstiksi.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;&amp;gt;&amp;gt;&amp;gt; bytes.fromhex(&#39;036D 696C 0266 6900 0001 0001&#39;).decode(&#39;utf-8&#39;)
-&#39;\x03mil\x02fi\x00\x00\x01\x00\x01&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Ensimmäinen hexa tavu &lt;code&gt;0x03&lt;/code&gt; kertoo kuinka monta kirjainta sitä seuraa, eli 3. Ensimmäinen osa DNS kyselyä on siis &lt;code&gt;mil&lt;/code&gt;. Seuraava hexa tavu &lt;code&gt;0x02&lt;/code&gt; kertoo jälleen seuraavaksi tulevien kirjain määrän, eli 2, joten toinen osa kyselyä on &lt;code&gt;fi&lt;/code&gt;. Loput tavut kyselyssä kertovat kyselyn lopun palvelimelle. Kun kyselyn osat yhdistetään pisteellä saadaan &lt;code&gt;mil.fi&lt;/code&gt;, joka on puolustusvoimien vanha verkko-osoite.&lt;/p&gt;
-
-&lt;p&gt;Kerätään vielä kaikki data yhdeksi tauluksi tähän loppuun.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-code&quot;&gt;Kohde MAC:       52 54 00 12 35 02
-Lähde MAC:       08 00 27 4A A3 B1
-EtherType:       08 00
-IP Versio:       45
-QoS:             00
-IP koko:         00 34
-ID:              DA 63
-Liput/Offset     00 00  
-TTL:             40
-Protokola:       11
-Checksum:        8A 37
-Lähde IP:        0A 00 02 0F
-Kohde IP:        08 08 08 08
-Lähde Portti:    DD 7C
-Kohde Portti:    00 35
-UDP koko:        00 20
-Checksum:        1C 50
-ID:              51 9F
-Vastaus koodi:   01 00
-Qdcount:         00 01
-Ancount:         00 00
-Nscount:         00 00
-Arcount:         00 00
-Data:            03 6D 69 6C 02 66 69 00 00 01 00 01
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Vastataanpa nyt niihin kysymyksiin.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Mikä on kehyksen tarkoitus?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Näyttäisi olevan DNS kehys.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Mitä protokolia käytetään?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;IPv4, UDP ja DNS&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Mihin L3 (verkkokerros) ja L4 (kuljetuskerros) osoitteisiin kehys on matkalla?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;IP on verkkokerroksen protokola, eli L3 osoite on 8.8.8.8. Aluksi oletin että kysymys oli väärin muotoiltu, sillä MAC osoite on siirtokerroksen (L2) protokola, mutta oletan että kysymys on portista, eli L4 osoite on 53.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Pääseekö paketti kohteeseen? Jos ei, niin miksi?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Koska kysymys on tässä muodossa voisin helposti olettaa että paketti ei pääse kohteeseensa, mutten löydä siitä mitään vikaa. Ehkä checksummat ovat väärin, mutten jaksa alkaa tarkistamaan niitä, joten vastaan: &lt;strong&gt;kyllä&lt;/strong&gt; paketti pääsee kohteeseensa.&lt;/p&gt;
-</description>
-        <pubDate>Wed, 22 Jul 2015 11:31:28 +0300</pubDate>
-        <link>http://ajatusrikos.fi/2015/07/22/pvcc6.html</link>
-        <guid isPermaLink="true">http://ajatusrikos.fi/2015/07/22/pvcc6.html</guid>
         
         
       </item>

@@ -49,6 +49,8 @@
         
           
         
+          
+        
       </div>
     </nav>
 -->
@@ -62,6 +64,63 @@
           <div class="home">
 
   <ul class="post-list">
+    
+      <li>
+        <header class="post-header">
+          <a class="post-link" href="/2015/08/06/fyysinen-turvallisuus.html">Fyysinen turvallisuus on parasta</a>
+          <p class="post-meta">6.8.2015</p>
+        </header>
+
+        <article class="post-content">
+          <p>Eilen kävelyllä kuljin ohitse tästä talosta, ja piti kävellä takaisin kun jokin jäi häiritsemään.</p>
+
+<p><img src="/img/talo1.jpg" alt="Kuva talon edustalta" title="Kuva talon edustalta" /></p>
+
+<p>Ohitse kulkiessa aluksi mietin pystyisikö tuon esteen ohittaa astumalla oikealla olevalle kiinnikkeelle ja sen jälkeen vetämällä itsensä ylös, mutta jokin muu osui silmään.</p>
+
+<p><img src="/img/talo2.jpg" alt="Kuva tikkaiden esteestä" title="Kuva tikkaiden esteestä" /></p>
+
+<p>Lukkohan se siinä, varmaan pitämässä tota tikkaiden estettä kiinni tikkaissa… Mutta miksi se roikkuu tuolla? Miten ihmeessä tämä este on kiinni tikkaissa?</p>
+
+<p><img src="/img/talo3.jpg" alt="Kuva lukosta" title="Kuva lukosta" /></p>
+
+<p>Siinähän se lukko roikkuu, eli tikkaiden este ei ole kiinnitetty yhtään millään. Lukosta voi nähdä ruosteisen kohdat joista esteen saisi kiinni tikkaaseen. Fyysinen turvallisuus on välillä jännää.</p>
+
+        </article>
+      </li>
+      <div class="post-divider"></div>
+    
+      <li>
+        <header class="post-header">
+          <a class="post-link" href="/2015/08/03/lukko.html">Lukko</a>
+          <p class="post-meta">3.8.2015</p>
+        </header>
+
+        <article class="post-content">
+          <p>Viime viikolla tuli eteen fyysisen turvallisuuden puolelta projekti. Matkalaukun lukon yhdistelmä oli unohtunut. Lukko oli yleinen kolmen numeron yhdistelmälukko. Aluksi harkitsin brute forcausta, mutta en tahtonut viettää loppu iltaa lukon kanssa, joten irroitin lukon ja avasin sen.</p>
+
+<p><img src="/img/lukko.jpg" alt="Kuva lukon sisälmyksistä" title="Lukon sisälmykset" /></p>
+
+<p>Kuvassa alhaalla on lukon numeroyhdistelmän kiekot, jotka oikeassa asennossa antavat salvan liikkua vasemmalle, salpa jousen ansiosta, ja näin antavat kuvan keskiosassa olevan keltaisen lukon painautua alaspäin.</p>
+
+<p>Lukko on suunniteltu turvallisuuden kannalta suhteellisen hyvin, mutta siinä on yksi suunnitteluvirhe minkä takia lukon yhdistelmä on alunperinkin päässyt unohtumaan/hukkumaan.</p>
+
+<h1 id="hyvt">Hyvät</h1>
+
+<p>Koska salpa on yhtenäinen kaikille kiekoille, eli yhtä kiekkoa pyörittämällä tunne hampaiden paikkaa. Lisäksi kun lukon painaa alas salvan ollessa lukittuna estää se salvan liikkumisen, eli brute forcattaessa lukon avaus pitää suorittaa joka yhdistelmän kanssa erikseen, lukkoa ei voi vain pitää pohjassa ja pyöritellä kiekkoja.</p>
+
+<h1 id="huonot">Huonot</h1>
+
+<p>Koska lukon yhdistelmä on tehty vaihdettavaksi koostuvat lukon numero kiekot kahdesta osasta. Itse kiekosta jota pyöritetään, sekä hammas kiekosta jota numero kiekko pyörittää. Hammas kiekon päällä olevien jousien on tarkoitus pitää kiekot yhdessä, mutta kiekon numero 1. jousi ei ole tarpeeksi vahva pitämään kiekkoa paikallaan jos kiekkoa käännetään numerojärjestyksessä (kuvassa alaspäin). Kun 1. kiekkoa käännetään alaspäin, salvan ollessa auki, aiheutuu salpa jousesta, sekä salvan hampaasta enemmän kitkaa kuin hammas kiekon jousesta jolloin hammas kiekko hyppää numeron ylitse, joka vaihtaa yhdistelmää. Oletettavasti tämä on se syy miksi yhdistelmä on alunperinkin unohtunut.</p>
+
+<h1 id="korjaus">Korjaus</h1>
+
+<p>1. kiekon hyppäys on suunnitteluvirhe, muut kiekot toimivat normaalisti ja 1. kiekko toimii normaalisti käännettäessä ylöspäin, eikä alaspäin käännettäessä ole ongelmia kunhan salpa ei ole auki, eli jos salpa numero 2. tai 3. käännetään ensiksi. Ongelman “korjaus” on käytön muuttaminen, nopea nyrkkisääntö on: “lukitse lukko aina ensiksi keskimmäisellä numerolla”, mikä on aika huono korjaus, muttei lukolle oikein voi muuta tehdä.</p>
+
+
+        </article>
+      </li>
+      <div class="post-divider"></div>
     
       <li>
         <header class="post-header">
@@ -303,75 +362,6 @@ cmp     edx, 0xcdcb8d9a
 </ol>
 
 <p>Vastaus on 3. <code>SELECT * FROM Customers WHERE Age &gt; 19 and Age &lt; 21</code>.</p>
-
-        </article>
-      </li>
-      <div class="post-divider"></div>
-    
-      <li>
-        <header class="post-header">
-          <a class="post-link" href="/2015/07/27/pvcc12.html">PVCC #12: 128 sattumanvaraista bittiä</a>
-          <p class="post-meta">27.7.2015</p>
-        </header>
-
-        <article class="post-content">
-          <p><em>Etkö tiedä mikä on PVCC? <a href="/2015/07/20/fdfcc.html">Klikkaa tästä</a>.</em></p>
-
-<p>12. tehtävässä meille annetaan 128 merkkinen täysin sattumanvarainen bittijono, josta saamme flipata yhden bitin ympäri. Kysymys kuuluu:</p>
-
-<blockquote>
-  <p>Kuinka monta bittiä informaatiota voidaan siirtää tällä bitti jonolla?</p>
-</blockquote>
-
-<p>Tämä alkaa jo olemaan suhteellisen haastava matemaattinen kysymys, mutta samalla viimeinen “teoria” kysymys.</p>
-
-<p>Aloitetaan helposta. Tehtävässä tulee käyttää pariteettia. Jos meillä on sattumanvarainen neljän bitin jono, kuten <code>0110</code> voidaan sillä koodata kaksi bittiä informaatiota. Pariteetti bitit lasketaan kahden potenssien väliltä, eli \(2^0\) askelväli on 1, \(2^1\) askelväli on 2, mikä on suurin askelväli, mitä neljän bitin jonossa voidaan suorittaa.</p>
-
-<p>\(2^0\) vastaa loogista AND funktiota 01 kanssa.
-\(2^1\) vastaa loogista AND funktiota 10 kanssa.
-Ja niin edelleen.</p>
-
-<p>Pariteetti saadaan laskemalla kaikki alueen <code>1</code>, jos niitä on parilline määrä aroksi tulee <code>0</code> jos pariton <code>1</code>.</p>
-
-<p>Esimerkiksi jonossa <code>0110</code> \(2^0\) pariteetti on <code>1</code> koska se saa arvon <code>01</code>. Jonon \(2^1\) pariteetti on myös <code>1</code> koska se saa myös arvon <code>01</code>. Näin ollen loogisten AND funktioiden jälkeen pariteetti jonolle on <code>11</code>. Jos nyt halutaan osoittaa jotain arvoa mikä voidaan jonolla koodata (koska jono on sattumanvarainen voidaan sillä koodata vain kahden bitin arvo, eli 0-3), esim. numero 2, käytetään vedetään arvo <code>10</code> loogisella XOR functiolla lävitse jonon pariteetista: \(10 \oplus 11 = 01\). Näin ollen bitti kohdassa <code>01</code> tulee kääntää, eli saamme arvon <code>0100</code> (koska ensimmäinen bitti on arvo <code>00</code>). Nyt kun bittijonoa dekoodataan, eli yritetään saada se arvo ulos jonka lähetimme (numero 2), lasketaan uudesta jonosta pariteetti ja se vedetään lävitse itse jonosta. Jonon <code>0100</code> \(2^0\) pariteetti on <code>0</code> koska se saa arvon <code>00</code>. Jonon \(2^1\) pariteetti on <code>1</code> koska se saa arvoksi <code>10</code>. Loogisten AND funktioiden jälkeen saamme arvon <code>10</code>. Kun käännetään bitti kohdasta <code>01</code> saadaan uudeksi jonoksi <code>0110</code>, kun nyt tämä uusi arvo ja pöydän arvo vedetään lävitse loogisesta XOR funktiosta saadaan selville lähetetty arvo. \(0100 \oplus 0110 = 0010\), eli 2.</p>
-
-<p>Tällä logiikalla aina kun satunnaisen bittijonon, josta saadaan kääntää yksi bitti mielivaltaisesti, pituus tuplaantuu voidaan sillä siirtää yksi bitti lisää informaatiota, eli kahdeksalla satunnaisella bitillä voidaan siirtää kolme bittiä informaatiota. Näin ollen 128 merkkiä pitkällä sattumanvaraisella bitti jonolla voidaan siirtää seitsemän bittiä informaatiota.</p>
-
-        </article>
-      </li>
-      <div class="post-divider"></div>
-    
-      <li>
-        <header class="post-header">
-          <a class="post-link" href="/2015/07/25/pvcc11.html">PVCC #11: Todennäköisyys</a>
-          <p class="post-meta">25.7.2015</p>
-        </header>
-
-        <article class="post-content">
-          <p><em>Etkö tiedä mikä on PVCC? <a href="/2015/07/20/fdfcc.html">Klikkaa tästä</a>.</em></p>
-
-<p>11. kysymyksessä on pitkä tekstinpätkä josta puolet voi heti heittää menemään. Oikea kysymys kuuluu:</p>
-
-<blockquote>
-  <p>“Jos huoneessa on kolme tietokonetta, joilla kaikilla on yhtäläinen mahdollisuus pyörittää Windows, Linux tai OS X käyttöjärjestelmää, mikä on todennäköisyys että huoneessa on vähintään kaksi Linux konetta?”</p>
-</blockquote>
-
-<p>Koska vaihtoehtoja on vähän, aloitetaan totuustaulukolla selventämään tilannetta, tässä taulukossa on kaikki tilat jotka täyttävät kysymyksen kriteerit.</p>
-
-<pre><code class="language-None">L, L, L       L = Linux
-L, L, W       W = Windows
-W, L, L       X = OSX
-L, W, L
-L, L, X
-X, L, L
-L, X, L
-</code></pre>
-
-<p>Kuten huomataan kokoonpanoja, joissa on vähintään kaksi Linux konetta, on \(7\). Kaiken kaikkiaan mahdollisia kokoonpanoja on \(3^3\), eli \(27\), joten todennäköisyys \(P\) on.</p>
-
-<script type="math/tex; mode=display">P = 7/27 \approx 0.2593</script>
-
-<p>Mikä tarkoittaa että todennäköisyys sille, että huoneessa on vähintään kaksi Linux konetta, on \( \approx 26 \%\).</p>
 
         </article>
       </li>

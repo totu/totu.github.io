@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="/favicon.ico"/>
-  <title>PVCC2 #2: 700 miljardia salasanaa sekunnissa</title>
-  <meta name="description" content="Etkö tiedä mikä on PVCC? Klikkaa tästä.">
+  <title>Ajatusrikos</title>
+  <meta name="description" content="Ajatuksia, tarinoita ja ideoita.">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://ajatusrikos.fi/2015/07/20/pvcc2.html">
+  <link rel="canonical" href="http://ajatusrikos.fi/sivu4/">
   <link rel="alternate" type="application/rss+xml" title="Ajatusrikos" href="http://ajatusrikos.fi/feed.xml" />
   <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   <link rel="stylesheet" href="/css/prism.css">
@@ -61,15 +61,18 @@
 
       <div class="page-content">
         <div class="wrapper">
-          <div class="post">
+          <div class="home">
 
-  <header class="post-header">
-    <strong class="post-title">PVCC2 #2: 700 miljardia salasanaa sekunnissa</strong>
-    <p class="post-meta">20.7.2015</p>
-  </header>
+  <ul class="post-list">
+    
+      <li>
+        <header class="post-header">
+          <a class="post-link" href="/2015/07/20/pvcc2.html">PVCC2 #2: 700 miljardia salasanaa sekunnissa</a>
+          <p class="post-meta">20.7.2015</p>
+        </header>
 
-  <article class="post-content">
-    <p><em>Etkö tiedä mikä on PVCC? <a href="/2015/07/20/fdfcc.html">Klikkaa tästä</a>.</em></p>
+        <article class="post-content">
+          <p><em>Etkö tiedä mikä on PVCC? <a href="/2015/07/20/fdfcc.html">Klikkaa tästä</a>.</em></p>
 
 <p>Tokassa kysymyksessä cräkätään salasanoja. Tarkoitus on laskea teoreettinen maksimi aika kahdella eri tavalla luodulle salasanalle. Ensimmäinen salasana luodaan liittämällä yhteen sattumanvaraisesti neljä sanaa 31337 sanan tiedetystä listasta. Toinen salasana luodaan yhdeksästä sattumanvaraisesta printattavasta ASCII merkistä. Molemmat salasanat puretaan koneella joka pystyy tekemään 700 miljardia hash operaatiota sekunnissa. Nyt matikkamyssyt päähän ja cräkkäämään.</p>
 
@@ -83,7 +86,58 @@
 
 <p>Tehtävän vastaukset ovat siis <strong>a)</strong> 16 päivää ja <strong>b)</strong> 10 päivää.</p>
 
-  </article>
+        </article>
+      </li>
+      <div class="post-divider"></div>
+    
+      <li>
+        <header class="post-header">
+          <a class="post-link" href="/2015/07/20/fdfcc.html">Puollustusvoimien Cyberchallenge</a>
+          <p class="post-meta">20.7.2015</p>
+        </header>
+
+        <article class="post-content">
+          <p>Viime viikonloppuna bongasin HackerNewsitä <a href="http://erityistehtavat.puolustusvoimat.fi/cyberchallenge.html">tämän linkin</a>.</p>
+
+<p>Näköjään PV etsii porukkaa uuteen kyber yksikköön. En ole oikein varma onko tämä oikein tarkoitettu siviileille vai vain sisäiseen hakuun, mutta aion käydä haasteen lävitse kysymys kysymykseltä ja avata niitä niin paljon kun näen tarpeelliseksi. Osa kysymyksistä vaikuttaa haastavilta, osa taas lähes triviaaleja. Katsotaan kuinka pitkälle päästään.</p>
+
+<h1 id="pvcc-1-mik-epilytt">PVCC #1: Mikä epäilyttää?</h1>
+
+<p>Ekassa tehtävässä annetaan kuva prosessipuusta ja kysymys kuuluu kaikessa yksinkertaisuudessaan:</p>
+
+<blockquote>
+  <p>“Onko listalla mitään epäilyttävää?”</p>
+</blockquote>
+
+<p>Aluksi Googletin kaikki *.exet jotka eivät näyttäneet tutuilta ja löysin pari epäilyttävää prosessia.</p>
+
+<p><img src="/img/process.jpg" alt="prosessit" title="Epäilyttävät prosessit" /></p>
+
+<p>En väitä tietäväni ihan tarkkaan miten Internet Explorer toimii, mutta tuo <code>cmd.exe</code> vaikuttaa jokseenkin epäilyttävältä tuolla <code>iexeplre.exe</code> alla. Toinen outous on tuo <code>rundll322.exe</code> jossa näyttää olevan extra <code>2</code> ja se ei ole ryhmitelty tuonne alemmas muiden <code>rundll32.exe</code> kanssa.</p>
+
+<h1 id="eik-tss-viel-kaikki">Eikä tässä vielä kaikki!</h1>
+
+<p>Tutkiessa noita eri *.exejä huomasin että ne saattaa kertoa vähän enemmän tästä kohde koneesta. Nuo <code>igfcEM.exe</code> ja <code>igfxHK.exe</code> on osa Intelin Graphics ajureita. <code>iusb3mon.exe</code> on osa Intelin USB3 ajureita. <code>RCIMGDIR.exe</code> on osana jotain webcamera ajureita. Lopuksi <code>SynTPHelper.exe</code> on Synapticsin trackpad ajuri. Näitä voidaan päätellä että kyseessä on kannettava tietokone ja koska kaikki maininnat tuosta <code>RCIMGDIR.exe</code> löytyi ThinkPad foorumeilta uskallan väittää että kyseessä on Lenovon ThinkPadi. ThinkPadit on myös aika yleisiä “business” läppäreitä, joten en yllättyisi ollenkaan vaikka olisin oikeassa.</p>
+
+<p><em>P.S. Tuolla saataa olla vielä jotain outoa koska <code>Monitor.exe</code> ja <code>RCIMGDIR.exe</code> on molemmat webcam ajureita, mutten voi sanoa varman päälle</em></p>
+
+        </article>
+      </li>
+      <div class="post-divider"></div>
+    
+  </ul>
+
+
+  <!-- Pagination links -->
+  <div class="pagination">
+    
+      <a href="/sivu3/" class="previous">Uudempia</a>
+    
+    
+      <a class="disabled next">Vanhempia</a>
+    
+  </div>
+  <!--<p class="rss-subscribe">Tilaa <a href="/feed.xml">RSS:llä</a></p>-->
 
 </div>
 

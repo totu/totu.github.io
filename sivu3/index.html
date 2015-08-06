@@ -49,6 +49,8 @@
         
           
         
+          
+        
       </div>
     </nav>
 -->
@@ -62,6 +64,293 @@
           <div class="home">
 
   <ul class="post-list">
+    
+      <li>
+        <header class="post-header">
+          <a class="post-link" href="/2015/07/22/pvcc7.html">PVCC #7: Ämpärillä päähän</a>
+          <p class="post-meta">22.7.2015</p>
+        </header>
+
+        <article class="post-content">
+          <p><em>Etkö tiedä mikä on PVCC? <a href="/2015/07/20/fdfcc.html">Klikkaa tästä</a>.</em></p>
+
+<p>Seitsemännessä kysymyksessä meille annetaan vesihana ja kaksi ämpäriä (4.3l ja 4.7l). Meidän tehtävänä on mitata tarkkaan 4.6l vettä. Ja ämpäreissä ei ole mitään merkintöjä.</p>
+
+<p>Kyseessä on logiikka ongelma, mutta itselle tuttu. Kun tämän pulman tuntee, on se suhteellisen helppo suorittaa.</p>
+
+<p>Ideana on kaataa pienemmästä ämpäristä vettä suurempaan ja tyhjätä suurempi aina kun se täyttyy. Näin pienempään asiaan jää joka toisella kaato kerralla vähemmän ja vähemmän vettä kunnes pohjalle jää 0.3l ja koska \(0.3 + 4.3 = 4.6\) saamme oikean määrän vettä isompaan ämpäriin.</p>
+
+<p>Alla on lista tarvittavaista askeleista toteuttaa mittaus.</p>
+
+<pre><code class="language-python">A: 4.3 B: 0.0
+A: 0.0 B: 4.3
+A: 4.3 B: 4.3
+A: 3.9 B: 4.7
+A: 3.9 B: 0.0
+A: 0.0 B: 3.9
+A: 4.3 B: 3.9
+A: 3.5 B: 4.7
+A: 3.5 B: 0.0
+A: 0.0 B: 3.5
+A: 4.3 B: 3.5
+A: 3.1 B: 4.7
+A: 3.1 B: 0.0
+A: 0.0 B: 3.1
+A: 4.3 B: 3.1
+A: 2.7 B: 4.7
+A: 2.7 B: 0.0
+A: 0.0 B: 2.7
+A: 4.3 B: 2.7
+A: 2.3 B: 4.7
+A: 2.3 B: 0.0
+A: 0.0 B: 2.3
+A: 4.3 B: 2.3
+A: 1.9 B: 4.7
+A: 1.9 B: 0.0
+A: 0.0 B: 1.9
+A: 4.3 B: 1.9
+A: 1.5 B: 4.7
+A: 1.5 B: 0.0
+A: 0.0 B: 1.5
+A: 4.3 B: 1.5
+A: 1.1 B: 4.7
+A: 1.1 B: 0.0
+A: 0.0 B: 1.1
+A: 4.3 B: 1.1
+A: 0.7 B: 4.7
+A: 0.7 B: 0.0
+A: 0.0 B: 0.7
+A: 4.3 B: 0.7
+A: 0.3 B: 4.7
+A: 0.3 B: 0.0
+A: 0.0 B: 0.3
+A: 4.3 B: 0.3
+A: 0.0 B: 4.6
+</code></pre>
+
+<p>Tämä oli vähän tylsä tehtävä, koska suurin osa on tekemistä. Tietenkin tehtävän ratkaisuun voisi kehittää skriptin joka brute frocaisin vastauksen, mutta näin pienissä luvuissa tämä on nopeampaa tehdä käsin.</p>
+
+        </article>
+      </li>
+      <div class="post-divider"></div>
+    
+      <li>
+        <header class="post-header">
+          <a class="post-link" href="/2015/07/22/pvcc6.html">PVCC #6: Ethernet kehys</a>
+          <p class="post-meta">22.7.2015</p>
+        </header>
+
+        <article class="post-content">
+          <p><em>Etkö tiedä mikä on PVCC? <a href="/2015/07/20/fdfcc.html">Klikkaa tästä</a>.</em></p>
+
+<p>Kuudennessa kysymyksessä käsitellään Ethernet kehystä. Meille annettiin vain seuraava hexa dumppi ja muutama kysymys.</p>
+
+<blockquote>
+  <p>5254 0012 3502 0800
+274A A3B1 0800 4500
+0034 DA63 0000 4011
+8A37 0A00 020F 0808
+0808 DD7C 0035 0020
+1C50 519F 0100 0001
+0000 0000 0000 036D
+696C 0266 6900 0001
+0001</p>
+</blockquote>
+
+<p>Ennen kuin mennään kysymyksiin pitää meidän kuitenkin dekoodata kehys. Koska itseltä löytyy heikosti tietoa Ethernet kehysten purkamisesta, ensi vaistoni oli lyödä hexa <a href="https://www.wireshark.org/">Wiresharkkiin</a> ja tökkiä sitä kunnes se paljastaa salaisuutensa. Wireshark ei kuitenkaan suostunut avaamaan kyseistä dumppia, en tiedä onko kehys puukotettu toimimattomaksi Wiresharkin kanssa, vai pitäisikö sille tehdä jotain erikoista ennen kun Wireshark suosuu syömään sen, mutta ei hätä ole tämän näköinen. Aina voidaan dekoodata kehys käsin speksistä.</p>
+
+<h1 id="mac-otsikko">MAC-otsikko</h1>
+
+<p>Ethernet kehys alkaa 20 tavun MAC-otsikolla, josta ensinmäiset 12 tavua kertoo kohteen ja lähteen MAC-osoitteet.</p>
+
+<pre><code class="language-code">Kohde MAC:      52 54 00 12 35 02
+Lähde MAC:      08 00 27 4A A3 B1
+</code></pre>
+
+<p>Seuraavat kaksi tavua kertovat kehyksen tyypin ja merkkaavat otsikon lopun.</p>
+
+<pre><code class="language-code">EtherType:      08 00
+</code></pre>
+
+<p>Ether tyyppi <code>0x0800</code> kertoo meille että kyseessä on IPv4 paketti, joten seuraavaksi tulee IP-otsikko.</p>
+
+<h1 id="ip-otsikko">IP-otsikko</h1>
+
+<p>IPv4-otsikon ensinmäinen tavu kertoo meille version ja otsikon pituuden.</p>
+
+<pre><code class="language-code">IP Versio:      45
+</code></pre>
+
+<p>Seuraava tavu on hieman erikoinen, ennen se oli “Type of Service (ToS)”, mutta nykyään se on jaettu kahtia “Differentiated Services Code Poit (DSCP)” ja “Exokicit Congestion Notification (ECN)” kesken. DSCP käyttää ensinmäiset 6 tavua ja ECN loput kaks. Niitä käytetään verkon laadun monitorointiin.</p>
+
+<pre><code class="language-code">QoS:             00
+</code></pre>
+
+<p>Seuraavat kaksi tavua kertoo koko paketin (otsikko + data) koon. Minimi on 20 tavua, koska se on otsikon koko. the header.</p>
+
+<pre><code class="language-code">IP Koko:         00 34
+</code></pre>
+
+<p>Seuraavia kahta tavua käytetään paketti osan uniikkiin tunnistamiseen.</p>
+
+<pre><code class="language-code">ID:              DA 63
+</code></pre>
+
+<p>Seuraavat kaksi tavua on jaettu ns. lippujen (flags) ja osoittamaan kyseisen paketin osuuden sijainti ensinmäisestä paketista (fragment offset). Lipput käyttävät ensimmäiset kolme bittiä ja fragment offset loput.
+~~~ code
+Liput/Offset     00 00<br />
+~~~</p>
+
+<p>Seuraava tavu osoittaa paketin eloajan (Time to Live)</p>
+
+<pre><code class="language-code">TTL:             40
+</code></pre>
+
+<p>Seuraava tavu kertoo mikä protokola on kyseessä.</p>
+
+<pre><code class="language-code">Protocol:        11
+</code></pre>
+
+<p>Ja jos tutkitaan mikä ihme paketti on <code>0x11</code> se osoittautuu User Datagram Protokolaksi (UDP) <a href="https://en.wikipedia.org/wiki/List_of_IP_protocol_numbers">tämän IP protokola numer listan</a> mukaan.</p>
+
+<p>Seuraavat kaksi tavua ovat tarkistus summa otsikolle.</p>
+
+<pre><code class="language-code">Checksum:        8A 37
+</code></pre>
+
+<p>Seuraavat kahdeksan tavua kertoo lähde ja kohde IP-osoitteet.</p>
+
+<pre><code class="language-code">Lähde IP:        0A 00 02 0F
+Kohde IP:        08 08 08 08
+</code></pre>
+
+<p>Muutetaan IP-osoitteet hieman tutumpaan muotoon.</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; res = ''
+&gt;&gt;&gt; source = '0A 00 02 0F'.split(' ')
+&gt;&gt;&gt; for s in source:
+...   res += str(int('0x'+s, 0)) + '.'
+&gt;&gt;&gt; print(res)
+10.0.2.15.
+</code></pre>
+
+<p>Kohde osoitetta ei tarvitse edes ajaa skriptistä lävitse, sillä <code>0x08</code> = 8, joten kohde IP näyttää olevan Googlen DNS palvelin <code>8.8.8.8</code>. Tähän myös loppuu IP osio. Seuraavaksi tulee itse protokolan otsikko, joka on tässä tapauksessa UDP.</p>
+
+<h1 id="udp-otsikko">UDP-otsikko</h1>
+
+<p>UDP-otsikko koostuu kahdeksasta tavusta. Ensimmäiset neljä kuvaa lähde ja kohde portteja.</p>
+
+<pre><code class="language-code">Lähde Portti:   DD 7C
+Kohde Portti:   00 35
+</code></pre>
+
+<p>Dekoodataan portit.</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; print(int('0xdd7c',0))
+56700
+&gt;&gt;&gt; print(int('0x0035',0))
+53
+</code></pre>
+
+<p>Seuraavat kaksi tavua kertoo UDP paketin koon (otsikko + data)</p>
+
+<pre><code class="language-code">UDP koko:        00 20
+</code></pre>
+
+<p>Viimeiset kaksi tavua on taas tarkistus summa</p>
+
+<pre><code>UDP checksum:    1C 50
+</code></pre>
+
+<h1 id="dns-otsikko">DNS-otsikko</h1>
+
+<p>Koska kyseinen kehys on menossa Googlen DNS palvelimelle ja vielä porttiin 53 (DNS oletus portti on 53), oletan että meillä on tässä käsissä DNS kysely.</p>
+
+<p>Ensimmäisiä kahta tavua käytetään tunnistautumiseen.</p>
+
+<pre><code class="language-code">ID:              51 9F
+</code></pre>
+
+<p>Kaksi seuraavilla kahdella tavulla on monta tehtävää, mutta lyhyesti se on vastaus koodi, joka kertoo mitä seuraavaksi tulee tehdä.</p>
+
+<pre><code class="language-code">Vastaus koodi:   01 00
+</code></pre>
+
+<p>Seuraavat kahdeksan tavua pitää kirjaa paketin sisällöstä. QDCount kertoo montako kysymystä paketissa on. ANCount kertoo vastausten määrän. NSCount kertoo nimipalveluiden resurssien määrän mitkä ovat “auktoriitti” osiossa. ARCount kertoo jos paketissa on ylimäärästä tietoa.</p>
+
+<pre><code class="language-code">Qdcount:         00 01
+Ancount:         00 00
+Nscount:         00 00
+Arcount:         00 00
+</code></pre>
+
+<h1 id="data">Data</h1>
+
+<p>Vihdoinkin päästään käsiksi itse dataan. Dekoodataan loput 12 tavua tekstiksi.</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; bytes.fromhex('036D 696C 0266 6900 0001 0001').decode('utf-8')
+'\x03mil\x02fi\x00\x00\x01\x00\x01'
+</code></pre>
+
+<p>Ensimmäinen hexa tavu <code>0x03</code> kertoo kuinka monta kirjainta sitä seuraa, eli 3. Ensimmäinen osa DNS kyselyä on siis <code>mil</code>. Seuraava hexa tavu <code>0x02</code> kertoo jälleen seuraavaksi tulevien kirjain määrän, eli 2, joten toinen osa kyselyä on <code>fi</code>. Loput tavut kyselyssä kertovat kyselyn lopun palvelimelle. Kun kyselyn osat yhdistetään pisteellä saadaan <code>mil.fi</code>, joka on puolustusvoimien vanha verkko-osoite.</p>
+
+<p>Kerätään vielä kaikki data yhdeksi tauluksi tähän loppuun.</p>
+
+<pre><code class="language-code">Kohde MAC:       52 54 00 12 35 02
+Lähde MAC:       08 00 27 4A A3 B1
+EtherType:       08 00
+IP Versio:       45
+QoS:             00
+IP koko:         00 34
+ID:              DA 63
+Liput/Offset     00 00  
+TTL:             40
+Protokola:       11
+Checksum:        8A 37
+Lähde IP:        0A 00 02 0F
+Kohde IP:        08 08 08 08
+Lähde Portti:    DD 7C
+Kohde Portti:    00 35
+UDP koko:        00 20
+Checksum:        1C 50
+ID:              51 9F
+Vastaus koodi:   01 00
+Qdcount:         00 01
+Ancount:         00 00
+Nscount:         00 00
+Arcount:         00 00
+Data:            03 6D 69 6C 02 66 69 00 00 01 00 01
+</code></pre>
+
+<p>Vastataanpa nyt niihin kysymyksiin.</p>
+
+<blockquote>
+  <p>Mikä on kehyksen tarkoitus?</p>
+</blockquote>
+
+<p>Näyttäisi olevan DNS kehys.</p>
+
+<blockquote>
+  <p>Mitä protokolia käytetään?</p>
+</blockquote>
+
+<p>IPv4, UDP ja DNS</p>
+
+<blockquote>
+  <p>Mihin L3 (verkkokerros) ja L4 (kuljetuskerros) osoitteisiin kehys on matkalla?</p>
+</blockquote>
+
+<p>IP on verkkokerroksen protokola, eli L3 osoite on 8.8.8.8. Aluksi oletin että kysymys oli väärin muotoiltu, sillä MAC osoite on siirtokerroksen (L2) protokola, mutta oletan että kysymys on portista, eli L4 osoite on 53.</p>
+
+<blockquote>
+  <p>Pääseekö paketti kohteeseen? Jos ei, niin miksi?</p>
+</blockquote>
+
+<p>Koska kysymys on tässä muodossa voisin helposti olettaa että paketti ei pääse kohteeseensa, mutten löydä siitä mitään vikaa. Ehkä checksummat ovat väärin, mutten jaksa alkaa tarkistamaan niitä, joten vastaan: <strong>kyllä</strong> paketti pääsee kohteeseensa.</p>
+
+        </article>
+      </li>
+      <div class="post-divider"></div>
     
       <li>
         <header class="post-header">
@@ -277,66 +566,6 @@ b'Lorem~Ipsum'
       </li>
       <div class="post-divider"></div>
     
-      <li>
-        <header class="post-header">
-          <a class="post-link" href="/2015/07/20/pvcc2.html">PVCC2 #2: 700 miljardia salasanaa sekunnissa</a>
-          <p class="post-meta">20.7.2015</p>
-        </header>
-
-        <article class="post-content">
-          <p><em>Etkö tiedä mikä on PVCC? <a href="/2015/07/20/fdfcc.html">Klikkaa tästä</a>.</em></p>
-
-<p>Tokassa kysymyksessä cräkätään salasanoja. Tarkoitus on laskea teoreettinen maksimi aika kahdella eri tavalla luodulle salasanalle. Ensimmäinen salasana luodaan liittämällä yhteen sattumanvaraisesti neljä sanaa 31337 sanan tiedetystä listasta. Toinen salasana luodaan yhdeksästä sattumanvaraisesta printattavasta ASCII merkistä. Molemmat salasanat puretaan koneella joka pystyy tekemään 700 miljardia hash operaatiota sekunnissa. Nyt matikkamyssyt päähän ja cräkkäämään.</p>
-
-<p>Neljä sanaa 31337 sanan listasta täysin sattuman varaisesti tuottaa \(3133^4\) mahdollista yhdistelmää, kun se jaetaan 700 miljardilla saadaan tulokseksi \(31337^4 / 700 \times 10^9\) mikä on sama kuin \(1.38 \times 10^6\) sekuntia. Vastaus pitää kuitenkin antaa päivän tarkkuudella joten lopullinen yhtälö näyttää tältä:</p>
-
-<script type="math/tex; mode=display">\dfrac{3133^4}{700 \times 10^9 \times 3600 \times 24} \approx 16</script>
-
-<p>Toka salasana on perinteisempi ongelma. <a href="https://fi.wikipedia.org/wiki/ASCII">Wikipedian</a> mukaan ASCII sisältää 95 näkyvää merkkiä. Mikä tarkoittaa meillä voi olla \(95^9\) mahdollista salasanaa ja koska meillä on käytössä sama kone kuin edellisen salasanan kanssa lopullinen yhtälö on:</p>
-
-<script type="math/tex; mode=display">\dfrac{95^9}{700 \times 10^9 \times 3600 \times 24} \approx 10</script>
-
-<p>Tehtävän vastaukset ovat siis <strong>a)</strong> 16 päivää ja <strong>b)</strong> 10 päivää.</p>
-
-        </article>
-      </li>
-      <div class="post-divider"></div>
-    
-      <li>
-        <header class="post-header">
-          <a class="post-link" href="/2015/07/20/fdfcc.html">Puollustusvoimien Cyberchallenge</a>
-          <p class="post-meta">20.7.2015</p>
-        </header>
-
-        <article class="post-content">
-          <p>Viime viikonloppuna bongasin HackerNewsitä <a href="http://erityistehtavat.puolustusvoimat.fi/cyberchallenge.html">tämän linkin</a>.</p>
-
-<p>Näköjään PV etsii porukkaa uuteen kyber yksikköön. En ole oikein varma onko tämä oikein tarkoitettu siviileille vai vain sisäiseen hakuun, mutta aion käydä haasteen lävitse kysymys kysymykseltä ja avata niitä niin paljon kun näen tarpeelliseksi. Osa kysymyksistä vaikuttaa haastavilta, osa taas lähes triviaaleja. Katsotaan kuinka pitkälle päästään.</p>
-
-<h1 id="pvcc-1-mik-epilytt">PVCC #1: Mikä epäilyttää?</h1>
-
-<p>Ekassa tehtävässä annetaan kuva prosessipuusta ja kysymys kuuluu kaikessa yksinkertaisuudessaan:</p>
-
-<blockquote>
-  <p>“Onko listalla mitään epäilyttävää?”</p>
-</blockquote>
-
-<p>Aluksi Googletin kaikki *.exet jotka eivät näyttäneet tutuilta ja löysin pari epäilyttävää prosessia.</p>
-
-<p><img src="/img/process.jpg" alt="prosessit" title="Epäilyttävät prosessit" /></p>
-
-<p>En väitä tietäväni ihan tarkkaan miten Internet Explorer toimii, mutta tuo <code>cmd.exe</code> vaikuttaa jokseenkin epäilyttävältä tuolla <code>iexeplre.exe</code> alla. Toinen outous on tuo <code>rundll322.exe</code> jossa näyttää olevan extra <code>2</code> ja se ei ole ryhmitelty tuonne alemmas muiden <code>rundll32.exe</code> kanssa.</p>
-
-<h1 id="eik-tss-viel-kaikki">Eikä tässä vielä kaikki!</h1>
-
-<p>Tutkiessa noita eri *.exejä huomasin että ne saattaa kertoa vähän enemmän tästä kohde koneesta. Nuo <code>igfcEM.exe</code> ja <code>igfxHK.exe</code> on osa Intelin Graphics ajureita. <code>iusb3mon.exe</code> on osa Intelin USB3 ajureita. <code>RCIMGDIR.exe</code> on osana jotain webcamera ajureita. Lopuksi <code>SynTPHelper.exe</code> on Synapticsin trackpad ajuri. Näitä voidaan päätellä että kyseessä on kannettava tietokone ja koska kaikki maininnat tuosta <code>RCIMGDIR.exe</code> löytyi ThinkPad foorumeilta uskallan väittää että kyseessä on Lenovon ThinkPadi. ThinkPadit on myös aika yleisiä “business” läppäreitä, joten en yllättyisi ollenkaan vaikka olisin oikeassa.</p>
-
-<p><em>P.S. Tuolla saataa olla vielä jotain outoa koska <code>Monitor.exe</code> ja <code>RCIMGDIR.exe</code> on molemmat webcam ajureita, mutten voi sanoa varman päälle</em></p>
-
-        </article>
-      </li>
-      <div class="post-divider"></div>
-    
   </ul>
 
 
@@ -346,7 +575,7 @@ b'Lorem~Ipsum'
       <a href="/sivu2/" class="previous">Uudempia</a>
     
     
-      <a class="disabled next">Vanhempia</a>
+      <a href="/sivu4/" class="next">Vanhempia</a>
     
   </div>
   <!--<p class="rss-subscribe">Tilaa <a href="/feed.xml">RSS:llä</a></p>-->
