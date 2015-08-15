@@ -67,6 +67,165 @@
     
       <li>
         <header class="post-header">
+          <a class="post-link" href="/2015/07/29/pvcc13-20.html">PVCC #13-20: Mega postaus</a>
+          <p class="post-meta">29.7.2015</p>
+        </header>
+
+        <article class="post-content">
+          <p><em>Etkö tiedä mikä on PVCC? <a href="/2015/07/20/fdfcc.html">Klikkaa tästä</a>.</em></p>
+
+<p>Koska tehtävät 13. - 20. ovat lähinnä Googlen käyttöä pistän ne kaikki tähän yhdeksi postauksesta. Käyn tehtävät lävitse hyvin pintapuolisesti, jos jotain kiinnostaa tietää tarkemmin niin Wikipedia on aika hyvä lähde näille.</p>
+
+<h1 id="selaimella-hykkys">13. Selaimella hyökkäys</h1>
+
+<blockquote>
+  <p>Mitä seuraavista haavoittuvuuksia voidaan hyödyntää käyttämällä vain normaalia web selainta (kuten Mozilla Firefoxia tai Google Chromea)?</p>
+</blockquote>
+
+<ol>
+  <li>Directory traversal attack</li>
+  <li>LDAP injection</li>
+  <li>Command injection</li>
+  <li>Poison Null Byte</li>
+  <li>SQL injection</li>
+  <li>XSS</li>
+</ol>
+
+<p>Tässä tehtävässä oletan että “normaaliksi” selaimeksi lasketaan myös helposti saatavat selain lisäosat, ne eivät toki ole pakollisia kaikkiin hyökkäyksiin, mutta helpottavat niitä huomattavasti. Kaikki listatut hyökkäykset ovat käyttäjän syötteen sanitoimatta jättämisestä johtuvia ongelmia, eli kaikkiin vastaus on <strong>kyllä</strong>, kaikkia näitä haavoittuvuuksia voi hyväksikäyttää vain selaimella ilman erillisiä työkaluja.</p>
+
+<h1 id="bitti-vs-64-bitti">14. 32 bittiä vs. 64 bittiä</h1>
+
+<blockquote>
+  <p>Mitkä seuraavista ovat tyypillisiä x86 järjestelmälle, mutta ei x86_64 järjestelmälle?</p>
+</blockquote>
+
+<ol>
+  <li>Puskurin ylivuoto haavoittuvuus</li>
+  <li>DDOS hyökkäyksiä on usein vaikea estää</li>
+  <li>Roikkuvat osoittimet</li>
+  <li>Palomuurin puuttuminen</li>
+  <li>Natiivi mustin rajoitus 2^32 tavuun</li>
+  <li>Symmetriset avain algoritmit on helpompi murtaa</li>
+  <li>TCP porttien määrä on 2^16</li>
+  <li>Järjestelmän suojaksuun käytetään MD5 ja SHA-1 yhdistelmää</li>
+</ol>
+
+<p>Omien tietojen ja Googlen mukaan ainoa eri 32 bittisellä (x86) ja 64 bittisellä (x86_64) järjestelmillä on muistin rajoitus 4 Gigatavuun, eli vastaus on 5.</p>
+
+<h1 id="oikeutta">15. Oikeutta!</h1>
+
+<blockquote>
+  <p>Tiedostolla on oikeudet -rwx-wxr-x. Mitkä seuraavista rajoittavat omistus ryhmän oikeuksia?</p>
+</blockquote>
+
+<ol>
+  <li>chmod 322 file</li>
+  <li>chmod 333 file</li>
+  <li>chmod 700 file</li>
+  <li>chmod 735 file</li>
+  <li>chmod 754 file</li>
+  <li>chmod 755 file</li>
+  <li>chmod a-x file</li>
+  <li>chmod w-r file</li>
+  <li>chmod u-r,g-r file</li>
+</ol>
+
+<p>-rwx-wxr-x on sama kuin 735. Sarjassa toinen numero osoittaa ryhmän oikeuksia, eli oikea lotto numero on: 1, 3, 5, 6, 7.</p>
+
+<h1 id="sanitaatiota">16. Sanitaatiota</h1>
+
+<blockquote>
+  <p>Mitkä seuraavista haavoittuvuuksista voidaan estää kokonaan kunnollisella käyttäjän syötteen validoinnilla?</p>
+</blockquote>
+
+<ol>
+  <li>Bruteforcing</li>
+  <li>CSRF</li>
+  <li>DDOS</li>
+  <li>Command injection</li>
+  <li>SQL injection</li>
+  <li>XSS</li>
+</ol>
+
+<p>4, 5 ja 6, kuten kohdassa 14. mainittiin. Brute forcing on salasanojen murtamista (kuten tehtävässä <a href="/2015/07/23/pvcc8.html">8. Salasanojen varjostus</a> todettiin). CSRF on sivuston suorittama hyökkäys käyttäjän selaimen kautta. DDOS on palvelunestohyökkäys jolla ei ole tekemistä käyttäjän syötteen kanssa.</p>
+
+<h1 id="selaimen-skriptikielet">17. Selaimen skriptikielet</h1>
+
+<blockquote>
+  <p>Mitkä seuraavista ohjelmoint/skripti/markup kielistä yleensä pyörivät käyttäjän puolella (esim. web selaimessa)?</p>
+</blockquote>
+
+<ol>
+  <li>ASP</li>
+  <li>ASP.NET</li>
+  <li>C#</li>
+  <li>CSS</li>
+  <li>HTML</li>
+  <li>Javascript</li>
+  <li>PHP</li>
+  <li>Ruby</li>
+  <li>SQL</li>
+</ol>
+
+<p>Oikeat vastaukset: 4, 5, 6. Loput ovat palvelinpään kieliä.</p>
+
+<h1 id="palomuuri">18. Palomuuri</h1>
+
+<blockquote>
+  <p>Mikä seuraavista on tyypillistä palomuurille?</p>
+</blockquote>
+
+<ol>
+  <li>Estää epäilyttävien ohjelmien ajo</li>
+  <li>Koodata datasiirto käyttäen UDP protokollaa</li>
+  <li>Suodattaa TCP paketit jotka eivät vastaa sen sääntöjä</li>
+  <li>Mahdollistaa SSH verkko protokollan käyttö</li>
+  <li>Verkko-osoitteiden kääntäminen</li>
+  <li>Tietokoneen tutkiminen ja käyttäjän varoittaminen jos haittaohjelmia löydetään.</li>
+</ol>
+
+<p>Palomuurilla on yksi tehtävä. Suodattaa liikennettä, eli ainoastaan 3. kuuluu palomuurin tehtäviin.</p>
+
+<h1 id="jrjestelmn-suojaaminen">19. Järjestelmän suojaaminen</h1>
+
+<blockquote>
+  <p>Mitkä seuraavista ohjeista auttavat järjestelmän suojaamisessa?</p>
+</blockquote>
+
+<ol>
+  <li>Käytä aina vahvaa salasanaa</li>
+  <li>Antivirus ohjelma pitää poistaa päältä kun käytetään TCP protokollaa</li>
+  <li>Antivirus ohjelma pitää poistaa päältä kun käytetään UDP protokollaa</li>
+  <li>Salasanat tulee tallentaa käyttäen vahvaa, kaksisuuntaista salausta</li>
+  <li>Järjestelmän tulee automaattisesti kirjata käyttäjän ulos muutaman minuutin seisonnan jälkeen</li>
+  <li>Uusinta versiota järjestelmästä tulee välttää sillä siinä saattaa olla tuntemattomia turva-aukkoja</li>
+  <li>Järjestelmän lokit tulee poistaa viikoittain</li>
+</ol>
+
+<p>Vahvat salasanat ovat hyväksi, mutta ei niitä tule tallentaa kaksisuuntaisella salauksella. Uusi versio järjestelmästä tulee ensiksi testata ettei se häiritse järjestelmää, mutta päivityksiä tehdään syystä ja järjestelmä tulee aina päivittää mahdollisimman pian. Lokit ovat hyödyllisiä tietoturvalle. Ainoa oikea kysymys on käyttäjien uloskirjaus seisonnan jälkeen. Se voi olla hyvä käytäntö jos käyttäjän ymmärtävät sen arvon, mutta todellisuudessa useat käyttäjän tulevat varmaan sen takia käyttämään lyhyitä salasanoja, joten vastaan: 1.</p>
+
+<h1 id="sql">20. SQL</h1>
+
+<blockquote>
+  <p>Mikä seuraavista SQL lauseista valitsee kaikki rivit pöydästä Customers jossa kolumnin Age arvo on suurempi kuin 19, mutta pienempi kuin 21?</p>
+</blockquote>
+
+<ol>
+  <li>SELECT Customers WHERE Age &gt; 19 and Age &lt; 21</li>
+  <li>SELECT Customers IF Age &gt; 19 and Age &lt; 21</li>
+  <li>SELECT * FROM Customers WHERE Age &gt; 19 and Age &lt; 21</li>
+  <li>SELECT * FROM Customers IF Age &gt; 19 and Age &lt; 21</li>
+  <li>IF Age &gt; 19 and Age &lt; 21 THEN SELECT Customers</li>
+</ol>
+
+<p>Vastaus on 3. <code>SELECT * FROM Customers WHERE Age &gt; 19 and Age &lt; 21</code>.</p>
+
+        </article>
+      </li>
+      <div class="post-divider"></div>
+    
+      <li>
+        <header class="post-header">
           <a class="post-link" href="/2015/07/27/pvcc12.html">PVCC #12: 128 sattumanvaraista bittiä</a>
           <p class="post-meta">27.7.2015</p>
         </header>
@@ -292,93 +451,6 @@ Ron: 706790887 ?</p>
 <script type="math/tex; mode=display">gcd(m, n) = gcd(706790887, 779191667) = 1</script>
 
 <p>Nyt <code>706790887</code> sopii yhtälöön ja koska \(m\) on viimeinen muuttuja, RSA salauksessa se on pakko olla tehtävän vastaus.</p>
-
-        </article>
-      </li>
-      <div class="post-divider"></div>
-    
-      <li>
-        <header class="post-header">
-          <a class="post-link" href="/2015/07/23/pvcc8.html">PVCC #8: Salasanojen varjostusta</a>
-          <p class="post-meta">23.7.2015</p>
-        </header>
-
-        <article class="post-content">
-          <p><em>Etkö tiedä mikä on PVCC? <a href="/2015/07/20/fdfcc.html">Klikkaa tästä</a>.</em></p>
-
-<p>Kahdeksannessa kysymyksessä meille annetaan seuraava rivi <code>/etc/shaow</code> tiedostosta</p>
-
-<pre><code class="language-bash">admin:65kKfJ.oFg1/Y:16615:0:99999:7:::
-</code></pre>
-
-<p>Sekä kaksi kysymystä</p>
-
-<ol>
-  <li>Mikä on salasana?</li>
-  <li>Miltä rivi näyttäisi jos salasana generoitaisiin 5000 kierroksella sha512 ja käytettäisiin salttina/suolana jonoa <code>saltsaltsaltsalt</code>?</li>
-</ol>
-
-<p>Käydään ekana vähän läpi <code>/etc/shadow</code> tiedoston koostomusta. Jokainen rivi on jaettu osiin kaksoispisteellä (:). Ensimmäinen osa on käyttäjätunnus. Toinen osa on salasanan hash. Kolmas kertoo milloin salasana on viimeksi vaihdettu. Neljäs numero kertoo milloin salasanan saa seuraavaksi vaihtaa. Viides numero kertoo milloin salasana pitää viimeistään vaihtaa. Kuudes numero kertoo kuinka kauan ennen salasanan vanhenemista käyttäjää varoitetaan. Seitsemäs kertoo kuinka monta päivää salasanan vanhenemisen jälkeen käyttäjätunnus pystyy aktiivisena. Viimeinen luku kertoo päivän milloin käyttäjä tunnukselle ei enää voi kirjautua.</p>
-
-<p>Aluksi meidän tulee tunnistaa mitä hashia salasanassa käytetään, joten löin salasanan <a href="https://code.google.com/p/hash-identifier/">Hash Identifier</a> skriptin lävitse.</p>
-
-<pre><code class="language-python">HASH: 65kKfJ.oFg1/Y
-
-Possible Hashs:
-[+]  DES(Unix)
-</code></pre>
-
-<p>Tässä kohtaa itseltä lähti vähän homma lapasesta. Vaikka DES on ollutkin “rikki” jo kymmeniä vuosia menee sen brute forcaukseen silti tunteja hyvällä laitteistolla ja päiviä huonolla laitteistolla. Päätin silti koittaa brute forcausta ja kirjoitin seuraavan hyvin naivin ohjelman ja pistin pyörimään.</p>
-
-<pre><code class="language-python">import itertools
-import crypt
-import hmac
-
-def brute(chars, hash):
-    chars = 'abcdefghijklmnopqrstuvwtxyz'
-    for length in range(1, 9):
-        attempt = itertools.product(chars, repeat=length)
-        for a in attempt:
-            password = ''.join(a)
-            if hmac.compare_digest(crypt.crypt(password, hash), hash):
-                print('%s = %s' % (hash, password))
-                return
-</code></pre>
-
-<p>Kun kyseinen skripti oli pyörinyt pari tuntia, eikä ollut vielä päässyt lähellekään lyhyttä loppuaan aloin huolestua hyökkäyksestä. IRCin puolella jo ehdotettiin että koettaisin ajaa skriptiä nVidian Cuda kirjaston päällä, näin saaden paljon enemmän laskenta tehoa irti koneesta, mutta sain paremman idea: Sanakirja hyökkäys! Googletin erinäköisiä salasana kirjastoja ja päädyin käyttämään <a href="http://stricture-group.com/files/adobe-top100.txt">Stricture Groupin Top 100 Adobe salasana listaa</a>. Ja kirjoitin seuraavan hyökkäys skriptin.</p>
-
-<pre><code class="language-python">import crypt
-import hmac
-
-def dictionaryAttack(wordlist, hash):
-    passwords = open(wordlist, encoding='utf-8')
-
-    for password in passwords:
-        if hmac.compare_digest(crypt.crypt(password, hash), hash):
-            print('%s = %s' % (hash, password))
-            return
-</code></pre>
-
-<p>Mikä löysi tuloksen lähes välittömästi, mutta lähinnä koska salasana oli <code>password</code> ja se sattui olemaan kolmanneksi yleisin salasana kyseisellä listalla. En oikein tiedä olinko vain onnellinen vai oliko tämä suunniteltu lopputulos, mutta salasana on nyt tiedossa joten kohti seuraavaa kysymystä: Hashataan salasana <code>password</code> 5000 kertaa käyttäen <code>SHA512</code> kryptausta ja <code>saltsaltsaltsalt</code> merkkijonoa suolana.</p>
-
-<pre><code class="language-python">import hashlib
-
-password = 'password'
-
-for i in range(5000):
-    h = hashlib.new('sha512')
-    h.update(b'saltsaltsaltsalt')
-    h.update(bytes(password, 'utf-8'))
-    password = h.hexdigest()
-    print(password)
-</code></pre>
-
-<p>Loppu tuloksena on aikamoinen hirviö <code>243b5bee3315ce38400393d5965116260e6ec99f1648179a14f3b33ac3d8d46c8e03a99a4196fffa591aabb89e6fc8a41d3e3c3982a9c7277cc1e375e3100d7c</code>. Oikea kysymys oli kuitenkin miltä <code>/etc/shadow</code> tiedoston rivi näyttää uuden salasanan kanssa. Jos Shadow tiedostossa on tarvetta useammalle kentälle salasana kenttä sisällä käytetään <code>$</code> merkkiä erottamaan eri kentät toisistaan. Ensimmäinen kenttä kertoo mitä hashia käytetään. Unix käyttöjärjestelmien salasanoissa <code>6</code> tarkoittaa <code>SHA512</code> kryptausta. Toisessa kentässä on suolaus, eli <code>saltsaltsaltsalt</code>. Kolmannessa kentässä on itse salasanan hash.</p>
-
-<pre><code class="language-bash">admin:$6$saltsaltsaltsalt$243b5bee3315ce38400393d5965116260e6ec99f1648179a14f3b33ac3d8d46c8e03a99a4196fffa591aabb89e6fc8a41d3e3c3982a9c7277cc1e375e3100d7c:16615:0:99999:7:::
-</code></pre>
-
-<p>Tässä meni yllättävän kauan aikaa, aluksi en tiennyt toimiko brute force skripti (toimi, mutta hitaasti) ja olin jo luopua toivosta ja maksaa pilvi cräkkäys palvelusta kuten <a href="http://hashcrack.org/">Hashcrack</a>, mutta onneksi tuli mieleen tuo sanakirja hyökkäys.</p>
 
         </article>
       </li>
