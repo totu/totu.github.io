@@ -5,8 +5,8 @@
     <description>Ajatuksia, tarinoita ja ideoita.</description>
     <link>http://ajatusrikos.fi/</link>
     <atom:link href="http://ajatusrikos.fi/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 19 Aug 2015 00:59:34 +0300</pubDate>
-    <lastBuildDate>Wed, 19 Aug 2015 00:59:34 +0300</lastBuildDate>
+    <pubDate>Wed, 19 Aug 2015 01:04:39 +0300</pubDate>
+    <lastBuildDate>Wed, 19 Aug 2015 01:04:39 +0300</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -20,21 +20,21 @@
 /Title&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/River_Thames&quot;&gt;Thames joki&lt;/a&gt; on Englannin toiseksi pisin joki joka kulkee Lontoon lävitse useisiin muihin kaupunkeihin, mutta koska arvoituksessa käsitellään kuninkaallisia on kyseessä luultavimmin Lontoo.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/River_Thames&quot;&gt;Thames joki&lt;/a&gt; on Englannin toiseksi pisin joki joka kulkee Lontoon lävitse useisiin muihin kaupunkeihin, mutta koska arvoituksessa käsitellään palatsia Thamesin varrella on kyseessä luultavimmin Lontoo.&lt;/p&gt;
 
-&lt;p&gt;Kun etsin kuninkaallisia “itsehallintokaupunkeja” Länsi Lothiasta tuli vastaan &lt;a href=&quot;https://en.wikipedia.org/wiki/Linlithgow&quot;&gt;Linlithgowia&lt;/a&gt; käsittelevä Wikipedia artikkeli, jonka &lt;a href=&quot;https://en.wikipedia.org/wiki/Linlithgow#History&quot;&gt;historia&lt;/a&gt; otsikon alta löytyi viittaus &lt;a href=&quot;https://en.wikipedia.org/wiki/James_V_of_Scotland&quot;&gt;Jaakko V&lt;/a&gt; ja &lt;a href=&quot;https://en.wikipedia.org/wiki/Mary,_Queen_of_Scots&quot;&gt;Maria I&lt;/a&gt;. Koska arvoituksessa pyydetään &lt;code&gt;/Arvonimeä&lt;/code&gt; lisäsin sen URL:iin &lt;code&gt;/King&lt;/code&gt;, mutta sain vain &lt;code&gt;404 Not Found&lt;/code&gt; virheen, koetin kuitenkin vielä &lt;code&gt;/Queen&lt;/code&gt; ja sain seuraavana arvoituksen:&lt;/p&gt;
+&lt;p&gt;Kun etsin kuninkaallisia “itsehallintokaupunkeja” Länsi Lothiasta tuli vastaan &lt;a href=&quot;https://en.wikipedia.org/wiki/Linlithgow&quot;&gt;Linlithgowia&lt;/a&gt; käsittelevä Wikipedia artikkeli, jonka &lt;a href=&quot;https://en.wikipedia.org/wiki/Linlithgow#History&quot;&gt;historia&lt;/a&gt; otsikon alta löytyi viittaus &lt;a href=&quot;https://en.wikipedia.org/wiki/James_V_of_Scotland&quot;&gt;Jaakko V&lt;/a&gt; ja &lt;a href=&quot;https://en.wikipedia.org/wiki/Mary,_Queen_of_Scots&quot;&gt;Maria I&lt;/a&gt;. Koska arvoituksessa pyydetään &lt;code&gt;/Title&lt;/code&gt;, mikä voi ymmärtää myös &lt;code&gt;/Arvonimenä&lt;/code&gt; lisäsin tehtävän osoitteeseen &lt;code&gt;/King&lt;/code&gt;, mutta sain vain &lt;code&gt;404 Not Found&lt;/code&gt; virheen, koetin kuitenkin vielä &lt;code&gt;/Queen&lt;/code&gt; ja sain seuraavana arvoituksen:&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;/Name&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Nimeen yritin eri lailla kirjoitettuja Mary ja Mary Stuart muotoja, ilman onnea. Kun aloin selaamaan Marian Wikipedia artikkelia osui silmään &lt;a href=&quot;https://en.wikipedia.org/wiki/Mary,_Queen_of_Scots#Death&quot;&gt;kuolema&lt;/a&gt; kohdan alla “oikeudenkäynti”, josta kävi ilmi että, Maria I oli lähettänyt salattuja viestejä, joissa hän yritti saada Elizabeth I salamurhattua. Uudella tiedolla varustettuna lisäsin URL:in perään &lt;code&gt;/Elizabeth&lt;/code&gt; ja sain seuraavan arvoituksen:&lt;/p&gt;
+&lt;p&gt;Nimeen yritin eri lailla kirjoitettuja Mary ja Mary Stuart muotoja, ilman onnea. Kun aloin selaamaan Marian Wikipedia artikkelia osui silmään &lt;a href=&quot;https://en.wikipedia.org/wiki/Mary,_Queen_of_Scots#Death&quot;&gt;kuolema&lt;/a&gt; kohdan alla “oikeudenkäynti”, josta kävi ilmi että, Maria I oli lähettänyt salattuja viestejä, joissa hän yritti saada Elizabeth I salamurhattua. Uudella tiedolla varustettuna lisäsin osoitteen perään &lt;code&gt;/Elizabeth&lt;/code&gt; ja sain seuraavan arvoituksen:&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;/Number&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Koska kyseessä oli sekä Maria I että Elizabeth I, kokeilin lisätä URL:iin &lt;code&gt;/1&lt;/code&gt; ja sain seuraavan viestin:&lt;/p&gt;
+&lt;p&gt;Koska kyseessä oli sekä Maria I että Elizabeth I, kokeilin vielä lisätä osoitteeseen &lt;code&gt;/1&lt;/code&gt; ja sain seuraavan viestin:&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Congratulations.
