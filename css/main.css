@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Mono:300|Lato:300,700);
 /**
  * Reset some basic elements
  */
@@ -12,11 +12,11 @@ dl, dd, ol, ul, figure {
  * Basic styling
  */
 body {
-  font-family: 'Droid Sans', "Helvetica Neue", Helvetica, sans-serif;
+  font-family: "Helvetica Neue", "Lato", Helvetica, sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 300;
-  color: #666666;
+  color: #000;
   background-color: #eeeeee;
   -webkit-text-size-adjust: 100%;
   text-align: left; }
@@ -65,12 +65,12 @@ h1, h2, h3, h4, h5, h6 {
  * Links
  */
 a {
-  color: #185e78;
+  color: #a6021e;
   text-decoration: none; }
   a:visited {
-    color: #185e78; }
+    color: #a6021e; }
   a:hover {
-    color: #258FB8;
+    color: #bf0222;
     text-decoration: none;
     transition: all 0.3s ease 0s; }
 
@@ -92,12 +92,15 @@ blockquote {
  */
 pre,
 code {
-  font-size: 14px;
+  font-size: 13px;
   border-radius: 2px;
-  border: 1px solid #cccccc; }
+  border: 1px solid #cccccc;
+  font-family: 'Roboto Mono', !important;
+  color: #000;
+  background: #ddd; }
 
 code {
-  padding: 1px 2px; }
+  padding: 0px 2px; }
 
 pre {
   padding: 8px 12px;
@@ -184,11 +187,12 @@ p img {
   font-size: 30px;
   line-height: 56px;
   margin-bottom: 0;
-  float: left; }
+  float: left;
+  color: #a6021e !important; }
   .site-title:hover {
-    color: #258FB8 !important; }
+    color: #bf0222 !important; }
   .site-title:visited {
-    color: #666666; }
+    color: #000; }
 
 .site-nav {
   float: right;
@@ -196,7 +200,7 @@ p img {
   .site-nav .menu-icon {
     display: none; }
   .site-nav .page-link {
-    color: #666666;
+    color: #000;
     line-height: 1.5;
     font-size: 14px; }
     .site-nav .page-link:not(:first-child) {
