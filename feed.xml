@@ -5,9 +5,46 @@
     <description>Ajatuksia, tarinoita ja ideoita.</description>
     <link>http://ajatusrikos.fi/</link>
     <atom:link href="http://ajatusrikos.fi/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 19 Aug 2015 01:04:39 +0300</pubDate>
-    <lastBuildDate>Wed, 19 Aug 2015 01:04:39 +0300</lastBuildDate>
+    <pubDate>Sat, 05 Sep 2015 10:15:12 +0300</pubDate>
+    <lastBuildDate>Sat, 05 Sep 2015 10:15:12 +0300</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Android Laturi</title>
+        <description>&lt;p&gt;Pari viikkoa takaperin äitini etsi uusia käsityö ideoita ja heitin puoli vitsinä, että hän voisi kutoa Androidi maskotin. Noin viikon perästä minua odotti seuraava näky.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/android_selfie.jpeg&quot; alt=&quot;Android Selfie&quot; title=&quot;Android Selfie&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Koska lopputulos oli suhteellisen hauska päätimme tehdä uuden mallin, tällä kertaa siinä on extra ominaisuus, maskotin suussa on puhelimen lataustelakka. Alkuperäiset piirrustukset tein nopeasti paperilla, mutta jälkeenpäin toteutin seuraavanlaiset suunnitelmat &lt;a href=&quot;http://www.123dapp.com/&quot;&gt;Autodestk 123D&lt;/a&gt; -ohjelmistolla.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/img/android/&quot;&gt;&lt;img src=&quot;/img/android_plans.png&quot; alt=&quot;Suunnitelmat&quot; title=&quot;Suunnitelmat&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Kuvaa klikkaamalla voit tsekata lisää, isompia kuvia&lt;/em&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;telakan-rakennus&quot;&gt;Telakan rakennus&lt;/h1&gt;
+
+&lt;p&gt;Laturin asennusta pyöriteltiin pari päivää. Ensimmäinen idea oli 3D printata juuri sopiva kappale joka jotenkin ommeltaisiin suuhun kiinni ja johto ujutettaisiin pohjasta suuhun. Ongelmaksi kuitenkin muodostui 3D printterin puuttuminen, joten siirryimme toiseksi parhaaseen kehitys materiaaliin: pahviin. Aluksi piirsin paperille puhelimeni muodon 1:1 suhteessa. Piirroksen perusteella päädyimme 16 cm läpimittaan Androidille, näin puhelin uppoaa tarpeeksi syvälle ettei maskotti kaadu naamalleen puhelimen painosta. Pahvista leikkasin pari 16 cm halkaisija ympyrää, toiseen leikkasin puhelimen levyisen loven joka oli noin 10 cm syvä. Sitten leikkasin kyseiseen palan laturin johdolle pienen uran ja liimasin kappaleen kokonaisen ympyrän päälle, näin muodostaen telakan pohjan.&lt;/p&gt;
+
+&lt;p&gt;Telakka päätettiin päällystää mustalla huovalla, huopa kiinnitettiin kuumaliimalla ja huopaan jätettiin hieman ylimääräistä reunoille jotta se voidaan ommella kiinni alavartaloon. Itse laturi myös kuuma liimattiin pahviin oikealle korkeudelle, laturi oli kiinni puhelimessa liiman kovettuessa jotta se jäisi oikeaan asentoon. Lopputuloksena meillä oli huovalla päällystetty pahvi telakka johon työnnettäessä puhelin ohjautui itsestään oikeaan kohtaan ja laturi upposi porttiin.&lt;/p&gt;
+
+&lt;h1 id=&quot;muut-huomiot&quot;&gt;Muut huomiot&lt;/h1&gt;
+
+&lt;p&gt;Loppu keho tehtiin kutomalla vihreästä ja mustasta langasta. Keho ja pää täytettiin vanulla. Käsien ja antennien sisään työnnettiin ennen kiinnittämistä rautalangat, näin niiden asentoa voidaan helposti vaihtaa. Silmät leikattiin myös huovasta ja kiinnitettiin kuumaliimalla.&lt;/p&gt;
+
+&lt;h1 id=&quot;lopputulos&quot;&gt;Lopputulos&lt;/h1&gt;
+
+&lt;p&gt;Lopputulos oli yllättävän toimiva. Puhelin menee helposti telakan uraan ja se on helppo työntää paikoilleen. Laturin liitäntä on tarpeeksi vahva pitämään puhelimen tiukasti paikoillaan, mutta silti puhelin on helppo poistaa telakasta yhdellä kädellä ottamalla tukea/työntämällä peukalolla “alahuulen” pahvia taaksepäin samalla kun vetää puhelinta ulospäin. Kangas ei myöskään estä äänen kuulumista puhelimesta, vaikka puhelimeni kaiuttimet sijaitsevat pohjassa laturin kanssa.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/android_final.jpeg&quot; alt=&quot;Lopputulos&quot; title=&quot;Lopputulos&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Kaiken kaikkiaan projekti onnistui hyvin, lopputulos on hauska ja omaperäinen ja mahtuu hyvin yöpöydälle.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 04 Sep 2015 23:27:43 +0300</pubDate>
+        <link>http://ajatusrikos.fi/2015/09/04/android-laturi.html</link>
+        <guid isPermaLink="true">http://ajatusrikos.fi/2015/09/04/android-laturi.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>Kuninkaalliset viestit</title>
@@ -95,8 +132,7 @@ are the cheesiest potato.&lt;/p&gt;
 
 &lt;h1 id=&quot;korjaus&quot;&gt;Korjaus&lt;/h1&gt;
 
-&lt;p&gt;1. kiekon hyppäys on suunnitteluvirhe, muut kiekot toimivat normaalisti ja 1. kiekko toimii normaalisti käännettäessä ylöspäin, eikä alaspäin käännettäessä ole ongelmia kunhan salpa ei ole auki, eli jos salpa numero 2. tai 3. käännetään ensiksi. Ongelman “korjaus” on käytön muuttaminen, nopea nyrkkisääntö on: “lukitse lukko aina ensiksi keskimmäisellä numerolla”, mikä on aika huono korjaus, muttei lukolle oikein voi muuta tehdä.&lt;/p&gt;
-
+&lt;p&gt;Ensimmäinen kiekon hyppäys on suunnitteluvirhe, muut kiekot toimivat normaalisti ja 1. kiekko toimii normaalisti käännettäessä ylöspäin, eikä alaspäin käännettäessä ole ongelmia kunhan salpa ei ole auki, eli jos salpa numero 2. tai 3. käännetään ensiksi. Ongelman “korjaus” on käytön muuttaminen, nopea nyrkkisääntö on: “lukitse lukko aina ensiksi keskimmäisellä numerolla”, mikä on aika huono korjaus, muttei lukolle oikein voi muuta tehdä.&lt;/p&gt;
 </description>
         <pubDate>Mon, 03 Aug 2015 09:49:00 +0300</pubDate>
         <link>http://ajatusrikos.fi/2015/08/03/lukko.html</link>
@@ -483,87 +519,6 @@ lol
         <pubDate>Sat, 25 Jul 2015 14:02:58 +0300</pubDate>
         <link>http://ajatusrikos.fi/2015/07/25/pvcc10.html</link>
         <guid isPermaLink="true">http://ajatusrikos.fi/2015/07/25/pvcc10.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>PVCC #9: Leo, Adi ja Ron</title>
-        <description>&lt;p&gt;&lt;em&gt;Etkö tiedä mikä on PVCC? &lt;a href=&quot;/2015/07/20/fdfcc.html&quot;&gt;Klikkaa tästä&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Yhdeksäs kysymys oli hieman erikoinen.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Leonard: N = 779191667&lt;br /&gt;
-Adi: e = 65537&lt;br /&gt;
-Ron: 706790887 ?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Aluksi ei ollut mitään hajua mitä tässä oikein kysyttiin. Aluksi luulin että \(n\) ja \(e\) voisi olla koordinaatteja, mutta &lt;a href=&quot;https://www.google.com/maps/place/77%C2%B055&#39;09.0%22N+6%C2%B033&#39;13.3%22E/@77.9192819,6.5534358,4.42z/data=!4m2!3m1!1s0x0:0x0?hl=fi&quot;&gt;sitten päätin tätä vastaan&lt;/a&gt;. Joten seuraava looginen askel oli Googlettaa nimet. Ensimmäiset tulokset käsitteli RSAta kuten &lt;a href=&quot;https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29&quot;&gt;tämä Wikipedia artikkeli&lt;/a&gt;. Julkisella avaimella salaus kuulostaa ihan järkevältä aiheelta kysymykselle. Kun äkkiä silmäilin tekstin lävitse, osui silmään &lt;em&gt;Encryption&lt;/em&gt; kohdan alta. “Alice transmits her public key \((n, e)\) to Bob and keeps the private key \(d\) secret”. Ehkä tuo viimeinen arvo on \(d\)?&lt;/p&gt;
-
-&lt;h1 id=&quot;rsa&quot;&gt;RSA&lt;/h1&gt;
-
-&lt;p&gt;Käydään lävitse hieman, miten RSA toimii. Perus idea julkisen avaimen suojauksen takana on kahden avaimen pari, julkinen ja yksityinen. Kun viesti salataan käyttämällä julkista avainta sen voi avata ainoastaan julkisen avaimen yksityisellä parilla ja päin vastoin. Julkisella avaimella salatessa vain yksityinen avain tulee pitää salassa, viestit salataan aina toisen henkilön julkisella avaimella. Omalla yksityisavaimella voi kuitenkin allekirjoittaa viestin, ja näin todentaa viestin lähettäjän.&lt;/p&gt;
-
-&lt;h1 id=&quot;avainten-luonti&quot;&gt;Avainten luonti&lt;/h1&gt;
-
-&lt;p&gt;Ensiksi tarvitaan kaksi jaotonta, eli prime, lukua (\(p\) ja \(q\)) joilla on samanlainen bittipituus.&lt;/p&gt;
-
-&lt;p&gt;Seuraavaksi lasketaan \(n\) kertomalla \(p\) ja \(q\). \(n\) käytetään jakojäännös, eli modulo operaattorina molemmissa avaimissa \(\pmod{n}\).&lt;/p&gt;
-
-&lt;p&gt;Seuraavaksi lasketaan \(φ(n)\) mikä on sama kuin \((p − 1)(q − 1)\).&lt;/p&gt;
-
-&lt;p&gt;Sitten valitaan \(e\) niin että se on positiivinen numero \(1\) ja \(φ(n)\) väliltä. \(e\) ja \(φ(n)\) suurin&lt;/p&gt;
-
-&lt;p&gt;\(e\) ja \(φ(n)\) suurin yhteinen tekijä (greatest common divisor, eli gcd) tulee olla \(1\) (\(gcd(e, φ(n)) = 1\)). Meidän tapauksessa \(e = 65537\) Mikä on &lt;a href=&quot;https://www.dlitz.net/software/pycrypto/api/current/Crypto.PublicKey.RSA-module.html&quot;&gt;Pythonin RSA moduulin dokumentaation&lt;/a&gt; mukaan “turvallinen” valinta.&lt;/p&gt;
-
-&lt;p&gt;Lopuksi lasketaan \(d\) kaavasta \(d = e^{-1}\pmod{φ(n)}\)&lt;/p&gt;
-
-&lt;p&gt;Kuten huomataan, jotta voidaan tarkistaa onko meidän mysteeri numero \(d\) tulee ensiksi saada selville alkuperäiset prime luvut. (\(p\) ja \(q\)).&lt;/p&gt;
-
-&lt;h1 id=&quot;revitn-luvut-osiin&quot;&gt;Revitään luvut osiin&lt;/h1&gt;
-
-&lt;p&gt;Onneksi meidän \(n\) on suhteellisen pieni luku, niin &lt;a href=&quot;https://www.wolframalpha.com/input/?i=x*y%3D779191667&quot;&gt;WolframAlphan&lt;/a&gt; ] voi suoraan pyytää jakamaan sen komponentteihinsa. Mitkä ovat.&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;p = 25523, q = 30529&lt;/script&gt;
-
-&lt;p&gt;Nyt voidaan laskea loput yhtälöt.&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;n = pq = 25523 \times 30529 = 779191667&lt;/script&gt;
-
-&lt;p&gt;\(n\) oletetusti näyttää hyvältä. Lasketaanpas \(\phi(n)\).&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;φ(n) = (p − 1)(q − 1) = (30529 - 1)(25523 - 1) = 779135616&lt;/script&gt;
-
-&lt;p&gt;Sitten muistetaan tarkistaa että \(φ(n)\) ja \(e\) suurin yhteinen tekijä on \(1\).&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;gcd(φ(n), e) = gcd(779135616, 65537) = 1&lt;/script&gt;
-
-&lt;p&gt;Näyttää toimivan, joten nyt voidaan laskea \(d\).&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;e^{−1} \pmod{φ(n)} = 65537^{-1} \pmod{779135616} = 728918657&lt;/script&gt;
-
-&lt;p&gt;Nyt ei näytä enää toimivan, koska \(728918657 \neq 706790887\) joten vastaus ei voi olla “\(d\)”, mutta RSA salauksessa on vielä kaksi muuttuja joita ei olla käyty lävitse. Itse salattu viesti. Salattu viesti \(c\)  viestin \(M\) desimaaliksi muunnos \(m\) potenssiin \(e\) kertaa modulus \(n\).&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;c = m^e \pmod{n}&lt;/script&gt;
-
-&lt;p&gt;Julkisella avaamilla salatessa \(m\) tulee myös sopia sääntöön \(gcd(m, n) = 1\), joten ensiksi meidän tulee saada selville \(m\) jos mysteeri lukumme &lt;code&gt;706790887&lt;/code&gt; on \(c\).&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;c = m^e \pmod{n} = m^65537 \times \pmod{779191667}, m = 3141592&lt;/script&gt;
-
-&lt;p&gt;Eli jos &lt;code&gt;706790887&lt;/code&gt; olisi \(c\) \(m\) olisi \(3141592\). Tarkistetaan \(gcd(m, n)\).&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;gcd(m, n) = gcd(3141592, 779135616) = 8&lt;/script&gt;
-
-&lt;p&gt;Valitettavasti \(8\) on suurempi kuin \(1\), joten &lt;code&gt;706790887&lt;/code&gt; ei voi olla \(c\), no entä \(m\)?&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;gcd(m, n) = gcd(706790887, 779191667) = 1&lt;/script&gt;
-
-&lt;p&gt;Nyt &lt;code&gt;706790887&lt;/code&gt; sopii yhtälöön ja koska \(m\) on viimeinen muuttuja, RSA salauksessa se on pakko olla tehtävän vastaus.&lt;/p&gt;
-</description>
-        <pubDate>Fri, 24 Jul 2015 09:18:46 +0300</pubDate>
-        <link>http://ajatusrikos.fi/2015/07/24/pvcc9.html</link>
-        <guid isPermaLink="true">http://ajatusrikos.fi/2015/07/24/pvcc9.html</guid>
         
         
       </item>

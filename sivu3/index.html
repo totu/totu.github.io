@@ -67,6 +67,89 @@
     
       <li>
         <header class="post-header">
+          <a class="post-link" href="/2015/07/24/pvcc9.html">PVCC #9: Leo, Adi ja Ron</a>
+          <p class="post-meta">24.7.2015</p>
+        </header>
+
+        <article class="post-content">
+          <p><em>Etkö tiedä mikä on PVCC? <a href="/2015/07/20/fdfcc.html">Klikkaa tästä</a>.</em></p>
+
+<p>Yhdeksäs kysymys oli hieman erikoinen.</p>
+
+<blockquote>
+  <p>Leonard: N = 779191667<br />
+Adi: e = 65537<br />
+Ron: 706790887 ?</p>
+</blockquote>
+
+<p>Aluksi ei ollut mitään hajua mitä tässä oikein kysyttiin. Aluksi luulin että \(n\) ja \(e\) voisi olla koordinaatteja, mutta <a href="https://www.google.com/maps/place/77%C2%B055'09.0%22N+6%C2%B033'13.3%22E/@77.9192819,6.5534358,4.42z/data=!4m2!3m1!1s0x0:0x0?hl=fi">sitten päätin tätä vastaan</a>. Joten seuraava looginen askel oli Googlettaa nimet. Ensimmäiset tulokset käsitteli RSAta kuten <a href="https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29">tämä Wikipedia artikkeli</a>. Julkisella avaimella salaus kuulostaa ihan järkevältä aiheelta kysymykselle. Kun äkkiä silmäilin tekstin lävitse, osui silmään <em>Encryption</em> kohdan alta. “Alice transmits her public key \((n, e)\) to Bob and keeps the private key \(d\) secret”. Ehkä tuo viimeinen arvo on \(d\)?</p>
+
+<h1 id="rsa">RSA</h1>
+
+<p>Käydään lävitse hieman, miten RSA toimii. Perus idea julkisen avaimen suojauksen takana on kahden avaimen pari, julkinen ja yksityinen. Kun viesti salataan käyttämällä julkista avainta sen voi avata ainoastaan julkisen avaimen yksityisellä parilla ja päin vastoin. Julkisella avaimella salatessa vain yksityinen avain tulee pitää salassa, viestit salataan aina toisen henkilön julkisella avaimella. Omalla yksityisavaimella voi kuitenkin allekirjoittaa viestin, ja näin todentaa viestin lähettäjän.</p>
+
+<h1 id="avainten-luonti">Avainten luonti</h1>
+
+<p>Ensiksi tarvitaan kaksi jaotonta, eli prime, lukua (\(p\) ja \(q\)) joilla on samanlainen bittipituus.</p>
+
+<p>Seuraavaksi lasketaan \(n\) kertomalla \(p\) ja \(q\). \(n\) käytetään jakojäännös, eli modulo operaattorina molemmissa avaimissa \(\pmod{n}\).</p>
+
+<p>Seuraavaksi lasketaan \(φ(n)\) mikä on sama kuin \((p − 1)(q − 1)\).</p>
+
+<p>Sitten valitaan \(e\) niin että se on positiivinen numero \(1\) ja \(φ(n)\) väliltä. \(e\) ja \(φ(n)\) suurin</p>
+
+<p>\(e\) ja \(φ(n)\) suurin yhteinen tekijä (greatest common divisor, eli gcd) tulee olla \(1\) (\(gcd(e, φ(n)) = 1\)). Meidän tapauksessa \(e = 65537\) Mikä on <a href="https://www.dlitz.net/software/pycrypto/api/current/Crypto.PublicKey.RSA-module.html">Pythonin RSA moduulin dokumentaation</a> mukaan “turvallinen” valinta.</p>
+
+<p>Lopuksi lasketaan \(d\) kaavasta \(d = e^{-1}\pmod{φ(n)}\)</p>
+
+<p>Kuten huomataan, jotta voidaan tarkistaa onko meidän mysteeri numero \(d\) tulee ensiksi saada selville alkuperäiset prime luvut. (\(p\) ja \(q\)).</p>
+
+<h1 id="revitn-luvut-osiin">Revitään luvut osiin</h1>
+
+<p>Onneksi meidän \(n\) on suhteellisen pieni luku, niin <a href="https://www.wolframalpha.com/input/?i=x*y%3D779191667">WolframAlphan</a> ] voi suoraan pyytää jakamaan sen komponentteihinsa. Mitkä ovat.</p>
+
+<script type="math/tex; mode=display">p = 25523, q = 30529</script>
+
+<p>Nyt voidaan laskea loput yhtälöt.</p>
+
+<script type="math/tex; mode=display">n = pq = 25523 \times 30529 = 779191667</script>
+
+<p>\(n\) oletetusti näyttää hyvältä. Lasketaanpas \(\phi(n)\).</p>
+
+<script type="math/tex; mode=display">φ(n) = (p − 1)(q − 1) = (30529 - 1)(25523 - 1) = 779135616</script>
+
+<p>Sitten muistetaan tarkistaa että \(φ(n)\) ja \(e\) suurin yhteinen tekijä on \(1\).</p>
+
+<script type="math/tex; mode=display">gcd(φ(n), e) = gcd(779135616, 65537) = 1</script>
+
+<p>Näyttää toimivan, joten nyt voidaan laskea \(d\).</p>
+
+<script type="math/tex; mode=display">e^{−1} \pmod{φ(n)} = 65537^{-1} \pmod{779135616} = 728918657</script>
+
+<p>Nyt ei näytä enää toimivan, koska \(728918657 \neq 706790887\) joten vastaus ei voi olla “\(d\)”, mutta RSA salauksessa on vielä kaksi muuttuja joita ei olla käyty lävitse. Itse salattu viesti. Salattu viesti \(c\)  viestin \(M\) desimaaliksi muunnos \(m\) potenssiin \(e\) kertaa modulus \(n\).</p>
+
+<script type="math/tex; mode=display">c = m^e \pmod{n}</script>
+
+<p>Julkisella avaamilla salatessa \(m\) tulee myös sopia sääntöön \(gcd(m, n) = 1\), joten ensiksi meidän tulee saada selville \(m\) jos mysteeri lukumme <code>706790887</code> on \(c\).</p>
+
+<script type="math/tex; mode=display">c = m^e \pmod{n} = m^65537 \times \pmod{779191667}, m = 3141592</script>
+
+<p>Eli jos <code>706790887</code> olisi \(c\) \(m\) olisi \(3141592\). Tarkistetaan \(gcd(m, n)\).</p>
+
+<script type="math/tex; mode=display">gcd(m, n) = gcd(3141592, 779135616) = 8</script>
+
+<p>Valitettavasti \(8\) on suurempi kuin \(1\), joten <code>706790887</code> ei voi olla \(c\), no entä \(m\)?</p>
+
+<script type="math/tex; mode=display">gcd(m, n) = gcd(706790887, 779191667) = 1</script>
+
+<p>Nyt <code>706790887</code> sopii yhtälöön ja koska \(m\) on viimeinen muuttuja, RSA salauksessa se on pakko olla tehtävän vastaus.</p>
+
+        </article>
+      </li>
+      <div class="post-divider"></div>
+    
+      <li>
+        <header class="post-header">
           <a class="post-link" href="/2015/07/23/pvcc8.html">PVCC #8: Salasanojen varjostusta</a>
           <p class="post-meta">23.7.2015</p>
         </header>
@@ -471,88 +554,6 @@ b')87*;+xorXOR'
 </code></pre>
 
 <p>Ja siinä saatiin vastaus joka näyttää olevan: <code>)87*;+xorXOR</code>.</p>
-
-        </article>
-      </li>
-      <div class="post-divider"></div>
-    
-      <li>
-        <header class="post-header">
-          <a class="post-link" href="/2015/07/21/pvcc4.html">PVCC #4: Logiikkaa!</a>
-          <p class="post-meta">21.7.2015</p>
-        </header>
-
-        <article class="post-content">
-          <p><em>Etkö tiedä mikä on PVCC? <a href="/2015/07/20/fdfcc.html">Klikkaa tästä</a>.</em></p>
-
-<p>Neljäs kysymys on logiikka puzzle, jossa kaksi toisistaan eristettyä ohjelmaa luovat sattumanvaraisesti bitin. Generoituaan bitin ohjelmat arvaavat mikä toisen ohjelman bitti oli. Ohjelmat voivat olla erilaisia ja voivat käyttää eri strategioita. Jos yhden kierroksen jälkeen edes toinen ohjelma arvaa oikein voittavat ohjelmat palkinnon.</p>
-
-<p>Kysymys kuuluu:</p>
-
-<blockquote>
-  <p>“Onko mahdollista luoda strategia joka tuottaa aina voiton?”</p>
-</blockquote>
-
-<p>Kartoitetaan aluksi kaikki mahdolliset outputit näistä ohjelmista, olkoon ohjelmien nimet <code>A</code> ja <code>B</code></p>
-
-<pre><code class="language-bash"> | A | 0 | 1 | 0 | 1 |
- | B | 0 | 0 | 1 | 1 |
-</code></pre>
-
-<p>Vaikka yllä oleva totuustaulukko näyttääkin kaikki mahdolliset tulokset, ajetaan vielä varmuudeksi pieni simulaatio.</p>
-
-<pre><code class="language-python">&gt;&gt;&gt; import random
-&gt;&gt;&gt; for i in range(10):
-...   rand1 = random.randint(0,2)
-...   rand2 = random.randint(0,2)
-...   print(rand1, rand2)
-...
-1 0
-0 0
-1 1
-0 0
-0 1
-1 1
-0 0
-0 1
-0 1
-0 0
-</code></pre>
-
-<p>Tehtävänä on siis arvata ohjelmien tulokset yhden loopin jälkeen, mutta vain yhden arvon täytyy olla oikein. Tehtävään on helppo ratkaisu: toinen ohjelmista arvaa tuloksensa vastakohdan ja toinen arvaa saman kuin oma tuloksensa. Varmistetaan tämä vielä tekemällä totuustaulukko, jossa <code>T</code> on tulos ja <code>R</code> on arvaus.</p>
-
-<pre><code class="language-bash">    | T | R |           | T | R |           | T | R |           | T | R |
-| A | 0 | 0 |       | A | 1 | 1 |       | A | 0 | 0 |       | A | 1 | 1 |
-| B | 0 | 1 |       | B | 0 | 1 |       | B | 1 | 0 |       | B | 1 | 0 |
-</code></pre>
-
-<p>Kuten taulukosta käyt ilmi aina toinen, joko <code>A</code> tai <code>B</code>, ohjelma arvaa toisen tuloksen oikein. Näin voimme 100% varmuudella voittaa palkinnon joka kerta.
-Jos joku tahtoo itse kokeilla tätä ohjelmallisesti, tässä on lyhyt Python pätkä.</p>
-
-<pre><code class="language-python">import random
-for i in range(10):
-    rand1  = random.randint(0, 2)
-    rand2  = random.randint(0, 2)
-    quess1 = rand1
-    guess2 = 1 - rand2
-
-print(rand1, ":", quess1, "|", rand2, ":", guess2)
-</code></pre>
-
-<p>Tässä esimerkki tuloste:</p>
-
-<pre><code class="language-bash">py question3.py
-1 : 1 | 1 : 0
-0 : 0 | 0 : 1
-1 : 1 | 0 : 1
-1 : 1 | 0 : 1
-1 : 1 | 0 : 1
-1 : 1 | 1 : 0
-1 : 1 | 0 : 1
-1 : 1 | 0 : 1
-0 : 0 | 0 : 1
-0 : 0 | 0 : 1
-</code></pre>
 
         </article>
       </li>
