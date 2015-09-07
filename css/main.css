@@ -65,12 +65,12 @@ h1, h2, h3, h4, h5, h6 {
  * Links
  */
 a {
-  color: #a6021e;
+  color: #0090f7;
   text-decoration: none; }
   a:visited {
-    color: #a6021e; }
+    color: #0090f7; }
   a:hover {
-    color: #bf0222;
+    color: #119cff;
     text-decoration: none;
     transition: all 0.3s ease 0s; }
 
@@ -188,9 +188,9 @@ p img {
   line-height: 56px;
   margin-bottom: 0;
   float: left;
-  color: #a6021e !important; }
+  color: #0090f7 !important; }
   .site-title:hover {
-    color: #bf0222 !important; }
+    color: #119cff !important; }
   .site-title:visited {
     color: #000; }
 
