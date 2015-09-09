@@ -67,6 +67,37 @@
     
       <li>
         <header class="post-header">
+          <a class="post-link" href="/2015/09/09/tsa-avaimet.html">TSA:n yleisavaimet</a>
+          <p class="post-meta">9.9.2015</p>
+        </header>
+
+        <article class="post-content">
+          <p>Viimevuoden Marraskuun lopulla <a href="https://www.washingtonpost.com/local/trafficandcommuting/where-oh-where-did-my-luggage-go/2014/11/24/16d168c6-69da-11e4-a31c-77759fc1eacc_story.html">The Washington Post</a> sekä <a href="http://www.heraldnet.com/article/20141130/NEWS02/141139966">HeraldNet</a> kirjoittivat matkalaukun matkasta lentokentän sisällä. Alunperin molemmissa artikkeleissa esiintyi seuraava kuva, kuvatekstillä: <em>“Vartijoilla on yleisavaimet TSA:n hyväksymiin matkatavara lukkoihin.””</em></p>
+
+<p><a href="https://imgur.com/a/JQD7l"><img src="/img/tsa-avaimet.jpeg" alt="TSA yleisavaimet" title="Klikkaa isommat kuvat" /></a></p>
+
+<h1 id="mit-erikoista-tss-kuvassa-on">Mitä erikoista tässä kuvassa on?</h1>
+
+<p>Avain on ainoastaan “vahva” kun se ei ole tiedossa. Mekaanisia lukkoja ei kiinnosta onko kyseessä valmistajan painama avain tai minun viilaama kopio, kunhan lukkopesän pinnit painuvat alas ja lukkosylinterit pääsevät pyörimään vapaasti voidaan lukko avata.</p>
+
+<h1 id="miksi-sitten-levitn-kuvaa-sensuroimattomana">Miksi sitten levitän kuvaa sensuroimattomana?</h1>
+
+<p>Syitä on useita, joista päällimmäisenä idiomi: <em>“Turha rypistää, kun on jo housussa”</em>. Kuva on olleet verkossa, julkisessa jaossa, jo yli kahdeksan kuukautta. Kuva on jo kaikilla ketä asia kiinnostaa.</p>
+
+<p>Asiaan liittyvänä toisena seikkana, mitä tiirikoinnin harrastajat ovat huutaneet yhteen ääneen, TSA:n hyväksymät lukot on helppoja tiirikoida. Lisäksi kuka tahansa voi kopioida yleisavaimen omistamastaan hyväksytystä lukosta viilalla ja tusinalla “tyhjiä” avaimia. Jos jälkimmäinen idea kiinnostaa suosittelen <a href="https://www.youtube.com/watch?v=aVPSaKLKHd4">tätä (ENG)</a> Deviant Ollamin puhetta HOPE 9 konferenssissa.</p>
+
+<h1 id="miksi-sitten-yliptn-kirjoittaa-kuvasta">Miksi sitten ylipäätään kirjoittaa kuvasta?</h1>
+
+<p>Koska takaovet ovat aina huono idea. Oli sitten kyseessä fyysinen lukko taikka biteistä koostuva crypto avain, takaoven lisäys laskee sen turvallisuuden tasoa.</p>
+
+<p>Lisäksi vaikka näiden hyväksyttyjen lukkojen tiirikointi olisi kuinka helppoa ja nopeaa yleisavaimella lukon avaus on vielä helpompaa ja nopeampaa. Vaikka Ollamin videon avulla kuka vain voisi luoda itselleen kopion yleisavaimesta, olisi se kuitenkin paljon työtä ja tutkimusta. Yhdellä kuvalla TSA ampui itseään nilkkaan pahasti, ehkä tämä “vuoto” ehkäisee tulevaisuudessa takaovet yleisissä turvajärjestelmissä ja salaus tekniikoissa. Valtiolla ei ole mitään asiaa päästä käsiksi kansalaisten tavaroihin ja tiedostoihin ja väittämällä että salaus suojelee rikollisia osoittaa kansanedustajat vain omaa tyhmyyttään tai korruptiotaan, vahvat salausmenetelmät on jo keksitty ja ne on jo rikollisten käsissä, kieltämällä tai muuttamalla ne laittomiksi rikolliset eivät lopeta niiden käyttöä. Tällaiset takaovet vaivaavat vain ja ainoastaan lainkuuliaisia kansalaisia.</p>
+
+        </article>
+      </li>
+      <div class="post-divider"></div>
+    
+      <li>
+        <header class="post-header">
           <a class="post-link" href="/2015/09/04/android-laturi.html">Android Laturi</a>
           <p class="post-meta">4.9.2015</p>
         </header>
@@ -200,71 +231,6 @@ are the cheesiest potato.</p>
 <h1 id="korjaus">Korjaus</h1>
 
 <p>Ensimmäinen kiekon hyppäys on suunnitteluvirhe, muut kiekot toimivat normaalisti ja 1. kiekko toimii normaalisti käännettäessä ylöspäin, eikä alaspäin käännettäessä ole ongelmia kunhan salpa ei ole auki, eli jos salpa numero 2. tai 3. käännetään ensiksi. Ongelman “korjaus” on käytön muuttaminen, nopea nyrkkisääntö on: “lukitse lukko aina ensiksi keskimmäisellä numerolla”, mikä on aika huono korjaus, muttei lukolle oikein voi muuta tehdä.</p>
-
-        </article>
-      </li>
-      <div class="post-divider"></div>
-    
-      <li>
-        <header class="post-header">
-          <a class="post-link" href="/2015/08/01/pvcc21.html">PVCC #21: Assemblya</a>
-          <p class="post-meta">1.8.2015</p>
-        </header>
-
-        <article class="post-content">
-          <p><em>Etkö tiedä mikä on PVCC? <a href="/2015/07/20/fdfcc.html">Klikkaa tästä</a>.</em></p>
-
-<p>21. tehtävässä meille annetaan lyhyt Assembly pätkä, jonka kerrotaan saapuneen kollegalta jonka palvelinta haittaohjelma pitää vankina. Ja kysymys kuuluu:</p>
-
-<blockquote>
-  <p>Kykenetkö auttamaan kollegaa löytämään oikean salasanan?</p>
-</blockquote>
-
-<pre><code class="language-bash">xor    ebx, ebx
-push    ebx
-pop     eax
-inc     eax
-mov     edx, [esi]
-xor     edx, 0x31415926
-cmp     edx, 0x452f2c4e
-cmovnz  eax, ebx
-mov     edx, [esi + 4]
-not     edx
-cmp     edx, 0xcdcb8d9a
-cmovne    eax, ebx
-ret
-</code></pre>
-
-<h1 id="purkaminen">Purkaminen</h1>
-<p>Tehtävän kannalta tärkeimmät osat on <code>edx</code> käsittely, sillä <code>edx</code> saa arvonsa <code>esi</code> osoittamasta muistista. Lisäksi se on ainoa osa koodista, minkä arvo tiedetään ajoittain. Otetaan aluksi käsittelyyn.</p>
-
-<pre><code class="language-bash">mov     edx, [esi]
-xor     edx, 0x31415926
-cmp     edx, 0x452f2c4e
-</code></pre>
-
-<p><code>mov</code> komento hakee datan <code>esi</code> osoittamasta muistista ja siirtää sen <code>edx</code> arvoksi. Seuraavaksi <code>edx</code> arvo vedetään loogisesta XOR funktiosta läpi <code>0x31415926</code> kanssa. Lopuksi <code>edx</code> arvoa verrataan <code>cmp</code> komennolla arvoon <code>0x452f2c4e</code> jonka tulisi olla tosi.</p>
-
-<p>Nyt voidaan kulkea logiikkaa läpi takaperin. Jos <code>edx</code> on <code>0x452f2c4e</code> XOR funktion jälkeen, jos XOR tehdään toisinpäin, saadaan <code>edx</code> alkuperäinen arvo. <code>0x452f2c4e</code> \(\oplus\) <code>0x31415926</code> \(=\) <code>0x746e7568</code>. Ennen dekoodausta otetaan selvää seuraavasta kohdasta.</p>
-
-<pre><code class="language-bash">mov     edx, [esi + 4]
-not     edx
-cmp     edx, 0xcdcb8d9a
-</code></pre>
-
-<p><code>edx</code> saa uuden arvon mikä on <code>esi</code> osoittama muisti plus neljä tavua, <code>esi</code> arvoa siirretään neljällä koska <code>mov</code> palauttaa neljä tavua dataa. Seuraavaksi <code>edx</code> menee lävitse loogisesta NOT funktiosta joka kääntää jokaisen bitin, eli <code>1</code> tulee <code>0</code> ja <code>0</code> tulee <code>1</code>. Ja lopputuloksena <code>edx</code> on sama kuin <code>0xcdcb8d9a</code>. Taas logiikkaa kulkea toiseen suuntaan. Jos <code>[esi + 4]</code> arvo on <code>0xcdcb8d9a</code> loogisen NOT jälkeen, on <code>0xcdcb8d9a</code> arvo loogisen NOT jälkeen sama kuin <code>[esi + 4]</code>.  <code>~0xcdcb8d9a</code> \(=\) <code>0x32347265</code>.</p>
-
-<h1 id="dekoodaus">Dekoodaus</h1>
-<p>Käännetään hexat ascii arvoiksi.</p>
-
-<pre><code class="language-python">&gt;&gt;&gt; from binascii import *
-&gt;&gt;&gt; unhexlify(bytes('746e7568', 'utf-8')).decode('utf-8')
-'tnuh'
-&gt;&gt;&gt; unhexlify(bytes('32347265', 'utf-8')).decode('utf-8')
-'24re'
-</code></pre>
-
-<p>Koska Assemblyssä muistia luetaan vähiten merkitsevästä tavusta alkaen, eli takaperin. Joten salasana on <code>hunter42</code>.</p>
 
         </article>
       </li>
