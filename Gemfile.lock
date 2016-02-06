@@ -93,7 +93,7 @@ PLATFORMS
 
 DEPENDENCIES
   aws-sdk
-  octopress (~> 3.0.0.rc.15)
+  octopress (~> 3.0.0)
   octopress-deploy
   rake
 
