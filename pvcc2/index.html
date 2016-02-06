@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.15" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="http://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/index.xml" type="application/rss+xml" title="Kyhäelmä ajatuksistani ja kokemuksistani">
+<title>PVCC2 #2: 700 miljardia salasanaa sekunnissa - Kyhäelmä ajatuksistani ja kokemuksistani</title>
+</head>
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/nassu.jpeg" width="60" height="60"></a>
+		</div>
+		
+	</header>
+
+
+	<main role="main">
+		<article itemscope itemtype="http://schema.org/BlogPosting">
+			<h1 class="entry-title" itemprop="headline">PVCC2 #2: 700 miljardia salasanaa sekunnissa</h1>
+			<span class="entry-meta"><time itemprop="datePublished" datetime="2015-07-20">July 20, 2015</time></span>
+			<section itemprop="entry-text">
+				<p><em>Etkö tiedä mikä on PVCC? <a href="/fdfcc">Klikkaa tästä</a>.</em></p>
+
+<p>Tokassa kysymyksessä cräkätään salasanoja. Tarkoitus on laskea teoreettinen maksimi aika kahdella eri tavalla luodulle salasanalle. Ensimmäinen salasana luodaan liittämällä yhteen sattumanvaraisesti neljä sanaa 31337 sanan tiedetystä listasta. Toinen salasana luodaan yhdeksästä sattumanvaraisesta printattavasta ASCII merkistä. Molemmat salasanat puretaan koneella joka pystyy tekemään 700 miljardia hash operaatiota sekunnissa. Nyt matikkamyssyt päähän ja cräkkäämään.</p>
+
+<p>Neljä sanaa 31337 sanan listasta täysin sattuman varaisesti tuottaa \(3133^4\) mahdollista yhdistelmää, kun se jaetaan 700 miljardilla saadaan tulokseksi \(31337^4 / 700 \times 10^9\) mikä on sama kuin \(1.38 \times 10^6\) sekuntia. Vastaus pitää kuitenkin antaa päivän tarkkuudella joten lopullinen yhtälö näyttää tältä:</p>
+
+<p>$$ \dfrac{3133^4}{700 \times 10^9 \times 3600 \times 24} \approx 16 $$</p>
+
+<p>Toka salasana on perinteisempi ongelma. <a href="https://fi.wikipedia.org/wiki/ASCII">Wikipedian</a> mukaan ASCII sisältää 95 näkyvää merkkiä. Mikä tarkoittaa meillä voi olla \(95^9\) mahdollista salasanaa ja koska meillä on käytössä sama kone kuin edellisen salasanan kanssa lopullinen yhtälö on:</p>
+
+<p>$$ \dfrac{95^9}{700 \times 10^9 \times 3600 \times 24} \approx 10 $$</p>
+
+<p>Tehtävän vastaukset ovat siis <strong>a)</strong> 16 päivää ja <strong>b)</strong> 10 päivää.</p>
+
+			</section>
+		</article>
+	</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:topi.tuulensuu@gmail.com" target="_blank">Email</a></span>
+			<a href="https://twitter.com/topituulensuu" target="_blank">Twitter</a></span>
+			
+			<a href="https://github.com/totu/" target="_blank">GitHub</a></span>
+		</div>
+		<div class="copyright">Copyright &copy; Topi Tuulensuu. Saa jakaa ja kopioida.</div>
+	</footer>
+
+</div>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>

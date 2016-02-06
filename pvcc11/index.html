@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.15" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="http://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/index.xml" type="application/rss+xml" title="Kyhäelmä ajatuksistani ja kokemuksistani">
+<title>PVCC #11: Todennäköisyys - Kyhäelmä ajatuksistani ja kokemuksistani</title>
+</head>
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/nassu.jpeg" width="60" height="60"></a>
+		</div>
+		
+	</header>
+
+
+	<main role="main">
+		<article itemscope itemtype="http://schema.org/BlogPosting">
+			<h1 class="entry-title" itemprop="headline">PVCC #11: Todennäköisyys</h1>
+			<span class="entry-meta"><time itemprop="datePublished" datetime="2015-07-25">July 25, 2015</time></span>
+			<section itemprop="entry-text">
+				<p><em>Etkö tiedä mikä on PVCC? <a href="/fdfcc">Klikkaa tästä</a>.</em></p>
+
+<p>11. kysymyksessä on pitkä tekstinpätkä josta puolet voi heti heittää menemään. Oikea kysymys kuuluu:</p>
+
+<blockquote>
+<p>&ldquo;Jos huoneessa on kolme tietokonetta, joilla kaikilla on yhtäläinen mahdollisuus pyörittää Windows, Linux tai OS X käyttöjärjestelmää, mikä on todennäköisyys että huoneessa on vähintään kaksi Linux konetta?&rdquo;</p>
+</blockquote>
+
+<p>Koska vaihtoehtoja on vähän, aloitetaan totuustaulukolla selventämään tilannetta, tässä taulukossa on kaikki tilat jotka täyttävät kysymyksen kriteerit.</p>
+
+<pre><code class="language-None">L, L, L       L = Linux
+L, L, W       W = Windows
+W, L, L       X = OSX
+L, W, L
+L, L, X
+X, L, L
+L, X, L
+</code></pre>
+
+<p>Kuten huomataan kokoonpanoja, joissa on vähintään kaksi Linux konetta, on \(7\). Kaiken kaikkiaan mahdollisia kokoonpanoja on \(3^3\), eli \(27\), joten todennäköisyys \(P\) on.</p>
+
+<p>$$P = <sup>7</sup>&frasl;<sub>27</sub> \approx 0.2593$$</p>
+
+<p>Mikä tarkoittaa että todennäköisyys sille, että huoneessa on vähintään kaksi Linux konetta, on \( \approx 26 \%\).</p>
+
+			</section>
+		</article>
+	</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:topi.tuulensuu@gmail.com" target="_blank">Email</a></span>
+			<a href="https://twitter.com/topituulensuu" target="_blank">Twitter</a></span>
+			
+			<a href="https://github.com/totu/" target="_blank">GitHub</a></span>
+		</div>
+		<div class="copyright">Copyright &copy; Topi Tuulensuu. Saa jakaa ja kopioida.</div>
+	</footer>
+
+</div>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
