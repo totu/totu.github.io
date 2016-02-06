@@ -15,7 +15,7 @@
       <pubDate>Sat, 06 Feb 2016 13:39:37 +0200</pubDate>
       
       <guid>http://ajatusrikos.fi/hugo/</guid>
-      <description>&lt;p&gt;Niin siinä sitten kävi että työllistyttyäni jäi blogin päivittely hieman sikseen, mutta nyt alaa elämä pikkuhiljaa laantua ja arjen keskeltä löytyy taas tarpeeksi luppoaikaa tylsyydelle joten: here we are again!&lt;/p&gt;
+      <description>&lt;p&gt;Niin siinä sitten kävi että työllistyttyäni jäi blogin päivittely hieman sikseen, mutta nyt alkaa elämä pikkuhiljaa laantua ja arjen keskeltä löytyy taas tarpeeksi luppoaikaa tylsyydelle joten: here we are again!&lt;/p&gt;
 
 &lt;p&gt;Alusta ei ole vaihtunut, blogi pyörii edelleen näppärästi &lt;a href=&#34;https://github.com/&#34;&gt;Gihubin&lt;/a&gt; tarjoaman ilmaisen &lt;a href=&#34;https://pages.github.com/&#34;&gt;Pages&lt;/a&gt; palvelun päällä, mutta softa taustalla on hieman kokemus parannuksia. Edellinen versio pyöri &lt;a href=&#34;http://octopress.org/&#34;&gt;Ocotopress&lt;/a&gt; alustalla joka taas oli eräänlainen wrapperi &lt;a href=&#34;https://jekyllrb.com/&#34;&gt;Jekyll&lt;/a&gt; blogi alustan päälle. Homma toimi ihan kivasti, mutta tässä välissä on kone vaihtunut ja vaikka &lt;a href=&#34;https://www.ruby-lang.org/en/&#34;&gt;Rubystä&lt;/a&gt; kielenä pidänkin, on sen asentaminen ja dependencyjen hanskaus verrattuna tukalaa joten heitin Octopressin kannalta lusikat nurkkaan ja lähdin etsimään uutta staattista generaattoria.&lt;/p&gt;
 

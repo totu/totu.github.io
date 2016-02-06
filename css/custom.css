@@ -66,6 +66,10 @@ main {
   margin: 2rem 0;
 }
 
+.footer-link > a {
+  margin: 0 1rem;
+}
+
 .hr {
   height: 1px;
   margin: 2rem 0;
