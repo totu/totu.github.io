@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.15" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="http://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/index.xml" type="application/rss+xml" title="Kyhäelmä ajatuksistani ja kokemuksistani">
+<title>PVCC #9: Leo, Adi ja Ron - Kyhäelmä ajatuksistani ja kokemuksistani</title>
+</head>
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/nassu.jpeg" width="60" height="60"></a>
+		</div>
+		
+	</header>
+
+
+	<main role="main">
+		<article itemscope itemtype="http://schema.org/BlogPosting">
+			<h1 class="entry-title" itemprop="headline">PVCC #9: Leo, Adi ja Ron</h1>
+			<span class="entry-meta"><time itemprop="datePublished" datetime="2015-07-24">July 24, 2015</time></span>
+			<section itemprop="entry-text">
+				
+
+<p><em>Etkö tiedä mikä on PVCC? <a href="/fdfcc">Klikkaa tästä</a>.</em></p>
+
+<p>Yhdeksäs kysymys oli hieman erikoinen.</p>
+
+<blockquote>
+<p>Leonard: N = 779191667<br />
+Adi: e = 65537<br />
+Ron: 706790887 ?</p>
+</blockquote>
+
+<p>Aluksi ei ollut mitään hajua mitä tässä oikein kysyttiin. Aluksi luulin että \(n\) ja \(e\) voisi olla koordinaatteja, mutta <a href="https://www.google.com/maps/place/77%C2%B055'09.0%22N+6%C2%B033'13.3%22E/@77.9192819,6.5534358,4.42z/data=!4m2!3m1!1s0x0:0x0?hl=fi">sitten päätin tätä vastaan</a>. Joten seuraava looginen askel oli Googlettaa nimet. Ensimmäiset tulokset käsitteli RSAta kuten <a href="https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29">tämä Wikipedia artikkeli</a>. Julkisella avaimella salaus kuulostaa ihan järkevältä aiheelta kysymykselle. Kun äkkiä silmäilin tekstin lävitse, osui silmään <em>Encryption</em> kohdan alta. &ldquo;Alice transmits her public key \((n, e)\) to Bob and keeps the private key \(d\) secret&rdquo;. Ehkä tuo viimeinen arvo on \(d\)?</p>
+
+<h1 id="rsa:9e607dcf18022e6d4f6c153659cb5b03">RSA</h1>
+
+<p>Käydään lävitse hieman, miten RSA toimii. Perus idea julkisen avaimen suojauksen takana on kahden avaimen pari, julkinen ja yksityinen. Kun viesti salataan käyttämällä julkista avainta sen voi avata ainoastaan julkisen avaimen yksityisellä parilla ja päin vastoin. Julkisella avaimella salatessa vain yksityinen avain tulee pitää salassa, viestit salataan aina toisen henkilön julkisella avaimella. Omalla yksityisavaimella voi kuitenkin allekirjoittaa viestin, ja näin todentaa viestin lähettäjän.</p>
+
+<h1 id="avainten-luonti:9e607dcf18022e6d4f6c153659cb5b03">Avainten luonti</h1>
+
+<p>Ensiksi tarvitaan kaksi jaotonta, eli prime, lukua (\(p\) ja \(q\)) joilla on samanlainen bittipituus.</p>
+
+<p>Seuraavaksi lasketaan \(n\) kertomalla \(p\) ja \(q\). \(n\) käytetään jakojäännös, eli modulo operaattorina molemmissa avaimissa \(\pmod{n}\).</p>
+
+<p>Seuraavaksi lasketaan \(φ(n)\) mikä on sama kuin \((p − 1)(q − 1)\).</p>
+
+<p>Sitten valitaan \(e\) niin että se on positiivinen numero \(1\) ja \(φ(n)\) väliltä. \(e\) ja \(φ(n)\) suurin</p>
+
+<p>\(e\) ja \(φ(n)\) suurin yhteinen tekijä (greatest common divisor, eli gcd) tulee olla \(1\) (\(gcd(e, φ(n)) = 1\)). Meidän tapauksessa \(e = 65537\) Mikä on <a href="https://www.dlitz.net/software/pycrypto/api/current/Crypto.PublicKey.RSA-module.html">Pythonin RSA moduulin dokumentaation</a> mukaan &ldquo;turvallinen&rdquo; valinta.</p>
+
+<p>Lopuksi lasketaan \(d\) kaavasta \(d = e^{-1}\pmod{φ(n)}\)</p>
+
+<p>Kuten huomataan, jotta voidaan tarkistaa onko meidän mysteeri numero \(d\) tulee ensiksi saada selville alkuperäiset prime luvut. (\(p\) ja \(q\)).</p>
+
+<h1 id="revitään-luvut-osiin:9e607dcf18022e6d4f6c153659cb5b03">Revitään luvut osiin</h1>
+
+<p>Onneksi meidän \(n\) on suhteellisen pieni luku, niin <a href="https://www.wolframalpha.com/input/?i=x*y%3D779191667">WolframAlphan</a> ] voi suoraan pyytää jakamaan sen komponentteihinsa. Mitkä ovat.</p>
+
+<p>$$p = 25523, q = 30529$$</p>
+
+<p>Nyt voidaan laskea loput yhtälöt.</p>
+
+<p>$$n = pq = 25523 \times 30529 = 779191667$$</p>
+
+<p>\(n\) oletetusti näyttää hyvältä. Lasketaanpas \(\phi(n)\).</p>
+
+<p>$$φ(n) = (p − 1)(q − 1) = (30529 - 1)(25523 - 1) = 779135616$$</p>
+
+<p>Sitten muistetaan tarkistaa että \(φ(n)\) ja \(e\) suurin yhteinen tekijä on \(1\).</p>
+
+<p>$$gcd(φ(n), e) = gcd(779135616, 65537) = 1$$</p>
+
+<p>Näyttää toimivan, joten nyt voidaan laskea \(d\).</p>
+
+<p>$$e^{−1} \pmod{φ(n)} = 65537^{-1} \pmod{779135616} = 728918657$$</p>
+
+<p>Nyt ei näytä enää toimivan, koska \(728918657 \neq 706790887\) joten vastaus ei voi olla &ldquo;\(d\)&ldquo;, mutta RSA salauksessa on vielä kaksi muuttuja joita ei olla käyty lävitse. Itse salattu viesti. Salattu viesti \(c\)  viestin \(M\) desimaaliksi muunnos \(m\) potenssiin \(e\) kertaa modulus \(n\).</p>
+
+<p>$$ c = m^e \pmod{n} $$</p>
+
+<p>Julkisella avaamilla salatessa \(m\) tulee myös sopia sääntöön \(gcd(m, n) = 1\), joten ensiksi meidän tulee saada selville \(m\) jos mysteeri lukumme <code>706790887</code> on \(c\).</p>
+
+<p>$$c = m^e \pmod{n} = m^65537 \times \pmod{779191667}, m = 3141592$$</p>
+
+<p>Eli jos <code>706790887</code> olisi \(c\) \(m\) olisi \(3141592\). Tarkistetaan \(gcd(m, n)\).</p>
+
+<p>$$gcd(m, n) = gcd(3141592, 779135616) = 8$$</p>
+
+<p>Valitettavasti \(8\) on suurempi kuin \(1\), joten <code>706790887</code> ei voi olla \(c\), no entä \(m\)?</p>
+
+<p>$$gcd(m, n) = gcd(706790887, 779191667) = 1$$</p>
+
+<p>Nyt <code>706790887</code> sopii yhtälöön ja koska \(m\) on viimeinen muuttuja, RSA salauksessa se on pakko olla tehtävän vastaus.</p>
+
+			</section>
+		</article>
+	</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:topi.tuulensuu@gmail.com" target="_blank">Email</a></span>
+			<a href="https://twitter.com/topituulensuu" target="_blank">Twitter</a></span>
+			
+			<a href="https://github.com/totu/" target="_blank">GitHub</a></span>
+		</div>
+		<div class="copyright">Copyright &copy; Topi Tuulensuu. Saa jakaa ja kopioida.</div>
+	</footer>
+
+</div>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>

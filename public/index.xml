@@ -1,0 +1,807 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kyhäelmä ajatuksistani ja kokemuksistani</title>
+    <link>http://ajatusrikos.fi/</link>
+    <description>Recent content on Kyhäelmä ajatuksistani ja kokemuksistani</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fi</language>
+    <lastBuildDate>Sat, 06 Feb 2016 13:39:37 +0200</lastBuildDate>
+    <atom:link href="http://ajatusrikos.fi/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Aika vierii ja alustat kulahtaa</title>
+      <link>http://ajatusrikos.fi/hugo/</link>
+      <pubDate>Sat, 06 Feb 2016 13:39:37 +0200</pubDate>
+      
+      <guid>http://ajatusrikos.fi/hugo/</guid>
+      <description>&lt;p&gt;Niin siinä sitten kävi että työllistyttyäni jäi blogin päivittely hieman sikseen, mutta nyt alaa elämä pikkuhiljaa laantua ja arjen keskeltä löytyy taas tarpeeksi luppoaikaa tylsyydelle joten: here we are again!&lt;/p&gt;
+
+&lt;p&gt;Alusta ei ole vaihtunut, blogi pyörii edelleen näppärästi &lt;a href=&#34;https://github.com/&#34;&gt;Gihubin&lt;/a&gt; tarjoaman ilmaisen &lt;a href=&#34;https://pages.github.com/&#34;&gt;Pages&lt;/a&gt; palvelun päällä, mutta softa taustalla on hieman kokemus parannuksia. Edellinen versio pyöri &lt;a href=&#34;http://octopress.org/&#34;&gt;Ocotopress&lt;/a&gt; alustalla joka taas oli eräänlainen wrapperi &lt;a href=&#34;https://jekyllrb.com/&#34;&gt;Jekyll&lt;/a&gt; blogi alustan päälle. Homma toimi ihan kivasti, mutta tässä välissä on kone vaihtunut ja vaikka &lt;a href=&#34;https://www.ruby-lang.org/en/&#34;&gt;Rubystä&lt;/a&gt; kielenä pidänkin, on sen asentaminen ja dependencyjen hanskaus verrattuna tukalaa joten heitin Octopressin kannalta lusikat nurkkaan ja lähdin etsimään uutta staattista generaattoria.&lt;/p&gt;
+
+&lt;p&gt;Lyhyen etsinnän jälkeen huomasin että nykyään staattisia generaattoreita löytyy monia ja kaikille mahdollisille kielille joten suht summamutikassa valitsin &lt;a href=&#34;http://gohugo.io/&#34;&gt;Hugon&lt;/a&gt;. Hugo on &lt;a href=&#34;https://golang.org/&#34;&gt;Googlen Go -kielen&lt;/a&gt; päälle rakennettu simppeli blogi alusta ja se on todella simppeli. Asennukseen meni noin 5 minuuttia. Hugo syö samaa markdown formaattia kuten Ocotpress joten vanhojen postauksien siirto oli yksinkertaista eikä mitään erikoista reititystä tarvinnut kyhäillä Hugo päätteli ihan itse että &lt;code&gt;content&lt;/code&gt; nimisen kansion alta löytyy postaukset ja teema osasi ne pistää listaksi tuohon etusivulle.&lt;/p&gt;
+
+&lt;p&gt;Näin lyhyen pilotin jälkeen olen kyllä valmis suosittelemaan Hugoa kaikille ketkä tahtovat staattisen sivuston, taikka eivät halua hämmästellä tietokantoja ja muita turhuuksia sivuillaan. Vielä on kyllä pieniä aukkoja kaiken pienen näpräyksessä, mutta syy on enemmänkin oma tuntemattomuus Go -kielen kanssa kuin alustan kyvyttömyys.&lt;/p&gt;
+
+&lt;p&gt;Ehkä tästä samalla irtoaa enemmän intoa kirjoitella taas päättömiä.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>TSA:n yleisavaimet</title>
+      <link>http://ajatusrikos.fi/tsa-avaimet/</link>
+      <pubDate>Wed, 09 Sep 2015 09:26:06 +0300</pubDate>
+      
+      <guid>http://ajatusrikos.fi/tsa-avaimet/</guid>
+      <description>
+
+&lt;p&gt;Viimevuoden Marraskuun lopulla &lt;a href=&#34;https://www.washingtonpost.com/local/trafficandcommuting/where-oh-where-did-my-luggage-go/2014/11/24/16d168c6-69da-11e4-a31c-77759fc1eacc_story.html&#34;&gt;The Washington Post&lt;/a&gt; sekä &lt;a href=&#34;http://www.heraldnet.com/article/20141130/NEWS02/141139966&#34;&gt;HeraldNet&lt;/a&gt; kirjoittivat matkalaukun matkasta lentokentän sisällä. Alunperin molemmissa artikkeleissa esiintyi seuraava kuva, kuvatekstillä: &lt;em&gt;&amp;ldquo;Vartijoilla on yleisavaimet TSA:n hyväksymiin matkatavara lukkoihin.&amp;rdquo;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https:/ur.com/a/JQD7l&#34;&gt;&lt;img src=&#34;http://ajatusrikos.fi/tsa-avaimet.jpeg&#34; alt=&#34;TSA yleisavaimet&#34; title=&#34;Klikkaa isommat kuvat&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;mitä-erikoista-tässä-kuvassa-on:b3d298a4d1c7c9767f0efcf90382f911&#34;&gt;Mitä erikoista tässä kuvassa on?&lt;/h1&gt;
+
+&lt;p&gt;Avain on ainoastaan &amp;ldquo;vahva&amp;rdquo; kun se ei ole tiedossa. Mekaanisia lukkoja ei kiinnosta onko kyseessä valmistajan painama avain tai minun viilaama kopio, kunhan lukkopesän pinnit painuvat alas ja lukkosylinterit pääsevät pyörimään vapaasti voidaan lukko avata.&lt;/p&gt;
+
+&lt;h1 id=&#34;miksi-sitten-levitän-kuvaa-sensuroimattomana:b3d298a4d1c7c9767f0efcf90382f911&#34;&gt;Miksi sitten levitän kuvaa sensuroimattomana?&lt;/h1&gt;
+
+&lt;p&gt;Syitä on useita, joista päällimmäisenä idiomi: &lt;em&gt;&amp;ldquo;Turha rypistää, kun on jo housussa&amp;rdquo;&lt;/em&gt;. Kuva on olleet verkossa, julkisessa jaossa, jo yli kahdeksan kuukautta. Kuva on jo kaikilla ketä asia kiinnostaa.&lt;/p&gt;
+
+&lt;p&gt;Asiaan liittyvänä toisena seikkana, mitä tiirikoinnin harrastajat ovat huutaneet yhteen ääneen, TSA:n hyväksymät lukot on helppoja tiirikoida. Lisäksi kuka tahansa voi kopioida yleisavaimen omistamastaan hyväksytystä lukosta viilalla ja tusinalla &amp;ldquo;tyhjiä&amp;rdquo; avaimia. Jos jälkimmäinen idea kiinnostaa suosittelen &lt;a href=&#34;https://www.youtube.com/watch?v=aVPSaKLKHd4&#34;&gt;tätä (ENG)&lt;/a&gt; Deviant Ollamin puhetta HOPE 9 konferenssissa.&lt;/p&gt;
+
+&lt;h1 id=&#34;miksi-sitten-ylipäätään-kirjoittaa-kuvasta:b3d298a4d1c7c9767f0efcf90382f911&#34;&gt;Miksi sitten ylipäätään kirjoittaa kuvasta?&lt;/h1&gt;
+
+&lt;p&gt;Koska takaovet ovat aina huono idea. Oli sitten kyseessä fyysinen lukko taikka biteistä koostuva crypto avain, takaoven lisäys laskee sen turvallisuuden tasoa.&lt;/p&gt;
+
+&lt;p&gt;Lisäksi vaikka näiden hyväksyttyjen lukkojen tiirikointi olisi kuinka helppoa ja nopeaa yleisavaimella lukon avaus on vielä helpompaa ja nopeampaa. Vaikka Ollamin videon avulla kuka vain voisi luoda itselleen kopion yleisavaimesta, olisi se kuitenkin paljon työtä ja tutkimusta. Yhdellä kuvalla TSA ampui itseään nilkkaan pahasti, ehkä tämä &amp;ldquo;vuoto&amp;rdquo; ehkäisee tulevaisuudessa takaovet yleisissä turvajärjestelmissä ja salaus tekniikoissa. Valtiolla ei ole mitään asiaa päästä käsiksi kansalaisten tavaroihin ja tiedostoihin ja väittämällä että salaus suojelee rikollisia osoittaa kansanedustajat vain omaa tyhmyyttään tai korruptiotaan, vahvat salausmenetelmät on jo keksitty ja ne on jo rikollisten käsissä, kieltämällä tai muuttamalla ne laittomiksi rikolliset eivät lopeta niiden käyttöä. Tällaiset takaovet vaivaavat vain ja ainoastaan lainkuuliaisia kansalaisia.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Android Laturi</title>
+      <link>http://ajatusrikos.fi/android-laturi/</link>
+      <pubDate>Fri, 04 Sep 2015 23:27:43 +0300</pubDate>
+      
+      <guid>http://ajatusrikos.fi/android-laturi/</guid>
+      <description>
+
+&lt;p&gt;Pari viikkoa takaperin äitini etsi uusia käsityö ideoita ja heitin puoli vitsinä, että hän voisi kutoa Androidi maskotin. Noin viikon perästä minua odotti seuraava näky.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ajatusrikos.fi/android_selfie.jpeg&#34; alt=&#34;Android Selfie&#34; title=&#34;Android Selfie&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Koska lopputulos oli suhteellisen hauska päätimme tehdä uuden mallin, tällä kertaa siinä on extra ominaisuus, maskotin suussa on puhelimen lataustelakka. Alkuperäiset piirrustukset tein nopeasti paperilla, mutta jälkeenpäin toteutin seuraavanlaiset suunnitelmat &lt;a href=&#34;http://www.123dapp.com/&#34;&gt;Autodesk 123D&lt;/a&gt; -ohjelmistolla.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.dropbox.com/sh/zulrdn8x9rngp5l/AAAqWJdfCopNnf3jKHAMtguRa&#34;&gt;&lt;img src=&#34;http://ajatusrikos.fi/android_plans.png&#34; alt=&#34;Suunnitelmat&#34; title=&#34;Suunnitelmat&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Kuvaa klikkaamalla voit tsekata lisää, isompia kuvia&lt;/em&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;telakan-rakennus:2e68cca4f394bd73a631956fef772c6b&#34;&gt;Telakan rakennus&lt;/h1&gt;
+
+&lt;p&gt;Laturin asennusta pyöriteltiin pari päivää. Ensimmäinen idea oli 3D printata juuri sopiva kappale joka jotenkin ommeltaisiin suuhun kiinni ja johto ujutettaisiin pohjasta suuhun. Ongelmaksi kuitenkin muodostui 3D printterin puuttuminen, joten siirryimme toiseksi parhaaseen kehitys materiaaliin: pahviin. Aluksi piirsin paperille puhelimeni muodon 1:1 suhteessa. Piirroksen perusteella päädyimme 16 cm läpimittaan Androidille, näin puhelin uppoaa tarpeeksi syvälle ettei maskotti kaadu naamalleen puhelimen painosta. Pahvista leikkasin pari 16 cm halkaisija ympyrää, toiseen leikkasin puhelimen levyisen loven joka oli noin 10 cm syvä. Sitten leikkasin kyseiseen palan laturin johdolle pienen uran ja liimasin kappaleen kokonaisen ympyrän päälle, näin muodostaen telakan pohjan.&lt;/p&gt;
+
+&lt;p&gt;Telakka päätettiin päällystää mustalla huovalla, huopa kiinnitettiin kuumaliimalla ja huopaan jätettiin hieman ylimääräistä reunoille jotta se voidaan ommella kiinni alavartaloon. Itse laturi myös kuuma liimattiin pahviin oikealle korkeudelle, laturi oli kiinni puhelimessa liiman kovettuessa jotta se jäisi oikeaan asentoon. Lopputuloksena meillä oli huovalla päällystetty pahvi telakka johon työnnettäessä puhelin ohjautui itsestään oikeaan kohtaan ja laturi upposi porttiin.&lt;/p&gt;
+
+&lt;h1 id=&#34;muut-huomiot:2e68cca4f394bd73a631956fef772c6b&#34;&gt;Muut huomiot&lt;/h1&gt;
+
+&lt;p&gt;Loppu keho tehtiin kutomalla vihreästä ja mustasta langasta. Keho ja pää täytettiin vanulla. Käsien ja antennien sisään työnnettiin ennen kiinnittämistä rautalangat, näin niiden asentoa voidaan helposti vaihtaa. Silmät leikattiin myös huovasta ja kiinnitettiin kuumaliimalla.&lt;/p&gt;
+
+&lt;h1 id=&#34;lopputulos:2e68cca4f394bd73a631956fef772c6b&#34;&gt;Lopputulos&lt;/h1&gt;
+
+&lt;p&gt;Lopputulos oli yllättävän toimiva. Puhelin menee helposti telakan uraan ja se on helppo työntää paikoilleen. Laturin liitäntä on tarpeeksi vahva pitämään puhelimen tiukasti paikoillaan, mutta silti puhelin on helppo poistaa telakasta yhdellä kädellä ottamalla tukea/työntämällä peukalolla &amp;ldquo;alahuulen&amp;rdquo; pahvia taaksepäin samalla kun vetää puhelinta ulospäin. Kangas ei myöskään estä äänen kuulumista puhelimesta, vaikka puhelimeni kaiuttimet sijaitsevat pohjassa laturin kanssa.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ajatusrikos.fi/android_final.jpeg&#34; alt=&#34;Lopputulos&#34; title=&#34;Lopputulos&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Kaiken kaikkiaan projekti onnistui hyvin, lopputulos on hauska ja omaperäinen ja mahtuu hyvin yöpöydälle.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Kuninkaalliset viestit</title>
+      <link>http://ajatusrikos.fi/kuninkaalliset-viestit/</link>
+      <pubDate>Sat, 15 Aug 2015 16:03:17 +0300</pubDate>
+      
+      <guid>http://ajatusrikos.fi/kuninkaalliset-viestit/</guid>
+      <description>&lt;p&gt;Pari viikkoa sitten löysin &lt;a href=&#34;http://potatopla.net/crypto/&#34;&gt;Crypto Puzzle Challenges&lt;/a&gt; -sivuston ja pistin sen mieleen jos joskus tulee tylsää ja tässähän sitä taas ollaan.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://potatopla.net/crypto/Challenge_1/&#34;&gt;Ensimmäisessä tehtävässä&lt;/a&gt; meille annetaan hyvin kryptinen kuva, jossa on jotain merkkijonoja, sekä arvoitus:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;From a royal burgh in West Lothian to the palace on the River Thames messages such as this caused a bit of a royal upset.
+/Title&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/River_Thames&#34;&gt;Thames joki&lt;/a&gt; on Englannin toiseksi pisin joki joka kulkee Lontoon lävitse useisiin muihin kaupunkeihin, mutta koska arvoituksessa käsitellään palatsia Thamesin varrella on kyseessä luultavimmin Lontoo.&lt;/p&gt;
+
+&lt;p&gt;Kun etsin kuninkaallisia &amp;ldquo;itsehallintokaupunkeja&amp;rdquo; Länsi Lothiasta tuli vastaan &lt;a href=&#34;https://en.wikipedia.org/wiki/Linlithgow&#34;&gt;Linlithgowia&lt;/a&gt; käsittelevä Wikipedia artikkeli, jonka &lt;a href=&#34;https://en.wikipedia.org/wiki/Linlithgow#History&#34;&gt;historia&lt;/a&gt; otsikon alta löytyi viittaus &lt;a href=&#34;https://en.wikipedia.org/wiki/James_V_of_Scotland&#34;&gt;Jaakko V&lt;/a&gt; ja &lt;a href=&#34;https://en.wikipedia.org/wiki/Mary,_Queen_of_Scots&#34;&gt;Maria I&lt;/a&gt;. Koska arvoituksessa pyydetään &lt;code&gt;/Title&lt;/code&gt;, mikä voi ymmärtää myös &lt;code&gt;/Arvonimenä&lt;/code&gt; lisäsin tehtävän osoitteeseen &lt;code&gt;/King&lt;/code&gt;, mutta sain vain &lt;code&gt;404 Not Found&lt;/code&gt; virheen, koetin kuitenkin vielä &lt;code&gt;/Queen&lt;/code&gt; ja sain seuraavana arvoituksen:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;/Name&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Nimeen yritin eri lailla kirjoitettuja Mary ja Mary Stuart muotoja, ilman onnea. Kun aloin selaamaan Marian Wikipedia artikkelia osui silmään &lt;a href=&#34;https://en.wikipedia.org/wiki/Mary,_Queen_of_Scots#Death&#34;&gt;kuolema&lt;/a&gt; kohdan alla &amp;ldquo;oikeudenkäynti&amp;rdquo;, josta kävi ilmi että, Maria I oli lähettänyt salattuja viestejä, joissa hän yritti saada Elizabeth I salamurhattua. Uudella tiedolla varustettuna lisäsin osoitteen perään &lt;code&gt;/Elizabeth&lt;/code&gt; ja sain seuraavan arvoituksen:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;/Number&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Koska kyseessä oli sekä Maria I että Elizabeth I, kokeilin vielä lisätä osoitteeseen &lt;code&gt;/1&lt;/code&gt; ja sain seuraavan viestin:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Congratulations.
+Send [POISTETTU] an email
+with your twitter handle that says you
+are the cheesiest potato.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Challenge 1. oli merkitty &lt;em&gt;&amp;ldquo;Aloittelija&amp;rdquo;&lt;/em&gt; haasteeksi, joten sen ratkaiseminen oli helppoa ja nopeaa, mutta ennen kaikkea se oli hauskaa, ainakin minulle.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Fyysinen turvallisuus on parasta</title>
+      <link>http://ajatusrikos.fi/fyysinen-turvallisuus/</link>
+      <pubDate>Thu, 06 Aug 2015 10:22:30 +0300</pubDate>
+      
+      <guid>http://ajatusrikos.fi/fyysinen-turvallisuus/</guid>
+      <description>&lt;p&gt;Eilen kävelyllä kuljin ohitse tästä talosta, ja piti kävellä takaisin kun jokin jäi häiritsemään.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ajatusrikos.fi/talo1.jpg&#34; alt=&#34;Kuva talon edustalta&#34; title=&#34;Kuva talon edustalta&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Ohitse kulkiessa aluksi mietin pystyisikö tuon esteen ohittaa astumalla oikealla olevalle kiinnikkeelle ja sen jälkeen vetämällä itsensä ylös, mutta jokin muu osui silmään.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ajatusrikos.fi/talo2.jpg&#34; alt=&#34;Kuva tikkaiden esteestä&#34; title=&#34;Kuva tikkaiden esteestä&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Lukkohan se siinä, varmaan pitämässä tota tikkaiden estettä kiinni tikkaissa&amp;hellip; Mutta miksi se roikkuu tuolla? Miten ihmeessä tämä este on kiinni tikkaissa?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ajatusrikos.fi/talo3.jpg&#34; alt=&#34;Kuva lukosta&#34; title=&#34;Kuva lukosta&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Siinähän se lukko roikkuu, eli tikkaiden este ei ole kiinnitetty yhtään millään. Lukosta voi nähdä ruosteisen kohdat joista esteen saisi kiinni tikkaaseen. Fyysinen turvallisuus on välillä jännää.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Lukko</title>
+      <link>http://ajatusrikos.fi/lukko/</link>
+      <pubDate>Mon, 03 Aug 2015 09:49:00 +0300</pubDate>
+      
+      <guid>http://ajatusrikos.fi/lukko/</guid>
+      <description>
+
+&lt;p&gt;Viime viikolla tuli eteen fyysisen turvallisuuden puolelta projekti. Matkalaukun lukon yhdistelmä oli unohtunut. Lukko oli yleinen kolmen numeron yhdistelmälukko. Aluksi harkitsin brute forcausta, mutta en tahtonut viettää loppu iltaa lukon kanssa, joten irroitin lukon ja avasin sen.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ajatusrikos.fi/lukko.jpg&#34; alt=&#34;Kuva lukon sisälmyksistä&#34; title=&#34;Lukon sisälmykset&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Kuvassa alhaalla on lukon numeroyhdistelmän kiekot, jotka oikeassa asennossa antavat salvan liikkua vasemmalle, salpa jousen ansiosta, ja näin antavat kuvan keskiosassa olevan keltaisen lukon painautua alaspäin.&lt;/p&gt;
+
+&lt;p&gt;Lukko on suunniteltu turvallisuuden kannalta suhteellisen hyvin, mutta siinä on yksi suunnitteluvirhe minkä takia lukon yhdistelmä on alunperinkin päässyt unohtumaan/hukkumaan.&lt;/p&gt;
+
+&lt;h1 id=&#34;hyvät:843dd30e26ef9cf80f7f2b6449388bb9&#34;&gt;Hyvät&lt;/h1&gt;
+
+&lt;p&gt;Koska salpa on yhtenäinen kaikille kiekoille, eli yhtä kiekkoa pyörittämällä tunne hampaiden paikkaa. Lisäksi kun lukon painaa alas salvan ollessa lukittuna estää se salvan liikkumisen, eli brute forcattaessa lukon avaus pitää suorittaa joka yhdistelmän kanssa erikseen, lukkoa ei voi vain pitää pohjassa ja pyöritellä kiekkoja.&lt;/p&gt;
+
+&lt;h1 id=&#34;huonot:843dd30e26ef9cf80f7f2b6449388bb9&#34;&gt;Huonot&lt;/h1&gt;
+
+&lt;p&gt;Koska lukon yhdistelmä on tehty vaihdettavaksi koostuvat lukon numero kiekot kahdesta osasta. Itse kiekosta jota pyöritetään, sekä hammas kiekosta jota numero kiekko pyörittää. Hammas kiekon päällä olevien jousien on tarkoitus pitää kiekot yhdessä, mutta kiekon numero 1. jousi ei ole tarpeeksi vahva pitämään kiekkoa paikallaan jos kiekkoa käännetään numerojärjestyksessä (kuvassa alaspäin). Kun 1. kiekkoa käännetään alaspäin, salvan ollessa auki, aiheutuu salpa jousesta, sekä salvan hampaasta enemmän kitkaa kuin hammas kiekon jousesta jolloin hammas kiekko hyppää numeron ylitse, joka vaihtaa yhdistelmää. Oletettavasti tämä on se syy miksi yhdistelmä on alunperinkin unohtunut.&lt;/p&gt;
+
+&lt;h1 id=&#34;korjaus:843dd30e26ef9cf80f7f2b6449388bb9&#34;&gt;Korjaus&lt;/h1&gt;
+
+&lt;p&gt;Ensimmäinen kiekon hyppäys on suunnitteluvirhe, muut kiekot toimivat normaalisti ja 1. kiekko toimii normaalisti käännettäessä ylöspäin, eikä alaspäin käännettäessä ole ongelmia kunhan salpa ei ole auki, eli jos salpa numero 2. tai 3. käännetään ensiksi. Ongelman &amp;ldquo;korjaus&amp;rdquo; on käytön muuttaminen, nopea nyrkkisääntö on: &amp;ldquo;lukitse lukko aina ensiksi keskimmäisellä numerolla&amp;rdquo;, mikä on aika huono korjaus, muttei lukolle oikein voi muuta tehdä.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>PVCC #21: Assemblya</title>
+      <link>http://ajatusrikos.fi/pvcc21/</link>
+      <pubDate>Sat, 01 Aug 2015 10:40:40 +0300</pubDate>
+      
+      <guid>http://ajatusrikos.fi/pvcc21/</guid>
+      <description>
+
+&lt;p&gt;&lt;em&gt;Etkö tiedä mikä on PVCC? &lt;a href=&#34;http://ajatusrikos.fi/fdfcc&#34;&gt;Klikkaa tästä&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;21. tehtävässä meille annetaan lyhyt Assembly pätkä, jonka kerrotaan saapuneen kollegalta jonka palvelinta haittaohjelma pitää vankina. Ja kysymys kuuluu:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Kykenetkö auttamaan kollegaa löytämään oikean salasanan?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;xor    ebx, ebx
+push    ebx
+pop     eax
+inc     eax
+mov     edx, [esi]
+xor     edx, 0x31415926
+cmp     edx, 0x452f2c4e
+cmovnz  eax, ebx
+mov     edx, [esi + 4]
+not     edx
+cmp     edx, 0xcdcb8d9a
+cmovne    eax, ebx
+ret
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;purkaminen:9ea74929b40355a495f8f608d8148f7a&#34;&gt;Purkaminen&lt;/h1&gt;
+
+&lt;p&gt;Tehtävän kannalta tärkeimmät osat on &lt;code&gt;edx&lt;/code&gt; käsittely, sillä &lt;code&gt;edx&lt;/code&gt; saa arvonsa &lt;code&gt;esi&lt;/code&gt; osoittamasta muistista. Lisäksi se on ainoa osa koodista, minkä arvo tiedetään ajoittain. Otetaan aluksi käsittelyyn.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;mov     edx, [esi]
+xor     edx, 0x31415926
+cmp     edx, 0x452f2c4e
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;mov&lt;/code&gt; komento hakee datan &lt;code&gt;esi&lt;/code&gt; osoittamasta muistista ja siirtää sen &lt;code&gt;edx&lt;/code&gt; arvoksi. Seuraavaksi &lt;code&gt;edx&lt;/code&gt; arvo vedetään loogisesta XOR funktiosta läpi &lt;code&gt;0x31415926&lt;/code&gt; kanssa. Lopuksi &lt;code&gt;edx&lt;/code&gt; arvoa verrataan &lt;code&gt;cmp&lt;/code&gt; komennolla arvoon &lt;code&gt;0x452f2c4e&lt;/code&gt; jonka tulisi olla tosi.&lt;/p&gt;
+
+&lt;p&gt;Nyt voidaan kulkea logiikkaa läpi takaperin. Jos &lt;code&gt;edx&lt;/code&gt; on &lt;code&gt;0x452f2c4e&lt;/code&gt; XOR funktion jälkeen, jos XOR tehdään toisinpäin, saadaan &lt;code&gt;edx&lt;/code&gt; alkuperäinen arvo. &lt;code&gt;0x452f2c4e&lt;/code&gt; \(\oplus\) &lt;code&gt;0x31415926&lt;/code&gt; \(=\) &lt;code&gt;0x746e7568&lt;/code&gt;. Ennen dekoodausta otetaan selvää seuraavasta kohdasta.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;mov     edx, [esi + 4]
+not     edx
+cmp     edx, 0xcdcb8d9a
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;edx&lt;/code&gt; saa uuden arvon mikä on &lt;code&gt;esi&lt;/code&gt; osoittama muisti plus neljä tavua, &lt;code&gt;esi&lt;/code&gt; arvoa siirretään neljällä koska &lt;code&gt;mov&lt;/code&gt; palauttaa neljä tavua dataa. Seuraavaksi &lt;code&gt;edx&lt;/code&gt; menee lävitse loogisesta NOT funktiosta joka kääntää jokaisen bitin, eli &lt;code&gt;1&lt;/code&gt; tulee &lt;code&gt;0&lt;/code&gt; ja &lt;code&gt;0&lt;/code&gt; tulee &lt;code&gt;1&lt;/code&gt;. Ja lopputuloksena &lt;code&gt;edx&lt;/code&gt; on sama kuin &lt;code&gt;0xcdcb8d9a&lt;/code&gt;. Taas logiikkaa kulkea toiseen suuntaan. Jos &lt;code&gt;[esi + 4]&lt;/code&gt; arvo on &lt;code&gt;0xcdcb8d9a&lt;/code&gt; loogisen NOT jälkeen, on &lt;code&gt;0xcdcb8d9a&lt;/code&gt; arvo loogisen NOT jälkeen sama kuin &lt;code&gt;[esi + 4]&lt;/code&gt;.  &lt;code&gt;~0xcdcb8d9a&lt;/code&gt; \(=\) &lt;code&gt;0x32347265&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h1 id=&#34;dekoodaus:9ea74929b40355a495f8f608d8148f7a&#34;&gt;Dekoodaus&lt;/h1&gt;
+
+&lt;p&gt;Käännetään hexat ascii arvoiksi.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&amp;gt;&amp;gt;&amp;gt; from binascii import *
+&amp;gt;&amp;gt;&amp;gt; unhexlify(bytes(&#39;746e7568&#39;, &#39;utf-8&#39;)).decode(&#39;utf-8&#39;)
+&#39;tnuh&#39;
+&amp;gt;&amp;gt;&amp;gt; unhexlify(bytes(&#39;32347265&#39;, &#39;utf-8&#39;)).decode(&#39;utf-8&#39;)
+&#39;24re&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Koska Assemblyssä muistia luetaan vähiten merkitsevästä tavusta alkaen, eli takaperin. Joten salasana on &lt;code&gt;hunter42&lt;/code&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Superäly: Tiet, Vaarat ja Strategiat</title>
+      <link>http://ajatusrikos.fi/superintelligence/</link>
+      <pubDate>Fri, 31 Jul 2015 16:18:26 +0300</pubDate>
+      
+      <guid>http://ajatusrikos.fi/superintelligence/</guid>
+      <description>&lt;p&gt;Viime aikoina olen lukenut, tai pikemmin kuunnellut, kirjoja ja sain eilen loppuun Nick Bostromin kirjan Superintelligence: Paths, Dangers, Strategies.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ajatusrikos.fi/superaly.jpg&#34; alt=&#34;Kansi&#34; title=&#34;Kansi&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Kirjan aihe on mielenkiintoinen, kuinka tekoäly tai jokin muu ihmistä-tehokkaampi-superäly muuttaa maailmaa ja kuinka siihen tulisi varautua, mutta kirja esittää paljon terminologiaa jota käytetään harvakseen ja lyhenteitä joita käytetään koko ajan, mutta molempien selitykselle annetaan sama määrä aikaa jolloin helposti menee ohitse tärkeä lyhenne jota kirjassa käytetään usean kappaleen ajan.&lt;/p&gt;
+
+&lt;p&gt;Kun minulle suositeltiin tätä kirjaa, sain kuulla että kirjan alku on tylsä, mutta kahdeksannen kappaleen jälkeen se muuttuu mielenkiintoiseksi, joten lähdin kirjaan pienellä varauksella. Alku ei kuitenkaan ollu loputtoman tylsä tai sekava, asiat tuotiin esille ehkä hieman liian hitaasti ja kaikkea pohdittiin erittäin pitkään. Mielestäni kirja oli keskivaiheilla parhaillaan, kun se esitti erilaisia superäly vaihtoehtoja ja mahdollisia vaaroja kontrolli ongelmien kanssa, mutta nämä ongelmat tuntuivat vain jatkuvan ja jatkuvan. Loppupuolella kirjaa tuntui että samoja ajatuksia pyöritettiin edestakaisin ilman sen suurempia johtopäätöksiä suuntaan tai toiseen. En tiedä johtuiko kirjan kiertely ja kaartelu siitä että kirjoittaja on filosofian tohtori ja täten kaikki ajatukset on pakko pureskella luuytimeen asti, vai oliko kyseessä vain vähän huono kirja.&lt;/p&gt;
+
+&lt;p&gt;Kirja on hieman liian tekninen ja etenee liian hitaasti ja se tuntuu ajoittain jaarittelevalta. Jos tekoäly kiinnostaa aiheena, voi kirja olla hyvä, mutta hieman raskas luku. Itselle olisi hyvin riittänyt puolta lyhyempikin epos.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>PVCC #13-20: Mega postaus</title>
+      <link>http://ajatusrikos.fi/pvcc13-20/</link>
+      <pubDate>Wed, 29 Jul 2015 15:22:56 +0300</pubDate>
+      
+      <guid>http://ajatusrikos.fi/pvcc13-20/</guid>
+      <description>
+
+&lt;p&gt;&lt;em&gt;Etkö tiedä mikä on PVCC? &lt;a href=&#34;http://ajatusrikos.fi/fdfcc&#34;&gt;Klikkaa tästä&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Koska tehtävät 13. - 20. ovat lähinnä Googlen käyttöä pistän ne kaikki tähän yhdeksi postauksesta. Käyn tehtävät lävitse hyvin pintapuolisesti, jos jotain kiinnostaa tietää tarkemmin niin Wikipedia on aika hyvä lähde näille.&lt;/p&gt;
+
+&lt;h1 id=&#34;13-selaimella-hyökkäys:34e65307c5ebd88bc30e5020b4ec83a6&#34;&gt;13. Selaimella hyökkäys&lt;/h1&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Mitä seuraavista haavoittuvuuksia voidaan hyödyntää käyttämällä vain normaalia web selainta (kuten Mozilla Firefoxia tai Google Chromea)?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Directory traversal attack&lt;/li&gt;
+&lt;li&gt;LDAP injection&lt;/li&gt;
+&lt;li&gt;Command injection&lt;/li&gt;
+&lt;li&gt;Poison Null Byte&lt;/li&gt;
+&lt;li&gt;SQL injection&lt;/li&gt;
+&lt;li&gt;XSS&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Tässä tehtävässä oletan että &amp;ldquo;normaaliksi&amp;rdquo; selaimeksi lasketaan myös helposti saatavat selain lisäosat, ne eivät toki ole pakollisia kaikkiin hyökkäyksiin, mutta helpottavat niitä huomattavasti. Kaikki listatut hyökkäykset ovat käyttäjän syötteen sanitoimatta jättämisestä johtuvia ongelmia, eli kaikkiin vastaus on &lt;strong&gt;kyllä&lt;/strong&gt;, kaikkia näitä haavoittuvuuksia voi hyväksikäyttää vain selaimella ilman erillisiä työkaluja.&lt;/p&gt;
+
+&lt;h1 id=&#34;14-32-bittiä-vs-64-bittiä:34e65307c5ebd88bc30e5020b4ec83a6&#34;&gt;14. 32 bittiä vs. 64 bittiä&lt;/h1&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Mitkä seuraavista ovat tyypillisiä x86 järjestelmälle, mutta ei x86_64 järjestelmälle?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Puskurin ylivuoto haavoittuvuus&lt;/li&gt;
+&lt;li&gt;DDOS hyökkäyksiä on usein vaikea estää&lt;/li&gt;
+&lt;li&gt;Roikkuvat osoittimet&lt;/li&gt;
+&lt;li&gt;Palomuurin puuttuminen&lt;/li&gt;
+&lt;li&gt;Natiivi mustin rajoitus 2^32 tavuun&lt;/li&gt;
+&lt;li&gt;Symmetriset avain algoritmit on helpompi murtaa&lt;/li&gt;
+&lt;li&gt;TCP porttien määrä on 2^16&lt;/li&gt;
+&lt;li&gt;Järjestelmän suojaksuun käytetään MD5 ja SHA-1 yhdistelmää&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Omien tietojen ja Googlen mukaan ainoa eri 32 bittisellä (x86) ja 64 bittisellä (x86_64) järjestelmillä on muistin rajoitus 4 Gigatavuun, eli vastaus on 5.&lt;/p&gt;
+
+&lt;h1 id=&#34;15-oikeutta:34e65307c5ebd88bc30e5020b4ec83a6&#34;&gt;15. Oikeutta!&lt;/h1&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Tiedostolla on oikeudet -rwx-wxr-x. Mitkä seuraavista rajoittavat omistus ryhmän oikeuksia?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+&lt;li&gt;chmod 322 file&lt;/li&gt;
+&lt;li&gt;chmod 333 file&lt;/li&gt;
+&lt;li&gt;chmod 700 file&lt;/li&gt;
+&lt;li&gt;chmod 735 file&lt;/li&gt;
+&lt;li&gt;chmod 754 file&lt;/li&gt;
+&lt;li&gt;chmod 755 file&lt;/li&gt;
+&lt;li&gt;chmod a-x file&lt;/li&gt;
+&lt;li&gt;chmod w-r file&lt;/li&gt;
+&lt;li&gt;chmod u-r,g-r file&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;-rwx-wxr-x on sama kuin 735. Sarjassa toinen numero osoittaa ryhmän oikeuksia, eli oikea lotto numero on: 1, 3, 5, 6, 7.&lt;/p&gt;
+
+&lt;h1 id=&#34;16-sanitaatiota:34e65307c5ebd88bc30e5020b4ec83a6&#34;&gt;16. Sanitaatiota&lt;/h1&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Mitkä seuraavista haavoittuvuuksista voidaan estää kokonaan kunnollisella käyttäjän syötteen validoinnilla?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Bruteforcing&lt;/li&gt;
+&lt;li&gt;CSRF&lt;/li&gt;
+&lt;li&gt;DDOS&lt;/li&gt;
+&lt;li&gt;Command injection&lt;/li&gt;
+&lt;li&gt;SQL injection&lt;/li&gt;
+&lt;li&gt;XSS&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;4, 5 ja 6, kuten kohdassa 14. mainittiin. Brute forcing on salasanojen murtamista (kuten tehtävässä &lt;a href=&#34;http://ajatusrikos.fi/2015/07/23/pvcc8.html&#34;&gt;8. Salasanojen varjostus&lt;/a&gt; todettiin). CSRF on sivuston suorittama hyökkäys käyttäjän selaimen kautta. DDOS on palvelunestohyökkäys jolla ei ole tekemistä käyttäjän syötteen kanssa.&lt;/p&gt;
+
+&lt;h1 id=&#34;17-selaimen-skriptikielet:34e65307c5ebd88bc30e5020b4ec83a6&#34;&gt;17. Selaimen skriptikielet&lt;/h1&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Mitkä seuraavista ohjelmoint/skripti/markup kielistä yleensä pyörivät käyttäjän puolella (esim. web selaimessa)?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+&lt;li&gt;ASP&lt;/li&gt;
+&lt;li&gt;ASP.NET&lt;/li&gt;
+&lt;li&gt;C#&lt;/li&gt;
+&lt;li&gt;CSS&lt;/li&gt;
+&lt;li&gt;HTML&lt;/li&gt;
+&lt;li&gt;Javascript&lt;/li&gt;
+&lt;li&gt;PHP&lt;/li&gt;
+&lt;li&gt;Ruby&lt;/li&gt;
+&lt;li&gt;SQL&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Oikeat vastaukset: 4, 5, 6. Loput ovat palvelinpään kieliä.&lt;/p&gt;
+
+&lt;h1 id=&#34;18-palomuuri:34e65307c5ebd88bc30e5020b4ec83a6&#34;&gt;18. Palomuuri&lt;/h1&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Mikä seuraavista on tyypillistä palomuurille?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Estää epäilyttävien ohjelmien ajo&lt;/li&gt;
+&lt;li&gt;Koodata datasiirto käyttäen UDP protokollaa&lt;/li&gt;
+&lt;li&gt;Suodattaa TCP paketit jotka eivät vastaa sen sääntöjä&lt;/li&gt;
+&lt;li&gt;Mahdollistaa SSH verkko protokollan käyttö&lt;/li&gt;
+&lt;li&gt;Verkko-osoitteiden kääntäminen&lt;/li&gt;
+&lt;li&gt;Tietokoneen tutkiminen ja käyttäjän varoittaminen jos haittaohjelmia löydetään.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Palomuurilla on yksi tehtävä. Suodattaa liikennettä, eli ainoastaan 3. kuuluu palomuurin tehtäviin.&lt;/p&gt;
+
+&lt;h1 id=&#34;19-järjestelmän-suojaaminen:34e65307c5ebd88bc30e5020b4ec83a6&#34;&gt;19. Järjestelmän suojaaminen&lt;/h1&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Mitkä seuraavista ohjeista auttavat järjestelmän suojaamisessa?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Käytä aina vahvaa salasanaa&lt;/li&gt;
+&lt;li&gt;Antivirus ohjelma pitää poistaa päältä kun käytetään TCP protokollaa&lt;/li&gt;
+&lt;li&gt;Antivirus ohjelma pitää poistaa päältä kun käytetään UDP protokollaa&lt;/li&gt;
+&lt;li&gt;Salasanat tulee tallentaa käyttäen vahvaa, kaksisuuntaista salausta&lt;/li&gt;
+&lt;li&gt;Järjestelmän tulee automaattisesti kirjata käyttäjän ulos muutaman minuutin seisonnan jälkeen&lt;/li&gt;
+&lt;li&gt;Uusinta versiota järjestelmästä tulee välttää sillä siinä saattaa olla tuntemattomia turva-aukkoja&lt;/li&gt;
+&lt;li&gt;Järjestelmän lokit tulee poistaa viikoittain&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Vahvat salasanat ovat hyväksi, mutta ei niitä tule tallentaa kaksisuuntaisella salauksella. Uusi versio järjestelmästä tulee ensiksi testata ettei se häiritse järjestelmää, mutta päivityksiä tehdään syystä ja järjestelmä tulee aina päivittää mahdollisimman pian. Lokit ovat hyödyllisiä tietoturvalle. Ainoa oikea kysymys on käyttäjien uloskirjaus seisonnan jälkeen. Se voi olla hyvä käytäntö jos käyttäjän ymmärtävät sen arvon, mutta todellisuudessa useat käyttäjän tulevat varmaan sen takia käyttämään lyhyitä salasanoja, joten vastaan: 1.&lt;/p&gt;
+
+&lt;h1 id=&#34;20-sql:34e65307c5ebd88bc30e5020b4ec83a6&#34;&gt;20. SQL&lt;/h1&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Mikä seuraavista SQL lauseista valitsee kaikki rivit pöydästä Customers jossa kolumnin Age arvo on suurempi kuin 19, mutta pienempi kuin 21?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+&lt;li&gt;SELECT Customers WHERE Age &amp;gt; 19 and Age &amp;lt; 21&lt;/li&gt;
+&lt;li&gt;SELECT Customers IF Age &amp;gt; 19 and Age &amp;lt; 21&lt;/li&gt;
+&lt;li&gt;SELECT * FROM Customers WHERE Age &amp;gt; 19 and Age &amp;lt; 21&lt;/li&gt;
+&lt;li&gt;SELECT * FROM Customers IF Age &amp;gt; 19 and Age &amp;lt; 21&lt;/li&gt;
+&lt;li&gt;IF Age &amp;gt; 19 and Age &amp;lt; 21 THEN SELECT Customers&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Vastaus on 3. &lt;code&gt;SELECT * FROM Customers WHERE Age &amp;gt; 19 and Age &amp;lt; 21&lt;/code&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>PVCC #12: 128 sattumanvaraista bittiä</title>
+      <link>http://ajatusrikos.fi/pvcc12/</link>
+      <pubDate>Mon, 27 Jul 2015 14:39:22 +0300</pubDate>
+      
+      <guid>http://ajatusrikos.fi/pvcc12/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Etkö tiedä mikä on PVCC? &lt;a href=&#34;http://ajatusrikos.fi/fdfcc&#34;&gt;Klikkaa tästä&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;12. tehtävässä meille annetaan 128 merkkinen täysin sattumanvarainen bittijono, josta saamme flipata yhden bitin ympäri. Kysymys kuuluu:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Kuinka monta bittiä informaatiota voidaan siirtää tällä bitti jonolla?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Tämä alkaa jo olemaan suhteellisen haastava matemaattinen kysymys, mutta samalla viimeinen &amp;ldquo;teoria&amp;rdquo; kysymys.&lt;/p&gt;
+
+&lt;p&gt;Aloitetaan helposta. Tehtävässä tulee käyttää pariteettia. Jos meillä on sattumanvarainen neljän bitin jono, kuten &lt;code&gt;0110&lt;/code&gt; voidaan sillä koodata kaksi bittiä informaatiota. Pariteetti bitit lasketaan kahden potenssien väliltä, eli \(2^0\) askelväli on 1, \(2^1\) askelväli on 2, mikä on suurin askelväli, mitä neljän bitin jonossa voidaan suorittaa.&lt;/p&gt;
+
+&lt;p&gt;\(2^0\) vastaa loogista AND funktiota 01 kanssa.
+\(2^1\) vastaa loogista AND funktiota 10 kanssa.
+Ja niin edelleen.&lt;/p&gt;
+
+&lt;p&gt;Pariteetti saadaan laskemalla kaikki alueen &lt;code&gt;1&lt;/code&gt;, jos niitä on parilline määrä aroksi tulee &lt;code&gt;0&lt;/code&gt; jos pariton &lt;code&gt;1&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Esimerkiksi jonossa &lt;code&gt;0110&lt;/code&gt; \(2^0\) pariteetti on &lt;code&gt;1&lt;/code&gt; koska se saa arvon &lt;code&gt;01&lt;/code&gt;. Jonon \(2^1\) pariteetti on myös &lt;code&gt;1&lt;/code&gt; koska se saa myös arvon &lt;code&gt;01&lt;/code&gt;. Näin ollen loogisten AND funktioiden jälkeen pariteetti jonolle on &lt;code&gt;11&lt;/code&gt;. Jos nyt halutaan osoittaa jotain arvoa mikä voidaan jonolla koodata (koska jono on sattumanvarainen voidaan sillä koodata vain kahden bitin arvo, eli 0-3), esim. numero 2, käytetään vedetään arvo &lt;code&gt;10&lt;/code&gt; loogisella XOR functiolla lävitse jonon pariteetista: \(10 \oplus 11 = 01\). Näin ollen bitti kohdassa &lt;code&gt;01&lt;/code&gt; tulee kääntää, eli saamme arvon &lt;code&gt;0100&lt;/code&gt; (koska ensimmäinen bitti on arvo &lt;code&gt;00&lt;/code&gt;). Nyt kun bittijonoa dekoodataan, eli yritetään saada se arvo ulos jonka lähetimme (numero 2), lasketaan uudesta jonosta pariteetti ja se vedetään lävitse itse jonosta. Jonon &lt;code&gt;0100&lt;/code&gt; \(2^0\) pariteetti on &lt;code&gt;0&lt;/code&gt; koska se saa arvon &lt;code&gt;00&lt;/code&gt;. Jonon \(2^1\) pariteetti on &lt;code&gt;1&lt;/code&gt; koska se saa arvoksi &lt;code&gt;10&lt;/code&gt;. Loogisten AND funktioiden jälkeen saamme arvon &lt;code&gt;10&lt;/code&gt;. Kun käännetään bitti kohdasta &lt;code&gt;01&lt;/code&gt; saadaan uudeksi jonoksi &lt;code&gt;0110&lt;/code&gt;, kun nyt tämä uusi arvo ja pöydän arvo vedetään lävitse loogisesta XOR funktiosta saadaan selville lähetetty arvo. \(0100 \oplus 0110 = 0010\), eli 2.&lt;/p&gt;
+
+&lt;p&gt;Tällä logiikalla aina kun satunnaisen bittijonon, josta saadaan kääntää yksi bitti mielivaltaisesti, pituus tuplaantuu voidaan sillä siirtää yksi bitti lisää informaatiota, eli kahdeksalla satunnaisella bitillä voidaan siirtää kolme bittiä informaatiota. Näin ollen 128 merkkiä pitkällä sattumanvaraisella bitti jonolla voidaan siirtää seitsemän bittiä informaatiota.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>PVCC #11: Todennäköisyys</title>
+      <link>http://ajatusrikos.fi/pvcc11/</link>
+      <pubDate>Sat, 25 Jul 2015 20:17:46 +0300</pubDate>
+      
+      <guid>http://ajatusrikos.fi/pvcc11/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Etkö tiedä mikä on PVCC? &lt;a href=&#34;http://ajatusrikos.fi/fdfcc&#34;&gt;Klikkaa tästä&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;11. kysymyksessä on pitkä tekstinpätkä josta puolet voi heti heittää menemään. Oikea kysymys kuuluu:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;Jos huoneessa on kolme tietokonetta, joilla kaikilla on yhtäläinen mahdollisuus pyörittää Windows, Linux tai OS X käyttöjärjestelmää, mikä on todennäköisyys että huoneessa on vähintään kaksi Linux konetta?&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Koska vaihtoehtoja on vähän, aloitetaan totuustaulukolla selventämään tilannetta, tässä taulukossa on kaikki tilat jotka täyttävät kysymyksen kriteerit.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-None&#34;&gt;L, L, L       L = Linux
+L, L, W       W = Windows
+W, L, L       X = OSX
+L, W, L
+L, L, X
+X, L, L
+L, X, L
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Kuten huomataan kokoonpanoja, joissa on vähintään kaksi Linux konetta, on \(7\). Kaiken kaikkiaan mahdollisia kokoonpanoja on \(3^3\), eli \(27\), joten todennäköisyys \(P\) on.&lt;/p&gt;
+
+&lt;p&gt;$$P = &lt;sup&gt;7&lt;/sup&gt;&amp;frasl;&lt;sub&gt;27&lt;/sub&gt; \approx 0.2593$$&lt;/p&gt;
+
+&lt;p&gt;Mikä tarkoittaa että todennäköisyys sille, että huoneessa on vähintään kaksi Linux konetta, on \( \approx 26 \%\).&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>PVCC #10: Regex</title>
+      <link>http://ajatusrikos.fi/pvcc10/</link>
+      <pubDate>Sat, 25 Jul 2015 14:02:58 +0300</pubDate>
+      
+      <guid>http://ajatusrikos.fi/pvcc10/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Etkö tiedä mikä on PVCC? &lt;a href=&#34;http://ajatusrikos.fi/fdfcc&#34;&gt;Klikkaa tästä&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;10. kysymys käsittelee yleisön suosikkia: Regular Expressioneja!&lt;/p&gt;
+
+&lt;p&gt;Meidän tulee tehdä Regex, joka sopii sanoihin jotka alkaa ja loppuu samalla konsonantilla ja joiden pituus on jaollinen kolmella. Regex ei saa olla yli 40 merkkiä pitkä ja jokaisesta merkistä 30 jälkeen sakotetaan.&lt;/p&gt;
+
+&lt;p&gt;Ensimmäinen yritys oli aika karkea, kuten yleensä.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;^([cdhjklmnnprstvbfgz])+.+([cdhjklmnnprstvbfgz])$
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Mikä ei ihan tehnyt mikä piti.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&amp;gt;&amp;gt;&amp;gt; import regex
+&amp;gt;&amp;gt;&amp;gt; strings = [&#39;test&#39;, &#39;teeest&#39;, &#39;asd&#39;, &#39;lol&#39;, &#39;dead&#39;, &#39;cat&#39;]
+&amp;gt;&amp;gt;&amp;gt; for s in strings:
+...   if regex.match(r&#39;^([cdhjklmnnprstvbfgz])+.+([cdhjklmnnprstvbfgz])$&#39;, s):
+...     print(s)
+...
+test
+teeest
+lol
+dead
+cat
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Lisäksi &lt;code&gt;len(&#39;^([cdhjklmnnprstvbfgz])+.+([cdhjklmnnprstvbfgz])$&#39;)&lt;/code&gt; on 49, eli regex on aivan liian pitkä. Sitten aloin lukemaan POSIX regular expressionin dokumentaatiota ja löysin regexp ryhmät. Ryhmä on regex jok on sulkujen välissä ja niihin voi viitata ryhmän järjestysluvulla esim. &lt;code&gt;\1&lt;/code&gt;. Pistetään käytäntöön.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;^([cdhjklmnnprstvbfgz]).*\1$
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Mikä on jo parempi, kuten seuraavasta voidaan huomata sana &lt;code&gt;cat&lt;/code&gt; on kadonnut, eikä pituus ole enään kuin 27 merkkiä.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&amp;gt;&amp;gt;&amp;gt; import regex
+&amp;gt;&amp;gt;&amp;gt; strings = [&#39;test&#39;, &#39;teeest&#39;, &#39;asd&#39;, &#39;lol&#39;, &#39;dead&#39;, &#39;cat&#39;]
+&amp;gt;&amp;gt;&amp;gt; for s in strings:
+...   if regex.match(r&#39;^([cdhjklmnnprstvbfgz]).*\1$&#39;, s):
+...     print(s)
+...
+test
+teeest
+lol
+dead
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Tässä kohtaa jäin vähän jumiin. Koetin erilaisia juttuja &lt;code&gt;(){3}&lt;/code&gt; tyylisellä syntaksilla, muttei mikään ottanut tuulta alleen. Onneksi olin heittänyt tämän pallon jo alkuvaiheella myös kaverilleni joka keksi seuraavan parannuksen.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;^([dhjklmnnprstvbfgz]).(...)*\1$
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ja se toimii täydellisesti.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&amp;gt;&amp;gt;&amp;gt; import regex
+&amp;gt;&amp;gt;&amp;gt; strings = [&#39;test&#39;, &#39;teeest&#39;, &#39;asd&#39;, &#39;lol&#39;, &#39;dead&#39;, &#39;cat&#39;]
+&amp;gt;&amp;gt;&amp;gt; for s in strings:
+...   if regex.match(r&#39;^([dhjklmnnprstvbfgz]).(...)*\1$&#39;, s):
+...     print(s)
+...
+teeest
+lol
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Mutta meillä on nyt pienehkö pulma. Pituus regexillä on 31 merkkiä, mikä on toki alta 40 merkkiä, mutta juuri yli 30 merkin. Sitten saimme sellaisen &amp;ldquo;Ahaa!&amp;rdquo; ajatuksen, koska regexiä ajetaan kasaa suomenkielisiä sanoa vastaan meidän ei kannata etsiä konsonantteja vaan sulkea pois vokaaleja ja saamme seuraavan.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;^([^aeiouy]).(...)*\1$
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Tämä regex toimii aivan kuten edellinen, mutta on vain 21 merkkiä pitkä, mikä on reippaasti tehtävän 30 merkki rajan alapuolella.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>PVCC #9: Leo, Adi ja Ron</title>
+      <link>http://ajatusrikos.fi/pvcc9/</link>
+      <pubDate>Fri, 24 Jul 2015 09:18:46 +0300</pubDate>
+      
+      <guid>http://ajatusrikos.fi/pvcc9/</guid>
+      <description>
+
+&lt;p&gt;&lt;em&gt;Etkö tiedä mikä on PVCC? &lt;a href=&#34;http://ajatusrikos.fi/fdfcc&#34;&gt;Klikkaa tästä&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Yhdeksäs kysymys oli hieman erikoinen.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Leonard: N = 779191667&lt;br /&gt;
+Adi: e = 65537&lt;br /&gt;
+Ron: 706790887 ?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Aluksi ei ollut mitään hajua mitä tässä oikein kysyttiin. Aluksi luulin että \(n\) ja \(e\) voisi olla koordinaatteja, mutta &lt;a href=&#34;https://www.google.com/maps/place/77%C2%B055&#39;09.0%22N+6%C2%B033&#39;13.3%22E/@77.9192819,6.5534358,4.42z/data=!4m2!3m1!1s0x0:0x0?hl=fi&#34;&gt;sitten päätin tätä vastaan&lt;/a&gt;. Joten seuraava looginen askel oli Googlettaa nimet. Ensimmäiset tulokset käsitteli RSAta kuten &lt;a href=&#34;https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29&#34;&gt;tämä Wikipedia artikkeli&lt;/a&gt;. Julkisella avaimella salaus kuulostaa ihan järkevältä aiheelta kysymykselle. Kun äkkiä silmäilin tekstin lävitse, osui silmään &lt;em&gt;Encryption&lt;/em&gt; kohdan alta. &amp;ldquo;Alice transmits her public key \((n, e)\) to Bob and keeps the private key \(d\) secret&amp;rdquo;. Ehkä tuo viimeinen arvo on \(d\)?&lt;/p&gt;
+
+&lt;h1 id=&#34;rsa:9e607dcf18022e6d4f6c153659cb5b03&#34;&gt;RSA&lt;/h1&gt;
+
+&lt;p&gt;Käydään lävitse hieman, miten RSA toimii. Perus idea julkisen avaimen suojauksen takana on kahden avaimen pari, julkinen ja yksityinen. Kun viesti salataan käyttämällä julkista avainta sen voi avata ainoastaan julkisen avaimen yksityisellä parilla ja päin vastoin. Julkisella avaimella salatessa vain yksityinen avain tulee pitää salassa, viestit salataan aina toisen henkilön julkisella avaimella. Omalla yksityisavaimella voi kuitenkin allekirjoittaa viestin, ja näin todentaa viestin lähettäjän.&lt;/p&gt;
+
+&lt;h1 id=&#34;avainten-luonti:9e607dcf18022e6d4f6c153659cb5b03&#34;&gt;Avainten luonti&lt;/h1&gt;
+
+&lt;p&gt;Ensiksi tarvitaan kaksi jaotonta, eli prime, lukua (\(p\) ja \(q\)) joilla on samanlainen bittipituus.&lt;/p&gt;
+
+&lt;p&gt;Seuraavaksi lasketaan \(n\) kertomalla \(p\) ja \(q\). \(n\) käytetään jakojäännös, eli modulo operaattorina molemmissa avaimissa \(\pmod{n}\).&lt;/p&gt;
+
+&lt;p&gt;Seuraavaksi lasketaan \(φ(n)\) mikä on sama kuin \((p − 1)(q − 1)\).&lt;/p&gt;
+
+&lt;p&gt;Sitten valitaan \(e\) niin että se on positiivinen numero \(1\) ja \(φ(n)\) väliltä. \(e\) ja \(φ(n)\) suurin&lt;/p&gt;
+
+&lt;p&gt;\(e\) ja \(φ(n)\) suurin yhteinen tekijä (greatest common divisor, eli gcd) tulee olla \(1\) (\(gcd(e, φ(n)) = 1\)). Meidän tapauksessa \(e = 65537\) Mikä on &lt;a href=&#34;https://www.dlitz.net/software/pycrypto/api/current/Crypto.PublicKey.RSA-module.html&#34;&gt;Pythonin RSA moduulin dokumentaation&lt;/a&gt; mukaan &amp;ldquo;turvallinen&amp;rdquo; valinta.&lt;/p&gt;
+
+&lt;p&gt;Lopuksi lasketaan \(d\) kaavasta \(d = e^{-1}\pmod{φ(n)}\)&lt;/p&gt;
+
+&lt;p&gt;Kuten huomataan, jotta voidaan tarkistaa onko meidän mysteeri numero \(d\) tulee ensiksi saada selville alkuperäiset prime luvut. (\(p\) ja \(q\)).&lt;/p&gt;
+
+&lt;h1 id=&#34;revitään-luvut-osiin:9e607dcf18022e6d4f6c153659cb5b03&#34;&gt;Revitään luvut osiin&lt;/h1&gt;
+
+&lt;p&gt;Onneksi meidän \(n\) on suhteellisen pieni luku, niin &lt;a href=&#34;https://www.wolframalpha.com/input/?i=x*y%3D779191667&#34;&gt;WolframAlphan&lt;/a&gt; ] voi suoraan pyytää jakamaan sen komponentteihinsa. Mitkä ovat.&lt;/p&gt;
+
+&lt;p&gt;$$p = 25523, q = 30529$$&lt;/p&gt;
+
+&lt;p&gt;Nyt voidaan laskea loput yhtälöt.&lt;/p&gt;
+
+&lt;p&gt;$$n = pq = 25523 \times 30529 = 779191667$$&lt;/p&gt;
+
+&lt;p&gt;\(n\) oletetusti näyttää hyvältä. Lasketaanpas \(\phi(n)\).&lt;/p&gt;
+
+&lt;p&gt;$$φ(n) = (p − 1)(q − 1) = (30529 - 1)(25523 - 1) = 779135616$$&lt;/p&gt;
+
+&lt;p&gt;Sitten muistetaan tarkistaa että \(φ(n)\) ja \(e\) suurin yhteinen tekijä on \(1\).&lt;/p&gt;
+
+&lt;p&gt;$$gcd(φ(n), e) = gcd(779135616, 65537) = 1$$&lt;/p&gt;
+
+&lt;p&gt;Näyttää toimivan, joten nyt voidaan laskea \(d\).&lt;/p&gt;
+
+&lt;p&gt;$$e^{−1} \pmod{φ(n)} = 65537^{-1} \pmod{779135616} = 728918657$$&lt;/p&gt;
+
+&lt;p&gt;Nyt ei näytä enää toimivan, koska \(728918657 \neq 706790887\) joten vastaus ei voi olla &amp;ldquo;\(d\)&amp;ldquo;, mutta RSA salauksessa on vielä kaksi muuttuja joita ei olla käyty lävitse. Itse salattu viesti. Salattu viesti \(c\)  viestin \(M\) desimaaliksi muunnos \(m\) potenssiin \(e\) kertaa modulus \(n\).&lt;/p&gt;
+
+&lt;p&gt;$$ c = m^e \pmod{n} $$&lt;/p&gt;
+
+&lt;p&gt;Julkisella avaamilla salatessa \(m\) tulee myös sopia sääntöön \(gcd(m, n) = 1\), joten ensiksi meidän tulee saada selville \(m\) jos mysteeri lukumme &lt;code&gt;706790887&lt;/code&gt; on \(c\).&lt;/p&gt;
+
+&lt;p&gt;$$c = m^e \pmod{n} = m^65537 \times \pmod{779191667}, m = 3141592$$&lt;/p&gt;
+
+&lt;p&gt;Eli jos &lt;code&gt;706790887&lt;/code&gt; olisi \(c\) \(m\) olisi \(3141592\). Tarkistetaan \(gcd(m, n)\).&lt;/p&gt;
+
+&lt;p&gt;$$gcd(m, n) = gcd(3141592, 779135616) = 8$$&lt;/p&gt;
+
+&lt;p&gt;Valitettavasti \(8\) on suurempi kuin \(1\), joten &lt;code&gt;706790887&lt;/code&gt; ei voi olla \(c\), no entä \(m\)?&lt;/p&gt;
+
+&lt;p&gt;$$gcd(m, n) = gcd(706790887, 779191667) = 1$$&lt;/p&gt;
+
+&lt;p&gt;Nyt &lt;code&gt;706790887&lt;/code&gt; sopii yhtälöön ja koska \(m\) on viimeinen muuttuja, RSA salauksessa se on pakko olla tehtävän vastaus.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>PVCC #8: Salasanojen varjostusta</title>
+      <link>http://ajatusrikos.fi/pvcc8/</link>
+      <pubDate>Thu, 23 Jul 2015 09:50:51 +0300</pubDate>
+      
+      <guid>http://ajatusrikos.fi/pvcc8/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Etkö tiedä mikä on PVCC? &lt;a href=&#34;http://ajatusrikos.fi/fdfcc&#34;&gt;Klikkaa tästä&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Kahdeksannessa kysymyksessä meille annetaan seuraava rivi &lt;code&gt;/etc/shaow&lt;/code&gt; tiedostosta&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;admin:65kKfJ.oFg1/Y:16615:0:99999:7:::
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Sekä kaksi kysymystä&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Mikä on salasana?&lt;/li&gt;
+&lt;li&gt;Miltä rivi näyttäisi jos salasana generoitaisiin 5000 kierroksella sha512 ja käytettäisiin salttina/suolana jonoa &lt;code&gt;saltsaltsaltsalt&lt;/code&gt;?&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Käydään ekana vähän läpi &lt;code&gt;/etc/shadow&lt;/code&gt; tiedoston koostomusta. Jokainen rivi on jaettu osiin kaksoispisteellä (:). Ensimmäinen osa on käyttäjätunnus. Toinen osa on salasanan hash. Kolmas kertoo milloin salasana on viimeksi vaihdettu. Neljäs numero kertoo milloin salasanan saa seuraavaksi vaihtaa. Viides numero kertoo milloin salasana pitää viimeistään vaihtaa. Kuudes numero kertoo kuinka kauan ennen salasanan vanhenemista käyttäjää varoitetaan. Seitsemäs kertoo kuinka monta päivää salasanan vanhenemisen jälkeen käyttäjätunnus pystyy aktiivisena. Viimeinen luku kertoo päivän milloin käyttäjä tunnukselle ei enää voi kirjautua.&lt;/p&gt;
+
+&lt;p&gt;Aluksi meidän tulee tunnistaa mitä hashia salasanassa käytetään, joten löin salasanan &lt;a href=&#34;https://code.google.com/p/hash-identifier/&#34;&gt;Hash Identifier&lt;/a&gt; skriptin lävitse.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;HASH: 65kKfJ.oFg1/Y
+
+Possible Hashs:
+[+]  DES(Unix)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Tässä kohtaa itseltä lähti vähän homma lapasesta. Vaikka DES on ollutkin &amp;ldquo;rikki&amp;rdquo; jo kymmeniä vuosia menee sen brute forcaukseen silti tunteja hyvällä laitteistolla ja päiviä huonolla laitteistolla. Päätin silti koittaa brute forcausta ja kirjoitin seuraavan hyvin naivin ohjelman ja pistin pyörimään.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import itertools
+import crypt
+import hmac
+
+def brute(chars, hash):
+    chars = &#39;abcdefghijklmnopqrstuvwtxyz&#39;
+    for length in range(1, 9):
+        attempt = itertools.product(chars, repeat=length)
+        for a in attempt:
+            password = &#39;&#39;.join(a)
+            if hmac.compare_digest(crypt.crypt(password, hash), hash):
+                print(&#39;%s = %s&#39; % (hash, password))
+                return
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Kun kyseinen skripti oli pyörinyt pari tuntia, eikä ollut vielä päässyt lähellekään lyhyttä loppuaan aloin huolestua hyökkäyksestä. IRCin puolella jo ehdotettiin että koettaisin ajaa skriptiä nVidian Cuda kirjaston päällä, näin saaden paljon enemmän laskenta tehoa irti koneesta, mutta sain paremman idea: Sanakirja hyökkäys! Googletin erinäköisiä salasana kirjastoja ja päädyin käyttämään &lt;a href=&#34;http://stricture-group.com/files/adobe-top100.txt&#34;&gt;Stricture Groupin Top 100 Adobe salasana listaa&lt;/a&gt;. Ja kirjoitin seuraavan hyökkäys skriptin.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import crypt
+import hmac
+
+def dictionaryAttack(wordlist, hash):
+    passwords = open(wordlist, encoding=&#39;utf-8&#39;)
+
+    for password in passwords:
+        if hmac.compare_digest(crypt.crypt(password, hash), hash):
+            print(&#39;%s = %s&#39; % (hash, password))
+            return
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Mikä löysi tuloksen lähes välittömästi, mutta lähinnä koska salasana oli &lt;code&gt;password&lt;/code&gt; ja se sattui olemaan kolmanneksi yleisin salasana kyseisellä listalla. En oikein tiedä olinko vain onnellinen vai oliko tämä suunniteltu lopputulos, mutta salasana on nyt tiedossa joten kohti seuraavaa kysymystä: Hashataan salasana &lt;code&gt;password&lt;/code&gt; 5000 kertaa käyttäen &lt;code&gt;SHA512&lt;/code&gt; kryptausta ja &lt;code&gt;saltsaltsaltsalt&lt;/code&gt; merkkijonoa suolana.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import hashlib
+
+password = &#39;password&#39;
+
+for i in range(5000):
+    h = hashlib.new(&#39;sha512&#39;)
+    h.update(b&#39;saltsaltsaltsalt&#39;)
+    h.update(bytes(password, &#39;utf-8&#39;))
+    password = h.hexdigest()
+    print(password)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Loppu tuloksena on aikamoinen hirviö &lt;code&gt;243b5bee3315ce38400393d5965116260e6ec99f1648179a14f3b33ac3d8d46c8e03a99a4196fffa591aabb89e6fc8a41d3e3c3982a9c7277cc1e375e3100d7c&lt;/code&gt;. Oikea kysymys oli kuitenkin miltä &lt;code&gt;/etc/shadow&lt;/code&gt; tiedoston rivi näyttää uuden salasanan kanssa. Jos Shadow tiedostossa on tarvetta useammalle kentälle salasana kenttä sisällä käytetään &lt;code&gt;$&lt;/code&gt; merkkiä erottamaan eri kentät toisistaan. Ensimmäinen kenttä kertoo mitä hashia käytetään. Unix käyttöjärjestelmien salasanoissa &lt;code&gt;6&lt;/code&gt; tarkoittaa &lt;code&gt;SHA512&lt;/code&gt; kryptausta. Toisessa kentässä on suolaus, eli &lt;code&gt;saltsaltsaltsalt&lt;/code&gt;. Kolmannessa kentässä on itse salasanan hash.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;admin:$6$saltsaltsaltsalt$243b5bee3315ce38400393d5965116260e6ec99f1648179a14f3b33ac3d8d46c8e03a99a4196fffa591aabb89e6fc8a41d3e3c3982a9c7277cc1e375e3100d7c:16615:0:99999:7:::
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Tässä meni yllättävän kauan aikaa, aluksi en tiennyt toimiko brute force skripti (toimi, mutta hitaasti) ja olin jo luopua toivosta ja maksaa pilvi cräkkäys palvelusta kuten &lt;a href=&#34;http://hashcrack.org/&#34;&gt;Hashcrack&lt;/a&gt;, mutta onneksi tuli mieleen tuo sanakirja hyökkäys.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>PVCC #7: Ämpärillä päähän</title>
+      <link>http://ajatusrikos.fi/pvcc7/</link>
+      <pubDate>Wed, 22 Jul 2015 22:39:42 +0300</pubDate>
+      
+      <guid>http://ajatusrikos.fi/pvcc7/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Etkö tiedä mikä on PVCC? &lt;a href=&#34;http://ajatusrikos.fi/fdfcc&#34;&gt;Klikkaa tästä&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Seitsemännessä kysymyksessä meille annetaan vesihana ja kaksi ämpäriä (4.3l ja 4.7l). Meidän tehtävänä on mitata tarkkaan 4.6l vettä. Ja ämpäreissä ei ole mitään merkintöjä.&lt;/p&gt;
+
+&lt;p&gt;Kyseessä on logiikka ongelma, mutta itselle tuttu. Kun tämän pulman tuntee, on se suhteellisen helppo suorittaa.&lt;/p&gt;
+
+&lt;p&gt;Ideana on kaataa pienemmästä ämpäristä vettä suurempaan ja tyhjätä suurempi aina kun se täyttyy. Näin pienempään asiaan jää joka toisella kaato kerralla vähemmän ja vähemmän vettä kunnes pohjalle jää 0.3l ja koska \(0.3 + 4.3 = 4.6\) saamme oikean määrän vettä isompaan ämpäriin.&lt;/p&gt;
+
+&lt;p&gt;Alla on lista tarvittavaista askeleista toteuttaa mittaus.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;A: 4.3 B: 0.0
+A: 0.0 B: 4.3
+A: 4.3 B: 4.3
+A: 3.9 B: 4.7
+A: 3.9 B: 0.0
+A: 0.0 B: 3.9
+A: 4.3 B: 3.9
+A: 3.5 B: 4.7
+A: 3.5 B: 0.0
+A: 0.0 B: 3.5
+A: 4.3 B: 3.5
+A: 3.1 B: 4.7
+A: 3.1 B: 0.0
+A: 0.0 B: 3.1
+A: 4.3 B: 3.1
+A: 2.7 B: 4.7
+A: 2.7 B: 0.0
+A: 0.0 B: 2.7
+A: 4.3 B: 2.7
+A: 2.3 B: 4.7
+A: 2.3 B: 0.0
+A: 0.0 B: 2.3
+A: 4.3 B: 2.3
+A: 1.9 B: 4.7
+A: 1.9 B: 0.0
+A: 0.0 B: 1.9
+A: 4.3 B: 1.9
+A: 1.5 B: 4.7
+A: 1.5 B: 0.0
+A: 0.0 B: 1.5
+A: 4.3 B: 1.5
+A: 1.1 B: 4.7
+A: 1.1 B: 0.0
+A: 0.0 B: 1.1
+A: 4.3 B: 1.1
+A: 0.7 B: 4.7
+A: 0.7 B: 0.0
+A: 0.0 B: 0.7
+A: 4.3 B: 0.7
+A: 0.3 B: 4.7
+A: 0.3 B: 0.0
+A: 0.0 B: 0.3
+A: 4.3 B: 0.3
+A: 0.0 B: 4.6
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Tämä oli vähän tylsä tehtävä, koska suurin osa on tekemistä. Tietenkin tehtävän ratkaisuun voisi kehittää skriptin joka brute frocaisin vastauksen, mutta näin pienissä luvuissa tämä on nopeampaa tehdä käsin.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
