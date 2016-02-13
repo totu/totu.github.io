@@ -6,8 +6,38 @@
     <description>Recent content on Kyhäelmä ajatuksistani ja kokemuksistani</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fi</language>
-    <lastBuildDate>Sat, 06 Feb 2016 13:39:37 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 13 Feb 2016 09:16:23 +0200</lastBuildDate>
     <atom:link href="http://ajatusrikos.fi/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Vim: Ikuinen savotta</title>
+      <link>http://ajatusrikos.fi/vim/</link>
+      <pubDate>Sat, 13 Feb 2016 09:16:23 +0200</pubDate>
+      
+      <guid>http://ajatusrikos.fi/vim/</guid>
+      <description>
+
+&lt;p&gt;Varmasti jokainen koodin kanssa päivittäin läträävä on miettinyt omaa kehitys ympäristöään. Oli se sitten suuri IDE kuten Qt, VisualStudio, tai vaikkapa Eclipse, tai pienempi &amp;ldquo;editori&amp;rdquo; kuten SublimeText tai Atom. Mutta sitten meillä löytyy tämä vanhemman liiton saari jossa nökötää kaksi suurta majakkaa: Emacs ja Vim.&lt;/p&gt;
+
+&lt;p&gt;Kuten kaikki paha elämässä Vimin käyttö alkoi ensiksi pienellä kokeilulla. Koulussa omien projektien kehitys sekä &amp;ldquo;tuotanto&amp;rdquo; ympäristönä toimi yksi ja sama Linux palvelin koska sen hetkinen Chromebookkini ei kyennyt pyörittämään Rails palvelinta paikallisesti. Joten oli tarvetta muokata tiedostoja SSH -tunnelin yli ja näin apuun(?) saapui Vim. Kuten kaikki Vimin käyttöä kokeneet tietävät alku oli hyvin monimutkainen, mikään moodi ei tuntunut tekevät mitään ja kirjoittaminen vaati aina extra ajattelua, mutta siitä jotenkin selvittiin. Vimi jäi käyttöön suhteellisen pitkäksi aikaa vaikken osanutkaan käyttää sitä läheskään täydellä potentiaalilla, mutta terminaalin yksinkertaisuus sai jotenkin valtoihinsa. Sittemmin Atomin julkaisun jälkeen sorruin jälleen kerran käyttämään &lt;em&gt;tavallista&lt;/em&gt; editoria, koska se toimii myös Windows ympäristössä moitteetta. Myöhemmin Atomi hiipi myös työ koneelleni jossa olen käyttänyt sitä viimeisen puoli vuotta, mutta Atomissa on muutamia suuria aukkoja. Ensiksi se on &lt;em&gt;vain&lt;/em&gt; editori, vaikka siihen on saatavilla paljon npm -paketteja, se on silti vain editori kun taas Vim on käytännössä oma ohjelmointi ympäristönsä. Lisäksi Atomi on suurien tiedostojen ja projektien selaamisessa, haussa, ja editoinnissa yllättävän raskas kun taas Vim suoriutuu haasteesta moitteetta.&lt;/p&gt;
+
+&lt;h1 id=&#34;komennot:06a5fa759d42479fba23ece5dc900b51&#34;&gt;Komennot&lt;/h1&gt;
+
+&lt;p&gt;Se mikä ensimmäisellä kerralla jäi Vimistä ymmärtämättä itseltäni oli navigointi. Käytin vain nuoli näppäimiä ja hieman h,j,k,l liikkumista, mutten ymmärtänyt sana navigointia kuten &lt;code&gt;w&lt;/code&gt; joka hyppää kursorin seuraavan sanan alkuun, taikka &lt;code&gt;e&lt;/code&gt; joka hyppää kursorin seuraavan sanan loppuun. Nämä &amp;ldquo;pika näppäimet&amp;rdquo; nopeuttavat navigointia huomattavasti.&lt;/p&gt;
+
+&lt;p&gt;Lisäksi navigointia voi yhdistää esimerksi deletointii (&lt;code&gt;d&lt;/code&gt;). Jos tahtoo poistaa seuraavat kolme sanaa voi sen tehdä yhdellä komennolla: &lt;code&gt;d3e&lt;/code&gt;. &lt;code&gt;d&lt;/code&gt; aktivoi &amp;ldquo;deletointi moodin&amp;rdquo;. &lt;code&gt;3&lt;/code&gt; kertoo kuinka monesti toiminto toistetaan, ja lopuksi &lt;code&gt;e&lt;/code&gt; kertoo että tahdomme liikkua sanan loppuun, eli yhdessä komennon voisi tulkita: &amp;ldquo;tee delete operaatio kolmesti sanan loppuun&amp;rdquo;. Yhdistelmiä on loputtomasti ja ne ovat hyvin voimakkaita. Komentojen opetteluun menee oma aikansa, eikä niitä kannata kaikkia heti yrittää ottaa käyttöön, mutta nopeasti yhdistelmiä alkaa näkymään käytössä. Komentojen ketjutuksen lisäksi Vimissä on sisäänrakennettu macrotus toiminto. `&lt;code&gt;q&lt;/code&gt; -komento aktivoi &amp;ldquo;macro moodin&amp;rdquo;, sen jälkeen kerrotaan mihin nappiin macro tahdotaan tallettaa (kirjaimella ei ole väliä, sillä se ei ylikirjoita sen alkuperäistä toimintoa). Tämän jälkeen macro alkaa tallentamaan kaikki tehdyt komennot, kun macro on valmis painetaan normaali moodissa &lt;code&gt;q&lt;/code&gt; uudestaan. Näin macro on talletettu haluttuun nappulaan ja sitä voidaan kutsua antamalla &lt;code&gt;numero@kirjain&lt;/code&gt; jossaa numero kertoo montako kertaa macro halutaan ajaa.&lt;/p&gt;
+
+&lt;h1 id=&#34;lisukkeet:06a5fa759d42479fba23ece5dc900b51&#34;&gt;Lisukkeet&lt;/h1&gt;
+
+&lt;p&gt;Vimin oman komentoketjutuksen ja macrojen lisäksi Vimiä on helppo laajentaa ja sillä voidaan jopa ajaa ulkopuolisia komentoriviohjelmia, kuten esimerkiksi JSON stringi voidaan tyylitää Pythonin avulla seuraavasti &lt;code&gt;:%!python -m json.tool&lt;/code&gt;, komento syöttää bufferissa olevan tekstin Pythonin json kirjastolle ja korvaa bufferin sisällön kyseisen kirjaston syötteellä.&lt;/p&gt;
+
+&lt;h1 id=&#34;loppu-sanat:06a5fa759d42479fba23ece5dc900b51&#34;&gt;Loppu sanat&lt;/h1&gt;
+
+&lt;p&gt;Conffasin alku viikosta kotikoneen Vimin taas käyttökelpoiseksi ja vein samaisen vimrc -tiedoston töihin seuraavana päivänä ja olen siitä saakka käyttänyt pelkästään Vimiä työn tekoon ja yllätys oli suuri sillä vaihtaminen pienen lämmittelyn jälkeen ei laskenut tehokkuuttani, välillä tiedostojen hakeminen kestää vähän pitempään kuin Atomissa, mutta tiedoston sisällä navigointi on paljon nopeampaa ja näppärämpää, mutta koen vielä olevani lähtö ruudussa ja näin Vimissä paljon potentiaalia. Vielä kun keksisi jonkun hyvän tavan käyttää sitä Windowsin puolella ei olisi enään käyttöä muille editoreille/IDE:lle.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;tämäkin postaus on kirjoitettu kokonaan Vimiä käyttäen&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Aika vierii ja alustat kulahtaa</title>
@@ -15,7 +45,7 @@
       <pubDate>Sat, 06 Feb 2016 13:39:37 +0200</pubDate>
       
       <guid>http://ajatusrikos.fi/hugo/</guid>
-      <description>&lt;p&gt;Niin siinä sitten kävi että työllistyttyäni jäi blogin päivittely hieman sikseen, mutta nyt alkaa elämä pikkuhiljaa laantua ja arjen keskeltä löytyy taas tarpeeksi luppoaikaa tylsyydelle joten: here we are again!&lt;/p&gt;
+      <description>&lt;p&gt;Niin siinä sitten kävi että työllistyttyäni jäi blogin päivittely hieman sikseen, mutta nyt alkaa elämä pikku hiljaa laantua ja arjen keskeltä löytyy taas tarpeeksi luppoaikaa tylsyydelle joten: here we are again!&lt;/p&gt;
 
 &lt;p&gt;Alusta ei ole vaihtunut, blogi pyörii edelleen näppärästi &lt;a href=&#34;https://github.com/&#34;&gt;Gihubin&lt;/a&gt; tarjoaman ilmaisen &lt;a href=&#34;https://pages.github.com/&#34;&gt;Pages&lt;/a&gt; palvelun päällä, mutta softa taustalla on hieman kokemus parannuksia. Edellinen versio pyöri &lt;a href=&#34;http://octopress.org/&#34;&gt;Ocotopress&lt;/a&gt; alustalla joka taas oli eräänlainen wrapperi &lt;a href=&#34;https://jekyllrb.com/&#34;&gt;Jekyll&lt;/a&gt; blogi alustan päälle. Homma toimi ihan kivasti, mutta tässä välissä on kone vaihtunut ja vaikka &lt;a href=&#34;https://www.ruby-lang.org/en/&#34;&gt;Rubystä&lt;/a&gt; kielenä pidänkin, on sen asentaminen ja dependencyjen hanskaus verrattuna tukalaa joten heitin Octopressin kannalta lusikat nurkkaan ja lähdin etsimään uutta staattista generaattoria.&lt;/p&gt;
 
@@ -734,72 +764,6 @@ for i in range(5000):
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Tässä meni yllättävän kauan aikaa, aluksi en tiennyt toimiko brute force skripti (toimi, mutta hitaasti) ja olin jo luopua toivosta ja maksaa pilvi cräkkäys palvelusta kuten &lt;a href=&#34;http://hashcrack.org/&#34;&gt;Hashcrack&lt;/a&gt;, mutta onneksi tuli mieleen tuo sanakirja hyökkäys.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>PVCC #7: Ämpärillä päähän</title>
-      <link>http://ajatusrikos.fi/pvcc7/</link>
-      <pubDate>Wed, 22 Jul 2015 22:39:42 +0300</pubDate>
-      
-      <guid>http://ajatusrikos.fi/pvcc7/</guid>
-      <description>&lt;p&gt;&lt;em&gt;Etkö tiedä mikä on PVCC? &lt;a href=&#34;http://ajatusrikos.fi/fdfcc&#34;&gt;Klikkaa tästä&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Seitsemännessä kysymyksessä meille annetaan vesihana ja kaksi ämpäriä (4.3l ja 4.7l). Meidän tehtävänä on mitata tarkkaan 4.6l vettä. Ja ämpäreissä ei ole mitään merkintöjä.&lt;/p&gt;
-
-&lt;p&gt;Kyseessä on logiikka ongelma, mutta itselle tuttu. Kun tämän pulman tuntee, on se suhteellisen helppo suorittaa.&lt;/p&gt;
-
-&lt;p&gt;Ideana on kaataa pienemmästä ämpäristä vettä suurempaan ja tyhjätä suurempi aina kun se täyttyy. Näin pienempään asiaan jää joka toisella kaato kerralla vähemmän ja vähemmän vettä kunnes pohjalle jää 0.3l ja koska \(0.3 + 4.3 = 4.6\) saamme oikean määrän vettä isompaan ämpäriin.&lt;/p&gt;
-
-&lt;p&gt;Alla on lista tarvittavaista askeleista toteuttaa mittaus.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;A: 4.3 B: 0.0
-A: 0.0 B: 4.3
-A: 4.3 B: 4.3
-A: 3.9 B: 4.7
-A: 3.9 B: 0.0
-A: 0.0 B: 3.9
-A: 4.3 B: 3.9
-A: 3.5 B: 4.7
-A: 3.5 B: 0.0
-A: 0.0 B: 3.5
-A: 4.3 B: 3.5
-A: 3.1 B: 4.7
-A: 3.1 B: 0.0
-A: 0.0 B: 3.1
-A: 4.3 B: 3.1
-A: 2.7 B: 4.7
-A: 2.7 B: 0.0
-A: 0.0 B: 2.7
-A: 4.3 B: 2.7
-A: 2.3 B: 4.7
-A: 2.3 B: 0.0
-A: 0.0 B: 2.3
-A: 4.3 B: 2.3
-A: 1.9 B: 4.7
-A: 1.9 B: 0.0
-A: 0.0 B: 1.9
-A: 4.3 B: 1.9
-A: 1.5 B: 4.7
-A: 1.5 B: 0.0
-A: 0.0 B: 1.5
-A: 4.3 B: 1.5
-A: 1.1 B: 4.7
-A: 1.1 B: 0.0
-A: 0.0 B: 1.1
-A: 4.3 B: 1.1
-A: 0.7 B: 4.7
-A: 0.7 B: 0.0
-A: 0.0 B: 0.7
-A: 4.3 B: 0.7
-A: 0.3 B: 4.7
-A: 0.3 B: 0.0
-A: 0.0 B: 0.3
-A: 4.3 B: 0.3
-A: 0.0 B: 4.6
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Tämä oli vähän tylsä tehtävä, koska suurin osa on tekemistä. Tietenkin tehtävän ratkaisuun voisi kehittää skriptin joka brute frocaisin vastauksen, mutta näin pienissä luvuissa tämä on nopeampaa tehdä käsin.&lt;/p&gt;
 </description>
     </item>
     
