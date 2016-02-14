@@ -6,11 +6,49 @@
     <description>Recent content on Kyhäelmä ajatuksistani ja kokemuksistani</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fi</language>
-    <lastBuildDate>Sat, 13 Feb 2016 09:16:23 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 14 Feb 2016 10:09:58 +0200</lastBuildDate>
     <atom:link href="http://ajatusrikos.fi/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Vim: Ikuinen savotta</title>
+      <title>Viikonloppu projekti: Micro drone</title>
+      <link>http://ajatusrikos.fi/drone/</link>
+      <pubDate>Sun, 14 Feb 2016 10:09:58 +0200</pubDate>
+      
+      <guid>http://ajatusrikos.fi/drone/</guid>
+      <description>
+
+&lt;p&gt;Perjantaina tarttui Prismasta käteen tämmöinen &lt;em&gt;Micro&lt;/em&gt; Drone.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://dl.dropboxusercontent.com/u/28304305/dronen_lento.webm&#34; title=&#34;Ensi lento&#34;&gt;&lt;img src=&#34;http://ajatusrikos.fi/drone.jpeg&#34; alt=&#34;Micro Drone&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Hintaa kyseisellä nelikopterilla oli 35€. Spekseihin sen suuremmin takertumatta, laite on hauska ja hintansa arvoinen kaikille ketkä tahtovat uusia leluja ja ei tahdo heti pudottaa useampaa satasta &amp;ldquo;harrastukseen&amp;rdquo;. Lentoaika taitaa olla tärkein ominaisuus ja vaikka se tuskin on kymmentä minuuttia pidempi tuntuu se pitkältä ajalta dronen kanssa harjoitelless. Siihen tämä ehkä soveltuu parhaiten, harjoitteluun. Itse olen jo useamman kuukauden kuolannut näiden kauko-ohjattavien perään ja tullut siihen tulokseen että säiden lämmetessä täytyy pistää osia tilaukseen ja alkaa näpertelemään omaa mallia. Lumi on silti vielä vankkana maassa joten tämän halvan kopterin spotattuani oli pakko napata se matkaan ihan mielenkiinnosta.&lt;/p&gt;
+
+&lt;h1 id=&#34;ohjain:b6bd64790f3f0a61ec3ad9150b11ed09&#34;&gt;Ohjain&lt;/h1&gt;
+
+&lt;p&gt;En tiedä kenen huono vitsi kopterin ohjain oli, mutta se näytti hirveältä&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ajatusrikos.fi/ohjain/ohjain.jpg&#34; alt=&#34;Ohjain&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Joten päätin purkaa sen ja katsoa voisiko sen maalata. Ohjaimen takakannesta löytyi kaksi reikää joiden sisältä paljastui kaksi ristipää ruuvia.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ajatusrikos.fi/ohjain/ohjain-tausta.jpg&#34; alt=&#34;Ohjaimen tausta&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Ruuvien avauksen jälkeen kuori avautui ilman suurempaa väkivaltaa ja sen alta paljastui itse piirilevy sekä patterien johdotus. Piiri levy oli kiinni etukuoressa kahdella pienemmällä ristipääruuvilla.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ajatusrikos.fi/ohjain/ohjain-osat.jpg&#34; alt=&#34;Avattu ohjain&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Piirilevyn irtosi myös kiltisti. Lopputuloksena punaisia nappeja ei oltu mitenkään liimailtu paikoilleen, joten koko kapulan voi maalata helposti. Seuraava etappi oli palata takaisin Prismaan ja tarkistaa maali tarjontaa. Päätin toteuttaa maalauksen spraymaalilla, mutta valitettavasti Prisman valikoimaan ei sisältynyt kuin mustaa, valkoista ja kultaista akryylimaalia, akryylimaali toimii hyvin kovien muovien kanssa mitä kyseinen ohjain oli, mutta olin jo päättänyt maalata kapistuksen joten päätin ottaa mukaan keltaisen normaalin spraymaalin. Tarkoituksena oli ensiksi maalata kaikki osat mustalla akryylimaalilla ja sitten maalata keltaisella kerroksella napit. Valitettavasti maali ei tarttunut läheskään niin hyvin kuin tahdoin ja lopputulos usean maali kerroksen jälkeen näyttää hyvin hosutulta.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ajatusrikos.fi/ohjain/maalattu-ohjain.jpg&#34; alt=&#34;Maalattu ohjain&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Pitää jossain kohtaa tulevaisuudessa palata ohjaimen pariin ja uudelleen maalata nappi osat. Lisäksi ohjain &amp;ldquo;tatit&amp;rdquo; eivät tunnut hyviltä sormissa joten niihin pitäisi keksiä joku &lt;em&gt;kumi-pinnoitus-ratkaisu&lt;/em&gt;, mutta se ei ole enään tämän viikonlopun aihe.&lt;/p&gt;
+
+&lt;p&gt;Lopuksi vielä pieni &lt;a href=&#34;https://dl.dropboxusercontent.com/u/28304305/dronen_lento.webm&#34; title=&#34;Dronen lento&#34;&gt;&amp;ldquo;maiden flight&amp;rdquo; (WEBM)&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Vim</title>
       <link>http://ajatusrikos.fi/vim/</link>
       <pubDate>Sat, 13 Feb 2016 09:16:23 +0200</pubDate>
       
@@ -682,90 +720,6 @@ Ron: 706790887 ?&lt;/p&gt;
 &lt;p&gt;$$gcd(m, n) = gcd(706790887, 779191667) = 1$$&lt;/p&gt;
 
 &lt;p&gt;Nyt &lt;code&gt;706790887&lt;/code&gt; sopii yhtälöön ja koska \(m\) on viimeinen muuttuja, RSA salauksessa se on pakko olla tehtävän vastaus.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>PVCC #8: Salasanojen varjostusta</title>
-      <link>http://ajatusrikos.fi/pvcc8/</link>
-      <pubDate>Thu, 23 Jul 2015 09:50:51 +0300</pubDate>
-      
-      <guid>http://ajatusrikos.fi/pvcc8/</guid>
-      <description>&lt;p&gt;&lt;em&gt;Etkö tiedä mikä on PVCC? &lt;a href=&#34;http://ajatusrikos.fi/fdfcc&#34;&gt;Klikkaa tästä&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Kahdeksannessa kysymyksessä meille annetaan seuraava rivi &lt;code&gt;/etc/shaow&lt;/code&gt; tiedostosta&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;admin:65kKfJ.oFg1/Y:16615:0:99999:7:::
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Sekä kaksi kysymystä&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Mikä on salasana?&lt;/li&gt;
-&lt;li&gt;Miltä rivi näyttäisi jos salasana generoitaisiin 5000 kierroksella sha512 ja käytettäisiin salttina/suolana jonoa &lt;code&gt;saltsaltsaltsalt&lt;/code&gt;?&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Käydään ekana vähän läpi &lt;code&gt;/etc/shadow&lt;/code&gt; tiedoston koostomusta. Jokainen rivi on jaettu osiin kaksoispisteellä (:). Ensimmäinen osa on käyttäjätunnus. Toinen osa on salasanan hash. Kolmas kertoo milloin salasana on viimeksi vaihdettu. Neljäs numero kertoo milloin salasanan saa seuraavaksi vaihtaa. Viides numero kertoo milloin salasana pitää viimeistään vaihtaa. Kuudes numero kertoo kuinka kauan ennen salasanan vanhenemista käyttäjää varoitetaan. Seitsemäs kertoo kuinka monta päivää salasanan vanhenemisen jälkeen käyttäjätunnus pystyy aktiivisena. Viimeinen luku kertoo päivän milloin käyttäjä tunnukselle ei enää voi kirjautua.&lt;/p&gt;
-
-&lt;p&gt;Aluksi meidän tulee tunnistaa mitä hashia salasanassa käytetään, joten löin salasanan &lt;a href=&#34;https://code.google.com/p/hash-identifier/&#34;&gt;Hash Identifier&lt;/a&gt; skriptin lävitse.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;HASH: 65kKfJ.oFg1/Y
-
-Possible Hashs:
-[+]  DES(Unix)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Tässä kohtaa itseltä lähti vähän homma lapasesta. Vaikka DES on ollutkin &amp;ldquo;rikki&amp;rdquo; jo kymmeniä vuosia menee sen brute forcaukseen silti tunteja hyvällä laitteistolla ja päiviä huonolla laitteistolla. Päätin silti koittaa brute forcausta ja kirjoitin seuraavan hyvin naivin ohjelman ja pistin pyörimään.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import itertools
-import crypt
-import hmac
-
-def brute(chars, hash):
-    chars = &#39;abcdefghijklmnopqrstuvwtxyz&#39;
-    for length in range(1, 9):
-        attempt = itertools.product(chars, repeat=length)
-        for a in attempt:
-            password = &#39;&#39;.join(a)
-            if hmac.compare_digest(crypt.crypt(password, hash), hash):
-                print(&#39;%s = %s&#39; % (hash, password))
-                return
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Kun kyseinen skripti oli pyörinyt pari tuntia, eikä ollut vielä päässyt lähellekään lyhyttä loppuaan aloin huolestua hyökkäyksestä. IRCin puolella jo ehdotettiin että koettaisin ajaa skriptiä nVidian Cuda kirjaston päällä, näin saaden paljon enemmän laskenta tehoa irti koneesta, mutta sain paremman idea: Sanakirja hyökkäys! Googletin erinäköisiä salasana kirjastoja ja päädyin käyttämään &lt;a href=&#34;http://stricture-group.com/files/adobe-top100.txt&#34;&gt;Stricture Groupin Top 100 Adobe salasana listaa&lt;/a&gt;. Ja kirjoitin seuraavan hyökkäys skriptin.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import crypt
-import hmac
-
-def dictionaryAttack(wordlist, hash):
-    passwords = open(wordlist, encoding=&#39;utf-8&#39;)
-
-    for password in passwords:
-        if hmac.compare_digest(crypt.crypt(password, hash), hash):
-            print(&#39;%s = %s&#39; % (hash, password))
-            return
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Mikä löysi tuloksen lähes välittömästi, mutta lähinnä koska salasana oli &lt;code&gt;password&lt;/code&gt; ja se sattui olemaan kolmanneksi yleisin salasana kyseisellä listalla. En oikein tiedä olinko vain onnellinen vai oliko tämä suunniteltu lopputulos, mutta salasana on nyt tiedossa joten kohti seuraavaa kysymystä: Hashataan salasana &lt;code&gt;password&lt;/code&gt; 5000 kertaa käyttäen &lt;code&gt;SHA512&lt;/code&gt; kryptausta ja &lt;code&gt;saltsaltsaltsalt&lt;/code&gt; merkkijonoa suolana.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import hashlib
-
-password = &#39;password&#39;
-
-for i in range(5000):
-    h = hashlib.new(&#39;sha512&#39;)
-    h.update(b&#39;saltsaltsaltsalt&#39;)
-    h.update(bytes(password, &#39;utf-8&#39;))
-    password = h.hexdigest()
-    print(password)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Loppu tuloksena on aikamoinen hirviö &lt;code&gt;243b5bee3315ce38400393d5965116260e6ec99f1648179a14f3b33ac3d8d46c8e03a99a4196fffa591aabb89e6fc8a41d3e3c3982a9c7277cc1e375e3100d7c&lt;/code&gt;. Oikea kysymys oli kuitenkin miltä &lt;code&gt;/etc/shadow&lt;/code&gt; tiedoston rivi näyttää uuden salasanan kanssa. Jos Shadow tiedostossa on tarvetta useammalle kentälle salasana kenttä sisällä käytetään &lt;code&gt;$&lt;/code&gt; merkkiä erottamaan eri kentät toisistaan. Ensimmäinen kenttä kertoo mitä hashia käytetään. Unix käyttöjärjestelmien salasanoissa &lt;code&gt;6&lt;/code&gt; tarkoittaa &lt;code&gt;SHA512&lt;/code&gt; kryptausta. Toisessa kentässä on suolaus, eli &lt;code&gt;saltsaltsaltsalt&lt;/code&gt;. Kolmannessa kentässä on itse salasanan hash.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;admin:$6$saltsaltsaltsalt$243b5bee3315ce38400393d5965116260e6ec99f1648179a14f3b33ac3d8d46c8e03a99a4196fffa591aabb89e6fc8a41d3e3c3982a9c7277cc1e375e3100d7c:16615:0:99999:7:::
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Tässä meni yllättävän kauan aikaa, aluksi en tiennyt toimiko brute force skripti (toimi, mutta hitaasti) ja olin jo luopua toivosta ja maksaa pilvi cräkkäys palvelusta kuten &lt;a href=&#34;http://hashcrack.org/&#34;&gt;Hashcrack&lt;/a&gt;, mutta onneksi tuli mieleen tuo sanakirja hyökkäys.&lt;/p&gt;
 </description>
     </item>
     
