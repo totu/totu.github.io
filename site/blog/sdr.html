@@ -1,0 +1,27 @@
+<title>/blog/sdr</title>
+<div class="box">
+<h2>Software Defined Radio</h2>
+<p>A quick setup guide (on Windows)</p>
+
+<h3>Software</h3>
+<p>Download <a href="https://airspy.com/download/">Windows SDR Software Package</a> from airspy.com</p>
+
+<h3>How to get started</h3>
+
+<ol>
+    <li>Extract to new folder</li>
+    <li>Run <code>install-rtlsdr</code> batch file</li>
+    <li>Plug in dongle</li>
+    <li>Wait until windows installs drivers</li>
+    <li>Run <code>zadig.exe</code> as administrator</li>
+    <li>Navigate <code>Options -> List All Devices</code></li>
+    <li>Select <code>Bulk-in, Interface (Interface 0)</code></li>
+    <li>USB ID should match: <code>0BDA 2838 00</code></li>
+    <li>Make sure <code>WinUSB</code> is on right side</li>
+    <li>Click <code>Reinstall Driver</code> (or maybe it says Install Driver)</li>
+    <li>Close <code>zadig</code></li>
+    <li>Open <code>SDRSharp.exe</code></li>
+    <li>Under options select correct device (Interface 1 or 0)</li>
+    <li>Tick <code>Tuner AGC</code> (for automatic gain adjustment)</li>
+</ol>
+</div>

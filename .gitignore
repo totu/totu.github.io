@@ -1,2 +1,5 @@
 nginx-1.17.0/
 soupault.exe
+build/
+*.lnk
+*.lnk"
