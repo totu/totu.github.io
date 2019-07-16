@@ -1,0 +1,30 @@
+.showcase, h3, h2, h1 {
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+}
+
+.nav {
+    display: block;
+    float: left;
+    min-height: 322px;
+}
+
+.about {
+    display: block;
+    float: right;
+    margin-bottom: 10px;
+}
+
+.face {
+    float: left;
+    margin: 15px 20px 0 0;
+}
+
+.bulky {
+    min-height: 230px;
+}
+
+code {
+    font-family: 'Courier New', Courier, monospace;
+}
