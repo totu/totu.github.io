@@ -1,9 +1,2 @@
-_site
-.sass-cache
-_deploy.yml
-.bundle
-bin
-vendor
-.deploy
-.DS_Store
-*.swp
+nginx-1.17.0/
+soupault.exe
