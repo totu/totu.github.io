@@ -7,7 +7,11 @@
 .nav {
     display: block;
     float: left;
-    min-height: 322px;
+    min-height: 324px;
+}
+
+.nav > a:hover, .nav > a > h2:hover {
+    color: #d33682;
 }
 
 .about {
@@ -17,6 +21,7 @@
 }
 
 .face {
+    border:1pt solid #586e75;
     float: left;
     margin: 15px 20px 0 0;
 }
