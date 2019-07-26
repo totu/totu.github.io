@@ -46,6 +46,24 @@ img {
     border: 1px solid #586e75;
 }
 
+.ce {
+    display: inline-block;
+    width: 150px;
+    height: 80px;
+    margin-right: 12px;
+    max-height: initial;
+    cursor: pointer;
+    border: 1px solid #586e75;
+}
+
+.ce:hover {
+    border: 1px solid #d33682;
+}
+
+.imgLink {
+    text-decoration: none;
+}
+
 @media (max-width: 900px) {
     .nav {
         float: none;
