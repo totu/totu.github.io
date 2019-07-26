@@ -13,6 +13,7 @@ h2 {
     float: left;
     min-height: 324px;
     min-width: 165px;
+    max-width: 190px;
 }
 
 .nav > a:hover, .nav > a > h2:hover {
@@ -20,6 +21,7 @@ h2 {
 }
 
 .about {
+    max-width: 605px;
     display: block;
     float: right;
     margin-bottom: 15px;
