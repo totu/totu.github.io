@@ -69,9 +69,11 @@ img {
 @media (max-width: 900px) {
     .nav {
         float: none;
+        max-width: 900px;
     }
     .about {
         float: none;
         margin-bottom: 10px;
+        max-width: 900px;
     }
 }
