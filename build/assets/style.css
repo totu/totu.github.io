@@ -8,6 +8,14 @@ h2 {
     font-size:2.2em
 }
 
+h3 {
+    margin-top: 25px;
+}
+
+h3:first-child {
+    margin-top: 0px;
+}
+
 .nav {
     display: block;
     float: left;
@@ -76,4 +84,8 @@ img {
         margin-bottom: 10px;
         max-width: 900px;
     }
+}
+
+ul {
+    margin-bottom: 5px;
 }
