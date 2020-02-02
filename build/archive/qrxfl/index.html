@@ -32,43 +32,62 @@
    <hr id="divider">
   </center>
   <title>
-   /archive/kuninkaalliset viestit
+   /archive/qrxfl
   </title>
   <body>
    <center>
     <div class="article">
      <h2>
-      Kuninkaalliset viestit
+      <span class="hilight">QR</span> E<span class="hilight">xf</span>i<span class="hilight">l</span>trate (QRXFL)
      </h2>
+     <h3>
+      Concept
+     </h3>
      <p>
-      Pari viikkoa sitten löysin <a href="http://potatopla.net/crypto/">Crypto Puzzle Challenges</a> -sivuston ja pistin sen mieleen jos joskus tulee tylsää ja tässähän sitä taas ollaan.
+      Quite some time ago I saw a video on Youtube (I think it was from <a href="//www.youtube.com/user/Hak5Darren">Hak5</a>) about stealing files without network connection. I can't remember how they did theirs, but for some reason the idea morphed in my head to "could I steal data off of a computer optically - using just its own monitor and webcam?" So that is what this is.
+     </p>
+     <h3>
+      Idea
+     </h3>
+     <p>
+      In essense idea behind this project is to move data between "victim" and "attacker" by using only cameras and screens.
      </p>
      <p>
-      <a href="http://potatopla.net/crypto/Challenge_1/">Ensimmäisessä tehtävässä</a> meille annetaan hyvin kryptinen kuva, jossa on jotain merkkijonoja, sekä arvoitus:
-     </p>
-     <pre><code>From a royal burgh in West Lothian to the palace on the River
-Thames messages such as this caused a bit of a royal upset.
-/Title</code></pre>
-     <p>
-      <a href="https://en.wikipedia.org/wiki/River_Thames">Thames joki</a> on Englannin toiseksi pisin joki joka kulkee Lontoon lävitse useisiin muihin kaupunkeihin, mutta koska arvoituksessa mainitaan palatsi Thamesin varrella on kyseessä luultavimmin Lontoo.
+      Basic scenario is to run piece of software on the victim PC that would gather valuable data (whatever that might be) and then start displaying that data as <code>QR</code> codes on its screen. Then it would begin monitoring its webcam for a confirmation from the attacker's client (mostlikely a smartphone) that it had received the data before proceeding to the next <code>QR</code> code
      </p>
      <p>
-      Kun etsin kuninkaallisia “itsehallintokaupunkeja” Länsi Lothiasta, tuli vastaan <a href="https://en.wikipedia.org/wiki/Linlithgow">Linlithgowia</a> käsittelevä Wikipedia artikkeli, jonka <a href="https://en.wikipedia.org/wiki/Linlithgow#History">historia</a> otsikon alta löytyi viittaus <a href="https://en.wikipedia.org/wiki/James_V_of_Scotland">Jaakko V</a> ja <a href="https://en.wikipedia.org/wiki/Mary,_Queen_of_Scots">Maria I</a>. Koska arvoituksessa pyydetään <code class="highlighter-rouge">/Title</code>, mikä voi ymmärtää myös <code class="highlighter-rouge">/Arvonimenä</code> lisäsin tehtävän osoitteeseen <code class="highlighter-rouge">/King</code>, mutta sain vain <code class="highlighter-rouge">404 Not Found</code> virheen, testasin kuitenkin vielä <code class="highlighter-rouge">/Queen</code> ja sain seuraavana arvoituksen:
+      Attacker's phone acts as a proxy for the attacker's server. The victim PC encodes as much data as it can to a single <code>QR</code> code, the attacker's phone reads the <code>QR</code> code and sends it to his/her server, the server <code>ACKs</code> back on data delivery and the phone displays that <code>ACK</code> as a <code>QR</code> code on its screen. When the software on the victim PC received the <code>ACK</code> it will encode the next <code>QR</code> code and begin the cycle again.
      </p>
-     <code>/Name</code>
+     <h3>
+      Setup
+     </h3>
      <p>
-      Nimeen yritin erilailla kirjoitettuja Mary ja Mary Stuart muotoja, ilman onnea. Kun aloin selaamaan Marian Wikipedia artikkelia osui silmään <a href="https://en.wikipedia.org/wiki/Mary,_Queen_of_Scots#Death">kuolema</a> kohdan alla “oikeudenkäynti”, josta kävi ilmi että, Maria I oli lähettänyt salattuja viestejä, joissa hän yritti saada Elizabeth I salamurhattua. Uudella tiedolla varustettuna lisäsin osoitteen perään <code class="highlighter-rouge">/Elizabeth</code> ja sain seuraavan arvoituksen:
+      My proof of concept assumes that the attacker has some form of access to the machine and is able to run code on it. I can already hear you asking; "why not use anything else, the game is already over if you have code execution privileges?" to which I have no answer, except my mind wondered back to this concept again and again.
      </p>
-     <code>/Number</code>
      <p>
-      Koska kyseessä oli sekä Maria I että Elizabeth I, kokeilin vielä lisätä osoitteeseen <code class="highlighter-rouge">/1</code> ja sain seuraavan viestin:
+      The "victim" code can be found from my <a href="//github.com/totu/qrxfl">Github project</a>. It is the <code>qrxfl.py</code>. In it's current version it doesn't actually dig up data, it just waits for a <code>QR</code> code from the web camera, decodes the string, adds "asd" in the end, and displays the new string as a <code>QR</code> code
      </p>
-     <pre><code>Congratulations.
-Send [POISTETTU] an email
-with your twitter handle that says you
-are the cheesiest potato.</code></pre>
      <p>
-      Haaste 1. oli merkitty <em>“Aloittelija”</em> haasteeksi, joten sen ratkaiseminen oli helppoa ja nopeaa, mutta ennen kaikkea se oli hauskaa, ainakin minulle.
+      The attacker code is actually a web page, the code can be found in the Github project as well, but it is also live at <a href="/qrxfl">/qrxfl</a>. It works exactly like the victim client currently.
+     </p>
+     <h3>
+      Demo
+     </h3>
+     <iframe alt="video demo" width="560" height="315" src="https://www.youtube-nocookie.com/embed/HW_Q7selJMM" frameborder="0" allow="encrypted-media; picture-in-picture" allowfullscreen=""></iframe>
+     <p>
+      In the video the left <code>QR</code> code is capured off of the screen of the vicim PC. The image from the right is captured from the web camera of that same PC.
+     </p>
+     <p>
+      As you can see the idea works, however as the demo goes on and both parties keep adding to the text, so it takes longer and longer for them to read the data off of each other
+     </p>
+     <h3>
+      Retrospective
+     </h3>
+     <p>
+      It would seem that this concept works. However it isn't the most practical. The speed presents an issue as well as need for good lighting to create enough contrast on the bright screen so webcameras can pick up the codes. More over only reason to use this method is if you have no alternatives, like for some reason you have the exflitration software running on the machive, but for some reason you can't use any of its ports or Internet access AND it has a screen AND a camera attached.
+     </p>
+     <p>
+      There probably won't be further development on this, since the silly demo has scratched my itch on the topic and due to the above mentioned restrictions I do not think further development will bear any meaningful fruit.
      </p>
     </div>
    </center>
