@@ -20,6 +20,10 @@ a {
 
 a:hover {
     color: #A0C4E8;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
 
 #archives, #body, #header, #links {
@@ -84,6 +88,13 @@ a:hover {
 
 .piste, .pilkku {
     color: #E8E8A0;
+}
+
+.keno, .alaviiva, .sulku, .takakeno, .piste, .pilkku {
+    -webkit-transition: all 2s ease;
+    -moz-transition: all 2s ease;
+    -o-transition: all 2s ease;
+    transition: all 2s ease;
 }
 
 #bottom, hr {
@@ -212,11 +223,23 @@ code {
 
 #face {
     float: left;
+    display: block;
     width: 200px;
+    height: 200px;
     border-width: 0px;
     padding: 0;
     margin: 0 25px 0 0;
+    background: url('/assets/nassu.gif');
+    background-size: 200px 200px;
+    cursor: pointer;
 }
+
+#face:hover {
+    background: url('/assets/face.jpg');
+    background-size: 200px 200px;
+}
+
+#preload-01 { background: url(/assets/face.jpg) no-repeat -9999px -9999px; }
 
 #welcome {
     display: block;
