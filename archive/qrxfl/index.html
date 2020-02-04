@@ -46,20 +46,29 @@
    <center>
     <div class="article">
      <h2>
-      <span class="hilight">QR</span> E<span class="hilight">xf</span>i<span class="hilight">l</span>trate (QRXFL)
+      QR Exfiltrate (<a class="hilight" href="/qrxfl">QRXFL</a>)
      </h2>
      <h3>
-      Concept
+      Background
      </h3>
      <p>
-      Quite some time ago I saw a video on Youtube (I think it was from <a href="//www.youtube.com/user/Hak5Darren">Hak5</a>) about stealing files without network connection. I can't remember how they did theirs, but for some reason the idea morphed in my head to "could I steal data off of a computer optically - using just its own monitor and webcam?" So that is what this is.
+      Hak5 made a <a href="https://www.youtube.com/watch?v=WBkNgb-iPGE">video</a>&nbsp;about exfiltrating data off of an airgapped computer using <code>QR</code> codes. A program encodes files into <code>QR</code> codes, the <code>QR</code> codes are displayed on the screen and captured on video camera. Later the data can be extracted from the video. Initial infection is done with badusb/bashbunny
+     </p>
+     <h3>
+      Problem - SPEED!
+     </h3>
+     <p>
+      In the video Darren describes problems with image blurring when speed in increased. You probably can not reliably exfiltrate even 30 <code>QR</code> codes per second. In normal networking this wouldn't be a huge issues, since you would just resend the corrupted bits, but since we are recording everything at once and then decoding at later date the data has to be perfect on the first try.
+     </p>
+     <h3>
+      Solution?
+     </h3>
+     <p>
+      Instead of blindly flashing <code>QR</code> codes on the screen lets have client/server communication. Victim's computer acts as server -- running software that find interesting files and creates <code>QR</code> codes out of them to display for the client -- attacker's phone acts as client, it records the <code>QR</code> codes with face camera and when it succesfully reads <code>QR</code> code it will display <code>QR</code> code back to server acknowledging that it received and decoded the message. The server (using its webcam) generates a new <code>QR</code> code to exfiltrate, after it reads a <code>QR</code> code from the client acknowledging the reception of last <code>QR</code> code.
      </p>
      <h3>
       Idea
      </h3>
-     <p>
-      In essense idea behind this project is to move data between "victim" and "attacker" by using only cameras and screens.
-     </p>
      <p>
       Basic scenario is to run piece of software on the victim PC that would gather valuable data (whatever that might be) and then start displaying that data as <code>QR</code> codes on its screen. Then it would begin monitoring its webcam for a confirmation from the attacker's client (mostlikely a smartphone) that it had received the data before proceeding to the next <code>QR</code> code
      </p>
@@ -97,6 +106,32 @@
      <p>
       There probably won't be further development on this, since the silly demo has scratched my itch on the topic and due to the above mentioned restrictions I do not think further development will bear any meaningful fruit.
      </p>
+     <h3>
+      TODOs
+     </h3>
+     <p>
+      Here is a list of things that should be considered if someone is interested in this project:
+     </p>
+     <ul class="list">
+      <li>
+       Teach the Python script to read files
+      </li>
+      <li>
+       Teach the JavaScript to decode and save the received data
+      </li>
+      <li>
+       How to deal with reflections on phone?
+      </li>
+      <li>
+       How to deal with positioning problems?
+      </li>
+      <li>
+       How to deal with low-light etc focusing issues?
+      </li>
+      <li>
+       Do we need feedback (audio, visual, haptic)?
+      </li>
+     </ul>
     </div>
    </center>
   </body>
