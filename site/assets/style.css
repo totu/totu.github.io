@@ -135,11 +135,16 @@ ul > li {
     list-style-type: none;
 }
 
-ul > li > ul > li:before {
+ul.list > li:before, ul > li > ul > li:before {
     content: ">>";
     color: #E79F9F;
     margin-bottom: 0;
 }
+
+.hilight {
+    color: #E79F9F;
+}
+
 
 ul > li > ul > li:last-child {
     margin-bottom: 5px;
