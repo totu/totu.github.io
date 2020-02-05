@@ -244,7 +244,7 @@ code {
     background-size: 200px 200px;
 }
 
-#preload-01 { background: url(/assets/face.jpg) no-repeat -9999px -9999px; }
+#preload-01 { background: url(/assets/mosh.jpg) no-repeat -9999px -9999px; }
 
 #welcome {
     display: block;
