@@ -23,7 +23,6 @@ $(document).ready(function() {
         main_html += `<div class='field'>${label} ${input}</div>`;
 
     }
-    main_html += "<div id='bottom'></div>";
     $('#main').html(main_html);
     $('.field').each(function(iter, elem) {
         $(elem).keyup(function(sender) {
