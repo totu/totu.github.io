@@ -112,6 +112,8 @@ a:hover {
     border-bottom: solid 3px #9f9fe7;
     border-left: solid 2px #9f9fe7;
     border-right: solid 2px #9f9fe7;
+    position: relative;
+    top: -32px;
 }
 
 img {
@@ -222,8 +224,11 @@ code {
 
 #archives > ul > a > li {
     list-style-type: none;
-    border-bottom: solid #9f9fe7 1px;
     margin-bottom: 20px;
+}
+
+.archive {
+    border-bottom: solid #9f9fe7 1px;
 }
 
 #face {
@@ -252,4 +257,8 @@ code {
 
 .center {
     text-align: center;
+}
+
+.last {
+    top: 10px !important;
 }
