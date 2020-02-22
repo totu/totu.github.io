@@ -1,4 +1,5 @@
 let matrix = document.getElementById("matrix");
+let height = 55;
 var anime_count = 0;
 var columns = [];
 
@@ -28,9 +29,9 @@ let sleep = function(ms) {
 }
 
 let randomize_column = function() {
-    var random_column = Math.floor(Math.random() * 55 + 1);
+    var random_column = Math.floor(Math.random() * height + 1);
     do {
-        random_column = Math.floor(Math.random() * 55 + 1);
+        random_column = Math.floor(Math.random() * height + 1);
     }
     while (columns.indexOf(random_column) != -1);
     columns.push(random_column);
@@ -40,8 +41,8 @@ let randomize_column = function() {
 let animate = async function() {
     anime_count += 1;
     let random_column = randomize_column();
-    let speed = Math.floor(Math.random() * 55 + 50);
-    let random_len = Math.floor(Math.random() * matrix_size/2/2 + 1);
+    let speed = Math.floor(Math.random() * height + 50);
+    let random_len = Math.floor(Math.random() * matrix_size/2/3 + 1);
     let rows = document.getElementsByClassName("matrix-row");
 
     for (var i=0; i<rows.length+random_len+1; i++) {
@@ -67,12 +68,19 @@ let animate = async function() {
         }
         await sleep(speed);
     }
+    await sleep(speed);
+    let new_col = rand_alpha(height);
+    for (var i=0; i<rows.length; i++) {
+        let row = rows[i];
+        let child = row.children[random_column];
+        child.innerHTML = new_col[i];
+    }
     columns.splice(columns.indexOf(random_column), 1);
     anime_count -= 1;
 }
 
 window.addEventListener('load', async function() {
-    matrix_size = 55;
+    matrix_size = height;
     str = ""
     for (var i=0; i<matrix_size/2; i++) {
         str += "<div class='matrix-row matrix-row-"+i+"'>" + string(matrix_size) + "</div>";
