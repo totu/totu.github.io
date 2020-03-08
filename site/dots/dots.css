@@ -1,0 +1,51 @@
+/* color: #E8E8A0 == yellow */
+/* color: #9FE7E7 == cyan */
+/* color: #E79F9F == red */
+/* color: #9F9FE7 == purple */
+
+p {
+    padding: 0;
+    margin: 0;
+}
+
+.cyan {
+    color: #9FE7E7;
+}
+
+.purple {
+    color: #9F9FE7;
+}
+
+.yellow {
+    color: #E8E8A0;
+}
+
+.red {
+    color: #E79F9F;
+}
+
+.dot-comment {
+    margin-top: 15px;
+    color: #9FE7E7;
+}
+
+.dot-section {
+    display: block;
+    border: solid 1px #9f9fe7;
+    width: 100%;
+    padding: 20px;
+    margin: 5px;
+    overflow: hidden;
+    color: #fcfcfc;
+    background: #111;
+    border-radius: 5px;
+    font-size: 19px;
+}
+
+.dot-syntax {
+}
+
+.dot-section:hover {
+    color: #d35c5c;
+    border-color: #E8E8A0;
+}
