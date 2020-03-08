@@ -6,6 +6,8 @@
 p {
     padding: 0;
     margin: 0;
+    display: block;
+    width: 100%;
 }
 
 .cyan {
@@ -27,13 +29,14 @@ p {
 .dot-comment {
     margin-top: 15px;
     color: #9FE7E7;
+    font-size: 24px;
 }
 
 .dot-section {
     display: block;
     border: solid 1px #9f9fe7;
-    width: 100%;
-    padding: 20px;
+    width: 500px;
+    padding: 10px;
     margin: 5px;
     overflow: hidden;
     color: #fcfcfc;
