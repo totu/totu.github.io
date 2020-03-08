@@ -78,14 +78,10 @@ var inputs = [];
 
     window["bitshift"] = function(other) {
         // >>> (127<<24) + (0<<16) + (0<<8) + 1
-        let content = other.value;
         let own = document.getElementById("bitshift");
-        content = content.split(".");
+        let hex = document.getElementById("hexa");
         var val = 0;
-        val += (content[0] * 1.0) << 24;
-        val += (content[1] * 1.0) << 16;
-        val += (content[2] * 1.0) << 8;
-        val += (content[3] * 1.0)
+        val = parseInt(hex.value, 16);
         own.value = val;
     }
 
@@ -125,6 +121,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
     }
+    document.getElementById("ip").focus();
 });
 
 
