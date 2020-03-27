@@ -106,9 +106,9 @@ document.addEventListener("DOMContentLoaded", function() {
     let url = window.location.toString().split("/");
     let file = url[url.length-2];
     let dot_files = {
-        ".vimrc": {"url": "https://topituulensuu.com/dotfiles/vimrc", "syntax": vim_syntag_generator(), "comment": "&quot;"},
-        ".tmux.conf": {"url": "https://topituulensuu.com/dotfiles/tmux.conf", "syntax": tmux_syntag_generator(), "comment": "#"},
-        ".gitconfig": {"url": "https://topituulensuu.com/dotfiles/gitconfig", "syntax": vim_syntag_generator(), "comment": "["}
+        "vimrc": {"url": "https://topituulensuu.com/dotfiles/vimrc", "syntax": vim_syntag_generator(), "comment": "&quot;"},
+        "tmux.conf": {"url": "https://topituulensuu.com/dotfiles/tmux.conf", "syntax": tmux_syntag_generator(), "comment": "#"},
+        "gitconfig": {"url": "https://topituulensuu.com/dotfiles/gitconfig", "syntax": vim_syntag_generator(), "comment": "["}
     }
     console.log(file);
     if (file in dot_files) {
