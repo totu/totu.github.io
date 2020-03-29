@@ -1,7 +1,13 @@
-let main = document.getElementById("main");
+const loc = window.location.toString().split("/");
+const file = loc[loc.length-2];
+const main = document.getElementById("main");
+(function() {
+    if (file != "dots")
+        main.innerHTML = "loading...";
+})();
 
-let get = function(title, url, cb, comment, syntax) {
-    var ajax = new XMLHttpRequest();
+const get = function(title, url, cb, comment, syntax) {
+    const ajax = new XMLHttpRequest();
     ajax.open("GET", url, true);
     ajax.onreadystatechange = function () {
         if (ajax.readyState != 4 || ajax.status != 200) return undefined;
@@ -10,7 +16,7 @@ let get = function(title, url, cb, comment, syntax) {
     ajax.send();
 }
 
-let sanitize = function(txt) {
+const sanitize = function(txt) {
     return txt.replace(/&/g, "&amp;")
          .replace(/</g, "&lt;")
          .replace(/>/g, "&gt;")
@@ -19,22 +25,23 @@ let sanitize = function(txt) {
 }
 
 
-let highlight = function(txt, syntax) {
+const highlight = function(txt, syntax) {
     /* Add highlighted syntax from given list of syntax words */
-    for (var i=0; i<syntax.length; i++) {
+    for (let i=0; i<syntax.length; i++) {
         let regex = new RegExp("(" + syntax[i][1] + ")", syntax[i][2]);
         txt = txt.replace(regex, "<span class='dot-syntax " + syntax[i][0] + "'>$1</span>");
     }
     return txt
 }
 
-let print = function(txt, syntax, comment, title) {
-    html = "<h1>" + title + "</h1>";
+const print = function(txt, syntax, comment, title) {
+    document.title += title
+    let html = "<h1>" + title + "</h1>";
     last_was_comment = false;    // this keeps track of "code blocks" and comments
 
     // Go over whole file line by line
     txt = txt.split("\n");
-    for (var i=0; i<txt.length; i++) {
+    for (let i=0; i<txt.length; i++) {
         let row = sanitize(txt[i])
 
         // Handle comments
@@ -72,30 +79,30 @@ let print = function(txt, syntax, comment, title) {
     main.innerHTML = html;
 }
 
-let add_tag = function(tag, keywords, flag="i") {
-    var syntax = [];
-    for (var i=0; i<keywords.length; i++) {
+const add_tag = function(tag, keywords, flag="i") {
+    let syntax = [];
+    for (let i=0; i<keywords.length; i++) {
         syntax.push([tag, keywords[i], flag]);
     }
     return syntax;
 }
 
-let vim_syntag_generator = function() {
-    let vim_keywords = ["let ", " set ", "^set ", "call ", "if ", "endif", "abbrev ", "au ", "colorscheme ", "inoremap", "tnoremap", "vnoremap ", "nnoremap ", "noremap ", "function! ", "endfunction", "autocmd ", "inoremap ", "command! ", "execute ", "vmap ", "nmap ", "cmap ", "map "];
-    let vim_plugin_words = [",", "= ", "Plugin ", "filetype ", "^syntax ", ":"]
-    let vim_keybinds = ["&#039.+?&#039", "&lt;.+?&gt;"];
-    var vim_syntax = [["cyan", "&quot; .*", "i"]];
+const vim_syntag_generator = function() {
+    const vim_keywords = ["let ", " set ", "^set ", "call ", "if ", "endif", "abbrev ", "au ", "colorscheme ", "inoremap", "tnoremap", "vnoremap ", "nnoremap ", "noremap ", "function! ", "endfunction", "autocmd ", "inoremap ", "command! ", "execute ", "vmap ", "nmap ", "cmap ", "map "];
+    const vim_plugin_words = [",", "= ", "Plugin ", "filetype ", "^syntax ", ":"]
+    const vim_keybinds = ["&#039.+?&#039", "&lt;.+?&gt;"];
+    let vim_syntax = [["cyan", "&quot; .*", "i"]];
     vim_syntax = vim_syntax.concat(add_tag("yellow", vim_plugin_words))
     vim_syntax = vim_syntax.concat(add_tag("purple", vim_keybinds, "g"))
     vim_syntax = vim_syntax.concat(add_tag("red", vim_keywords))
     return vim_syntax;
 }
 
-let tmux_syntag_generator = function() {
-    let tmux_keywords = ["run-shell", "set-window-option", "^set-option", "setw", "^set"];
-    let tmux_plugin_words = ["&#039.+?&#039", " on", " off", "unbind-key", "bind-key", "unbind", "bind"]
-    let tmux_keybinds = [" -[a-zA-Z]+", "&quot;.*&quot;", "&lt;.+?&gt;"];
-    var tmux_syntax = [["cyan", "# .*", "i"]];
+const tmux_syntag_generator = function() {
+    const tmux_keywords = ["run-shell", "set-window-option", "^set-option", "setw", "^set"];
+    const tmux_plugin_words = ["&#039.+?&#039", " on", " off", "unbind-key", "bind-key", "unbind", "bind"]
+    const tmux_keybinds = [" -[a-zA-Z]+", "&quot;.*&quot;", "&lt;.+?&gt;"];
+    let tmux_syntax = [["cyan", "# .*", "i"]];
     tmux_syntax = tmux_syntax.concat(add_tag("yellow", tmux_plugin_words))
     tmux_syntax = tmux_syntax.concat(add_tag("purple", tmux_keybinds, "g"))
     tmux_syntax = tmux_syntax.concat(add_tag("red", tmux_keywords))
@@ -103,14 +110,11 @@ let tmux_syntag_generator = function() {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    let url = window.location.toString().split("/");
-    let file = url[url.length-2];
-    let dot_files = {
+    const dot_files = {
         "vimrc": {"url": "https://topituulensuu.com/dotfiles/vimrc", "syntax": vim_syntag_generator(), "comment": "&quot;"},
         "tmux.conf": {"url": "https://topituulensuu.com/dotfiles/tmux.conf", "syntax": tmux_syntag_generator(), "comment": "#"},
         "gitconfig": {"url": "https://topituulensuu.com/dotfiles/gitconfig", "syntax": vim_syntag_generator(), "comment": "["}
     }
-    console.log(file);
     if (file in dot_files) {
         url = dot_files[file]["url"]
         syntax = dot_files[file]["syntax"]

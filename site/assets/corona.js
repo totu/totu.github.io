@@ -1,9 +1,12 @@
 const main = document.getElementById("main");
+(function() {
+    main.innerHTML = "loading...";
+})();
 const url = "https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com/prod/finnishCoronaData"
 let db = {};
 
-let get = function(url, cb) {
-    var ajax = new XMLHttpRequest();
+const get = function(url, cb) {
+    const ajax = new XMLHttpRequest();
     ajax.open("GET", url, true);
     ajax.onreadystatechange = function () {
         if (ajax.readyState != 4 || ajax.status != 200) return undefined;
@@ -12,7 +15,7 @@ let get = function(url, cb) {
     ajax.send();
 }
 
-let get_date = function(str) {
+const get_date = function(str) {
     const date = new Date(str);
     const year = date.getFullYear();
     let month = date.getMonth() + 1;
@@ -22,9 +25,9 @@ let get_date = function(str) {
     return year + "-" + month + "-" + day;
 }
 
-let order_dict = function(db, data) {
+const order_dict = function(db, data) {
     for (item in data) {
-        for (var i=0; i<data[item].length; i++) {
+        for (let i=0; i<data[item].length; i++) {
             const date = get_date(data[item][i].date);
             if (db[date] == undefined) {
                 db[date] = {
@@ -42,17 +45,17 @@ let order_dict = function(db, data) {
     return ordered;
 }
 
-let get_bar = function(count, max) {
+const get_bar = function(count, max) {
     const mark = "▉";
     let bar = "";
-    let percent = Math.ceil(count/max*15);
-    for (var i=0; i<percent; i++) {
+    const percent = Math.ceil(count/max*15);
+    for (let i=0; i<percent; i++) {
         bar += mark;
     }
     return bar;
 }
 
-let draw_chart = function(data) {
+const draw_chart = function(data) {
     data = JSON.parse(data);
     db = order_dict(db, data);
     con_total = 0;

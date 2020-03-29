@@ -1,8 +1,8 @@
-let main = document.getElementById("main");
-var inputs = [];
+const main = document.getElementById("main");
+let inputs = [];
 
 (function() {
-    main.innerHTML = "";
+    main.innerHTML = "loading...";
     html = '<label for="ip">IP Address</label><input name="ip" id="ip">'
     html += '<label for="remove-zeros">remove-zeros</label><input name="remove-zeros" id="remove-zeros" class="disabled_field_input">'
     html += '<label for="overflow">overflow</label><input name="overflow" id="overflow" class="disabled_field_input">'
@@ -12,11 +12,11 @@ var inputs = [];
     main.innerHTML = html;
     window["remove-zeros"] = function(other) {
         let content = other.value;
-        let own = document.getElementById("remove-zeros");
+        const own = document.getElementById("remove-zeros");
         content = content.split(".");
-        var val = [];
-        for (var i=0; i<content.length; i++) {
-            let oct = content[i];
+        let val = [];
+        for (let i=0; i<content.length; i++) {
+            const oct = content[i];
             if (oct * 1.0 != 0) {
                 val.push(oct);
             }
@@ -27,9 +27,9 @@ var inputs = [];
 
     window["overflow"] = function(other) {
         let content = other.value;
-        let own = document.getElementById("overflow");
+        const own = document.getElementById("overflow");
         content = content.split(".");
-        let second_last = content[2];
+        const second_last = content[2];
         let last = content[3];
         last = (second_last * 1.0) * 256 + (last * 1.0);
         own.value = [content[0], content[1], last].join(".");
@@ -37,11 +37,11 @@ var inputs = [];
 
     window["hexa"] = function(other) {
         let content = other.value;
-        let own = document.getElementById("hexa");
+        const own = document.getElementById("hexa");
         content = content.split(".");
-        var val = "";
+        let val = "";
 
-        let hexlify = function(s) {
+        const hexlify = function(s) {
             let val = s * 1.0;
             if (val == 0)
                 return "00";
@@ -53,7 +53,7 @@ var inputs = [];
             return val;
         }
 
-        for (var i=0; i<content.length; i++) {
+        for (let i=0; i<content.length; i++) {
             val += hexlify(content[i])
         }
         own.value = "0x" + val;
@@ -61,13 +61,13 @@ var inputs = [];
 
     window["binary"] = function(other) {
         let content = other.value;
-        let own = document.getElementById("binary");
+        const own = document.getElementById("binary");
         content = content.split(".");
-        var val = "";
-        for (var i=0; i<content.length; i++) {
+        let val = "";
+        for (let i=0; i<content.length; i++) {
             bin = (content[i] * 1.0).toString(2);
-            var pad = "";
-            for (var j=0; j<8-bin.length; j++) {
+            let pad = "";
+            for (let j=0; j<8-bin.length; j++) {
                 pad += "0";
             }
             bin = pad + bin;
@@ -78,18 +78,18 @@ var inputs = [];
 
     window["bitshift"] = function(other) {
         // >>> (127<<24) + (0<<16) + (0<<8) + 1
-        let own = document.getElementById("bitshift");
-        let hex = document.getElementById("hexa");
-        var val = 0;
+        const own = document.getElementById("bitshift");
+        const hex = document.getElementById("hexa");
+        let val = 0;
         val = parseInt(hex.value, 16);
         own.value = val;
     }
 
-    let get_param = window.location.search.substr(1);
+    const get_param = window.location.search.substr(1);
 
     if (get_param != "") {
         param = get_param.split("=");
-        let child = document.getElementById("ip");
+        const child = document.getElementById("ip");
         child.value = param[1];
         window["remove-zeros"](child);
         window["overflow"](child);
@@ -100,9 +100,9 @@ var inputs = [];
 })();
 
 document.addEventListener("DOMContentLoaded", function() {
-    let children = main.children;
-    for (var i=0; i<children.length; i++) {
-        let child = children[i];
+    const children = main.children;
+    for (let i=0; i<children.length; i++) {
+        const child = children[i];
         inputs.push(child);
         if (child.tagName == "INPUT") {
             child.onkeypress = function(evnt) {

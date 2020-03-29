@@ -1,6 +1,6 @@
+const main = document.getElementById("article");
 (function() {
-    let main = document.getElementById("article");
-    main.innerHTML = "";
+    main.innerHTML = "loading...";
 })();
 
 //Amazing cross browser support
@@ -10,7 +10,6 @@ else
     var audio = new window.AudioContext();
 
 document.addEventListener("DOMContentLoaded", function() {
-    let main = document.getElementById("article");
     main.innerHTML = "";
     var xhr = new XMLHttpRequest();
     xhr.open('GET', 'morse.content');
@@ -19,7 +18,6 @@ document.addEventListener("DOMContentLoaded", function() {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
                 main.innerHTML = xhr.responseText;
-                console.log(xhr.responseText);
             }
         }
     };
@@ -70,7 +68,6 @@ let stop = function() {
     synth.disconnect();
     clearInterval(waitr);
     waitr = setInterval(function() {between_time += unit}, unit);
-    console.log(press_length);
     if (press_length < 3*unit)
         press = '.';
     else
