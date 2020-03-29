@@ -1,0 +1,30 @@
+/* color: #E8E8A0 == yellow */
+/* color: #9FE7E7 == cyan */
+/* color: #E79F9F == red */
+/* color: #9F9FE7 == purple */
+
+p {
+    margin: 1px;
+    padding:0;
+}
+
+.box {
+    position: relative;
+    top: 3px;
+}
+
+.confirmed {
+    color: #9F9FE7;
+}
+
+.deaths {
+    color: #E79F9F;
+}
+
+.recovered {
+    color: #E8E8A0;
+}
+
+.count {
+    float: right;
+}
