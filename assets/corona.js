@@ -2,7 +2,7 @@ const main = document.getElementById("main");
 (function() {
     main.innerHTML = "loading...";
 })();
-const url = "https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com/prod/finnishCoronaData"
+const url = "https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com/prod/finnishCoronaData/v2"
 let db = {};
 
 const get = function(url, cb) {
