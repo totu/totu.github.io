@@ -312,10 +312,8 @@ code {
 }
 
 iframe {
+    display: none;
     position: relative;
     top: 50px;
-    display: block;
-    width: 550px;
-    height: 200px;
     border: #9F9FE7 solid 1px;
 }
