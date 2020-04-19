@@ -54,12 +54,12 @@ a:hover {
     display: inline-block;
     vertical-align: top;
     text-decoration: none;
-    font-size: 19px;
+    font-size: 20px;
     border-right: #9f9fe7 solid 2px;
     padding-right: 10px;
     margin-right: 5px;
-    padding-bottom: 0;
-    margin-bottom: 0;
+    padding-bottom: 0px;
+    margin-bottom: 3px;
 }
 
 .showcase:hover {
@@ -242,22 +242,23 @@ code {
 #face {
     float: left;
     display: block;
-    width: 200px;
+    width: 150px;
     height: 200px;
     border-width: 0px;
     padding: 0;
-    margin: 0 25px 0 0;
-    background: url('/assets/nassu.gif');
-    background-size: 200px 200px;
+    margin: 0 25px 0 10px;
+    background: url('/assets/img-bw.jpg');
+    background-size: 150px 200px;
     cursor: pointer;
 }
 
 #face:hover {
-    background: url('/assets/mosh.jpg');
-    background-size: 200px 200px;
+    background: url('/assets/img.jpg');
+    background-size: 150px 200px;
+    opacity: 0.8;
 }
 
-#preload-01 { background: url(/assets/mosh.jpg) no-repeat -9999px -9999px; }
+#preload-01 { background: url(/assets/img.jpg) no-repeat -9999px -9999px; }
 
 #welcome {
     display: block;
@@ -271,36 +272,6 @@ code {
     top: 10px !important;
 }
 
-.matrix-chr {
-    display: inline-block;
-    width: 10px;
-    height: 5px;
-    color: #000;
-    -webkit-transition: all 0.4s ease;
-    -moz-transition: all 0.4s ease;
-    -o-transition: all 0.4s ease;
-    transition: all 0.4s ease;
-}
-
-.matrix-row {
-    height: 15px;
-    display: block;
-    padding: 0;
-    margin: 0;
-}
-
-.matrix-after {
-    color: #9f9fe7;
-}
-
-.matrix-green {
-    color: #E8E8A0;
-    -webkit-transition: none !important;
-    -moz-transition: none !important;
-    -o-transition: none !important;
-    transition: none !important;
-}
-
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -311,9 +282,15 @@ code {
                                   supported by Chrome and Opera */
 }
 
-iframe {
+.art > iframe {
     display: none;
     position: relative;
-    top: 50px;
+    top: -10px;
     border: #9F9FE7 solid 1px;
+    margin-bottom: 10px;
+}
+
+.art {
+    padding-top: 0;
+    margin-top: 0;
 }
