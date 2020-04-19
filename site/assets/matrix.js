@@ -1,11 +1,6 @@
-const matrix = document.getElementById("matrix");
 const height = 75;
 let anime_count = 0;
 let columns = [];
-
-(function() {
-    matrix.innerHTML = "loading...";
-})();
 
 const rand_alpha = function(count, old='') {
     let rand = old + Math.random().toString(36).substring(2);
@@ -87,6 +82,7 @@ window.addEventListener('load', async function() {
     for (let i=0; i<matrix_size/2; i++) {
         str += "<div class='matrix-row matrix-row-"+i+"'>" + string(matrix_size) + "</div>";
     }
+    const matrix = document.querySelector("body");
     matrix.innerHTML = str;
     while(true) {
         if (anime_count < 40) {
