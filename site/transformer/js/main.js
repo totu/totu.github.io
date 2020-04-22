@@ -4,7 +4,7 @@
 })();
 
 var INPUT = '';
-const formats = ['plain', 'reverse', 'hex', 'binary', 'base64', 'morse', 'caesar', 'rotate'];
+const formats = ['plain', 'reverse', 'hex', 'binary', 'base32', 'base64', 'morse', 'caesar', 'rotate', 'rot13', 'rot47'];
 const hashes = ['MD5', 'SHA1', 'SHA256', 'alphabet', 'capitals'];
 const ALPHABET = 'abcdefghijklmnopqrstuvwxyzåäö';
 
@@ -55,6 +55,8 @@ const update_input = function(id) {
                 INPUT = from_hex(value);
             if (id == 'binary')
                 INPUT = from_binary(value);
+            if (id == 'base32')
+                INPUT = from_b32(value);
             if (id == 'base64')
                 INPUT = from_b64(value);
             if (id == 'morse')
@@ -63,6 +65,10 @@ const update_input = function(id) {
                 INPUT = from_caesar(value, int=1);
             if (id == 'rotate')
                 INPUT = from_caesar(value, int=1, rotate=1);
+            if (id == 'rot13')
+                INPUT = from_rot(value.toLowerCase(), from=26, to=122, amount=13);
+            if (id == 'rot47')
+                INPUT = from_rot(value, from=33, to=126, amount=47);
         }
         update_fields(id);
     });
@@ -79,6 +85,8 @@ const update_fields = function(edited_field) {
                 output = to_hex(output);
             if (id == 'binary')
                 output = to_binary(output);
+            if (id == 'base32')
+                output = to_b32(output);
             if (id == 'base64')
                 output = to_b64(output);
             if (id == 'SHA256') {
@@ -103,10 +111,38 @@ const update_fields = function(edited_field) {
                 output = to_caesar(output, int=1);
             if (id == 'rotate')
                 output = to_caesar(output, int=1, rotate=1);
+            if (id == 'rot13')
+                output = to_rot(output.toLowerCase(), from=97, to=122, amount=13);
+            if (id == 'rot47')
+                output = to_rot(output, from=33, to=126, amount=47);
             $($(elem).children()[1]).val(output);
         }
     });
 };
+
+const to_rot = (input, from, to, amount) => {
+    var result = "";
+    for (i=0; i<input.length; i++) {
+        let chrCode = input.charCodeAt(i) + amount;
+        while (chrCode > to) {
+            chrCode -= (to-from+1)
+        }
+        result += String.fromCharCode(chrCode);
+    }
+    return result
+}
+
+const from_rot = (input, from, to, amount) => {
+    var result = "";
+    for (i=0; i<input.length; i++) {
+        let chrCode = input.charCodeAt(i) - amount;
+        while (chrCode < to ) {
+            chrCode += (to-from+1)
+        }
+        result += String.fromCharCode(chrCode);
+    }
+    return result
+}
 
 const to_hex = function(input){
     var result = "";
@@ -156,6 +192,14 @@ const ABC = {
   zeroPad: function(num) {
     return "00000000".slice(String(num).length) + num
   }
+};
+
+const to_b32 = function(str) {
+    return base32.encode(str);
+};
+
+const from_b32 = function(str) {
+    return base32.decode(str);
 };
 
 const to_b64 = function(str) {
