@@ -288,6 +288,7 @@ code {
     top: -10px;
     border: #9F9FE7 solid 1px;
     margin-bottom: 10px;
+    overflow: hidden;
 }
 
 .art {
