@@ -127,7 +127,8 @@ a:hover {
 img {
     max-width: 550px;
     border: solid 5px #9f9fe7;
-    margin: 10px;
+    display: block;
+    margin: auto;
 }
 
 .ce {
