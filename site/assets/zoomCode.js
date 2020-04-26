@@ -16,7 +16,7 @@ const highlight = (txt, syntax) => {
 }
 
 const syntag_generator = () => {
-    const variables = ["&quot.+&quot","undefined\\d ", "undefined ", "null ", "None ", "uint\\d ", "uint ", "int\\d ", "int ", "char ", "chr ", "ulong"]
+    const variables = ["&amp", "&quot.+&quot","undefined\\d ", "undefined ", "null ", "None ", "uint\\d ", "uint ", "int\\d ", "int ", "char ", "chr ", "ulong"]
     const core = ["for ", "in ", "&lt&#61", "&lt", "&gt", "return", "if", "else", "{", "}", "!&#61", "&#61&#61", "&#61", ";$", "&#43", "import ", "#!.*"]
     const other = ["&#42", "&#94", "&#41", " [a-zA-Z0-9_-]+&#40", "print&#40"]
     const brax = ["&#43", "&#42", "&#94", "&#93", "&#91", "&#40", "&#41", "&#40", ","]
@@ -34,6 +34,7 @@ const sanitize = function(txt) {
     return txt.replace(/&/g, "&amp")
          .replace(/<=/g, "&lt&#61")
          .replace(/</g, "&lt")
+         .replace(/#amp#/g, "&amp")
          .replace(/#gt#/g, "&gt")
          .replace(/#lt#/g, "&lt")
          .replace(/>/g, "&gt")
@@ -60,7 +61,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 const rows = code.innerHTML.split("\n");
                 let colored = [];
                 for (i in rows) {
-                    const row = rows[i].replace(/&gt;/g, "#gt#").replace(/&lt;/g, "#lt#");
+                    const row = rows[i]
+                        .replace(/&gt;/g, "#gt#")
+                        .replace(/&lt;/g, "#lt#")
+                        .replace(/&amp;/g, "#amp#");
                     colored.push(highlight(sanitize(row), syntag_generator()));
                 }
                 code.innerHTML = colored.join("\n");
