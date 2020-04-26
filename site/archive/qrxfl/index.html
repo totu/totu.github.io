@@ -2,7 +2,6 @@
 <center>
     <div class="article">
         <h2>QR Exfiltrate (<a class='hilight' href='/qrxfl'>QRXFL</a>)</h2>
-        <h3>Background</h3>
         <p>Hak5 made a <a href="https://www.youtube.com/watch?v=WBkNgb-iPGE">video</a> about exfiltrating data off of an airgapped computer using <code>QR</code> codes. A program encodes files into <code>QR</code> codes, the <code>QR</code> codes are displayed on the screen and captured on video camera. Later the data can be extracted from the video. Initial infection is done with badusb/bashbunny</p>
         <h3>Problem - SPEED!</h3>
         <p>In the video Darren describes problems with image blurring when speed in increased. You probably can not reliably exfiltrate even 30 <code>QR</code> codes per second. In normal networking this wouldn't be a huge issues, since you would just resend the corrupted bits, but since we are recording everything at once and then decoding at later date the data has to be perfect on the first try.</p>

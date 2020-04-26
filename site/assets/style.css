@@ -125,10 +125,12 @@ a:hover {
 }
 
 img {
-    max-width: 550px;
-    border: solid 5px #9f9fe7;
+    max-width: 540px;
+    border: solid 1px #9f9fe7;
     display: block;
-    margin: auto;
+    margin: 15px auto;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .ce {
@@ -179,13 +181,23 @@ ul > li > ul {
     text-align: left;
 }
 
+p, ul, ol{
+    margin-top: 0;
+    padding-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
 h2 {
     color: #E8E8A0;
     margin: 0;
     padding: 0;
+    margin-bottom: 14px;
 }
 
 h3 {
+    padding-top: 10px;
+    margin-bottom: 10px;
     color: #9FE7E7;
 }
 
@@ -196,17 +208,21 @@ h3:before {
 pre > code {
     display: block;
     border: solid 1px #9f9fe7;
-    width: 100%;
+    width: 500px;
     padding: 20px;
     margin: 5px;
-    overflow: hidden;
+    overflow: scroll;
     color: #fcfcfc;
     background: #111;
     border-radius: 5px;
     font-size: 19px;
+    cursor: pointer;
+    position: relative;
+    left: 0;
+    transition: 1s;
 }
 
-code:hover {
+img:hover, code:hover {
     color: #d35c5c;
     border-color: #E8E8A0;
 }
@@ -295,4 +311,25 @@ code {
 .art {
     padding-top: 0;
     margin-top: 0;
+}
+
+.nospace {
+    margin-bottom: -25px;
+    padding-bottom: 0;
+}
+
+.cyan {
+    color: #9FE7E7;
+}
+
+.purple {
+    color: #9F9FE7;
+}
+
+.yellow {
+    color: #E8E8A0;
+}
+
+.red {
+    color: #E79F9F;
 }

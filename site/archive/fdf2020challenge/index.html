@@ -15,11 +15,7 @@
 <p>
 Well, this wasn't hard. For one QR codes are pretty common thing these days and the world is full of QR code decoders (every smartphone's stock camera app can do it) and secondly I have <a href="/archive/qrxfl/">some experience</a> with making and decoding them. The text contained in it was:
 </p>
-<pre><code>HFCUKQKENFPF4SCIJBOUOMR5IU5EAPJ5GZOTOOS6G45FY5LYLY5D2PSAHJCUMRDOHI2WYYLGL
-RQWQZ24MFPWCXYKBI4UKRKBNFPF4YDFMROWCYK5MBSV2YDHM5PECRZZGI6EMOJSGJCEKNTBL5
-QV6XJTHI7QUCRHYOSEISSFJJCDSSWDWY6DZQ5EJJCELQ5EEBLTGQ2GIU3FYN2AIM2DMWBAGY5
-CARJSINDTURJSEA3DUPGDUQQEIMRSEBCTMOJVYOSCAPR2IRCMHJGDUQ7SARZSHI4TMNSEIQZF
-2CQK</code></pre>
+<pre><code>HFCUKQKENFPF4SCIJBOUOMR5IU5EAPJ5GZOTOOS6G45FY5LYLY5D2PSAHJCUMRDOHI2WYYLGLRQWQZ24MFPWCXYKBI4UKRKBNFPF4YDFMROWCYK5MBSV2YDHM5PECRZZGI6EMOJSGJCEKNTBL5QV6XJTHI7QUCRHYOSEISSFJJCDSSWDWY6DZQ5EJJCELQ5EEBLTGQ2GIU3FYN2AIM2DMWBAGY5CARJSINDTURJSEA3DUPGDUQQEIMRSEBCTMOJVYOSCAPR2IRCMHJGDUQ7SARZSHI4TMNSEIQZF2CQK</code></pre>
 <h3>
     Getting stuck
 </h3>
@@ -28,8 +24,7 @@ CARJSINDTURJSEA3DUPGDUQQEIMRSEBCTMOJVYOSCAPR2IRCMHJGDUQ7SARZSHI4TMNSEIQZF
 
 9EEAi^^`ed]aa]`e]`gg^AG92&lt;F922DE6a_a_]3:?
 
-'&auml;DJEJD9J&ouml;&lt;&lt;&auml;JDE&auml; W3CFE6\7@C46X 6: E2CG:E2 6:&lt;&auml; D22 E695&auml; &gt;:DD&auml;&auml;?
-G2:966DD2]
+'&auml;DJEJD9J&ouml;&lt;&lt;&auml;JDE&auml; W3CFE6\7@C46X 6: E2CG:E2 6:&lt;&auml; D22 E695&auml; &gt;:DD&auml;&auml;?G2:966DD2]
 </code></pre>
 <h3>Answers from unexpected place</h3>
 <p>This had stompped Temme, so it was my time to shine. As is apparent the first two lines start with <code>9EEA</code>, so that is where I focued my Googling. First result was one of thous encrypted message subreddits with no upvotes or comments, so no help. Second was some typing game fandom wiki. From there it became obvious that they had encoded URL with this scheme, but no suggestion what scheme was used. Third result was to Finnish astrology forum's music section. They were sharing URL to youtube again encoded with our mystery scheme, but now with helpfully saying to use rot47 to decode the hidden message. I tried rot47 and this was the result:</p>
@@ -63,7 +58,7 @@ Bye..
 <p>I've left in only the interesting part I found from the dump. Obviously there is a <code>secret</code> burried somewhere in the binary. At this point I triend running it, but it didn't result anything interesting,</p>
 <h3>Taming the dragon</h3>
 <p>Now I knew I was going to have to jump in the deep end and I installed <a href="https://ghidra-sre.org/">Ghidra</a>. I had never tried reverse engineering anything nor had I used any dissasembler, so this step was mostly blidly stumbling around. Eventually I found the search functionality (shortcut is <code>s</code> btw) and searched for <code>secret</code>.</p>
-<img src='/assets/ghidra-search.jpg'>
+<img src='/assets/pv2020ghidra-variables.png'>
 <p>Here is my "cleaned" version of the function call that uses that string.</p>
 <pre><code>undefined8 printSecret(uint param_1)
 
@@ -110,7 +105,7 @@ Bye..
 }
 </code></pre>
 <p>I was very confused about the <code>while</code> loop, but now I think that it probably isn't a <code>while</code> loop, it probably is a <code>for</code> loop. What it does is loop over the <code>secret</code> then it <code>XOR</code>s every byte of it with <code>param_2</code> and substracts <code>2</code> then turns it back into a <code>character</code> and as we can see from the <code>printSecret()</code> function this code is called with <code>local_10</code> as the second parameter, but only if <code>local_10</code> equals the value of address <code>004a6ad4</code> which happens to be <code>0x00000011</code>.</p>
-<img src='/assets/ghidra11.jpg'>
+<img src='/assets/pv2020-11.png'>
 <p>Now we can take the <code>secret</code> loop it over with some <code>XOR</code> and math and well come up with...</p>
 <pre><code>&gt;&gt;&gt; "".join([chr((ord(x)^0x11)-2) for x in "FAD^U_$H%"])
 'UNSMBL3W2'
@@ -146,7 +141,7 @@ Bye..
 }
 </code></pre>
 <p>From this cleaned <code>printIP()</code> function we can dig up the IP and port: 178.62.90.158:80, but if you visited that URL you just go following message:</p>
-<img src='/assets/dead-end.jpg'>
+<img src='/assets/deadend.png'>
 <p>What I missed the first time around was that IP is also manipulated with <code>XOR</code></p>
 <pre><code>void ipChanger(uint *IP1,uint 0x02)
 
@@ -160,12 +155,14 @@ Bye..
 }
 </code></pre>
 
-<p>Lets do the math again in python</p>
-<pre><code>&gt;&gt;&gt; [a^b^0x02 for a,b in zip([0xd8, 0xc4, 0x0e, 0xec, 0x02],[178, 62, 90, 158, 80])]
+<p>Let's do the math again in python</p>
+<pre><code>&gt;&gt;&gt; offsets = [0xd8, 0xc4, 0x0e, 0xec, 0x02]
+&gt;&gt;&gt; ip = [178, 62, 90, 158, 80]
+&gt;&gt;&gt; [a^b^0x02 for a,b in zip(offsets, ip)]
 [104, 248, 86, 112, 80]
 </code></pre>
 <p>And when we visit http://104.248.86.112:80 we get following page</p>
-<img src='/assets/pv2020page.jpg'>
+<img src='/assets/pv2020last.png'>
 <h3>Last step</h3>
 <p>As per instructions lets make a pythong script that GETs the page first, scrapes the <code>code</code> and POSTs the <code>code</code> along with the <code>secret</code> to the given IP.</p>
 <pre><code>#!/usr/bin/env python3
@@ -174,8 +171,8 @@ ip = "104.248.86.112"
 secret = "UNSMBL3W2"
 
 first = requests.get("http://" + ip)
-challenge = first.text.split("&gt;b&lt;")[1].split("&gt;/b&lt;")[0]
-second_ip = first.text.split("&gt;b&lt;")[2].split("&gt;/b&lt;")[0]
+challenge = first.text.split("&lt;b&gt;")[1].split("&lt;/b&gt;")[0]
+second_ip = first.text.split("&lt;b&gt;")[2].split("&lt;/b&gt;")[0]
 print(secret, challenge, second_ip)
 
 data = {"secret": secret, "key": challenge}
@@ -185,6 +182,6 @@ print(second.status_code, second.text)
 </code></pre>
 
 <p>As a result we get:</p>
-<img src='/assets/pv2020answer.jpg'>
+<img src='/assets/pv2020final.png'>
 
 </center>
