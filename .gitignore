@@ -4,3 +4,4 @@ soupault.exe
 build/
 *.lnk
 *.lnk"
+.DS_Store
