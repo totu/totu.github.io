@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     html += '<input type="text" placeholder="My chart" name="title" id="title">'
     html += '<label for="data">Data</label>'
     html += '<textarea placeholder="[1,2,3,4,5,6]" name="data" id="data" cols="50" rows="3"></textarea>'
+    html += '<p class="todo"># TODO: add X axis input, currently just running numbers</p>'
     html += '<label for="label1">x</label>'
     html += '<input type="text" placeholder="time" name="label1" id="label1">'
     html += '<label for="label2">y</label>'

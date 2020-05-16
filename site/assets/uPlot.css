@@ -100,3 +100,11 @@ input[type=text] {
     width: 100px;
     left: calc(50% - 50px);
 }
+
+.todo {
+    color: #333;
+    margin-bottom: 7px;
+    position: relative;
+    left: 80px;
+    font-style: italic;
+}
