@@ -17,26 +17,29 @@ document.addEventListener("DOMContentLoaded", () => {
         const label1 = document.querySelector('#label1').value;
         const label2 = document.querySelector('#label2').value;
         const data = eval(document.querySelector('#data').value);
-        let url = window.location.href
-        // If we aren't already in the index.html add it
-        if (!window.location.href.endsWith("index.html"))
-            url += "index.html"
-        url += "?data=[" + data + "]"
-        if (title != "")
-            url += "&title=" + title
-        if (label1 != "")
-            url += "&label1=" + label1
-        if (label2 != "")
-            url += "&label2=" + label2
-        window.location = url
-        // makePlot();
+        if (Array.isArray(data) && data.length > 1) {
+            let url = window.location.href
+            // If we aren't already in the index.html add it
+            if (!window.location.href.endsWith("index.html"))
+                url += "index.html"
+            url += "?data=[" + data + "]"
+            if (title != "")
+                url += "&title=" + title
+            if (label1 != "")
+                url += "&label1=" + label1
+            if (label2 != "")
+                url += "&label2=" + label2
+            window.location = url
+        } else {
+            console.debug(typeof(data), data);
+            alert("Invalid data");
+        }
     });
 
     const get_params = window.location.search.substr(1);
 
     if (get_params != "") {
         params = get_params.split("&");
-        console.log(params)
         for (let i=0; i<params.length; i++) {
             const param = params[i].split("=");
             document.querySelector("#" + param[0]).value = param[1];
@@ -51,7 +54,7 @@ const makePlot = () => {
     const label2 = document.querySelector('#label2').value;
     const opts = makeOpts(title, label1, label2);
     const data = eval(document.querySelector('#data').value);
-    if (Array.isArray(data)) {
+    if (Array.isArray(data) && data.length > 1) {
         html = "<div id='plot' class='article noselect'>"
         html += '<input value="create a new chart" type="button" name="new-plot" id="new-plot">'
         main.innerHTML = html
