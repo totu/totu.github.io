@@ -73,7 +73,7 @@ const makePlot = (data=null, opts=null) => {
         html += '<input value="create a new chart" type="button" name="new-plot" id="new-plot">'
         html += '<input type="text" name="share-plot" id="share-plot">'
         main.innerHTML = html
-        let uri = window.location.href;
+        let uri = window.location.origin + window.location.pathname;
         if (!uri.endsWith("index.html"))
             uri += "index.html";
         uri += "?data=" + data;
@@ -103,6 +103,8 @@ const makePlot = (data=null, opts=null) => {
 
         } catch(e) {
             console.log(e);
+            console.log(data)
+            alert("bad data")
             localStorage.clear();
             window.location = window.location.origin + "/chart";
         }
