@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
         params = get_params.split("&");
         for (let i=0; i<params.length; i++) {
             const param = params[i].split("=");
-            document.querySelector("#" + param[0]).value = param[1];
+            document.querySelector("#" + param[0]).value = decodeURIComponent(param[1]);
         }
         makePlot();
     } else {
