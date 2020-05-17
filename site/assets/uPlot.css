@@ -91,6 +91,13 @@ input[type=text] {
     top: -1px;
 }
 
+#share-plot {
+    width: 528px;
+    padding: 0 5px;
+    color: #E8E8A0;
+    font-size: 18px;
+}
+
 #footer {
     z-index: -1;
     display: block;
