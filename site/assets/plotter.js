@@ -82,12 +82,12 @@ const makePlot = (data=null, opts=null) => {
             uri += "index.html";
         uri += "?data=" + data;
         if (title)
-            uri += "&title=" + title;
+            uri += "&title=" + encodeURIComponent(title);
         if (label1)
-            uri += "&label1=" + label1;
+            uri += "&label1=" + encodeURIComponent(label1);
         if (label2)
-            uri += "&label2=" + label2;
-        document.querySelector('#share-plot').value = uri
+            uri += "&label2=" + encodeURIComponent(label2);
+        document.querySelector('#share-plot').value = uri;
 
         // New plot clears local storage and refreshes
         document.querySelector('#new-plot').addEventListener("click", () => {
