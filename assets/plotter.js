@@ -64,6 +64,10 @@ const makePlot = (data=null, opts=null) => {
         localStorage.setItem("plotLabel2", label2);
         localStorage.setItem("plotTitle", title);
         opts = makeOpts(title, label1, label2);
+    } else {
+        var title = opts.title;
+        var label1 = opts.series[0].label;
+        var label2 = opts.series[1].label;
     }
 
     // Check that data is array and has some data.
