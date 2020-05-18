@@ -80,7 +80,7 @@ const makePlot = (data=null, opts=null) => {
         let uri = window.location.origin + window.location.pathname;
         if (!uri.endsWith("index.html"))
             uri += "index.html";
-        uri += "?data=" + data;
+        uri += "?data=" + data.toString().replace(/\s/g, '');
         if (title)
             uri += "&title=" + encodeURIComponent(title);
         if (label1)
