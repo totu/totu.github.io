@@ -16,7 +16,7 @@ const get = function(title, url, cb, comment, syntax) {
     ajax.send();
 }
 
-const sanitize = function(txt) {
+const sanitizeCode = function(txt) {
     return txt.replace(/&/g, "&amp;")
          .replace(/</g, "&lt;")
          .replace(/>/g, "&gt;")
@@ -25,7 +25,7 @@ const sanitize = function(txt) {
 }
 
 
-const highlight = function(txt, syntax) {
+const highlightCode = function(txt, syntax) {
     /* Add highlighted syntax from given list of syntax words */
     for (let i=0; i<syntax.length; i++) {
         let regex = new RegExp("(" + syntax[i][1] + ")", syntax[i][2]);
@@ -42,7 +42,7 @@ const print = function(txt, syntax, comment, title) {
     // Go over whole file line by line
     txt = txt.split("\n");
     for (let i=0; i<txt.length; i++) {
-        let row = sanitize(txt[i])
+        let row = sanitizeCode(txt[i])
 
         // Handle comments
         if (row.startsWith(comment)) {
@@ -69,7 +69,7 @@ const print = function(txt, syntax, comment, title) {
             html += "<p class='dot-code'>";
 
             // Add syntax highlights
-            row = highlight(row, syntax);
+            row = highlightCode(row, syntax);
 
             html += row.trim();
             html += "</p>";
@@ -79,7 +79,7 @@ const print = function(txt, syntax, comment, title) {
     main.innerHTML = html;
 }
 
-const add_tag = function(tag, keywords, flag="i") {
+const add_syn_tag = function(tag, keywords, flag="i") {
     let syntax = [];
     for (let i=0; i<keywords.length; i++) {
         syntax.push([tag, keywords[i], flag]);
@@ -92,9 +92,9 @@ const vim_syntag_generator = function() {
     const vim_plugin_words = [",", "= ", "Plugin ", "filetype ", "^syntax ", ":"]
     const vim_keybinds = ["&#039.+?&#039", "&lt;.+?&gt;"];
     let vim_syntax = [["cyan", "&quot; .*", "i"]];
-    vim_syntax = vim_syntax.concat(add_tag("yellow", vim_plugin_words))
-    vim_syntax = vim_syntax.concat(add_tag("purple", vim_keybinds, "g"))
-    vim_syntax = vim_syntax.concat(add_tag("red", vim_keywords))
+    vim_syntax = vim_syntax.concat(add_syn_tag("yellow", vim_plugin_words))
+    vim_syntax = vim_syntax.concat(add_syn_tag("purple", vim_keybinds, "g"))
+    vim_syntax = vim_syntax.concat(add_syn_tag("red", vim_keywords))
     return vim_syntax;
 }
 
@@ -103,9 +103,9 @@ const tmux_syntag_generator = function() {
     const tmux_plugin_words = ["&#039.+?&#039", " on", " off", "unbind-key", "bind-key", "unbind", "bind"]
     const tmux_keybinds = [" -[a-zA-Z]+", "&quot;.*&quot;", "&lt;.+?&gt;"];
     let tmux_syntax = [["cyan", "# .*", "i"]];
-    tmux_syntax = tmux_syntax.concat(add_tag("yellow", tmux_plugin_words))
-    tmux_syntax = tmux_syntax.concat(add_tag("purple", tmux_keybinds, "g"))
-    tmux_syntax = tmux_syntax.concat(add_tag("red", tmux_keywords))
+    tmux_syntax = tmux_syntax.concat(add_syn_tag("yellow", tmux_plugin_words))
+    tmux_syntax = tmux_syntax.concat(add_syn_tag("purple", tmux_keybinds, "g"))
+    tmux_syntax = tmux_syntax.concat(add_syn_tag("red", tmux_keywords))
     return tmux_syntax;
 }
 
