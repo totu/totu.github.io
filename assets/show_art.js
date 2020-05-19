@@ -1,1 +1,9 @@
-document.addEventListener("DOMContentLoaded",()=>{document.querySelectorAll("iframe").forEach(e=>{e.style.display="inline-block"})});
+// Don't show emptry iframes if we can't show art
+// since art requires JS this should be fine
+document.addEventListener("DOMContentLoaded", () => {
+    const iframes = document.querySelectorAll("iframe");
+    iframes.forEach((frame) => {
+        frame.style.display = "inline-block";
+    });
+});
+

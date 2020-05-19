@@ -1,1 +1,127 @@
-let main=document.getElementById("main");var inputs=[];!function(){main.innerHTML="",html='<label for="ip">IP Address</label><input name="ip" id="ip">',html+='<label for="remove-zeros">remove-zeros</label><input name="remove-zeros" id="remove-zeros" class="disabled_field_input">',html+='<label for="overflow">overflow</label><input name="overflow" id="overflow" class="disabled_field_input">',html+='<label for="bitshift">bitshift</label><input name="bitshift" id="bitshift" class="disabled_field_input">',html+='<label for="hexa">hexa</label><input name="hexa" id="hexa" class="disabled_field_input">',html+='<label for="binary">binary</label><input name="binary" id="binary" class="disabled_field_input">',main.innerHTML=html,window["remove-zeros"]=function(e){let n=e.value,t=document.getElementById("remove-zeros");n=n.split(".");for(var i=[],l=0;l<n.length;l++){let e=n[l];1*e!=0&&i.push(e)}i=i.join("."),t.value=i},window.overflow=function(e){let n=e.value,t=document.getElementById("overflow");n=n.split(".");let i=n[2],l=n[3];l=1*i*256+1*l,t.value=[n[0],n[1],l].join(".")},window.hexa=function(e){let n=e.value,t=document.getElementById("hexa");n=n.split(".");var i="";let l=function(e){let n=1*e;return 0==n?"00":n<10?"0"+n:(n=n.toString(16),1==n.length?"0"+n:n)};for(var o=0;o<n.length;o++)i+=l(n[o]);t.value="0x"+i},window.binary=function(e){let n=e.value,t=document.getElementById("binary");n=n.split(".");for(var i="",l=0;l<n.length;l++){bin=(1*n[l]).toString(2);for(var o="",a=0;a<8-bin.length;a++)o+="0";bin=o+bin,i+=bin}t.value=i},window.bitshift=function(e){let n=document.getElementById("bitshift"),t=document.getElementById("hexa");var i;i=parseInt(t.value,16),n.value=i};let e=window.location.search.substr(1);if(""!=e){param=e.split("=");let n=document.getElementById("ip");n.value=param[1],window["remove-zeros"](n),window.overflow(n),window.hexa(n),window.binary(n),window.bitshift(n)}}(),document.addEventListener("DOMContentLoaded",(function(){let e=main.children;for(var n=0;n<e.length;n++){let t=e[n];inputs.push(t),"INPUT"==t.tagName&&(t.onkeypress=function(e){return key=e.keyCode,13==key?(window["remove-zeros"](t),window.overflow(t),window.hexa(t),window.binary(t),window.bitshift(t),!0):!(key<46||key>57)&&void 0})}document.getElementById("ip").focus()}));
+let main = document.getElementById("main");
+var inputs = [];
+
+(function() {
+    main.innerHTML = "";
+    html = '<label for="ip">IP Address</label><input name="ip" id="ip">'
+    html += '<label for="remove-zeros">remove-zeros</label><input name="remove-zeros" id="remove-zeros" class="disabled_field_input">'
+    html += '<label for="overflow">overflow</label><input name="overflow" id="overflow" class="disabled_field_input">'
+    html += '<label for="bitshift">bitshift</label><input name="bitshift" id="bitshift" class="disabled_field_input">'
+    html += '<label for="hexa">hexa</label><input name="hexa" id="hexa" class="disabled_field_input">'
+    html += '<label for="binary">binary</label><input name="binary" id="binary" class="disabled_field_input">'
+    main.innerHTML = html;
+    window["remove-zeros"] = function(other) {
+        let content = other.value;
+        let own = document.getElementById("remove-zeros");
+        content = content.split(".");
+        var val = [];
+        for (var i=0; i<content.length; i++) {
+            let oct = content[i];
+            if (oct * 1.0 != 0) {
+                val.push(oct);
+            }
+        }
+        val = val.join(".");
+        own.value = val;
+    }
+
+    window["overflow"] = function(other) {
+        let content = other.value;
+        let own = document.getElementById("overflow");
+        content = content.split(".");
+        let second_last = content[2];
+        let last = content[3];
+        last = (second_last * 1.0) * 256 + (last * 1.0);
+        own.value = [content[0], content[1], last].join(".");
+    }
+
+    window["hexa"] = function(other) {
+        let content = other.value;
+        let own = document.getElementById("hexa");
+        content = content.split(".");
+        var val = "";
+
+        let hexlify = function(s) {
+            let val = s * 1.0;
+            if (val == 0)
+                return "00";
+            if (val < 10)
+                return "0" + val;
+            val = val.toString(16);
+            if (val.length == 1)
+                return "0" + val;
+            return val;
+        }
+
+        for (var i=0; i<content.length; i++) {
+            val += hexlify(content[i])
+        }
+        own.value = "0x" + val;
+    }
+
+    window["binary"] = function(other) {
+        let content = other.value;
+        let own = document.getElementById("binary");
+        content = content.split(".");
+        var val = "";
+        for (var i=0; i<content.length; i++) {
+            bin = (content[i] * 1.0).toString(2);
+            var pad = "";
+            for (var j=0; j<8-bin.length; j++) {
+                pad += "0";
+            }
+            bin = pad + bin;
+            val += bin;
+        }
+        own.value = val;
+    }
+
+    window["bitshift"] = function(other) {
+        // >>> (127<<24) + (0<<16) + (0<<8) + 1
+        let own = document.getElementById("bitshift");
+        let hex = document.getElementById("hexa");
+        var val = 0;
+        val = parseInt(hex.value, 16);
+        own.value = val;
+    }
+
+    let get_param = window.location.search.substr(1);
+
+    if (get_param != "") {
+        param = get_param.split("=");
+        let child = document.getElementById("ip");
+        child.value = param[1];
+        window["remove-zeros"](child);
+        window["overflow"](child);
+        window["hexa"](child);
+        window["binary"](child);
+        window["bitshift"](child);
+    }
+})();
+
+document.addEventListener("DOMContentLoaded", function() {
+    let children = main.children;
+    for (var i=0; i<children.length; i++) {
+        let child = children[i];
+        inputs.push(child);
+        if (child.tagName == "INPUT") {
+            child.onkeypress = function(evnt) {
+                key = evnt.keyCode;
+                if (key == 13) {
+                    window["remove-zeros"](child);
+                    window["overflow"](child);
+                    window["hexa"](child);
+                    window["binary"](child);
+                    window["bitshift"](child);
+                    return true;
+                }
+                if (key < 46 || key > 57) {
+                    return false;
+                }
+            }
+        }
+    }
+    document.getElementById("ip").focus();
+});
+
+

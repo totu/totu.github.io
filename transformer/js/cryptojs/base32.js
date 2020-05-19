@@ -6,4 +6,447 @@
  * @copyright Chen, Yi-Cyuan 2015-2018
  * @license MIT
  */
-!function(){"use strict";var r="object"==typeof window?window:{};!r.HI_BASE32_NO_NODE_JS&&"object"==typeof process&&process.versions&&process.versions.node&&(r=global);var t=!r.HI_BASE32_NO_COMMON_JS&&"object"==typeof module&&module.exports,a="function"==typeof define&&define.amd,e="ABCDEFGHIJKLMNOPQRSTUVWXYZ234567".split(""),o={A:0,B:1,C:2,D:3,E:4,F:5,G:6,H:7,I:8,J:9,K:10,L:11,M:12,N:13,O:14,P:15,Q:16,R:17,S:18,T:19,U:20,V:21,W:22,X:23,Y:24,Z:25,2:26,3:27,4:28,5:29,6:30,7:31},h=[0,0,0,0,0,0,0,0],c=function(r,t){t.length>10&&(t="..."+t.substr(-10));var a=new Error("Decoded data is not valid UTF-8. Maybe try base32.decode.asBytes()? Partial data after reading "+r+" bytes: "+t+" <-");throw a.position=r,a},n=function(r){if(!/^[A-Z2-7=]+$/.test(r))throw new Error("Invalid base32 characters");for(var t,a,e,h,c,n,A,d,C=[],i=0,f=(r=r.replace(/=/g,"")).length,s=0,g=f>>3<<3;s<g;)t=o[r.charAt(s++)],a=o[r.charAt(s++)],e=o[r.charAt(s++)],h=o[r.charAt(s++)],c=o[r.charAt(s++)],n=o[r.charAt(s++)],A=o[r.charAt(s++)],d=o[r.charAt(s++)],C[i++]=255&(t<<3|a>>>2),C[i++]=255&(a<<6|e<<1|h>>>4),C[i++]=255&(h<<4|c>>>1),C[i++]=255&(c<<7|n<<2|A>>>3),C[i++]=255&(A<<5|d);var u=f-g;return 2===u?(t=o[r.charAt(s++)],a=o[r.charAt(s++)],C[i++]=255&(t<<3|a>>>2)):4===u?(t=o[r.charAt(s++)],a=o[r.charAt(s++)],e=o[r.charAt(s++)],h=o[r.charAt(s++)],C[i++]=255&(t<<3|a>>>2),C[i++]=255&(a<<6|e<<1|h>>>4)):5===u?(t=o[r.charAt(s++)],a=o[r.charAt(s++)],e=o[r.charAt(s++)],h=o[r.charAt(s++)],c=o[r.charAt(s++)],C[i++]=255&(t<<3|a>>>2),C[i++]=255&(a<<6|e<<1|h>>>4),C[i++]=255&(h<<4|c>>>1)):7===u&&(t=o[r.charAt(s++)],a=o[r.charAt(s++)],e=o[r.charAt(s++)],h=o[r.charAt(s++)],c=o[r.charAt(s++)],n=o[r.charAt(s++)],A=o[r.charAt(s++)],C[i++]=255&(t<<3|a>>>2),C[i++]=255&(a<<6|e<<1|h>>>4),C[i++]=255&(h<<4|c>>>1),C[i++]=255&(c<<7|n<<2|A>>>3)),C},A=function(r,t){if(!t)return function(r){for(var t,a,e="",o=r.length,h=0,n=0;h<o;)if((t=r[h++])<=127)e+=String.fromCharCode(t);else{t>191&&t<=223?(a=31&t,n=1):t<=239?(a=15&t,n=2):t<=247?(a=7&t,n=3):c(h,e);for(var A=0;A<n;++A)((t=r[h++])<128||t>191)&&c(h,e),a<<=6,a+=63&t;a>=55296&&a<=57343&&c(h,e),a>1114111&&c(h,e),a<=65535?e+=String.fromCharCode(a):(a-=65536,e+=String.fromCharCode(55296+(a>>10)),e+=String.fromCharCode(56320+(1023&a)))}return e}(n(r));if(!/^[A-Z2-7=]+$/.test(r))throw new Error("Invalid base32 characters");var a,e,h,A,d,C,i,f,s="",g=r.indexOf("=");-1===g&&(g=r.length);for(var u=0,S=g>>3<<3;u<S;)a=o[r.charAt(u++)],e=o[r.charAt(u++)],h=o[r.charAt(u++)],A=o[r.charAt(u++)],d=o[r.charAt(u++)],C=o[r.charAt(u++)],i=o[r.charAt(u++)],f=o[r.charAt(u++)],s+=String.fromCharCode(255&(a<<3|e>>>2))+String.fromCharCode(255&(e<<6|h<<1|A>>>4))+String.fromCharCode(255&(A<<4|d>>>1))+String.fromCharCode(255&(d<<7|C<<2|i>>>3))+String.fromCharCode(255&(i<<5|f));var m=g-S;return 2===m?(a=o[r.charAt(u++)],e=o[r.charAt(u++)],s+=String.fromCharCode(255&(a<<3|e>>>2))):4===m?(a=o[r.charAt(u++)],e=o[r.charAt(u++)],h=o[r.charAt(u++)],A=o[r.charAt(u++)],s+=String.fromCharCode(255&(a<<3|e>>>2))+String.fromCharCode(255&(e<<6|h<<1|A>>>4))):5===m?(a=o[r.charAt(u++)],e=o[r.charAt(u++)],h=o[r.charAt(u++)],A=o[r.charAt(u++)],d=o[r.charAt(u++)],s+=String.fromCharCode(255&(a<<3|e>>>2))+String.fromCharCode(255&(e<<6|h<<1|A>>>4))+String.fromCharCode(255&(A<<4|d>>>1))):7===m&&(a=o[r.charAt(u++)],e=o[r.charAt(u++)],h=o[r.charAt(u++)],A=o[r.charAt(u++)],d=o[r.charAt(u++)],C=o[r.charAt(u++)],i=o[r.charAt(u++)],s+=String.fromCharCode(255&(a<<3|e>>>2))+String.fromCharCode(255&(e<<6|h<<1|A>>>4))+String.fromCharCode(255&(A<<4|d>>>1))+String.fromCharCode(255&(d<<7|C<<2|i>>>3))),s},d={encode:function(r,t){var a="string"!=typeof r;return a&&r.constructor===ArrayBuffer&&(r=new Uint8Array(r)),a?function(r){for(var t,a,o,h,c,n="",A=r.length,d=0,C=5*parseInt(A/5);d<C;)t=r[d++],a=r[d++],o=r[d++],h=r[d++],c=r[d++],n+=e[t>>>3]+e[31&(t<<2|a>>>6)]+e[a>>>1&31]+e[31&(a<<4|o>>>4)]+e[31&(o<<1|h>>>7)]+e[h>>>2&31]+e[31&(h<<3|c>>>5)]+e[31&c];var i=A-C;return 1===i?(t=r[d],n+=e[t>>>3]+e[t<<2&31]+"======"):2===i?(t=r[d++],a=r[d],n+=e[t>>>3]+e[31&(t<<2|a>>>6)]+e[a>>>1&31]+e[a<<4&31]+"===="):3===i?(t=r[d++],a=r[d++],o=r[d],n+=e[t>>>3]+e[31&(t<<2|a>>>6)]+e[a>>>1&31]+e[31&(a<<4|o>>>4)]+e[o<<1&31]+"==="):4===i&&(t=r[d++],a=r[d++],o=r[d++],h=r[d],n+=e[t>>>3]+e[31&(t<<2|a>>>6)]+e[a>>>1&31]+e[31&(a<<4|o>>>4)]+e[31&(o<<1|h>>>7)]+e[h>>>2&31]+e[h<<3&31]+"="),n}(r):t?function(r){for(var t,a,o,h,c,n="",A=r.length,d=0,C=5*parseInt(A/5);d<C;)t=r.charCodeAt(d++),a=r.charCodeAt(d++),o=r.charCodeAt(d++),h=r.charCodeAt(d++),c=r.charCodeAt(d++),n+=e[t>>>3]+e[31&(t<<2|a>>>6)]+e[a>>>1&31]+e[31&(a<<4|o>>>4)]+e[31&(o<<1|h>>>7)]+e[h>>>2&31]+e[31&(h<<3|c>>>5)]+e[31&c];var i=A-C;return 1===i?(t=r.charCodeAt(d),n+=e[t>>>3]+e[t<<2&31]+"======"):2===i?(t=r.charCodeAt(d++),a=r.charCodeAt(d),n+=e[t>>>3]+e[31&(t<<2|a>>>6)]+e[a>>>1&31]+e[a<<4&31]+"===="):3===i?(t=r.charCodeAt(d++),a=r.charCodeAt(d++),o=r.charCodeAt(d),n+=e[t>>>3]+e[31&(t<<2|a>>>6)]+e[a>>>1&31]+e[31&(a<<4|o>>>4)]+e[o<<1&31]+"==="):4===i&&(t=r.charCodeAt(d++),a=r.charCodeAt(d++),o=r.charCodeAt(d++),h=r.charCodeAt(d),n+=e[t>>>3]+e[31&(t<<2|a>>>6)]+e[a>>>1&31]+e[31&(a<<4|o>>>4)]+e[31&(o<<1|h>>>7)]+e[h>>>2&31]+e[h<<3&31]+"="),n}(r):function(r){var t,a,o,c,n,A,d,C=!1,i="",f=0,s=0,g=r.length;do{for(h[0]=h[5],h[1]=h[6],h[2]=h[7],d=s;f<g&&d<5;++f)(A=r.charCodeAt(f))<128?h[d++]=A:A<2048?(h[d++]=192|A>>6,h[d++]=128|63&A):A<55296||A>=57344?(h[d++]=224|A>>12,h[d++]=128|A>>6&63,h[d++]=128|63&A):(A=65536+((1023&A)<<10|1023&r.charCodeAt(++f)),h[d++]=240|A>>18,h[d++]=128|A>>12&63,h[d++]=128|A>>6&63,h[d++]=128|63&A);d-s,s=d-5,f===g&&++f,f>g&&d<6&&(C=!0),t=h[0],d>4?(a=h[1],o=h[2],c=h[3],n=h[4],i+=e[t>>>3]+e[31&(t<<2|a>>>6)]+e[a>>>1&31]+e[31&(a<<4|o>>>4)]+e[31&(o<<1|c>>>7)]+e[c>>>2&31]+e[31&(c<<3|n>>>5)]+e[31&n]):1===d?i+=e[t>>>3]+e[t<<2&31]+"======":2===d?(a=h[1],i+=e[t>>>3]+e[31&(t<<2|a>>>6)]+e[a>>>1&31]+e[a<<4&31]+"===="):3===d?(a=h[1],o=h[2],i+=e[t>>>3]+e[31&(t<<2|a>>>6)]+e[a>>>1&31]+e[31&(a<<4|o>>>4)]+e[o<<1&31]+"==="):(a=h[1],o=h[2],c=h[3],i+=e[t>>>3]+e[31&(t<<2|a>>>6)]+e[a>>>1&31]+e[31&(a<<4|o>>>4)]+e[31&(o<<1|c>>>7)]+e[c>>>2&31]+e[c<<3&31]+"=")}while(!C);return i}(r)},decode:A};A.asBytes=n,t?module.exports=d:(r.base32=d,a&&define((function(){return d})))}();
+/*jslint bitwise: true */
+(function () {
+  'use strict';
+
+  var root = typeof window === 'object' ? window : {};
+  var NODE_JS = !root.HI_BASE32_NO_NODE_JS && typeof process === 'object' && process.versions && process.versions.node;
+  if (NODE_JS) {
+    root = global;
+  }
+  var COMMON_JS = !root.HI_BASE32_NO_COMMON_JS && typeof module === 'object' && module.exports;
+  var AMD = typeof define === 'function' && define.amd;
+  var BASE32_ENCODE_CHAR = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567'.split('');
+  var BASE32_DECODE_CHAR = {
+    'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4, 'F': 5, 'G': 6, 'H': 7, 'I': 8,
+    'J': 9, 'K': 10, 'L': 11, 'M': 12, 'N': 13, 'O': 14, 'P': 15, 'Q': 16,
+    'R': 17, 'S': 18, 'T': 19, 'U': 20, 'V': 21, 'W': 22, 'X': 23, 'Y': 24,
+    'Z': 25, '2': 26, '3': 27, '4': 28, '5': 29, '6': 30, '7': 31
+  };
+
+  var blocks = [0, 0, 0, 0, 0, 0, 0, 0];
+
+  var throwInvalidUtf8 = function (position, partial) {
+    if (partial.length > 10) {
+      partial = '...' + partial.substr(-10);
+    }
+    var err = new Error('Decoded data is not valid UTF-8.'
+      + ' Maybe try base32.decode.asBytes()?'
+      + ' Partial data after reading ' + position + ' bytes: ' + partial + ' <-');
+    err.position = position;
+    throw err;
+  };
+
+  var toUtf8String = function (bytes) {
+    var str = '', length = bytes.length, i = 0, followingChars = 0, b, c;
+    while (i < length) {
+      b = bytes[i++];
+      if (b <= 0x7F) {
+        str += String.fromCharCode(b);
+        continue;
+      } else if (b > 0xBF && b <= 0xDF) {
+        c = b & 0x1F;
+        followingChars = 1;
+      } else if (b <= 0xEF) {
+        c = b & 0x0F;
+        followingChars = 2;
+      } else if (b <= 0xF7) {
+        c = b & 0x07;
+        followingChars = 3;
+      } else {
+        throwInvalidUtf8(i, str);
+      }
+
+      for (var j = 0; j < followingChars; ++j) {
+        b = bytes[i++];
+        if (b < 0x80 || b > 0xBF) {
+          throwInvalidUtf8(i, str);
+        }
+        c <<= 6;
+        c += b & 0x3F;
+      }
+      if (c >= 0xD800 && c <= 0xDFFF) {
+        throwInvalidUtf8(i, str);
+      }
+      if (c > 0x10FFFF) {
+        throwInvalidUtf8(i, str);
+      }
+
+      if (c <= 0xFFFF) {
+        str += String.fromCharCode(c);
+      } else {
+        c -= 0x10000;
+        str += String.fromCharCode((c >> 10) + 0xD800);
+        str += String.fromCharCode((c & 0x3FF) + 0xDC00);
+      }
+    }
+    return str;
+  };
+
+  var decodeAsBytes = function (base32Str) {
+    if (!/^[A-Z2-7=]+$/.test(base32Str)) {
+      throw new Error('Invalid base32 characters');
+    }
+    base32Str = base32Str.replace(/=/g, '');
+    var v1, v2, v3, v4, v5, v6, v7, v8, bytes = [], index = 0, length = base32Str.length;
+
+    // 4 char to 3 bytes
+    for (var i = 0, count = length >> 3 << 3; i < count;) {
+      v1 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v2 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v3 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v4 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v5 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v6 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v7 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v8 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      bytes[index++] = (v1 << 3 | v2 >>> 2) & 255;
+      bytes[index++] = (v2 << 6 | v3 << 1 | v4 >>> 4) & 255;
+      bytes[index++] = (v4 << 4 | v5 >>> 1) & 255;
+      bytes[index++] = (v5 << 7 | v6 << 2 | v7 >>> 3) & 255;
+      bytes[index++] = (v7 << 5 | v8) & 255;
+    }
+
+    // remain bytes
+    var remain = length - count;
+    if (remain === 2) {
+      v1 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v2 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      bytes[index++] = (v1 << 3 | v2 >>> 2) & 255;
+    } else if (remain === 4) {
+      v1 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v2 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v3 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v4 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      bytes[index++] = (v1 << 3 | v2 >>> 2) & 255;
+      bytes[index++] = (v2 << 6 | v3 << 1 | v4 >>> 4) & 255;
+    } else if (remain === 5) {
+      v1 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v2 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v3 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v4 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v5 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      bytes[index++] = (v1 << 3 | v2 >>> 2) & 255;
+      bytes[index++] = (v2 << 6 | v3 << 1 | v4 >>> 4) & 255;
+      bytes[index++] = (v4 << 4 | v5 >>> 1) & 255;
+    } else if (remain === 7) {
+      v1 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v2 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v3 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v4 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v5 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v6 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v7 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      bytes[index++] = (v1 << 3 | v2 >>> 2) & 255;
+      bytes[index++] = (v2 << 6 | v3 << 1 | v4 >>> 4) & 255;
+      bytes[index++] = (v4 << 4 | v5 >>> 1) & 255;
+      bytes[index++] = (v5 << 7 | v6 << 2 | v7 >>> 3) & 255;
+    }
+    return bytes;
+  };
+
+  var encodeAscii = function (str) {
+    var v1, v2, v3, v4, v5, base32Str = '', length = str.length;
+    for (var i = 0, count = parseInt(length / 5) * 5; i < count;) {
+      v1 = str.charCodeAt(i++);
+      v2 = str.charCodeAt(i++);
+      v3 = str.charCodeAt(i++);
+      v4 = str.charCodeAt(i++);
+      v5 = str.charCodeAt(i++);
+      base32Str += BASE32_ENCODE_CHAR[v1 >>> 3] +
+        BASE32_ENCODE_CHAR[(v1 << 2 | v2 >>> 6) & 31] +
+        BASE32_ENCODE_CHAR[(v2 >>> 1) & 31] +
+        BASE32_ENCODE_CHAR[(v2 << 4 | v3 >>> 4) & 31] +
+        BASE32_ENCODE_CHAR[(v3 << 1 | v4 >>> 7) & 31] +
+        BASE32_ENCODE_CHAR[(v4 >>> 2) & 31] +
+        BASE32_ENCODE_CHAR[(v4 << 3 | v5 >>> 5) & 31] +
+        BASE32_ENCODE_CHAR[v5 & 31];
+    }
+
+    // remain char
+    var remain = length - count;
+    if (remain === 1) {
+      v1 = str.charCodeAt(i);
+      base32Str += BASE32_ENCODE_CHAR[v1 >>> 3] +
+        BASE32_ENCODE_CHAR[(v1 << 2) & 31] +
+        '======';
+    } else if (remain === 2) {
+      v1 = str.charCodeAt(i++);
+      v2 = str.charCodeAt(i);
+      base32Str += BASE32_ENCODE_CHAR[v1 >>> 3] +
+        BASE32_ENCODE_CHAR[(v1 << 2 | v2 >>> 6) & 31] +
+        BASE32_ENCODE_CHAR[(v2 >>> 1) & 31] +
+        BASE32_ENCODE_CHAR[(v2 << 4) & 31] +
+        '====';
+    } else if (remain === 3) {
+      v1 = str.charCodeAt(i++);
+      v2 = str.charCodeAt(i++);
+      v3 = str.charCodeAt(i);
+      base32Str += BASE32_ENCODE_CHAR[v1 >>> 3] +
+        BASE32_ENCODE_CHAR[(v1 << 2 | v2 >>> 6) & 31] +
+        BASE32_ENCODE_CHAR[(v2 >>> 1) & 31] +
+        BASE32_ENCODE_CHAR[(v2 << 4 | v3 >>> 4) & 31] +
+        BASE32_ENCODE_CHAR[(v3 << 1) & 31] +
+        '===';
+    } else if (remain === 4) {
+      v1 = str.charCodeAt(i++);
+      v2 = str.charCodeAt(i++);
+      v3 = str.charCodeAt(i++);
+      v4 = str.charCodeAt(i);
+      base32Str += BASE32_ENCODE_CHAR[v1 >>> 3] +
+        BASE32_ENCODE_CHAR[(v1 << 2 | v2 >>> 6) & 31] +
+        BASE32_ENCODE_CHAR[(v2 >>> 1) & 31] +
+        BASE32_ENCODE_CHAR[(v2 << 4 | v3 >>> 4) & 31] +
+        BASE32_ENCODE_CHAR[(v3 << 1 | v4 >>> 7) & 31] +
+        BASE32_ENCODE_CHAR[(v4 >>> 2) & 31] +
+        BASE32_ENCODE_CHAR[(v4 << 3) & 31] +
+        '=';
+    }
+    return base32Str;
+  };
+
+  var encodeUtf8 = function (str) {
+    var v1, v2, v3, v4, v5, code, end = false, base32Str = '',
+      index = 0, i, start = 0, bytes = 0, length = str.length;
+    do {
+      blocks[0] = blocks[5];
+      blocks[1] = blocks[6];
+      blocks[2] = blocks[7];
+      for (i = start; index < length && i < 5; ++index) {
+        code = str.charCodeAt(index);
+        if (code < 0x80) {
+          blocks[i++] = code;
+        } else if (code < 0x800) {
+          blocks[i++] = 0xc0 | (code >> 6);
+          blocks[i++] = 0x80 | (code & 0x3f);
+        } else if (code < 0xd800 || code >= 0xe000) {
+          blocks[i++] = 0xe0 | (code >> 12);
+          blocks[i++] = 0x80 | ((code >> 6) & 0x3f);
+          blocks[i++] = 0x80 | (code & 0x3f);
+        } else {
+          code = 0x10000 + (((code & 0x3ff) << 10) | (str.charCodeAt(++index) & 0x3ff));
+          blocks[i++] = 0xf0 | (code >> 18);
+          blocks[i++] = 0x80 | ((code >> 12) & 0x3f);
+          blocks[i++] = 0x80 | ((code >> 6) & 0x3f);
+          blocks[i++] = 0x80 | (code & 0x3f);
+        }
+      }
+      bytes += i - start;
+      start = i - 5;
+      if (index === length) {
+        ++index;
+      }
+      if (index > length && i < 6) {
+        end = true;
+      }
+      v1 = blocks[0];
+      if (i > 4) {
+        v2 = blocks[1];
+        v3 = blocks[2];
+        v4 = blocks[3];
+        v5 = blocks[4];
+        base32Str += BASE32_ENCODE_CHAR[v1 >>> 3] +
+          BASE32_ENCODE_CHAR[(v1 << 2 | v2 >>> 6) & 31] +
+          BASE32_ENCODE_CHAR[(v2 >>> 1) & 31] +
+          BASE32_ENCODE_CHAR[(v2 << 4 | v3 >>> 4) & 31] +
+          BASE32_ENCODE_CHAR[(v3 << 1 | v4 >>> 7) & 31] +
+          BASE32_ENCODE_CHAR[(v4 >>> 2) & 31] +
+          BASE32_ENCODE_CHAR[(v4 << 3 | v5 >>> 5) & 31] +
+          BASE32_ENCODE_CHAR[v5 & 31];
+      } else if (i === 1) {
+        base32Str += BASE32_ENCODE_CHAR[v1 >>> 3] +
+          BASE32_ENCODE_CHAR[(v1 << 2) & 31] +
+          '======';
+      } else if (i === 2) {
+        v2 = blocks[1];
+        base32Str += BASE32_ENCODE_CHAR[v1 >>> 3] +
+          BASE32_ENCODE_CHAR[(v1 << 2 | v2 >>> 6) & 31] +
+          BASE32_ENCODE_CHAR[(v2 >>> 1) & 31] +
+          BASE32_ENCODE_CHAR[(v2 << 4) & 31] +
+          '====';
+      } else if (i === 3) {
+        v2 = blocks[1];
+        v3 = blocks[2];
+        base32Str += BASE32_ENCODE_CHAR[v1 >>> 3] +
+          BASE32_ENCODE_CHAR[(v1 << 2 | v2 >>> 6) & 31] +
+          BASE32_ENCODE_CHAR[(v2 >>> 1) & 31] +
+          BASE32_ENCODE_CHAR[(v2 << 4 | v3 >>> 4) & 31] +
+          BASE32_ENCODE_CHAR[(v3 << 1) & 31] +
+          '===';
+      } else {
+        v2 = blocks[1];
+        v3 = blocks[2];
+        v4 = blocks[3];
+        base32Str += BASE32_ENCODE_CHAR[v1 >>> 3] +
+          BASE32_ENCODE_CHAR[(v1 << 2 | v2 >>> 6) & 31] +
+          BASE32_ENCODE_CHAR[(v2 >>> 1) & 31] +
+          BASE32_ENCODE_CHAR[(v2 << 4 | v3 >>> 4) & 31] +
+          BASE32_ENCODE_CHAR[(v3 << 1 | v4 >>> 7) & 31] +
+          BASE32_ENCODE_CHAR[(v4 >>> 2) & 31] +
+          BASE32_ENCODE_CHAR[(v4 << 3) & 31] +
+          '=';
+      }
+    } while (!end);
+    return base32Str;
+  };
+
+  var encodeBytes = function (bytes) {
+    var v1, v2, v3, v4, v5, base32Str = '', length = bytes.length;
+    for (var i = 0, count = parseInt(length / 5) * 5; i < count;) {
+      v1 = bytes[i++];
+      v2 = bytes[i++];
+      v3 = bytes[i++];
+      v4 = bytes[i++];
+      v5 = bytes[i++];
+      base32Str += BASE32_ENCODE_CHAR[v1 >>> 3] +
+        BASE32_ENCODE_CHAR[(v1 << 2 | v2 >>> 6) & 31] +
+        BASE32_ENCODE_CHAR[(v2 >>> 1) & 31] +
+        BASE32_ENCODE_CHAR[(v2 << 4 | v3 >>> 4) & 31] +
+        BASE32_ENCODE_CHAR[(v3 << 1 | v4 >>> 7) & 31] +
+        BASE32_ENCODE_CHAR[(v4 >>> 2) & 31] +
+        BASE32_ENCODE_CHAR[(v4 << 3 | v5 >>> 5) & 31] +
+        BASE32_ENCODE_CHAR[v5 & 31];
+    }
+
+    // remain char
+    var remain = length - count;
+    if (remain === 1) {
+      v1 = bytes[i];
+      base32Str += BASE32_ENCODE_CHAR[v1 >>> 3] +
+        BASE32_ENCODE_CHAR[(v1 << 2) & 31] +
+        '======';
+    } else if (remain === 2) {
+      v1 = bytes[i++];
+      v2 = bytes[i];
+      base32Str += BASE32_ENCODE_CHAR[v1 >>> 3] +
+        BASE32_ENCODE_CHAR[(v1 << 2 | v2 >>> 6) & 31] +
+        BASE32_ENCODE_CHAR[(v2 >>> 1) & 31] +
+        BASE32_ENCODE_CHAR[(v2 << 4) & 31] +
+        '====';
+    } else if (remain === 3) {
+      v1 = bytes[i++];
+      v2 = bytes[i++];
+      v3 = bytes[i];
+      base32Str += BASE32_ENCODE_CHAR[v1 >>> 3] +
+        BASE32_ENCODE_CHAR[(v1 << 2 | v2 >>> 6) & 31] +
+        BASE32_ENCODE_CHAR[(v2 >>> 1) & 31] +
+        BASE32_ENCODE_CHAR[(v2 << 4 | v3 >>> 4) & 31] +
+        BASE32_ENCODE_CHAR[(v3 << 1) & 31] +
+        '===';
+    } else if (remain === 4) {
+      v1 = bytes[i++];
+      v2 = bytes[i++];
+      v3 = bytes[i++];
+      v4 = bytes[i];
+      base32Str += BASE32_ENCODE_CHAR[v1 >>> 3] +
+        BASE32_ENCODE_CHAR[(v1 << 2 | v2 >>> 6) & 31] +
+        BASE32_ENCODE_CHAR[(v2 >>> 1) & 31] +
+        BASE32_ENCODE_CHAR[(v2 << 4 | v3 >>> 4) & 31] +
+        BASE32_ENCODE_CHAR[(v3 << 1 | v4 >>> 7) & 31] +
+        BASE32_ENCODE_CHAR[(v4 >>> 2) & 31] +
+        BASE32_ENCODE_CHAR[(v4 << 3) & 31] +
+        '=';
+    }
+    return base32Str;
+  };
+
+  var encode = function (input, asciiOnly) {
+    var notString = typeof(input) !== 'string';
+    if (notString && input.constructor === ArrayBuffer) {
+      input = new Uint8Array(input);
+    }
+    if (notString) {
+      return encodeBytes(input);
+    } else if (asciiOnly) {
+      return encodeAscii(input);
+    } else {
+      return encodeUtf8(input);
+    }
+  };
+
+  var decode = function (base32Str, asciiOnly) {
+    if (!asciiOnly) {
+      return toUtf8String(decodeAsBytes(base32Str));
+    }
+    if (!/^[A-Z2-7=]+$/.test(base32Str)) {
+      throw new Error('Invalid base32 characters');
+    }
+    var v1, v2, v3, v4, v5, v6, v7, v8, str = '', length = base32Str.indexOf('=');
+    if (length === -1) {
+      length = base32Str.length;
+    }
+
+    // 8 char to 5 bytes
+    for (var i = 0, count = length >> 3 << 3; i < count;) {
+      v1 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v2 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v3 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v4 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v5 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v6 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v7 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v8 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      str += String.fromCharCode((v1 << 3 | v2 >>> 2) & 255) +
+        String.fromCharCode((v2 << 6 | v3 << 1 | v4 >>> 4) & 255) +
+        String.fromCharCode((v4 << 4 | v5 >>> 1) & 255) +
+        String.fromCharCode((v5 << 7 | v6 << 2 | v7 >>> 3) & 255) +
+        String.fromCharCode((v7 << 5 | v8) & 255);
+    }
+
+    // remain bytes
+    var remain = length - count;
+    if (remain === 2) {
+      v1 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v2 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      str += String.fromCharCode((v1 << 3 | v2 >>> 2) & 255);
+    } else if (remain === 4) {
+      v1 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v2 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v3 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v4 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      str += String.fromCharCode((v1 << 3 | v2 >>> 2) & 255) +
+        String.fromCharCode((v2 << 6 | v3 << 1 | v4 >>> 4) & 255);
+    } else if (remain === 5) {
+      v1 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v2 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v3 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v4 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v5 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      str += String.fromCharCode((v1 << 3 | v2 >>> 2) & 255) +
+        String.fromCharCode((v2 << 6 | v3 << 1 | v4 >>> 4) & 255) +
+        String.fromCharCode((v4 << 4 | v5 >>> 1) & 255);
+    } else if (remain === 7) {
+      v1 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v2 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v3 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v4 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v5 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v6 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      v7 = BASE32_DECODE_CHAR[base32Str.charAt(i++)];
+      str += String.fromCharCode((v1 << 3 | v2 >>> 2) & 255) +
+        String.fromCharCode((v2 << 6 | v3 << 1 | v4 >>> 4) & 255) +
+        String.fromCharCode((v4 << 4 | v5 >>> 1) & 255) +
+        String.fromCharCode((v5 << 7 | v6 << 2 | v7 >>> 3) & 255);
+    }
+    return str;
+  };
+
+  var exports = {
+    encode: encode,
+    decode: decode
+  };
+  decode.asBytes = decodeAsBytes;
+
+  if (COMMON_JS) {
+    module.exports = exports;
+  } else {
+    root.base32 = exports;
+    if (AMD) {
+      define(function() {
+        return exports;
+      });
+    }
+  }
+})();
+

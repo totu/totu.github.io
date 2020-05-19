@@ -1,1 +1,43 @@
-let height=null,width=null;const waveCount=10,generateWave=t=>{const e=document.createElement("canvas");e.style.top=height+"px",e.width=width,e.height=height/10;const n=e.getContext("2d");n.beginPath(),n.lineTo(0,0);for(let t=0;t<width/10;t++){const o=Math.random()*e.height;n.lineTo((1+t)*width/20,o)}n.lineTo(e.width,10),n.lineTo(e.width,100),n.lineTo(0,100),n.strokeStyle="#9F9FE7",n.lineWidth=2,n.closePath();const o=n.createLinearGradient(0,0,0,e.height/2);o.addColorStop(1,"#000"),o.addColorStop(0,"#9F9FE7"),n.fillStyle=o,n.fill(),n.stroke(),t.appendChild(e),setTimeout((function(){e.style.top=-1*(height+e.height)+"px"}),10),setTimeout((function(){e.parentNode.removeChild(e)}),1e4)};document.addEventListener("DOMContentLoaded",(function(){const t=document.querySelector("body");width=t.offsetWidth,height=document.documentElement.clientHeight,setInterval((function(){generateWave(t)}),250)}));
+let height = null;
+let width = null;
+const waveCount = 10
+
+const generateWave = (body) => {
+    const canvas = document.createElement("canvas");
+    canvas.style.top = height + "px";
+    canvas.width = width;
+    canvas.height = height / waveCount;
+    const ctx = canvas.getContext("2d");
+    ctx.beginPath();
+    ctx.lineTo(0, 0);
+    for (let i=0; i<width / 10; i++) {
+        const point = Math.random() * canvas.height;
+        ctx.lineTo((1 + i) * width / 20, point);
+    }
+    ctx.lineTo(canvas.width, 10);
+    ctx.lineTo(canvas.width, 100);
+    ctx.lineTo(0, 100);
+    ctx.strokeStyle = '#9F9FE7';
+    ctx.lineWidth = 2;
+    ctx.closePath();
+    const grd = ctx.createLinearGradient(0, 0, 0, canvas.height/2 );
+    grd.addColorStop(1, "#000");
+    grd.addColorStop(0, "#9F9FE7");
+    ctx.fillStyle = grd;
+    ctx.fill();
+    ctx.stroke();
+    body.appendChild(canvas);
+    setTimeout(function() {
+        canvas.style.top = -1.0 * (height + canvas.height) + "px";
+    },10);
+    setTimeout(function() {
+        canvas.parentNode.removeChild(canvas);
+    }, 10000);
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    const body = document.querySelector("body");
+    width = body.offsetWidth;
+    height = document.documentElement.clientHeight;
+    setInterval(function() {generateWave(body);}, 250);
+});

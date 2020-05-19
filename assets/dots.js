@@ -1,1 +1,124 @@
-const loc=window.location.toString().split("/"),file=loc[loc.length-2],main=document.getElementById("main");"dots"!=file&&(main.innerHTML="loading...");const get=function(t,n,e,o,a){const i=new XMLHttpRequest;i.open("GET",n,!0),i.onreadystatechange=function(){4==i.readyState&&200==i.status&&e(i.responseText,a,o,t)},i.send()},sanitizeCode=function(t){return t.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#039;")},highlightCode=function(t,n){for(let e=0;e<n.length;e++){let o=new RegExp("("+n[e][1]+")",n[e][2]);t=t.replace(o,"<span class='dot-syntax "+n[e][0]+"'>$1</span>")}return t},print=function(t,n,e,o){document.title+=o;let a="<h1>"+o+"</h1>";last_was_comment=!1,t=t.split("\n");for(let o=0;o<t.length;o++){let i=sanitizeCode(t[o]);if(i.startsWith(e))last_was_comment||(a+="</div>"),i.endsWith("]")&&(i=i.substring(0,i.length-1)),a+="<p class='dot-comment'>"+i.substring(e.length).trim()+"</p>",last_was_comment=!0;else{if(""==i.trim())continue;last_was_comment&&(a+="<div class='dot-section'>"),a+="<p class='dot-code'>",i=highlightCode(i,n),a+=i.trim(),a+="</p>",last_was_comment=!1}}main.innerHTML=a},add_syn_tag=function(t,n,e="i"){let o=[];for(let a=0;a<n.length;a++)o.push([t,n[a],e]);return o},vim_syntag_generator=function(){let t=[["cyan","&quot; .*","i"]];return t=t.concat(add_syn_tag("yellow",[",","= ","Plugin ","filetype ","^syntax ",":"])),t=t.concat(add_syn_tag("purple",["&#039.+?&#039","&lt;.+?&gt;"],"g")),t=t.concat(add_syn_tag("red",["let "," set ","^set ","call ","if ","endif","abbrev ","au ","colorscheme ","inoremap","tnoremap","vnoremap ","nnoremap ","noremap ","function! ","endfunction","autocmd ","inoremap ","command! ","execute ","vmap ","nmap ","cmap ","map "])),t},tmux_syntag_generator=function(){let t=[["cyan","# .*","i"]];return t=t.concat(add_syn_tag("yellow",["&#039.+?&#039"," on"," off","unbind-key","bind-key","unbind","bind"])),t=t.concat(add_syn_tag("purple",[" -[a-zA-Z]+","&quot;.*&quot;","&lt;.+?&gt;"],"g")),t=t.concat(add_syn_tag("red",["run-shell","set-window-option","^set-option","setw","^set"])),t};document.addEventListener("DOMContentLoaded",(function(){const t={vimrc:{url:"https://topituulensuu.com/dotfiles/vimrc",syntax:vim_syntag_generator(),comment:"&quot;"},"tmux.conf":{url:"https://topituulensuu.com/dotfiles/tmux.conf",syntax:tmux_syntag_generator(),comment:"#"},gitconfig:{url:"https://topituulensuu.com/dotfiles/gitconfig",syntax:vim_syntag_generator(),comment:"["}};file in t&&(url=t[file].url,syntax=t[file].syntax,comment=t[file].comment,get(file,url,print,comment,syntax))}));
+const loc = window.location.toString().split("/");
+const file = loc[loc.length-2];
+const main = document.getElementById("main");
+(function() {
+    if (file != "dots")
+        main.innerHTML = "loading...";
+})();
+
+const get = function(title, url, cb, comment, syntax) {
+    const ajax = new XMLHttpRequest();
+    ajax.open("GET", url, true);
+    ajax.onreadystatechange = function () {
+        if (ajax.readyState != 4 || ajax.status != 200) return undefined;
+        cb(ajax.responseText, syntax, comment, title);
+    };
+    ajax.send();
+}
+
+const sanitizeCode = function(txt) {
+    return txt.replace(/&/g, "&amp;")
+         .replace(/</g, "&lt;")
+         .replace(/>/g, "&gt;")
+         .replace(/"/g, "&quot;")
+         .replace(/'/g, "&#039;");
+}
+
+
+const highlightCode = function(txt, syntax) {
+    /* Add highlighted syntax from given list of syntax words */
+    for (let i=0; i<syntax.length; i++) {
+        let regex = new RegExp("(" + syntax[i][1] + ")", syntax[i][2]);
+        txt = txt.replace(regex, "<span class='dot-syntax " + syntax[i][0] + "'>$1</span>");
+    }
+    return txt
+}
+
+const print = function(txt, syntax, comment, title) {
+    document.title += title
+    let html = "<h1>" + title + "</h1>";
+    last_was_comment = false;    // this keeps track of "code blocks" and comments
+
+    // Go over whole file line by line
+    txt = txt.split("\n");
+    for (let i=0; i<txt.length; i++) {
+        let row = sanitizeCode(txt[i])
+
+        // Handle comments
+        if (row.startsWith(comment)) {
+            // If last row was code, close "code block" first
+            if (!last_was_comment) {
+                html += "</div>";
+            }
+            // Remove ending ] if git style heading
+            if (row.endsWith("]")) {
+                row = row.substring(0, row.length-1)
+            }
+            html += "<p class='dot-comment'>" + row.substring(comment.length).trim() + "</p>";
+            last_was_comment = true;
+
+        // Handle code lines
+        } else {
+            // If this row only has spaces, skip it
+            if (row.trim() == "") continue;
+
+            // If last line was comment, start a "code block"
+            if (last_was_comment) {
+                html += "<div class='dot-section'>";
+            }
+            html += "<p class='dot-code'>";
+
+            // Add syntax highlights
+            row = highlightCode(row, syntax);
+
+            html += row.trim();
+            html += "</p>";
+            last_was_comment = false;
+        }
+    }
+    main.innerHTML = html;
+}
+
+const add_syn_tag = function(tag, keywords, flag="i") {
+    let syntax = [];
+    for (let i=0; i<keywords.length; i++) {
+        syntax.push([tag, keywords[i], flag]);
+    }
+    return syntax;
+}
+
+const vim_syntag_generator = function() {
+    const vim_keywords = ["let ", " set ", "^set ", "call ", "if ", "endif", "abbrev ", "au ", "colorscheme ", "inoremap", "tnoremap", "vnoremap ", "nnoremap ", "noremap ", "function! ", "endfunction", "autocmd ", "inoremap ", "command! ", "execute ", "vmap ", "nmap ", "cmap ", "map "];
+    const vim_plugin_words = [",", "= ", "Plugin ", "filetype ", "^syntax ", ":"]
+    const vim_keybinds = ["&#039.+?&#039", "&lt;.+?&gt;"];
+    let vim_syntax = [["cyan", "&quot; .*", "i"]];
+    vim_syntax = vim_syntax.concat(add_syn_tag("yellow", vim_plugin_words))
+    vim_syntax = vim_syntax.concat(add_syn_tag("purple", vim_keybinds, "g"))
+    vim_syntax = vim_syntax.concat(add_syn_tag("red", vim_keywords))
+    return vim_syntax;
+}
+
+const tmux_syntag_generator = function() {
+    const tmux_keywords = ["run-shell", "set-window-option", "^set-option", "setw", "^set"];
+    const tmux_plugin_words = ["&#039.+?&#039", " on", " off", "unbind-key", "bind-key", "unbind", "bind"]
+    const tmux_keybinds = [" -[a-zA-Z]+", "&quot;.*&quot;", "&lt;.+?&gt;"];
+    let tmux_syntax = [["cyan", "# .*", "i"]];
+    tmux_syntax = tmux_syntax.concat(add_syn_tag("yellow", tmux_plugin_words))
+    tmux_syntax = tmux_syntax.concat(add_syn_tag("purple", tmux_keybinds, "g"))
+    tmux_syntax = tmux_syntax.concat(add_syn_tag("red", tmux_keywords))
+    return tmux_syntax;
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    const dot_files = {
+        "vimrc": {"url": "https://topituulensuu.com/dotfiles/vimrc", "syntax": vim_syntag_generator(), "comment": "&quot;"},
+        "tmux.conf": {"url": "https://topituulensuu.com/dotfiles/tmux.conf", "syntax": tmux_syntag_generator(), "comment": "#"},
+        "gitconfig": {"url": "https://topituulensuu.com/dotfiles/gitconfig", "syntax": vim_syntag_generator(), "comment": "["}
+    }
+    if (file in dot_files) {
+        url = dot_files[file]["url"]
+        syntax = dot_files[file]["syntax"]
+        comment = dot_files[file]["comment"]
+        get(file, url, print, comment, syntax);
+    }
+});

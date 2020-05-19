@@ -1,1 +1,117 @@
-.uplot,.uplot *,.uplot :after,.uplot :before{box-sizing:border-box}.uplot{font-family:VT323,Lucide Console,monospace}.uplot .title{text-align:center;font-size:24px;font-weight:700}.uplot .wrap{position:relative;user-select:none}.uplot .over,.uplot .under{position:absolute;overflow:hidden}.uplot canvas{display:block;position:relative;width:100%;height:100%}.uplot .legend{font-size:20px;margin:auto;text-align:center}.uplot .legend.inline{display:block}.uplot .legend.inline *{display:inline-block}.uplot .legend.inline tr{margin-right:16px}.uplot .legend th{font-weight:600}.uplot .legend th>*{vertical-align:middle;display:inline-block}.uplot .legend .ident{width:1em;height:1em;margin-right:4px;border:2px solid transparent}.uplot .legend.inline th:after{content:":";vertical-align:middle}.uplot .legend .series>*{padding:4px}.uplot .legend .series th{cursor:pointer}.uplot .legend .off>*{opacity:.3}.uplot .select{background:rgba(0,0,0,.07);position:absolute;pointer-events:none}.uplot .select.off{display:none}.uplot .cursor-x,.uplot .cursor-y{position:absolute;left:0;top:0;pointer-events:none;will-change:transform;z-index:100}.uplot .cursor-x{height:100%;border-right:1px dashed #607d8b}.uplot .cursor-y{width:100%;border-bottom:1px dashed #607d8b}.uplot .cursor-pt{position:absolute;top:0;left:0;border-radius:50%;filter:brightness(85%);pointer-events:none;will-change:transform;z-index:100}label{float:left;text-align:left;display:block;margin-right:5px;text-transform:capitalize;width:70px;font-size:20px;color:#a0c4e8}textarea{margin:2px 0 5px 4px;width:468px;padding:0;top:-1px}#make-plot,#new-plot,textarea{font-family:VT323,Lucide Console,monospace;font-size:16px;color:#fcfcfc;background:#000;border:1px solid #333;border-radius:2px;font-size:20px;position:relative}#make-plot,#new-plot{text-transform:uppercase;width:549px;margin:0 0 15px;padding:10px;cursor:pointer;box-shadow:0 5px 0 0 #222}#make-plot:hover,#new-plot:hover{border-color:#e8e8a0;box-shadow:0 5px 0 0 #e8e8a0}#make-plot:active,#new-plot:active{top:5px;box-shadow:none!important}input[type=text]{font-family:VT323,Lucide Console,monospace;font-size:16px;color:#fcfcfc;background:#000;border:1px solid #333;border-radius:2px;margin:2px 0 5px 4px;width:468px;padding:0;font-size:20px;position:relative;top:-1px}#share-plot{width:528px;padding:0 5px;color:#e8e8a0;font-size:18px}#footer{z-index:-1;display:block;position:absolute;bottom:10px;font-size:12px;width:100px;left:calc(50% - 50px)}.todo{color:#333;margin-bottom:7px;position:relative;left:80px;font-style:italic}
+/* The MIT License (MIT) */
+
+/* Copyright (c) 2020 Leon Sorokin */
+
+/* Permission is hereby granted, free of charge, to any person obtaining a copy */
+/* of this software and associated documentation files (the "Software"), to deal */
+/* in the Software without restriction, including without limitation the rights */
+/* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell */
+/* copies of the Software, and to permit persons to whom the Software is */
+/* furnished to do so, subject to the following conditions: */
+
+/* The above copyright notice and this permission notice shall be included in */
+/* all copies or substantial portions of the Software. */
+
+/* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR */
+/* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, */
+/* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE */
+/* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER */
+/* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, */
+/* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN */
+/* THE SOFTWARE. */
+/* Contains custom font-family and font sizes for title and legeds */
+.uplot, .uplot *, .uplot *::before, .uplot *::after {box-sizing: border-box;}.uplot {font-family: "VT323", "Lucide Console", monospace;}.uplot .title {text-align: center;font-size: 24px;font-weight: bold;}.uplot .wrap {position: relative;user-select: none;}.uplot .over, .uplot .under {position: absolute;overflow: hidden;}.uplot canvas {display: block;position: relative;width: 100%;height: 100%;}.uplot .legend {font-size: 20px;margin: auto;text-align: center;}.uplot .legend.inline {display: block;}.uplot .legend.inline * {display: inline-block;}.uplot .legend.inline tr {margin-right: 16px;}.uplot .legend th {font-weight: 600;}.uplot .legend th > * {vertical-align: middle;display: inline-block;}.uplot .legend .ident {width: 1em;height: 1em;margin-right: 4px;border: 2px solid transparent;}.uplot .legend.inline th::after {content: ":";vertical-align: middle;}.uplot .legend .series > * {padding: 4px;}.uplot .legend .series th {cursor: pointer;}.uplot .legend .off > * {opacity: 0.3;}.uplot .select {background: rgba(0,0,0,0.07);position: absolute;pointer-events: none;}.uplot .select.off {display: none;}.uplot .cursor-x, .uplot .cursor-y {position: absolute;left: 0;top: 0;pointer-events: none;will-change: transform;z-index: 100;}.uplot .cursor-x {height: 100%;border-right: 1px dashed #607D8B;}.uplot .cursor-y {width: 100%;border-bottom: 1px dashed #607D8B;}.uplot .cursor-pt {position: absolute;top: 0;left: 0;border-radius: 50%;filter: brightness(85%);pointer-events: none;will-change: transform;z-index: 100;}
+
+/* custom css for /chart */
+label {
+    float: left;
+    text-align: left;
+    display: block;
+    margin-right: 5px;
+    text-transform: capitalize;
+    width: 70px;
+    font-size: 20px;
+    color: #A0C4E8;
+}
+
+textarea {
+    font-family: "VT323", "Lucide Console", monospace;
+    font-size: 16px;
+    color: #fcfcfc;
+    background: #000;
+    border:1px solid #333;
+    border-radius: 2px;
+    margin: 2px 0 5px 4px;
+    width: 468px;
+    padding: 0;
+    font-size: 20px;
+    position: relative;
+    top: -1px;
+}
+
+#new-plot, #make-plot {
+    text-transform: uppercase;
+    font-family: "VT323", "Lucide Console", monospace;
+    font-size: 16px;
+    color: #fcfcfc;
+    background: #000;
+    border:1px solid #333;
+    border-radius: 2px;
+    width: 549px;
+    margin: 0 0 15px 0;
+    padding: 10px;
+    font-size: 20px;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 5px 0 0 #222;
+}
+
+#new-plot:hover, #make-plot:hover {
+    border-color: #e8e8a0;
+    box-shadow: 0 5px 0 0 #e8e8a0;
+}
+
+#new-plot:active, #make-plot:active {
+    top: 5px;
+    box-shadow: none !important;
+}
+
+input[type=text] {
+    font-family: "VT323", "Lucide Console", monospace;
+    font-size: 16px;
+    color: #fcfcfc;
+    background: #000;
+    border:1px solid #333;
+    border-radius: 2px;
+    margin: 2px 0 5px 4px;
+    width: 468px;
+    padding: 0;
+    font-size: 20px;
+    position: relative;
+    top: -1px;
+}
+
+#share-plot {
+    width: 528px;
+    padding: 0 5px;
+    color: #E8E8A0;
+    font-size: 18px;
+}
+
+#footer {
+    z-index: -1;
+    display: block;
+    position: absolute;
+    bottom: 10px;
+    font-size: 12px;
+    width: 100px;
+    left: calc(50% - 50px);
+}
+
+.todo {
+    color: #333;
+    margin-bottom: 7px;
+    position: relative;
+    left: 80px;
+    font-style: italic;
+}
