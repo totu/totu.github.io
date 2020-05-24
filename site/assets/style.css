@@ -245,19 +245,19 @@ code {
 #face {
     float: left;
     display: block;
-    width: 150px;
+    width: 200px;
     height: 200px;
     border-width: 0px;
     padding: 0;
     margin: 0 25px 0 10px;
     background: url('/assets/img-bw.jpg');
-    background-size: 150px 200px;
+    background-size: 200px 200px;
     cursor: pointer;
 }
 
 #face:hover {
     background: url('/assets/img.jpg');
-    background-size: 150px 200px;
+    background-size: 200px 200px;
     opacity: 0.8;
 }
 
