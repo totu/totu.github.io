@@ -4,7 +4,7 @@
             <div id='current-char'></div>
             <div id='morse' onmouseup='stop()' onmousedown='start()'>push me</div>
         </div>
-        <div id='footer' class='box'>
+        <div id='morse-footer' class='box'>
             <div id='alpha'>
                 <ul>
                     <li><span class='morse-letter'>A</span>.-</li>
