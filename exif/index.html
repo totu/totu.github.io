@@ -39,6 +39,7 @@
                 <a href="/ip/">IP</a>
                 <a href="/chart">Chart</a>
                 <a href="/voice">Voice</a>
+                <a href="/exif">Exif</a>
      </div>
     </div>
    </div>
@@ -54,13 +55,68 @@
   <body>
    <center>
     <div id="main" class="article">
-     <form enctype="multipart/form-data" method="post">
-      <input id="img" type="file" accept="image/*">
-                <input value="upload" type="submit">
-     </form>
+     <label id="upload" for="img">analyze an image</label>
+            <input id="img" type="file" accept="image/*">
     </div>
     <br>
     <div id="bottom"></div>
+    <style>
+     #main {
+                text-align: center;
+            }
+            input {
+                font-family: "VT323", "Lucide Console", monospace;
+                font-size: 16px;
+                color: #fcfcfc;
+                background: #000;
+                border:1px solid #333;
+                border-bottom: none;
+                font-size: 20px;
+            }
+            #upload {
+                border:1px solid #333 !important;
+                text-align: center;
+                text-transform: uppercase;
+                width: 530px;
+                margin: 0 0 15px 0;
+                padding: 10px;
+                position: relative;
+                cursor: pointer;
+                box-shadow: 0 5px 0 0 #222;
+            }
+            #upload:hover {
+                border-color: #e8e8a0 !important;
+                box-shadow: 0 5px 0 0 #e8e8a0;
+            }
+            #upload:active {
+                top: 5px;
+                box-shadow: none !important;
+            }
+            input[type=file] {
+                display: none;
+            }
+            input[type=text] {
+                text-align: left;
+                margin: 0;
+                width: 306px;
+                padding: 5px 10px;
+                position: relative;
+                border-left: none;
+            }
+            label {
+                text-align: left;
+                margin: 0;
+                width: 200px;
+                padding: 5px 10px;
+                display: inline-block !important;
+                border:1px solid #333;
+                border-bottom: none;
+            }
+            .c1 {
+                background: #111;
+            }
+    </style>
+    <script src="/assets/libexif.js"></script>
     <script src="/assets/exif.js"></script>
    </center>
   </body>
