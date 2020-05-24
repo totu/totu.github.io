@@ -3,6 +3,11 @@
 /* color: #E79F9F == red */
 /* color: #9F9FE7 == purple */
 
+@font-face {
+    font-family: "VT323";
+    src: url("VT323-Regular.ttf");
+}
+
 html, body {
     background-color: #000;
     color: #fff;
