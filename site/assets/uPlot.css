@@ -98,16 +98,6 @@ input[type=text] {
     font-size: 18px;
 }
 
-#footer {
-    z-index: -1;
-    display: block;
-    position: absolute;
-    bottom: 10px;
-    font-size: 12px;
-    width: 100px;
-    left: calc(50% - 50px);
-}
-
 .todo {
     color: #333;
     margin-bottom: 7px;
