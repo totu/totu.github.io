@@ -9,6 +9,14 @@ const reader = new FileReader();
 
 // Handle loading image from filesystem
 reader.onload = (e) => {
+    const image = document.querySelector("img");
+    if (image) {
+        image.parentNode.removeChild(image);
+    }
+    img = document.createElement("img");
+    img.style.display = "none";
+    img.onload = parseExif;
+    main.appendChild(img);
     img.src = reader.result;
 }
 
@@ -35,11 +43,7 @@ const drawData = (name, data) => {
 
 document.addEventListener("DOMContentLoaded", () => {
     // When image is selected draw info
-    img = document.createElement("img");
     disp = document.createElement("div");
-    img.style.display = "none";
-    img.onload = parseExif;
-    main.appendChild(img);
     main.appendChild(disp);
     form.addEventListener("change", () => {
         reader.readAsDataURL(form.files[0]);
