@@ -421,3 +421,24 @@ input[type=button] {
     left: calc(50% - 50px);
 }
 
+table {
+    width: 550px;
+    border: 1px solid #333;
+    margin: 0;
+    padding: 0;
+}
+
+td {
+    padding: 5px;
+    border: none;
+}
+
+tr {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+tr:nth-child(even) {
+    background: #111;
+}

@@ -1,0 +1,59 @@
+<head>
+    <meta http-equiv="Content-Security-Policy" content="connect-src 'self'">
+    <title>
+        top1 :: /exif
+    </title>
+</head>
+<body>
+    <center>
+        <div id='controls' class='article'>
+            <label for="ip">Address to scan</label>
+            <input id="ip" type="text" value="localhost" />
+            <label for="ports">Ports to scan</label>
+            <input id="ports" type="text" value="80, 443, 445, 554, 3306, 3690, 1234" />
+            <input id="scan" type="button" value="scan me" />
+        </div>
+        <div id='main' class='article'>
+        </div>
+        <br>
+        <div id="bottom"></div>
+        <link rel="stylesheet" href="/assets/transformer.css">
+        <style>
+            #main, #controls {
+                text-align: center;
+            }
+            label {
+                width: 130px;
+                height: 33px;
+            }
+            input {
+                float: right;
+                width: 380px;
+            }
+            #scan {
+                float: none;
+                display: block;
+                border:1px solid #333 !important;
+                text-align: center;
+                text-transform: uppercase;
+                width: 550px;
+                margin: 0 0 35px 0;
+                padding: 10px;
+                position: relative;
+                cursor: pointer;
+                box-shadow: 0 5px 0 0 #222;
+                position: relative;
+                top: 10px;
+            }
+            #scan:hover {
+                border-color: #e8e8a0 !important;
+                box-shadow: 0 5px 0 0 #e8e8a0;
+            }
+            #scan:active {
+                top: 5px;
+                box-shadow: none !important;
+            }
+        </style>
+        <script src="/assets/scan.js"></script>
+    </center>
+</body>
