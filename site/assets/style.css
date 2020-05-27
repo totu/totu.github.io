@@ -439,6 +439,17 @@ tr {
     margin: 0;
 }
 
+tr:hover {
+    color: #9FE7E7;
+    cursor: pointer;
+    background: #222 !important;
+}
+
 tr:nth-child(even) {
     background: #111;
+}
+
+th {
+    color: #E8E8A0;
+    text-transform: uppercase;
 }
