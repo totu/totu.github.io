@@ -55,19 +55,17 @@
   </head>
   <body>
    <center>
-    <div id="controls" class="article">
-     <label for="ip">Address to scan</label>
-            <input id="ip" type="text" value="localhost">
-            <label for="ports">Ports to scan</label>
-            <input id="ports" type="text" value="80, 443, 445, 554, 3306, 3690, 1234">
+    <div id="main" class="article">
+     <label for="ports">Ports to scan</label>
+            <input id="ports" type="text" value="5900,5901,5902,5903,5279,3389,5931,5939,5944,5950,6039,6040,63333,7070">
+
             <input id="scan" type="button" value="scan me">
     </div>
-    <div id="main" class="article"></div>
     <br>
     <div id="bottom"></div>
     <link rel="stylesheet" href="/assets/transformer.css">
     <style>
-     #main, #controls {
+     #main {
                 text-align: center;
             }
             label {
