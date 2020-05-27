@@ -114,6 +114,12 @@ const img = (port) => {
 
 const scanner = () => {
     for (port in results) {
+        // Reset times
+        const list = ["websocket", "http", "img"];
+        for (i in list) {
+            results[port][list[i]] = "--";
+        }
+        // Scan ports
         websocket(port);
         ajax(port);
         img(port);
