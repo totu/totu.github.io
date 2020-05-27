@@ -5,7 +5,7 @@ let normalSort = true;
 let lastSort = 0;
 let ip = "localhost";
 
-const reportPort = (type, socket) => {
+const reportPort = async (type, socket) => {
     const delta = performance.now() - socket.start;
     const scanPort = socket.port;
     results[scanPort][type] = delta + "ms";
@@ -34,7 +34,7 @@ const reportPort = (type, socket) => {
     });
 }
 
-const sortTableBy = (column) => {
+const sortTableBy = async (column) => {
     let table = document.querySelector("table");
     const content = []
     for (row in table.rows) {
@@ -78,7 +78,7 @@ const sortTableBy = (column) => {
     });
 }
 
-const websocket = (port) => {
+const websocket = async (port) => {
     try {
         const socket = new WebSocket("ws://" + ip + ":" + port);
         socket.port = port;
@@ -91,7 +91,7 @@ const websocket = (port) => {
     }
 }
 
-const ajax = (port) => {
+const ajax = async (port) => {
     const request = new XMLHttpRequest();
     request.port = port;
     request.start = performance.now()
@@ -104,7 +104,7 @@ const ajax = (port) => {
     request.send();
 }
 
-const img = (port) => {
+const img = async (port) => {
     const image = new Image();
     image.port = port;
     image.start = performance.now();
@@ -112,7 +112,7 @@ const img = (port) => {
     image.src = ip + ":" + port + "/image.jpg";
 }
 
-const scanner = () => {
+const scanner = async () => {
     for (port in results) {
         // Reset times
         const list = ["websocket", "http", "img"];
@@ -126,8 +126,8 @@ const scanner = () => {
     }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    scan.addEventListener("click", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+    scan.addEventListener("click", async () => {
         const ports = document.querySelector("#ports").value.split(",");
         ip = document.querySelector("#ip").value;
         for (i in ports) {
