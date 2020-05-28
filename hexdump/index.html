@@ -50,61 +50,96 @@
   <script src="/assets/zoomCode.js"></script>
   <script src="/assets/openImg.js"></script>
   <head>
-   <meta http-equiv="Content-Security-Policy" content="connect-src 'self'">
    <title>
-    top1 :: /portscan
+    top1 :: /hexdump
    </title>
   </head>
   <body>
    <center>
     <div id="main" class="article">
-     <label for="ports">Ports to scan</label>
-            <input id="ports" type="text" value="5900,5901,5902,5903,5279,3389,5931,5939,5944,5950,6039,6040,63333,7070">
-
-            <input id="scan" type="button" value="scan my ports">
+     <label id="upload" for="file">dump a file</label>
+            <input id="file" type="file" accept="*">
     </div>
     <br>
     <div id="bottom"></div>
-    <link rel="stylesheet" href="/assets/transformer.css">
     <style>
      #main {
                 text-align: center;
             }
-            label {
-                position: relative;
-                top: 5px;
-                width: 130px;
-                display: block;
-            }
             input {
-                float: right;
-                width: 350px;
+                font-family: "VT323", "Lucide Console", monospace;
+                font-size: 16px;
+                color: #fcfcfc;
+                background: #000;
+                border:1px solid #333;
+                border-bottom: none;
+                font-size: 20px;
             }
-            #scan {
-                float: none;
-                display: block;
+            #upload {
                 border:1px solid #333 !important;
                 text-align: center;
                 text-transform: uppercase;
-                width: 550px;
-                margin: 0 0 35px 0;
+                width: 530px;
+                margin: 0 0 15px 0;
                 padding: 10px;
                 position: relative;
                 cursor: pointer;
                 box-shadow: 0 5px 0 0 #222;
-                position: relative;
-                top: 10px;
             }
-            #scan:hover {
+            #upload:hover {
                 border-color: #e8e8a0 !important;
                 box-shadow: 0 5px 0 0 #e8e8a0;
             }
-            #scan:active {
+            #upload:active {
                 top: 5px;
                 box-shadow: none !important;
             }
+            input[type=file] {
+                display: none;
+            }
+            input[type=text] {
+                text-align: left;
+                margin: 0;
+                width: 306px;
+                padding: 5px 10px;
+                position: relative;
+                border-left: none;
+            }
+            label {
+                text-align: left;
+                margin: 0;
+                width: 200px;
+                padding: 5px 10px;
+                display: inline-block !important;
+                border:1px solid #333;
+                border-bottom: none;
+            }
+            .hexa {
+                display: inline-block;
+                padding: 5px;
+                width: 15px;
+                height: 15px;
+                text-align: center;
+                vertical-align: middle;
+            }
+            .hex, .clear {
+                width: 270px;
+                display: inline-block;
+                text-align: left;
+            }
+            .hex {
+                border-right: 1px solid #333;
+                float: left;
+            }
+            .clear {
+                position: relative;
+                left: 20px;
+            }
+            .hexa::selection {
+                background: none;
+            }
     </style>
-    <script src="/assets/scan.js"></script>
+    <script src="/assets/hexdump.js"></script>
    </center>
   </body>
  </body>
