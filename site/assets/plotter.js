@@ -13,6 +13,10 @@ document.addEventListener("DOMContentLoaded", () => {
     html += '<input type="text" placeholder="time" name="label1" id="label1">'
     html += '<label for="label2">y</label>'
     html += '<input type="text" placeholder="count" name="label2" id="label2">'
+    html += '<label for="label3">width</label>'
+    html += '<input type="text" placeholder="550" name="label3" id="label3">'
+    html += '<label for="label4">height</label>'
+    html += '<input type="text" placeholder="500" name="label4" id="label4">'
     main.innerHTML = html;
     // Hook up the button
     document.querySelector('#make-plot').addEventListener("click", () => {
@@ -33,8 +37,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const previousPlotData = localStorage.getItem('plotData');
         const previousPlotLabel1 = localStorage.getItem("plotLabel1");
         const previousPlotLabel2 = localStorage.getItem("plotLabel2");
+        const previousPlotLabel3 = localStorage.getItem("plotLabel3");
+        const previousPlotLabel4 = localStorage.getItem("plotLabel4");
         const previousPlotTitle = localStorage.getItem("plotTitle");
-        const previousPlotOpts = makeOpts(previousPlotTitle, previousPlotLabel1, previousPlotLabel2);
+        const previousPlotOpts = makeOpts(previousPlotTitle, previousPlotLabel1, previousPlotLabel2, previousPlotLabel3, previousPlotLabel4);
         if (previousPlotData != null && previousPlotOpts != null) {
             try {
                 makePlot(previousPlotData.split(","), previousPlotOpts);
@@ -59,15 +65,21 @@ const makePlot = (data=null, opts=null) => {
         var title = document.querySelector('#title').value;
         var label1 = document.querySelector('#label1').value;
         var label2 = document.querySelector('#label2').value;
+        var label3 = document.querySelector('#label3').value;
+        var label4 = document.querySelector('#label4').value;
         // Store to browser for refresh resets
         localStorage.setItem("plotLabel1", label1);
         localStorage.setItem("plotLabel2", label2);
+        localStorage.setItem("plotLabel3", label3);
+        localStorage.setItem("plotLabel4", label4);
         localStorage.setItem("plotTitle", title);
-        opts = makeOpts(title, label1, label2);
+        opts = makeOpts(title, label1, label2, label3, label4);
     } else {
         var title = opts.title;
         var label1 = opts.series[0].label;
         var label2 = opts.series[1].label;
+        var label3 = opts.series[2].label;
+        var label4 = opts.series[3].label;
     }
 
     // Check that data is array and has some data.
@@ -87,6 +99,10 @@ const makePlot = (data=null, opts=null) => {
             uri += "&label1=" + encodeURIComponent(label1);
         if (label2)
             uri += "&label2=" + encodeURIComponent(label2);
+        if (label3)
+            uri += "&label3=" + encodeURIComponent(label3);
+        if (label4)
+            uri += "&label4=" + encodeURIComponent(label4);
         document.querySelector('#share-plot').value = uri;
 
         // New plot clears local storage and refreshes
@@ -104,6 +120,14 @@ const makePlot = (data=null, opts=null) => {
             plottableData.push(xAxis);
             plottableData.push(data);
             const uplot = new uPlot(opts, plottableData, plot);
+            const wrap = uplot.root.children[0];
+            const legend = uplot.root.children[1];
+            uplot.root.style.position = "relative";
+            const diff = parseInt(wrap.style.width) - 550;
+            if (diff > 0) {
+                uplot.root.style.left = -1 * diff / 2 + "px";
+                legend.style.width = wrap.style.width;
+            }
 
         } catch(e) {
             console.log(e);
@@ -121,13 +145,15 @@ const makePlot = (data=null, opts=null) => {
     }
 }
 
-const makeOpts = (title, label1, label2) => {
+const makeOpts = (title, label1, label2, label3, label4) => {
     if (label1 == "") label1 = "X";
     if (label2 == "") label2 = "Y";
+    if (label3 == "") label3 = 550;
+    if (label4 == "") label4 = 500;
     const font = "16px VT323";
     const grid = "rgba(255, 255, 255, 0.1)";
     const opts = {
-        title: title, width: 550, height: 500, labelFont: font, font: font,
+        title: title, width: label3, height: label4, labelFont: font, font: font,
         axes: [
             {
                 show: true, stroke: "#E8E8A0", labelFont: font, font: font, grid: { show: true, stroke: grid, }, ticks: { show: true, stroke: grid, },
