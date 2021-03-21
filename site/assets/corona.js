@@ -1,6 +1,6 @@
 const main = document.getElementById("main");
 (function() {
-    main.innerHTML = "loading...";
+    main.innerHTML = "Loading... \nThis will take a while we are loading a lot of data at this point.";
 })();
 const url = "https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com/prod/finnishCoronaData/v2"
 let db = {};
@@ -48,7 +48,7 @@ const order_dict = function(db, data) {
 const get_bar = function(count, max) {
     const mark = "▉";
     let bar = "";
-    const percent = Math.ceil(count/max*15);
+    const percent = Math.ceil(count/max*14);
     for (let i=0; i<percent; i++) {
         bar += mark;
     }
@@ -56,6 +56,7 @@ const get_bar = function(count, max) {
 }
 
 const draw_chart = function(data) {
+    main.innerHTML = "Generating chart";
     data = JSON.parse(data);
     db = order_dict(db, data);
     con_total = 0;
@@ -94,7 +95,7 @@ const draw_chart = function(data) {
         const deaths = get_bar(db[item].deaths, longest)
         const recovered = get_bar(db[item].recovered, longest)
         let date = item.split("-");
-        date = date[2] + "/" + date[1];
+        date = date[2] + "/" + date[1] + "/" + date[0];
         html = "<p>" + date + " "
         + "<span class='confirmed box'>" + confirmed + "</span>"
         + "<span class='deaths box'>" + deaths + "</span>"
