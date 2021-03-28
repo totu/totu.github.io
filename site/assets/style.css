@@ -250,15 +250,17 @@ code {
     border-width: 0px;
     padding: 0;
     margin: 0 25px 0 10px;
-    background: url('/assets/img-bw.jpg');
-    background-size: 200px 200px;
+    background: url('/assets/img.jpg');
+    background-size: 210px 210px;
+    background-position: right -5px bottom -5px;
     cursor: pointer;
 }
 
 #face:hover {
-    background: url('/assets/img.jpg');
-    background-size: 200px 200px;
-    opacity: 0.8;
+    background: url('/assets/mosh.gif');
+    background-size: 210px 210px;
+    background-position: right -5px bottom -5px;
+    /* opacity: 0.8; */
 }
 
 #preload-01 { background: url(/assets/img.jpg) no-repeat -9999px -9999px; }
