@@ -1,1 +1,1 @@
-document.addEventListener("DOMContentLoaded",()=>{document.querySelectorAll("iframe").forEach(e=>{e.style.display="inline-block"})});
+document.addEventListener("DOMContentLoaded",(()=>{document.querySelectorAll("iframe").forEach((e=>{e.style.display="inline-block"}))}));
