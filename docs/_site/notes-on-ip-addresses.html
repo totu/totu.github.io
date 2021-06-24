@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <title>
+    Notes on IP addresses - topituulensuu.com
+  </title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+</head>
+
+
+  <body class="large">
+
+    <header>
+  <div class="menu">
+    <ul>
+      <li class="page_title">Notes on IP addresses</li><li><a href="/">/home</a></li><li><a href="/archive">/archive</a></li><li><a href="/tools">/tools</a></li><li><a href="https://addons.mozilla.org/en-US/firefox/user/15008081/">/firefox</a></li>
+    </ul>
+  </div>
+</header>
+
+    <p>These are some wonky ways IP addresses are handles in different applications. Using one (or many) of these could get through that pesky firewall.
+You can shorten IP addresses by dropping zeroes</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mf">1.0</span><span class="p">.</span><span class="mf">0.1</span> <span class="o">==</span> <span class="mf">1.1</span>
+<span class="mf">192.168</span><span class="p">.</span><span class="mf">0.1</span> <span class="o">==</span> <span class="mf">192.168</span><span class="p">.</span><span class="mi">1</span>
+</code></pre></div></div>
+
+<p>Hexadecimals are valid addresses</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mh">0xC0A80001</span> <span class="o">==</span> <span class="mi">3232235521</span> <span class="o">==</span> <span class="mf">192.168</span><span class="p">.</span><span class="mf">0.1</span>
+</code></pre></div></div>
+
+<p>You can also utilize overflows</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mf">192.168</span><span class="p">.</span><span class="mi">257</span> <span class="o">=&gt;</span> <span class="mf">192.168</span><span class="p">.</span><span class="mf">1.1</span>
+<span class="mf">192.168</span><span class="p">.</span><span class="mi">516</span> <span class="o">=&gt;</span> <span class="mf">192.168</span><span class="p">.</span><span class="mf">2.4</span>
+</code></pre></div></div>
+
+<p>In C -based programs 0 is same as localhost</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ping 0
+PING 0 <span class="o">(</span>127.0.0.1<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
+64 bytes from 127.0.0.1: <span class="nv">icmp_seq</span><span class="o">=</span>1 ttl᠔ timeɢ.052 ms
+64 bytes from 127.0.0.1: <span class="nv">icmp_seq</span><span class="o">=</span>2 ttl᠔ timeɢ.048 ms
+^C
+<span class="nt">---</span> 0 ping statistics <span class="nt">---</span>
+2 packets transmitted, 2 received, 0% packet loss, <span class="nb">time </span>1027ms
+rtt min/avg/max/mdev <span class="o">=</span> 0.048/0.050/0.052/0.002 ms
+</code></pre></div></div>
+
+<p>Left bitwise shift operator works as well</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="mi">127</span><span class="o">&lt;&lt;</span><span class="mi">24</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">0</span><span class="o">&lt;&lt;</span><span class="mi">16</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">0</span><span class="o">&lt;&lt;</span><span class="mi">8</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="mi">2130706433</span>
+</code></pre></div></div>
+<p></p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ping 2130706433
+PING 2130706433 <span class="o">(</span>127.0.0.1<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
+64 bytes from 127.0.0.1: <span class="nv">icmp_seq</span><span class="o">=</span>1 ttl᠔ timeɢ.039 ms
+64 bytes from 127.0.0.1: <span class="nv">icmp_seq</span><span class="o">=</span>2 ttl᠔ timeɢ.052 ms
+^C
+<span class="nt">---</span> 2130706433 ping statistics <span class="nt">---</span>
+2 packets transmitted, 2 received, 0% packet loss, <span class="nb">time </span>1025ms
+rtt min/avg/max/mdev <span class="o">=</span> 0.039/0.045/0.052/0.009 ms
+</code></pre></div></div>
+<p>I’ve <a href="/ip/">made a tool</a> that helps mangle IP addresses.</p>
+
+
+
+    <footer>
+
+  topituulensuu.com/notes-on-ip-addresses
+  <br><br>
+
+</footer>
+
+  </body>
+</html>

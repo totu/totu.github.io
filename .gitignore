@@ -1,0 +1,6 @@
+build/
+site/
+nginx-1.17.0/
+soupault.exe
+*.lnk
+.DS_Store
