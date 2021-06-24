@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <title>
+    Raspian is broken AF! - topituulensuu.com
+  </title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+</head>
+
+
+  <body class="large">
+
+    <header>
+  <div class="menu">
+    <ul>
+      <li class="page_title">Raspian is broken AF!</li><li><a href="/">/home</a></li><li><a href="/archive">/archive</a></li><li><a href="/tools">/tools</a></li><li><a href="https://addons.mozilla.org/en-US/firefox/user/15008081/">/firefox</a></li>
+    </ul>
+  </div>
+</header>
+
+    <p>I was repurposing a useless RPi4 board to serve as SMB server. I started by installing <a href="https://www.raspberrypi.org/software/operating-systems/#raspberry-pi-os-32-bit" title="Rasberry Pi OS">latest Raspberry Pi OS Lite</a>. Steps to enable networking and headless SSH worked fine. I also found instructions on how to setup external drive to serve as samba share. Cool! Everything is fine, right? Wrong.</p>
+
+<h1 id="case-of-excess-privileges">Case of excess privileges</h1>
+
+<p>After making sure my share worked with Windows, OS X, and iOS I started to harden my new pi. I did normal shit install &amp; enable <code class="highlighter-rouge">ufw</code>. Then install and setup <code class="highlighter-rouge">fail2ban</code>. Setup SSH keys, disable password login, cool - cool. Next I removed <code class="highlighter-rouge">pi</code> user from <code class="highlighter-rouge">sudo</code> group, but I forgot to add my own user… Shit… Maybe I still have my sudoes privileges since I haven’t logged out yet.</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pi@jakorasia:~ <span class="nv">$ </span><span class="nb">sudo </span>su
+root@jakorasia:/home/pi#
+</code></pre></div></div>
+
+<p>Nice! But I felt like that shouldn’t have worked. Let’s check groups just in case I misstyped <code class="highlighter-rouge">usermod</code> or something</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pi@jakorasia:~ <span class="nv">$ </span><span class="nb">groups
+</span>pi
+</code></pre></div></div>
+
+<p>WTF… That doesn’t look correct. Is the sudoers file somehow broken?</p>
+
+<div class="language-conf highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#
+# This file MUST be edited with the 'visudo' command as root.
+#
+# Please consider adding local content in /etc/sudoers.d/ instead of
+# directly modifying this file.
+#
+# See the man page for details on how to write a sudoers file.
+#
+</span><span class="n">Defaults</span>    <span class="n">env_reset</span>
+<span class="n">Defaults</span>    <span class="n">mail_badpass</span>
+<span class="n">Defaults</span>    <span class="n">secure_path</span>=<span class="s2">"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"</span>
+
+<span class="c"># Host alias specification
+# User alias specification
+# Cmnd alias specification
+</span>
+<span class="c"># User privilege specification
+</span><span class="n">root</span>    <span class="n">ALL</span>=(<span class="n">ALL</span>:<span class="n">ALL</span>) <span class="n">ALL</span>
+
+<span class="c"># Allow members of group sudo to execute any command
+</span>%<span class="n">sudo</span>    <span class="n">ALL</span>=(<span class="n">ALL</span>:<span class="n">ALL</span>) <span class="n">ALL</span>
+
+<span class="c"># See sudoers(5) for more information on "#include" directives:
+#includedir /etc/sudoers.d
+</span></code></pre></div></div>
+
+<p>Looks fine to me</p>
+
+<p>Anyways at this point I setup my own account. Rebooted. Verified that the SMB share still worked. Flawless! But I just had to make sure and…</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pi@jakorasia:~ <span class="nv">$ </span><span class="nb">groups
+</span>pi
+pi@jakorasia:~ <span class="nv">$ </span><span class="nb">sudo </span>su
+root@jakorasia:/home/pi#
+</code></pre></div></div>
+
+<p>So what the hell is going on? After some more staring at <code class="highlighter-rouge">/etc/sudoers</code> and fiddling with the groups I realized that the last line (<code class="highlighter-rouge">#includedir /etc/sudoers.d</code>) isn’t a comment. Let’s check it out.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@jakorasia:/home/pi# <span class="nb">ls</span> /etc/sudoers.d/
+010_at-export  010_pi-nopasswd    010_proxy  README
+</code></pre></div></div>
+
+<p>That <code class="highlighter-rouge">010_pi-nopasswd</code> looks pretty suspicious, don’t you think?</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@jakorasia:/home/pi# <span class="nb">cat</span> /etc/sudoers.d/010_pi-nopasswd 
+pi <span class="nv">ALL</span><span class="o">=(</span>ALL<span class="o">)</span> NOPASSWD: ALL
+</code></pre></div></div>
+
+<p><strong>No. Fucking. Way!</strong> Rasbian ships with literally <strong>no root password</strong> for the <strong>default</strong> user. I guess this is fine, but how many people are running their RPis absolutely clueless about this <code class="highlighter-rouge">NOPASSWD</code> default? Maybe it is just me, but this kind of default seems almost heretical. Why even ship <code class="highlighter-rouge">sudo</code> if you are just going to bypass it? I guess the take away is that you really need to change that <code class="highlighter-rouge">pi</code> password to something secure or just install something else than Rasbian.</p>
+
+
+
+
+    <footer>
+
+  topituulensuu.com/raspian-rant
+  <br><br>
+
+</footer>
+
+  </body>
+</html>

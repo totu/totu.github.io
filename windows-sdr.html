@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <title>
+    Software Defined Radio: Windows setup guide - topituulensuu.com
+  </title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+</head>
+
+
+  <body class="large">
+
+    <header>
+  <div class="menu">
+    <ul>
+      <li class="page_title">Software Defined Radio: Windows setup guide</li><li><a href="/">/home</a></li><li><a href="/archive">/archive</a></li><li><a href="/tools">/tools</a></li><li><a href="https://addons.mozilla.org/en-US/firefox/user/15008081/">/firefox</a></li>
+    </ul>
+  </div>
+</header>
+
+    <p>A quick setup guide (on Windows)</p>
+
+<h1 id="software">Software</h1>
+<p>Download <a href="https://airspy.com/download/" title="Airspy">Windows SDR Software Package</a> from airspy.com</p>
+
+<h1 id="how-to-get-started">How to get started</h1>
+
+<ol>
+  <li>Extract to new folder</li>
+  <li>Run <code class="highlighter-rouge">install-rtlsdr</code> batch file</li>
+  <li>Plug in dongle</li>
+  <li>Wait until windows installs drivers</li>
+  <li>Run <code class="highlighter-rouge">zadig.exe</code> as administrator</li>
+  <li>Navigate <code class="highlighter-rouge">Options -&gt; List All Devices</code></li>
+  <li>Select <code class="highlighter-rouge">Bulk-in, Interface (Interface 0)</code></li>
+  <li>USB ID should match: <code class="highlighter-rouge">0BDA 2838 00</code></li>
+  <li>Make sure <code class="highlighter-rouge">WinUSB</code> is on right side</li>
+  <li>Click <code class="highlighter-rouge">Reinstall Driver</code> (or maybe it says Install Driver)</li>
+  <li>Close <code class="highlighter-rouge">zadig</code></li>
+  <li>Open <code class="highlighter-rouge">SDRSharp.exe</code></li>
+  <li>Under options select correct device (Interface 1 or 0)</li>
+  <li>Tick <code class="highlighter-rouge">Tuner AGC</code> (for automatic gain adjustment)</li>
+</ol>
+
+
+
+
+    <footer>
+
+  topituulensuu.com/windows-sdr
+  <br><br>
+
+</footer>
+
+  </body>
+</html>
