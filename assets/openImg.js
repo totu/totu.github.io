@@ -1,1 +1,0 @@
-document.addEventListener("DOMContentLoaded",(()=>{document.querySelectorAll("img").forEach((e=>{e.addEventListener("click",(()=>{window.location=e.src}))}))}));
