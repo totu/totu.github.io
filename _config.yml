@@ -27,8 +27,8 @@ github_username: ""
 # Build settings
 markdown: kramdown
 theme: jekyll-shell-theme
-plugins:
-  - jemoji
+# plugins:
+#   - jemoji
 #   - jekyll-feed
 
 header_pages:

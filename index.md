@@ -4,8 +4,8 @@ title: topituulensuu.com
 permalink: /
 permalink_name: /home
 ---
-<img style="height:300px;float:left;margin-left:5px;margin-right:20px;" src="/assets/face-2021-06.jpg">
-<p style="height:305px">Hello and welcome to my corner of the Internet.
+<img style="height:350px;float:left;margin-left:5px;margin-right:20px;" src="/assets/face-2021-06.jpg">
+<p style="height:350px">Hello and welcome to my corner of the Internet.
 
 These pages are dedicated to random things that I find interesting in one way or another.
 
