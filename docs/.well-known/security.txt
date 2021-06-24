@@ -1,0 +1,3 @@
+Contact: security@topituulensuu.com
+Encryption: https://www.topituulensuu.com/.well-known/pgp-key.txt
+Preferred-Languages: en, fi
