@@ -24,7 +24,7 @@ Workout tracker for gym. This is really outdated, but someone might be inspired 
 Easy string manipulation. This tools helps you solve trivial [CTF](https://en.wikipedia.org/wiki/Capture_the_flag#Computer_security) challenges.
 
 <div style='width:100%;border-top:dashed 1.2px rgb(219,219,219,0.9);height:0'></div>
-# [IP mangler](/ip/)
+# [IP mangler](/ip)
 
 This is related to my [notes on IP addresses](/notes-on-ip-addresses). A tool to mangle IP addresses in weird ways to get around IP based blocks.
 
