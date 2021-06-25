@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <title>
+    Morse helper - topituulensuu.com
+  </title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+</head>
+
+
+  <body class="large">
+
+    <header>
+  <div class="menu">
+    <ul>
+      <li class="page_title">Morse helper</li><li><a href="/">/home</a></li><li><a href="/archive">/archive</a></li><li><a href="/tools">/tools</a></li><li><a href="https://addons.mozilla.org/en-US/firefox/user/15008081/">/firefox</a></li>
+    </ul>
+  </div>
+</header>
+
+    <div class="error_box">
+  <style>
+#current-char { display: block; height: 40px; }
+#morse { margin-left: 35%; padding: 5px 0; width: 30%; border:dashed 1.2px rgb(219,219,219,0.9); 
+  -webkit-user-select: none;  
+  -moz-user-select: none;    
+  -ms-user-select: none;      
+  user-select: none;
+}
+#morse-controls { margin-top: 20px; }
+#morse-controls > label { text-align: left; width: 5%; display: inline-block; }
+#morse-controls > input { text-align: left; width: 5%; display: inline-block; }
+.error_box { margin: 0 !important; padding: 0 !important; }
+:disabled { background-color: #c3c3c3; color: #000; cursor: not-allowed; }
+span { text-align: left; margin-right: 10px; display: inline-block; }
+#alpha > ul > li { width: 15%; display: inline-block; list-style: none;}
+#alpha > ul > li::before { display: none; }
+#alpha > ul > li > span::after { content: ":" }
+#nums > ul > li { width: 15%; display: inline-block; list-style: none;}
+#nums > ul > li::before { display: none; }
+#nums > ul > li > span::after { content: ":" }
+</style>
+
+<script>
+// Just hack to make sure this gets executed
+(function() {
+    const main = document.querySelector(".error_box");
+    var audio = null;
+    //Amazing cross browser support
+    if (window.AudioContext === undefined)
+        audio = new window.webkitAudioContext();
+    else
+        audio = new window.AudioContext();
+
+    document.addEventListener("DOMContentLoaded", function() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/assets/morse.content');
+        xhr.send(null);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    main.innerHTML += xhr.responseText;
+                    const playBtn = document.querySelector("#play");
+                    playBtn.onclick = play;
+                    const morseBtn = document.querySelector("#morse");
+                    morseBtn.onmouseup = stop;
+                    morseBtn.onmousedown = start;
+                    const vol = document.querySelector("#volume")
+                    const freq = document.querySelector("#freq")
+                    const unit = document.querySelector("#unit")
+                    vol.oninput = volume;
+                    freq.onchange = change_freq;
+                    unit.onchange = change_unit_len;
+                }
+            }
+        };
+    });
+
+    var volctrl = audio.createGain();
+    var synth = audio.createOscillator();
+
+    synth.frequency.value = 500;
+    volctrl.connect(audio.destination);
+    synth.start();
+    volctrl.gain.value = 0.5;
+
+    var press_length = 0;
+    var between_time = 0;
+    let unit = 50;
+    var waitr = null;
+    var current_character = '';
+
+    var change_freq = function() {
+        var elem = document.getElementById('freq');
+        synth.frequency.value = parseInt(elem.value);
+    };
+
+    var change_unit_len = function() {
+        var elem = document.getElementById('unit');
+        unit = parseInt(elem.value);
+    };
+
+    var end_checker = setInterval(function() {
+        if (between_time > 7*unit) {
+            clearInterval(waitr);
+            newChar();
+            between_time = 0;
+        }
+    }, unit);
+
+    let start = function() {
+        press_length = 0;
+        clearInterval(waitr);
+        if (between_time > 3*unit) {newChar()}
+        synth.connect(volctrl);
+        waitr = setInterval(function() {press_length += unit}, unit);
+        between_time = 0;
+    };
+
+    let stop = function() {
+        synth.disconnect();
+        clearInterval(waitr);
+        waitr = setInterval(function() {between_time += unit}, unit);
+        if (press_length < 3*unit)
+            press = '.';
+        else
+            press = '-';
+        current_character += press;
+        press_length = 0;
+        drawChar();
+    };
+
+    let drawChar = function() {
+        var elem = document.getElementById('current-char');
+        if (current_character.length > 0) {
+            elem.innerHTML = current_character.slice(0, current_character.length-1) + "<span class='hilight'>" + current_character[current_character.length-1] + "</span>";
+        } else {
+            elem.innerText = "";
+        }
+
+    };
+
+    let newChar = function() {
+        var elem = document.getElementById('text');
+        elem.value += morse2text(current_character);
+        current_character = '';
+        drawChar();
+    };
+
+    let volume = function() {
+        var elem = document.getElementById('volume');
+        var disp = document.getElementById('volume-label');
+        volctrl.gain.value = elem.value/100;
+    };
+
+    let play = function() {
+        var elem = document.getElementById('text');
+        var txt = elem.value;
+        morse = "";
+        for (var i=0; i<txt.length; i++) {
+            morse += text2morse(txt.charAt(i).toUpperCase());
+        }
+        var elem = document.getElementById('current-char');
+        elem.innerText = morse.replace(new RegExp('@', 'g'), ' ');
+        do_morse(elem, morse, 0);
+    };
+
+    let do_morse = function(e, s, i) {
+        if (s.length > i) {
+            txt = e.innerText;
+            e_txt = txt.substring(0, i) + "<span class='hilight'>" + txt[i] + "</span>" + txt.slice(i+1);
+            e.innerHTML = e_txt;
+
+            if (s.charAt(i) == ".") {
+                synth.connect(volctrl);
+                setTimeout(function() { synth.disconnect(); }, unit);
+                setTimeout(function() { do_morse(e, s, i+1); }, 3*unit);
+            } else if (s.charAt(i) == "@") {
+                setTimeout(function() { do_morse(e, s, i+1); }, 7*unit);
+            } else {
+                synth.connect(volctrl);
+                setTimeout(function() { synth.disconnect(); }, 3*unit);
+                setTimeout(function() { do_morse(e, s, i+1); }, 6*unit);
+            }
+        } else {
+            setTimeout(function() {
+                e.innerText = '';
+            }, 3*unit);
+        }
+    };
+
+    let morse2text = function(s) {
+        switch(s) {
+            case '.-':
+                return 'A';
+            case '-...':
+                return 'B';
+            case '-.-.':
+                return 'C';
+            case '-..':
+                return 'D';
+            case '.':
+                return 'E';
+            case '..-.':
+                return 'F';
+            case '--.':
+                return 'G';
+            case '....':
+                return 'H';
+            case '..':
+                return 'I';
+            case '.---':
+                return 'J';
+            case '-.-':
+                return 'K';
+            case '.-..':
+                return 'L';
+            case '--':
+                return 'M';
+            case '-.':
+                return 'N';
+            case '---':
+                return 'O';
+            case '.--.':
+                return 'P';
+            case '--.-':
+                return 'Q';
+            case '.-.':
+                return 'R';
+            case '...':
+                return 'S';
+            case '-':
+                return 'T';
+            case '..-':
+                return 'U';
+            case '...-':
+                return 'V';
+            case '.--':
+                return 'W';
+            case '-..-':
+                return 'X';
+            case '-.--':
+                return 'Y';
+            case '--..':
+                return 'Z';
+            case '.----':
+                return '1';
+            case '..---':
+                return '2';
+            case '...--':
+                return '3';
+            case '....-':
+                return '4';
+            case '.....':
+                return '5';
+            case '-....':
+                return '6';
+            case '--...':
+                return '7';
+            case '---..':
+                return '8';
+            case '----.':
+                return '9';
+            case '-----':
+                return '0';
+            default:
+                return '';
+        }
+    };
+
+    let text2morse = function(s) {
+        s = s.toUpperCase();
+        switch(s) {
+            case 'A':
+                return '.-';
+            case 'B':
+                return '-...';
+            case 'C':
+                return '-.-.';
+            case 'D':
+                return '-..';
+            case 'E':
+                return '.';
+            case 'F':
+                return '..-.';
+            case 'G':
+                return '--.';
+            case 'H':
+                return '....';
+            case 'I':
+                return '..';
+            case 'J':
+                return '.---';
+            case 'K':
+                return '-.-';
+            case 'L':
+                return '.-..';
+            case 'M':
+                return '--';
+            case 'N':
+                return '-.';
+            case 'O':
+                return '---';
+            case 'P':
+                return '.--.';
+            case 'Q':
+                return '--.-';
+            case 'R':
+                return '.-.';
+            case 'S':
+                return '...';
+            case 'T':
+                return '-';
+            case 'U':
+                return '..-';
+            case 'V':
+                return '...-';
+            case 'W':
+                return '.--';
+            case 'X':
+                return '-..-';
+            case 'Y':
+                return '-.--';
+            case 'Z':
+                return '--..';
+            case '1':
+                return '.----';
+            case '2':
+                return '..---';
+            case '3':
+                return '...--';
+            case '4':
+                return '....-';
+            case '5':
+                return '.....';
+            case '6':
+                return '-....';
+            case '7':
+                return '--...';
+            case '8':
+                return '---..';
+            case '9':
+                return '----.';
+            case '0':
+                return '-----';
+            case ' ':
+                return '@';
+            default:
+                return '';
+        }
+    };
+})();
+</script>
+
+
+</div>
+
+
+    <footer>
+
+  topituulensuu.com/morse
+  <br><br>
+
+</footer>
+
+  </body>
+</html>
