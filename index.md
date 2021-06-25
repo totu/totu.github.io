@@ -4,6 +4,13 @@ title: topituulensuu.com
 permalink: /
 permalink_name: /home
 ---
+<style>
+@media (max-width:700px) {
+  img {
+    display: none;
+  }
+} 
+</style>
 <img style="height:350px;float:left;margin-left:5px;margin-right:20px;" src="/assets/face-2021-06.jpg">
 <p style="height:350px">Hello and welcome to my corner of the Internet.
 
