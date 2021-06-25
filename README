@@ -1,0 +1,23 @@
+This is generated with Jekyll
+Jekyll sources live in the `source` branch
+
+The theme I am using is too old and isn't compatible with the `github-pages` gem / `gh-pages` branch :(
+
+Current work flow:
+- git checkout source
+- bundle exec jekyll serve
+- edit edit edit
+- review
+- commit changes to source
+- cp -r _site ..
+- git checkout -
+- cp -r ../_site/* .
+- commit to master (i.e. push website to live)
+
+
+Prereqs:
+- install ruby & gem (tested with 2.7 and 3.0)
+- clone repo
+- checkout source
+- bundle install
+- verify shit works with `bundle exec jekyll serve`
