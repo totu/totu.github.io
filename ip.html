@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <title>
+    IP Mangler - topituulensuu.com
+  </title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+</head>
+
+
+  <body class="large">
+
+    <header>
+  <div class="menu">
+    <ul>
+      <li class="page_title">IP Mangler</li><li><a href="/">/home</a></li><li><a href="/archive">/archive</a></li><li><a href="/tools">/tools</a></li><li><a href="https://addons.mozilla.org/en-US/firefox/user/15008081/">/firefox</a></li>
+    </ul>
+  </div>
+</header>
+
+    <div class="error_box">
+  <style>
+label { text-align: left; width: 25%; display: inline-block; }
+.error_box { margin: 0 !important; padding: 0 !important; }
+:disabled { background-color: #c3c3c3; color: #000; cursor: not-allowed; }
+</style>
+
+<script>
+// Just hack to make sure this gets executed
+(function() {
+
+    // Zero remover
+    const removeZeroes = function(input) {
+        const own = document.getElementById("remove-zeros");
+        const content = input.split(".");
+        const val = [];
+        for (let i=0; i<content.length; i++) {
+            const oct = content[i];
+            if (oct * 1.0 != 0) {
+                val.push(oct);
+            }
+        }
+        own.value = val.join(".");
+    }
+
+    // Overflower
+    const overFlow = function(input) {
+        const own = document.getElementById("overflow");
+        const content = input.split(".");
+        const second_last = content[2];
+        let last = content[3];
+        last = (second_last * 1.0) * 256 + (last * 1.0);
+        own.value = [content[0], content[1], last].join(".");
+    }
+
+    // Hex converter
+    const hexa = function(input) {
+        const own = document.getElementById("hexa");
+        const content = input.split(".");
+        let val = "";
+
+        const hexlify = function(s) {
+            let val = s * 1.0;
+            if (val == 0)
+                return "00";
+            if (val < 10)
+                return "0" + val;
+            val = val.toString(16);
+            if (val.length == 1)
+                return "0" + val;
+            return val;
+        }
+
+        for (let i=0; i<content.length; i++) {
+            val += hexlify(content[i])
+        }
+        own.value = "0x" + val;
+    }
+
+    // Binary converter
+    const binary = function(input) {
+            const own = document.getElementById("binary");
+            const content = input.split(".");
+            let val = "";
+            for (let i=0; i<content.length; i++) {
+                bin = (content[i] * 1.0).toString(2);
+                let pad = "";
+                for (let j=0; j<8-bin.length; j++) {
+                    pad += "0";
+                }
+                bin = pad + bin;
+                val += bin;
+            }
+            own.value = val;
+    }
+
+    const bitshift = function(input) {
+        const own = document.getElementById("bitshift");
+        const hex = document.getElementById("hexa");
+        let val = 0;
+        val = parseInt(hex.value, 16);
+        own.value = val;
+    }
+
+    // Hook up to the convert functions
+    document.addEventListener("DOMContentLoaded", function() {
+        const ip = document.getElementById("ip");
+        console.log("ready")
+        ip.onkeyup = function(evnt) {
+            const value = ip.value;
+            removeZeroes(value);
+            overFlow(value);
+            hexa(value);
+            binary(value);
+            bitshift(value);
+        }  
+    });
+})();
+</script>
+
+<p><label for="ip">IP Address</label><input name="ip" id="ip" />
+<label for="remove-zeros">remove-zeros</label><input disabled="" name="remove-zeros" id="remove-zeros" />
+<label for="overflow">overflow</label><input disabled="" name="overflow" id="overflow" />
+<label for="hexa">hexa</label><input disabled="" name="hexa" id="hexa" />
+<label for="binary">binary</label><input disabled="" name="binary" id="binary" />
+<label for="bitshift">bitshift</label><input disabled="" name="bitshift" id="bitshift" /></p>
+
+</div>
+
+
+    <footer>
+
+  topituulensuu.com/ip
+  <br><br>
+
+</footer>
+
+  </body>
+</html>
