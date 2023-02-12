@@ -33,6 +33,10 @@
     src: url(font/SpaceMono-Bold.ttf);
 }
 
+.no-hover:hover {
+    pointer-events: none;
+}
+
 :root {
     --dark-gold: #0f0f0c;
     --gold: #99835c;
@@ -394,3 +398,4 @@ img {
 .socials::before {
     content: "» ";
 }
+
