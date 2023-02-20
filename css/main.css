@@ -345,8 +345,6 @@ del {
 .archive > li:hover, .archive > li:hover a, .archive > li:hover a > span {
     color: var(--black);
     text-shadow: none;
-    font-family: bold;
-    font-weight: 800;
     background: var(--orange);
 }
 
