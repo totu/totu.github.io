@@ -274,6 +274,7 @@ footer > p::before {
     position: absolute;
     object-fit: cover;
     object-position: 50% 0;
+    filter: grayscale(100%);
 }
 
 .color-overlay {
@@ -281,7 +282,7 @@ footer > p::before {
     display: inline;
     float: right;
     position: absolute;
-    background-color: #0058ab;
+    background-color: var(--blue);
     opacity: 0.4;
 }
 
@@ -291,8 +292,8 @@ footer > p::before {
     width: 15rem;
     height: 15rem;
     mask-image: url(/img/mask.png);
-    mask-size: 210%;
-    mask-position:-12rem -8rem, center;
+    mask-size: 200%;
+    mask-position:-10rem -9rem, center;
     transform: scale(-1, 1);
     margin-left: 24em;
     margin-top: 0.02em;
