@@ -1,0 +1,43 @@
+title: Notes on iPad as terminal
+date: 2023-03-05
+# Notes on iPad as terminal
+
+I bought my first iPad couple years back. It was 3rd generation Air, I mainly bought it as TV remote and drawing machine. I've since used it as a bit as second display with Apple's side car which also works fine. However some time ago while rearranging my bedroom it had a fall and the screen shattered. It still works fine as audio player and I can even tolerate watching some videos off of it on weekends when I don't want to get up. However the drawing part was pretty much kaput.
+
+I've been using MacBook Air M1 as my primary work machine (truth be told it is too only just fancy terminal and teams machine since all actual work is done on a Linux desktop over SSH) and since I haven't had my own laptop for a while I wanted to buy one, but buying another MacBook Air M1 felt weird - since I already have access to one - and dropping 1600€ on the base model MacBook Air M2 is just way too much money I decided to on a weird compromise of buying iPad Air M1 (5th Gen).
+
+## Performance
+
+As you'd expect on any M1 device it is blazingly fast at everything it can do.
+
+## But as a developing machine?
+
+This is the part I glossed over and probably had I thought about it more I would have skipped the iPad for actual computer: iPad is just glorified iPhone. Meaning you can't actually write and run code on the iPad, as in I can't just install homebrew or and then get NeoVim and start writing Python code - however I am writing this very post on my iPad, but with some extra steps...
+
+## Extra steps
+
+As you might know from my previous posts I run an PiHole with Ruuvi collector (currently on RPi 4 in case you are curious) so I tried to just import all of my tools over and see if it worked out and it pretty much did.
+
+tmux and NeoVim installed without an issue, so did python3, but my Pi only has 3.7 in its repos and my new web page compiling script was using new stuff from `shutil` which the 3.7 didn't support so I had to compile 3.11 myself. Only issue I had initially were missing `ctype` package, but that got fixed when I first installed `libtiff-dev` and `libsodium-dev` and re-compiled.
+
+<img style="width:100%;margin-top:1em;margin-bottom:1em;margin-left:0%;border:dotted 1px var(--yellow)" src="/img/ipad-workflow.png" alt="NeoVim in tmux in Blink on iPad">
+
+With the Apple's Smart Keyboard Foil typing is good enough that I don't mind using it over any other laptop keyboard. However I am a bit tempted to buy some kind of bluetooth mechanical keyboard, but that will have to wait to see if I will keep this up. Only noteable problem is lack of `Esc` key, so I had to map `§` to `<Esc>` in insert mode (probably should map it in other modes as well now that I think about it)
+
+## Website development flow
+
+Standard affare. Run my `make.py` one tmux panel, run `python3 -m http.server` in another panel, open Safari to rasperripi.local:8000, and open neovim in the `content/` folder and start writing.
+
+## Accessories
+
+I already mentioned I have Apple's Smart Keyboard Foil, which I do (soft) recommend. It works just fine. It is not amazing. It is not crap. I think Apple has something newer out as well that might be better. I've also read good things about Logitech's keyboard - however the dude who sold me my iPad recommended using Apple's keyboard and I (maybe foolishly) believed him.
+
+I also bought new 2nd generation Apple Pen clone. The official pencil is a bit pricy so I skimped out on it and bought something at half the price that the dude recommended - however with the pencil I think I should have paid the full price. I don't have the touch charging nor pressure sensitivity and I am pretty sure within a month I will be buying the official pen anyway. And depending on the price I might buy the Logitech keyboard just to try it out.
+
+## Apps
+
+Really the only relevant application for using iPad as SSH terminal `Blink`. I bought it years ago so I could manage my PiHole from my phone and it looks like there is a new version - I got the impression that it has new nice features, but also I think it now operates on a subscription and I think that is unreasonable so I reverted back to the legacy version as soon as it started to nag me for money. So unless you are also legacy use you might need to look for another solution.
+
+## Thoughts
+
+It is pretty surprising how often I've used my iPad even though my MacBook is right plugged into my big monitor and has all my usual work accessories already attached, but something about just wipping out my pad and turning it into "laptop mode" and working purely on hardware I own feels right for the stupid shit I do on my own time. Also the janky parts of the workflow feel more like a feature than a bug currently - I am doing this as a hobby after all, so having to compile a tool or a library is part for the course and there is just something about using nice Apple-y interface to make and run code on a Raspberry Pi that just tiggles me. Like this is definitely **my** setup and there probably aren't (m)any like it!
