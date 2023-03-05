@@ -138,6 +138,9 @@ if __name__ == "__main__":
     templates = Path("templates")
     base_title = "»»t0p1 // "
     generator = Generator(content=content, output=output, templates=templates, title=base_title)
+    generator.clean()
+    generator.read_templates()
+    generator.generate_content()
     watch = Watcher(content, generator)
     watch.run()
 
