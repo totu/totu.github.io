@@ -20,16 +20,15 @@ Family-wise I have also lost a lot. Starting with my mother. She had multiple he
 Worst part was that at the same time I lost contact with my siblings. My brother took our mother's passing hard and we had a falling out. My sister focused on her own family and life situation, which I can't fault her for, but at the same time we've met face-to-face two or three times after our mother's funeral. On otherside I've grown a bit closer to my father. However we aren't super close. While I used to visit my mother weekly for years, we only hang out with my father when there is something at my home that needs fixing or he has IT problems. Otherwise it is just chance encounters on the parking lot.
 
 ## Health
-Health-wise before Covid I was in the best shape of my life. I was still grossly over weight, but I had some muscles and I felt strong, but with the gyms closing and the lockdown weight gains I am probably in the worst shape right now. Mentally I think I've changed a lot. I've grown to avoid people even more than before. Don't get me wrong, I never has extroverted, but I've become _much_ more introverted. At the store I find myself constantly annoyed by other people just going by their business. I am also way more pessimistic about the world. Maybe it is the Russian's invasion of Ukraine and how companies simply refuse to actually pull out since money is more important than human lives. Or the fact that China and United States are about to start a World War 3 over Taiwan. Or how fucking Turkey and Hungary still haven't ratified Finland or Sweden into NATO. Or maybe this is just what growing up is. I just feel so fucking helpless.
+Health-wise before Covid I was in the best shape of my life. I was still grossly over weight, but I had some muscles and I felt strong, but with the gyms closing and the lockdown weight gains I am probably in the worst shape right now. Mentally I think I've changed a lot. I've grown to avoid people even more than before. Don't get me wrong, I never has extroverted, but I've become _much_ more introverted. At the store I find myself constantly annoyed by other people just going by their business.
 
-<br>
-<pre class='quote'>
-    Nothing's what it seems to be
-    I'm a replica, I'm a replica
-    Empty shell inside of me
-    I'm not myself, I'm a replica of me...
+## Getting better
+Slowly but steadily I am starting to deal with the situation. This post is one step - a step to get all this shit out from my head.
 
-                             <span>-- Sonata Arctica - Replica</span>
-</pre>
-<br>
-<iframe width="100%" src="https://www.youtube.com/embed/8iJX64trLYg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+I think work-wise I am in a good place. I find my work rewarding and my team has started to visit our office once per week which hopefully will get better over Q3 as our office renovation concludes.
+
+Socially I don't think I can do much fast. I will maintain D&D group(s) to best of my ability and as I was writing this we've made some changes in our scheduling which will hopefully result in more frequent games. On actual face-to-face front I just need to be more proactive as the spring starts to roll in. I need to schedule group activities once again and try to get people to engage and if no one is willing I just need to attend events solo.
+
+Health-wise I think first thing I need to get under control is food. I've been eating _way_ too much take out and fast food. I need to start making my own food again and stop excessive treats. I don't think I'm going to be hitting the gym at least before office renovation is completed, but after I have food under control I should start just hitting some bodyweight workouts at home and going for walks.
+
+Regarding family I have no plans. There will be come garage renovating coming with my father, but that is pretty much it. I just need to try and take as much advantage of that as I can.
