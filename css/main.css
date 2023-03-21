@@ -230,6 +230,18 @@ pre:hover {
     box-shadow: 0 0 0.5em var(--gold);
 }
 
+.quote {
+    width: 80%;
+    margin-left: 10%;
+    border: none;
+    background: none;
+    color: var(--pink);
+}
+
+.quote > span {
+    color: var(--orange);
+}
+
 footer {
     width: 80em;
     opacity: 0.15;
