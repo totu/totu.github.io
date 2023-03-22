@@ -71,7 +71,7 @@ There is absolutely no reason a feature test suite's keywords should check and r
 
 You will miss sometimes retrospectively obvious things in your test coverage. We only have limited amount of time to dedicate to any product or feature. Identify and focus on important things. Covering 100% of one specific function that delivers no value to end user means nothing.
 
-Be willing to admit your mistakes and do not hesitate writing new tests (and improving old tests) for old features and you come up with them.
+Be willing to admit your mistakes and do not hesitate writing new tests (and improving old tests) for old features when you come up with them.
 
 ## Set up yourself for success
 
