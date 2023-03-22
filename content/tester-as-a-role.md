@@ -1,5 +1,5 @@
 title: Should "Tester" be a role?
-date: 2023-03-23
+date: 2023-03-21
 # Should "Tester" be a role?
 
 For past seven years I have worked as professional tester. First I worked as a subcontractor under title "Engineer, SW Testing". Then later I joined the company as "Test Automation Developer" and since then I've become "Senior Test Automation Specialist".
