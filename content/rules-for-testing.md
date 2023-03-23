@@ -35,10 +35,10 @@ Sleeping just wastes everyone's time.
 
 If you find yourself using Sleep keyword you probably are thinking your problem in wrong way. Consider following:
 
-    If you want to wait until the system is in state X instead of waiting for Y seconds until you are (pretty) sure the system is in that state just do the work and go through the sequence until you are in state X
-    If you don't have any signal in your protocol that system has reached state X think if you could use another protocol to confirm that the system is in state X
-    If no protocol can be used to confirm system's state consider if your taste makes sense. How is this going to happen in real world if you can not detect the state in anyway?
-    If nothing else helps add more instrumentation. You can't test what you can't see. Add a way to see what you need to see.
+- If you want to wait until the system is in state X instead of waiting for Y seconds until you are (pretty) sure the system is in that state just do the work and go through the sequence until you are in state X
+- If you don't have any signal in your protocol that system has reached state X think if you could use another protocol to confirm that the system is in state X
+- If no protocol can be used to confirm system's state consider if your taste makes sense. How is this going to happen in real world if you can not detect the state in anyway?
+- If nothing else helps add more instrumentation. You can't test what you can't see. Add a way to see what you need to see.
 
 ## One start is plenty
 
