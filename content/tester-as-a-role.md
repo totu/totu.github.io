@@ -8,15 +8,15 @@ However my role inside the various teams hasn't changed much (expect my short st
 
 ## Current task division
 
-Just to bring us on same page how my company splits testing (at least in the teams I've been part of) is that the "developers" write unittests for their code and then "testers" upkeep our test libraries (written in python) and use them in cojunction with Robot Framework to test our application's different interfaces using both public and proprietary protocols as well as do _light_ end to end testing against the actual hardware we ship with other applications and services.
+Just to bring us on same page how my company splits testing (at least in the teams I've been part of) is that the "developers" write unit tests for their code and then "testers" upkeep our test libraries (written in python) and use them in conjunction with Robot Framework to test our application's different interfaces using both public and proprietary protocols as well as do _light_ end to end testing against the actual hardware we ship with other applications and services.
 
 ## Problems
 
-Recently we've had quite a few people in these "tester" roles have moved to different roles or quit. Meaning there is lack of testing support and newbies to be trained. In turn I've been more occupied with reviewing testing code than writing new tests and well as maintaining our CI pipeline and improving speed and reliablity of our pipeline.
+Recently we've had quite a few people in these "tester" roles have moved to different roles or quit. Meaning there is lack of testing support and newbies to be trained. In turn I've been more occupied with reviewing testing code than writing new tests and well as maintaining our CI pipeline and improving speed and reliability of our pipeline.
 
 This has made me think: why do we even have this "tester" role? Why aren't the developers writing the Robot Tests? Whenever developers need to write Robot tests there seems to be friction. I'm sure it is partly because Robot has weird syntax, but if these people can come to grips with C++ Robot Framework should be a walk in the park.
 
-Another part is that "tester" is seen by many as a lesser role to "developer". Less technical. Less capable. Less worthy. This is where I have the biggest problem: testing is most imporant part of software development (imagine someone calling themselves a "tester" having this take). Many people can write tests, but writing tests that actually test something and test it properly is hard. Especially negative cases are often completely forgotten by the devs and maybe that is natural since you focus on building the new function/feature/system so you have to have a tester's mindset to (try to) tear it into pieces.
+Another part is that "tester" is seen by many as a lesser role to "developer". Less technical. Less capable. Less worthy. This is where I have the biggest problem: testing is most important part of software development (imagine someone calling themselves a "tester" having this take). Many people can write tests, but writing tests that actually test something and test it properly is hard. Especially negative cases are often completely forgotten by developers and maybe that is natural since you focus on building the new function/feature/system so you have to have a tester's mindset to (try to) tear it into pieces.
 
 ## New role?
 
