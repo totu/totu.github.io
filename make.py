@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3.11
 import time
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
