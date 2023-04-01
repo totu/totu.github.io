@@ -48,6 +48,9 @@
     --white: #fff;
     --red: #f40e00;
     --orange: #f7a500;
+    --link: var(--pink);
+    --link-hover: var(--yellow);
+    --big-link: var(--blue);
 }
 
 html {
@@ -329,12 +332,12 @@ del {
 
 a {
     text-decoration: none;
-    color: var(--pink);
+    color: var(--link);
     font-size: 1em;
 }
 
 a:hover {
-    color: var(--yellow);
+    color: var(--link-hover);
     text-shadow:
         0.16em 0.16em 0 var(--pink);
 }

@@ -12,13 +12,28 @@ const colors = {
         "dark": "#69d3ff",
         "light": "#b0daff"
     },
+    "--big-link": {
+        "dark": "#69d3ff",
+        "light": "#b0daff",
+        "blackandwhite": "#69d3ff"
+    },
     "--pink": {
         "dark": "#ff3eb5",
         "light": "#ffb4b4"
     },
+    "--link": {
+        "dark": "#ff3eb5",
+        "light": "#ff3eb5",
+        "blackandwhite": "#ff3eb5"
+    },
     "--yellow": {
         "dark": "#ffe900",
         "light": "#feff86",
+    },
+    "--link-hover": {
+        "dark": "#ffe900",
+        "light": "#ff3eb5",
+        "blackandwhite": "#ff3eb5"
     },
     "--always-black": {
         "dark": "#000",
@@ -38,7 +53,7 @@ const colors = {
     },
     "--orange": {
         "dark": "#f7a500",
-        "light": "#b0daff"
+        "light": "#f7a500"
     }
 }
 
