@@ -1,37 +1,8 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Topi 'top1' Tuulensuu's page">
-        <meta name="author" content="Topi Tuulensuu">
-        <link rel="stylesheet" href="css/main.css?v=1.0">
-    </head>
-    <body>
-        <a href="/"><name>Topi '<span class='mecha'>top1</span>' Tuulensuu</name></a>
-        <header>
-            <links>
-                <a href="/archives.html"><span class='upper'>a</span>rchives</a>
-                <a><span class='upper shift-right'>t</span>ools</a>
-                <a href="https://addons.mozilla.org/en-US/firefox/user/15008081/"><span class='upper shift-right'>f</span>irefox</a>
-                <a href="https://github.com/totu"><span class='upper'>g</span>ithub</a>
-                <a href="https://www.linkedin.com/in/topi-tuulensuu-1a67036b/"><span class='upper'>l</span>inkedin</a>
-            </links>
-        </header>
-        <main>
-<title>»»t0p1 // Raspian is broken AF!</title><h1>Raspian is broken AF!"</h1>
-<p>I was repurposing a useless RPi4 board to serve as SMB server. I started by installing <a href="https://www.raspberrypi.org/software/operating-systems/#raspberry-pi-os-32-bit" title="Rasberry Pi OS">latest Raspberry Pi OS Lite</a>. Steps to enable networking and headless SSH worked fine. I also found instructions on how to setup external drive to serve as samba share. Cool! Everything is fine, right? Wrong.</p>
-<h2>Case of excess privileges</h2>
-<p>After making sure my share worked with Windows, OS X, and iOS I started to harden my new pi. I did normal shit install &amp; enable <code>ufw</code>. Then install and setup <code>fail2ban</code>. Setup SSH keys, disable password login, cool - cool. Next I removed <code>pi</code> user from <code>sudo</code> group, but I forgot to add my own user... Shit... Maybe I still have my sudoes privileges since I haven't logged out yet.</p>
-<pre><code class="language-sh">pi@jakorasia:~ $ sudo su
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width, initial-scale=1"><meta name=description content="Topi 'top1' Tuulensuu's page"><meta name=author content="Topi Tuulensuu"><link rel=stylesheet href="css/main.css?v=1.0"></head><body><div class=mode-changer><div class="mode-button dark-mode" onclick="toggleMode('dark')"><div class=semi-circle></div></div><div class="mode-button light-mode" onclick="toggleMode('light')"><div class=semi-circle></div></div><div class="mode-button black-and-white-mode" onclick="toggleMode('blackandwhite')"><div class=semi-circle></div></div></div><a class=title><name>Topi '<span class=mecha>top1</span>' Tuulensuu</name></a><header><links><a href=/index.html><span class=upper>a</span>rchives</a><a><span class="upper shift-right">t</span>ools</a><a href=https://addons.mozilla.org/en-US/firefox/user/15008081/ ><span class="upper shift-right">f</span>irefox</a><a href=https://github.com/totu><span class=upper>g</span>ithub</a><a href=https://www.linkedin.com/in/topi-tuulensuu-1a67036b/ ><span class=upper>l</span>inkedin</a></links></header><main><title>»»t0p1 // Raspian is broken AF!</title><h1>Raspian is broken AF!"</h1><p>I was repurposing a useless RPi4 board to serve as SMB server. I started by installing <a href=https://www.raspberrypi.org/software/operating-systems/#raspberry-pi-os-32-bit title="Rasberry Pi OS">latest Raspberry Pi OS Lite</a>. Steps to enable networking and headless SSH worked fine. I also found instructions on how to setup external drive to serve as samba share. Cool! Everything is fine, right? Wrong.</p><h2>Case of excess privileges</h2><p>After making sure my share worked with Windows, OS X, and iOS I started to harden my new pi. I did normal shit install &amp; enable <code>ufw</code>. Then install and setup <code>fail2ban</code>. Setup SSH keys, disable password login, cool - cool. Next I removed <code>pi</code> user from <code>sudo</code> group, but I forgot to add my own user... Shit... Maybe I still have my sudoes privileges since I haven't logged out yet.</p><pre><code class=language-sh>pi@jakorasia:~ $ sudo su
 root@jakorasia:/home/pi#
-</code></pre>
-<p>Nice! But I felt like that shouldn't have worked. Let's check groups just in case I misstyped <code>usermod</code> or something</p>
-<pre><code class="language-sh">pi@jakorasia:~ $ groups
+</code></pre><p>Nice! But I felt like that shouldn't have worked. Let's check groups just in case I misstyped <code>usermod</code> or something</p><pre><code class=language-sh>pi@jakorasia:~ $ groups
 pi
-</code></pre>
-<p>WTF... That doesn't look correct. Is the sudoers file somehow broken?</p>
-<pre><code class="language-conf">#
+</code></pre><p>WTF... That doesn't look correct. Is the sudoers file somehow broken?</p><pre><code class=language-conf>#
 # This file MUST be edited with the 'visudo' command as root.
 #
 # Please consider adding local content in /etc/sudoers.d/ instead of
@@ -55,26 +26,12 @@ root    ALL=(ALL:ALL) ALL
 
 # See sudoers(5) for more information on &quot;#include&quot; directives:
 #includedir /etc/sudoers.d
-</code></pre>
-<p>Looks fine to me</p>
-<p>Anyways at this point I setup my own account. Rebooted. Verified that the SMB share still worked. Flawless! But I just had to make sure and...</p>
-<pre><code class="language-sh">pi@jakorasia:~ $ groups
+</code></pre><p>Looks fine to me</p><p>Anyways at this point I setup my own account. Rebooted. Verified that the SMB share still worked. Flawless! But I just had to make sure and...</p><pre><code class=language-sh>pi@jakorasia:~ $ groups
 pi
 pi@jakorasia:~ $ sudo su
 root@jakorasia:/home/pi#
-</code></pre>
-<p>So what the hell is going on? After some more staring at <code>/etc/sudoers</code> and fiddling with the groups I realized that the last line (<code>#includedir /etc/sudoers.d</code>) isn't a comment. Let's check it out.</p>
-<pre><code class="language-sh">root@jakorasia:/home/pi# ls /etc/sudoers.d/
+</code></pre><p>So what the hell is going on? After some more staring at <code>/etc/sudoers</code> and fiddling with the groups I realized that the last line (<code>#includedir /etc/sudoers.d</code>) isn't a comment. Let's check it out.</p><pre><code class=language-sh>root@jakorasia:/home/pi# ls /etc/sudoers.d/
 010_at-export  010_pi-nopasswd    010_proxy  README
-</code></pre>
-<p>That <code>010_pi-nopasswd</code> looks pretty suspicious, don't you think?</p>
-<pre><code class="language-sh">root@jakorasia:/home/pi# cat /etc/sudoers.d/010_pi-nopasswd
+</code></pre><p>That <code>010_pi-nopasswd</code> looks pretty suspicious, don't you think?</p><pre><code class=language-sh>root@jakorasia:/home/pi# cat /etc/sudoers.d/010_pi-nopasswd
 pi ALL=(ALL) NOPASSWD: ALL
-</code></pre>
-<p><strong>NO. FUCKING. WAY!</strong> Rasbian ships with literally <strong>no root password</strong> for the <strong>default</strong> user. I guess this is fine, but how many people are running their RPis absolutely clueless about this <code>NOPASSWD</code> default? Maybe it is just me, but this kind of default seems almost heretical. Why even ship <code>sudo</code> if you are just going to bypass it? I guess the take away is that you really need to change that <code>pi</code> password to something secure or just install something else than Rasbian.</p>        </main>
-        <footer>
-            Copyleft All Wrongs Reserved.
-        </footer>
-    </body>
-</html>
-
+</code></pre><p><strong>NO. FUCKING. WAY!</strong> Rasbian ships with literally <strong>no root password</strong> for the <strong>default</strong> user. I guess this is fine, but how many people are running their RPis absolutely clueless about this <code>NOPASSWD</code> default? Maybe it is just me, but this kind of default seems almost heretical. Why even ship <code>sudo</code> if you are just going to bypass it? I guess the take away is that you really need to change that <code>pi</code> password to something secure or just install something else than Rasbian.</p> </main><footer> Copyleft All Wrongs Reserved. </footer></body><script type=text/javascript src=js/mode.js></script></html>
