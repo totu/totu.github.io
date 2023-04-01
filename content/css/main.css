@@ -44,6 +44,7 @@
     --pink: #ff3eb5;
     --yellow: #ffe900;
     --black: #000;
+    --always-black: #000;
     --white: #fff;
     --red: #f40e00;
     --orange: #f7a500;
@@ -65,7 +66,7 @@ h1, h2 {
     font-family: spray;
     cursor: default;
     position: relative;
-    color: var(--black);
+    color: var(--always-black);
     background-color: var(--yellow);
     margin: -1em 0 0.5em -1em;
     left: -0.5em;
@@ -105,10 +106,9 @@ p {
 body {
     text-align: center;
     display: block;
-    align: center;
     width: 100%;
     max-width: 1000px;
-    margin: -3.5em auto 0;
+    margin: -8.5em auto 0;
     padding: 0;
 }
 
@@ -138,8 +138,8 @@ name {
     overflow: visible;
     background: none;
     text-shadow:
-        -0.01em -0.01em 0.02em var(--black),
-        0.01em 0.01em 0 var(--black),
+        -0.01em -0.01em 0.02em var(--always-black),
+        0.01em 0.01em 0 var(--always-black),
         0.05em 0.05em 0 var(--pink);
     position: relative;
     display: block;
@@ -161,10 +161,9 @@ links > a {
     display: inline-block;
     font-size: 1.5em;
     text-shadow:
-        0.02em 0.02em 0 var(--black),
+        0.02em 0.02em 0 var(--always-black),
         0.05em 0.05em 0 var(--pink),
         0.15em 0.15em 0 var(--pink);
-    transition: 0.3s;
     position: relative;
 }
 
@@ -172,7 +171,7 @@ links > a:hover {
     cursor: pointer;
     transform: rotate(-5deg) skew(5deg, 1deg);
     text-shadow:
-        0.05em 0.05em 0 var(--black),
+        0.05em 0.05em 0 var(--always-black),
         0.15em 0.15em 0 var(--pink),
         0.25em 0.25em 0 var(--pink);
     transition: 0.3s;
@@ -181,7 +180,6 @@ links > a:hover {
 
 links > .active {
     transform: rotate(2deg) skew(5deg, 1deg);
-    transition: 0.3s;
 }
 
 links > .active, links > a:hover {
@@ -267,50 +265,6 @@ footer > p::before {
     left: -0.3em;
 }
 
-.nihao {
-    width: 50em;
-    margin-left: -10em;
-    display: inline;
-    float: left;
-    top: 8em;
-    z-index: -5;
-    position: absolute;
-    opacity: 0.1;
-    transform: rotate(-25deg);
-}
-.face {
-    z-index: -4;
-    display: inline;
-    float: right;
-    margin: 0.8em -1.5em 0 0;
-    position: absolute;
-    object-fit: cover;
-    object-position: 50% 0;
-    filter: grayscale(100%);
-}
-
-.color-overlay {
-    z-index: -3;
-    display: inline;
-    float: right;
-    position: absolute;
-    background-color: var(--blue);
-    opacity: 0.4;
-}
-
-.face, .color-overlay {
-    display: inline;
-    float: right;
-    width: 15rem;
-    height: 15rem;
-    mask-image: url(/img/mask.png);
-    mask-size: 200%;
-    mask-position:-10rem -9rem, center;
-    transform: scale(-1, 1);
-    margin-left: 24em;
-    margin-top: 0.02em;
-}
-
 ol, ul {
     padding: 0;
     margin :0;
@@ -332,14 +286,12 @@ ul > li {
     margin: 0;
     list-style-type: none;
     color: var(--orange);
-    transition: 0.3s;
 }
 
 .archive > li > a {
     width: 100%;
     display: inline-block;
     color: var(--orange);
-    transition: 0.3s;
     font-family: leipa;
 }
 
@@ -351,7 +303,6 @@ del {
 
 .archive > li > a > span {
     color: var(--white);
-    transition: 0.3s;
     font-family: leipa;
 }
 
@@ -410,3 +361,79 @@ img {
     content: "» ";
 }
 
+.mode-changer {
+    z-index: 100;
+    text-align: right;
+    display: block;
+    left: 5em;
+    top: 1.67em;
+    position: --webkit-sticky;
+    position: sticky;
+    margin: 0 auto;
+    padding-right: 10em;
+    width: 37.5em;
+    opacity: 0.3;
+}
+
+.mode-changer:hover {
+    opacity: 1;
+}
+
+.mode-button {
+    cursor: pointer;
+    position: relative;
+    left: 26.1em;
+    text-align: center;
+    width: 1.1em;
+    height: 1.1em;
+    border: 1px solid white;
+    border-radius: 50%;
+    padding: 0;
+    margin: 0 auto 0.15em;
+    background-color: red;
+}
+
+.semi-circle {
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+    top: -0.49em;
+    left: 0.19em;
+    display: inline-block;
+    transform: rotate(45deg);
+    width: 1.1em;
+    height: 0.55em;
+    background-color: #48abe0;
+    border-radius: 5em 5em 0 0;
+}
+
+.dark-mode {
+    background-color: #ff3eb5;
+    border-color: #fff;
+}
+
+.dark-mode > .semi-circle {
+    background-color: #ffe900;
+}
+
+.light-mode {
+    background-color: #ffb4b4;
+    border-color: #fff;
+}
+
+.light-mode > .semi-circle {
+    background-color: #feff86;
+}
+
+.black-and-white-mode {
+    background-color: #000;
+    border-color: #c3c3c3;
+}
+
+.black-and-white-mode > .semi-circle {
+    background-color: #fff;
+}
+
+.mode-button:hover {
+    box-shadow: 0 0 0.5em var(--gold);
+}
