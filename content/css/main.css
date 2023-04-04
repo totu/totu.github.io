@@ -132,7 +132,7 @@ header, main, footer {
 }
 
 name {
-    z-index: 5;
+    z-index: 100;
     top: 1.5em;
     margin: 0 auto;
     color: var(--yellow);
@@ -369,7 +369,7 @@ img {
     text-align: right;
     display: block;
     left: 5em;
-    top: 1.67em;
+    top: 1em;
     position: --webkit-sticky;
     position: sticky;
     margin: 0 auto;
@@ -387,8 +387,8 @@ img {
     position: relative;
     left: 26.1em;
     text-align: center;
-    width: 1.1em;
-    height: 1.1em;
+    width: 0.9em;
+    height: 0.9em;
     border: 1px solid white;
     border-radius: 50%;
     padding: 0;
@@ -400,12 +400,12 @@ img {
     margin: 0 auto;
     padding: 0;
     position: relative;
-    top: -0.49em;
-    left: 0.19em;
+    top: -0.615em;
+    left: 0.165em;
     display: inline-block;
     transform: rotate(45deg);
-    width: 1.1em;
-    height: 0.55em;
+    width: 0.9em;
+    height: 0.45em;
     background-color: #48abe0;
     border-radius: 5em 5em 0 0;
 }
