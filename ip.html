@@ -1,0 +1,128 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width, initial-scale=1"><meta name=description content="Topi 'top1' Tuulensuu's page"><meta name=author content="Topi Tuulensuu"><link rel=stylesheet href="css/main.css?v=1.0"></head><body><div class=mode-changer><div class="mode-button dark-mode" onclick="toggleMode('dark')"><div class=semi-circle></div></div><div class="mode-button light-mode" onclick="toggleMode('light')"><div class=semi-circle></div></div><div class="mode-button black-and-white-mode" onclick="toggleMode('blackandwhite')"><div class=semi-circle></div></div></div><a href=/ class=title><name>Topi '<span class=mecha>top1</span>' Tuulensuu</name></a><header><links><a href=/ ><span class=upper>a</span>rchives</a><!-- <a><span class='upper shift-right'>t</span>ools</a> --><a href=https://github.com/totu><span class=upper>g</span>ithub</a><a href=https://addons.mozilla.org/en-US/firefox/user/15008081/ ><span class="upper shift-right">f</span>irefox</a><a href=https://www.linkedin.com/in/topi-tuulensuu-1a67036b/ ><span class=upper>l</span>inkedin</a></links></header><main><title>»»t0p1 // ip</title><style type=text/css>
+    #mangler {
+        margin: 0 auto 0 1em;
+        padding-top: 1em;
+    }
+    label {
+        display: inline-block;
+        width: 10em;
+        text-align: right;
+        margin-right: 1em;
+    }
+    input {
+        display: inline-block;
+        width: 19em;
+        margin-bottom: 1em;
+    }
+    input[type="button"] {
+        font-family: spray;
+        font-size: 1.5em;
+        width: 5em;
+        padding: 0;
+        margin: 0;
+        background: none;
+        color: var(--always-black);
+        background-color: var(--yellow);
+        margin-left: 1em;
+        border: none;
+        position: relative;
+        top: 0.18em;
+        cursor: pointer;
+        border-radius: 0.2em;
+    }
+    input[type="button"]:hover {
+        box-shadow: 0.05em 0.05em 0 var(--pink), 0.1em 0.1em 0 var(--pink);
+        text-shadow: 0.05em 0.05em 0 var(--pink);
+    }
+</style><div id=mangler><h1>IP Mangler</h1><br><label for=ip>Address:</label><input type=text id=ip name=ip value autofocus><input type=button id=ipbutton value=Mangle><br><label for=drop-zeros>Drop zeroes:</label><input type=text id=drop-zeros name=drop-zeros value readonly><br><label for=hexa>Hexadecimal:</label><input type=text id=hexa name=hexa value readonly><br><label for=deca>Decimal:</label><input type=text id=deca name=deca value readonly><br><label for=overflow>Overflow:</label><input type=text id=overflow name=overflow value readonly><br><label for=bitshift>Bitshift:</label><input type=text id=bitshift name=bitshift value readonly></div><script type=text/javascript>
+
+document.addEventListener('DOMContentLoaded', function() {
+    const ip = document.getElementById('ip');
+    const ipbutton = document.getElementById('ipbutton');
+    const drop_zeroes = document.getElementById('drop-zeros');
+    const hexa = document.getElementById('hexa');
+    const deca = document.getElementById('deca');
+    const overflow = document.getElementById('overflow');
+    const bitshift = document.getElementById('bitshift');
+
+
+    // take ip address from ip and remove zeroes
+    ipbutton.addEventListener('click', mangle);
+    ip.addEventListener('keydown', function(event) {
+        if (event.keyCode === 13) {
+            mangle();
+        }
+    });
+
+    function mangle() {
+        let ip_address = ip.value.split('.');
+        ip_address = ip_address.map(function(ip_part) {
+            ip_part = parseInt(ip_part, 10);
+            if (Number.isInteger(ip_part)) {
+                return ip_part;
+            } else {
+                return 0;
+            }
+        });
+
+
+        dropZeros(ip_address);
+        hexadecimals(ip_address);
+        decimal();
+        overflowLast(ip_address);
+        bitshifted(ip_address);
+    }
+
+    function dropZeros(ip_address) {
+        const ip_address_new = [];
+
+        for (let ip_part of ip_address) {
+            ip_part = parseInt(ip_part, 10);
+            if (ip_part !== 0) {
+                ip_address_new.push(ip_part);
+            }
+        }
+        drop_zeroes.value = ip_address_new.join('.');
+    }
+
+    function hexadecimals(ip_address) {
+        const ip_address_new = [];
+
+        for (let ip_part of ip_address) {
+            let hex = ip_part.toString(16);
+            if (hex.length === 1) {
+                hex = '0' + hex;
+            }
+            ip_address_new.push(hex);
+        }
+        hexa.value = "0x" + ip_address_new.join('');
+    }
+
+    function decimal() {
+        deca.value = parseInt(hexa.value, 16);
+    }
+
+    function overflowLast(ip_address) {
+        const ip_address_new = [ip_address[0], ip_address[1]];
+        const last = ip_address[ip_address.length - 1];
+            let second_last = ip_address[ip_address.length - 2];
+        if (second_last !== 0) {
+            second_last = second_last * 255 + last + second_last;
+            ip_address_new.push(second_last);
+            overflow.value = ip_address_new.join('.');
+        } else {
+            overflow.value = 'second to last octet can not be zero';
+        }
+    }
+
+    function bitshifted(ip_address) {
+        ip_address = ip_address.map(function(ip_part) {
+            return parseInt(ip_part, 10);
+        });
+        ip_address_new = (ip_address[0] << 24) + (ip_address[1] << 16) + (ip_address[2] << 8) + (ip_address[3]);
+        bitshift.value = ip_address_new;
+    }
+
+
+});
+</script></main><footer> Copyleft All Wrongs Reserved. </footer></body><script type=text/javascript src=js/mode.js></script></html>
