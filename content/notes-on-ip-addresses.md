@@ -52,4 +52,4 @@ PING 2130706433 (127.0.0.1) 56(84) bytes of data.
 2 packets transmitted, 2 received, 0% packet loss, time 1025ms
 rtt min/avg/max/mdev = 0.039/0.045/0.052/0.009 ms
 ```
-~I've [made a tool](/ip/) that helps mangle IP addresses.~
+I've [made a tool](/ip.html) that helps mangle IP addresses.
