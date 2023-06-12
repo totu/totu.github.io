@@ -1,0 +1,23 @@
+#controls {
+    display: none;
+}
+canvas {
+    display: block;
+    -ms-interpolation-mode: nearest neighbour;
+    image-rendering: pixelated;
+}
+
+label {
+    display: block;
+}
+
+#invert, #invert_label {
+    float: right;
+}
+
+.inverted {
+    filter: invert(100%);
+    -webkit-filter: invert(100%);
+    -ms-filter: invert(100%);
+}
+
