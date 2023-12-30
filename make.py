@@ -122,7 +122,7 @@ class Generator():
 
         # Prep archive index
         archive_index = self.header + \
-            f"<title>{base_title} archives</title><ul class='archive'>"
+            f"<title>{base_title} archives</title><div class=window><span class=title>archive</span> <span class=body> <ul class='archive'>"
 
         # Sort archives based on date
         archives = sorted(archives, key=lambda x: x[2], reverse=True)
@@ -132,11 +132,11 @@ class Generator():
             entry_file, entry_title, entry_date = entry
             # Convert date to "Jun 2021" format
             entry_date = entry_date.strftime("%b %Y")
-            archive_index += f"<li><a href='/{entry_file.name}'>{entry_title} \
-                    <span style='float:right'>{entry_date}</span></a></li>"
+            archive_index += f"<li><a class=post href='/{entry_file.name}'>{entry_title} \
+                    <span class=post-date>{entry_date}</span></a></li>"
 
         # Close list and add footer
-        archive_index += "</ul>" + self.footer
+        archive_index += "</ul></span></div><script src='js/ui.js'></script> " + self.footer
 
         # Minimize HTML
         archive_index = htmlmin.minify(archive_index, remove_empty_space=True)

@@ -1,6 +1,5 @@
 title: Pi-Hole - Local Ad blocking DNS
 date: 2021-06-25
-![pihole](/img/pihole.png)
 # PiHole - Local Ad blocking DNS
 
 I've been using a [Pi-Hole][1] as my primary DNS for well over 6 years and I must say that is works wonderfully. Recently I introduced a colleague to it, I've somehow always thought that this was a trivial solution - something that everyone had already implemented on their own or if they hadn't they simply didn't care. However it just might be that this is one of those topics I just assume everyone has researched while it might just be my niche interest.

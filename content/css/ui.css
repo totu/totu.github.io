@@ -1,0 +1,153 @@
+@font-face {
+    font-family: mono;
+    src: url(font/VT323-Regular.ttf);
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #000;
+    font-size: 1em;
+    color: #fff;
+    font-family: mono;
+}
+
+.window {
+    position: absolute;
+    border: 1px solid #fff;
+    margin: 1em;
+    border-radius: 5px;
+    float: left;
+    background: #000;
+    box-shadow: 0 0 0.5em #000;
+    resize: both;
+    overflow: hidden;
+    overflow-y: hidden;
+    box-sizing: content-box;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+
+.title {
+    background: #fff;
+    cursor: default;
+    color: #000;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: inline-block;
+    padding-left: 0.75em;
+    width: 100%;
+}
+
+.body {
+    padding: 0.5em 0.75em;
+    display: block;
+}
+
+
+.close, .minimize, .maximize {
+    cursor: pointer;
+    padding: 0 0.5em;
+    margin: 0;
+    float: right;
+    position: relative;
+    top: -0.1em;
+    text-decoration: none;
+    border: none;
+    font-size: 1em;
+    font-weight: bold;
+    background: #fff;
+    color: #000;
+    height: 100%;
+    width: 3em;
+    align: center;
+}
+
+.close:hover, .minimize:hover, .maximize:hover {
+    background: #000;
+    color: #fff;
+}
+
+.minimize {
+    transform: rotate(180deg);
+}
+
+.maximize {
+    background: none;
+    margin-bottom: -0.3em;
+    padding-bottom: 0;
+    padding-top: 0.3em;
+}
+
+.dragging {
+    opacity: 0.75;
+}
+
+
+.minimized {
+    resize: none;
+}
+
+.maximized {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100vw - 2em);
+    height: calc(100vh - 4em);
+    resize: none;
+}
+
+.active {
+    /* z-index: 999; */
+}
+
+.post {
+    color: #fff;
+    text-decoration: none;
+    padding-right: 5em;
+    display: block;
+    width: 100%;
+}
+
+.post-date {
+    float: right;
+    font-size: 0.8em;
+    color: #aaa;
+}
+
+.post:hover {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+a {
+    color: cyan;
+    text-decoration: underline;
+}
+
+.post-date:hover {
+    color: #fff;
+}
+
+.window ul {
+    list-style-type: circle;
+    padding: 0 0 0 0.7em;
+    margin: 0;
+}
+
+.window li {
+    padding: 0;
+    margin: 0.2em;
+}
+
+pre {
+    font-family: mono;
+    overflow: hidden;
+    border: 1px solid #aaa;
+    border-radius: 2px;
+    padding: 1em;
+    color: cyan;
+}
