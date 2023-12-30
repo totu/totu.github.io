@@ -4,7 +4,9 @@
 }
 
 html, body {
+    overflow: hidden;
     height: 100%;
+    width: 100%;
     margin: 0;
     padding: 0;
     background: #000;
@@ -150,4 +152,51 @@ pre {
     border-radius: 2px;
     padding: 1em;
     color: cyan;
+}
+
+.logo {
+    float: left;
+    height: 5em;
+    filter: invert(1);
+    margin-left: 1em;
+    margin-top: 0.56em;
+    position: relative;
+    transition-duration: 0.5s;
+}
+
+@keyframes flip {
+    0% {
+        transform: rotate3d(0, 1, 0, 0deg);
+    }
+    50% {
+        transform: rotate3d(0, 1, 0, 180deg);
+    }
+    100% {
+        transform: rotate3d(0, 1, 0, 360deg);
+    }
+}
+
+.logo:hover {
+    cursor: pointer;
+    animation-name: flip;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+    ease-in-out: 0.3s;
+}
+
+.github {
+    top: 0.75em;
+    width: 5.15em;
+}
+
+.firefox {
+    width: 6.8em;
+    height: 6.5em;
+    margin-left: 1.5em;
+}
+
+a .archive {
+    top: -0.75em;
+    height: 8.5em;
+    width: 8.9em;
 }

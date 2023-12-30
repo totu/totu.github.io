@@ -122,27 +122,34 @@ class Generator():
 
         # Prep archive index
         archive_index = self.header + \
-            f"<title>{base_title} archives</title><div class=window><span class=title>archive</span> <span class=body> <ul class='archive'>"
+            "<a class='post' href='archive.html'><img class='archive logo' src='img/archive-logo.png' alt='archive'></a>" + \
+            "<a class='ext' href='https://github.com/totu'><img class='github logo' src='img/github-logo.png' alt='github logo'></a>" + \
+            "<a class='ext' href='https://addons.mozilla.org/en-US/firefox/user/15008081/'><img class='firefox logo' src='img/firefox-logo.png' alt='firefox logo'></a>" + \
+            f"<title>{base_title} archives</title><div class=window><span class=title>archive</span> <span class=body> "
+
 
         # Sort archives based on date
         archives = sorted(archives, key=lambda x: x[2], reverse=True)
 
+        archives_html = "<ul class='archive'>"
         # Create actual index
         for entry in archives:
             entry_file, entry_title, entry_date = entry
             # Convert date to "Jun 2021" format
             entry_date = entry_date.strftime("%b %Y")
-            archive_index += f"<li><a class=post href='/{entry_file.name}'>{entry_title} \
+            archives_html += f"<li><a class=post href='/{entry_file.name}'>{entry_title} \
                     <span class=post-date>{entry_date}</span></a></li>"
 
         # Close list and add footer
-        archive_index += "</ul></span></div><script src='js/ui.js'></script> " + self.footer
+        archives_html += "</ul>"
+        archive_index += archives_html + "</span></div><script src='js/ui.js'></script> " + self.footer
 
         # Minimize HTML
         archive_index = htmlmin.minify(archive_index, remove_empty_space=True)
 
         # Write archive index to file
         Path(self.output / "index.html").write_text(archive_index)
+        Path(self.output / "archive.html").write_text(archives_html)
 
 
 if __name__ == "__main__":
