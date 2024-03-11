@@ -18,13 +18,13 @@ Glad you asked. In my mind dithering scartches the same place as film. It is old
 
 There are plenty of apps for your phone to dither images and there are even more computer software and websites that can do it for you as well. However you have to first take a image (or a dozen) and the manipulate them to get to the desired end result. I feel this fights against the whole premis of taking photographs of moments and moods. What if there was a way to just take dithered images, maybe with a dedicated device?
 
-## Dither camera
+## My solution
 <img class="normal-image" width="40%" desc="front of the camera" src="/img/dithercam-front.jpg" />
 <img class="normal-image" width="40%" desc="back of the camera" src="/img/dithercam-back.jpg" />
 
 With this tiny device I can take dithered pictures and view the image off of this 250x122 1bit e-Ink display. It has a battery so I can take it to places and it takes pictures that are more about the feeling and mood than anything else
 
-### Images
+## Images
 
 <img class="text-on-right small-image" src="/img/2024-03-05-09_19_06.png" />
 <img class="small-image" src="/img/2024-03-01-15-25-27.png" />
@@ -35,7 +35,9 @@ With this tiny device I can take dithered pictures and view the image off of thi
 <img class="small-image" src="/img/2024-03-01-15-33-43.png" />
 <img class="small-image" src="/img/2024-03-05-09_20_27.png" />
 
-### Parts
+<div class="full-break"></div>
+
+## Parts
 
 As you may have guessed from the initial pictures this is built on top of Raspberry Pi Zero.
 
@@ -49,8 +51,9 @@ As you may have guessed from the initial pictures this is built on top of Raspbe
 5. [2.13 inch e-Paper Hat][9]
 6. [Toggle Slide Switch][10]
 
+<div class="full-break"></div>
 
-### Software
+## Software
 
 All source code is available at [totu/dithercamera][11]. However there is nothing magical about it. It leverages the rapsberry pi's built in PiCamera module to get the image bytes and just feeds them into Waveshare's epd2in13_V4 demo library. Then saves the same bytes as BMP on the disk.
 
