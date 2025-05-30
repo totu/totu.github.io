@@ -170,7 +170,6 @@ const print = function(text) {
 function dragElement(title) {
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
     const elmnt = title.parentElement;
-    // const title = elmnt.querySelector('.title');
     title.addEventListener('mousedown', dragMouseDown);
 
     function dragMouseDown(e) {
@@ -196,8 +195,8 @@ function dragElement(title) {
         pos3 = e.clientX;
         pos4 = e.clientY;
         // set the element's new position:
-        elmnt.style.top = (elmnt.offsetTop - pos2 - 14) + "px";
-        elmnt.style.left = (elmnt.offsetLeft - pos1 - 14) + "px";
+        elmnt.style.top = (elmnt.offsetTop - pos2 - 16) + "px";
+        elmnt.style.left = (elmnt.offsetLeft - pos1 - 16) + "px";
     }
 
     function closeDragElement() {
