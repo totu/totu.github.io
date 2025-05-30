@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.11
+#!/usr/bin/env python3
 import time
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
@@ -156,7 +156,7 @@ if __name__ == "__main__":
     content = Path("content")
     output = Path("output")
     templates = Path("templates")
-    base_title = "»»t0p1 // "
+    base_title = "topi tuulensuu > "
     generator = Generator(content=content, output=output,
                           templates=templates, title=base_title)
     generator.clean()
