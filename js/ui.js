@@ -49,7 +49,7 @@ const createWindow = function(title, content) {
         } else {
             newScript.textContent = script.textContent;
         }
-        document.body.appendChild(newScript); // or `win` if scripts are meant to be scoped
+        document.body.appendChild(newScript); 
     });
 
     // Remove scripts from content to avoid duplication
@@ -66,16 +66,6 @@ const createWindow = function(title, content) {
     prepare(win);
     activate(win);
     ui.wins.push(win);
-
-    win.addEventListener('wheel', function(event) {
-        const delta = event.wheelDeltaY;
-        if (delta > 0) {
-            win.scrollBy(0, -1);
-        } else {
-            win.scrollBy(0, 1);
-        }
-    });
-
     hijackLinks();
 }
 
