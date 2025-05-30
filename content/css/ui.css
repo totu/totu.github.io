@@ -27,6 +27,7 @@ html, body {
     overflow: hidden;
     overflow-y: hidden;
     box-sizing: content-box;
+    overflow: scroll;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -39,9 +40,11 @@ html, body {
     color: #000;
     text-transform: uppercase;
     font-weight: bold;
-    display: inline-block;
     padding-left: 0.75em;
-    width: 100%;
+    width: auto;
+    display: inline-block;
+    overflow: hidden;
+    cursor: move;
 }
 
 .body {
@@ -165,23 +168,19 @@ pre {
 }
 
 @keyframes flip {
-    0% {
+    0%, 100% {
         transform: rotate3d(0, 1, 0, 0deg);
     }
-    50% {
+    25%, 75% {
         transform: rotate3d(0, 1, 0, 180deg);
     }
-    100% {
+    50% {
         transform: rotate3d(0, 1, 0, 360deg);
     }
 }
 
 .logo:hover {
     cursor: pointer;
-    animation-name: flip;
-    animation-duration: 1.5s;
-    animation-iteration-count: 1;
-    ease-in-out: 0.3s;
 }
 
 .github {
@@ -193,6 +192,12 @@ pre {
     width: 6.8em;
     height: 6.5em;
     margin-left: 1.5em;
+}
+
+.dither-tool {
+    top: 0.5em;
+    width: 6.8em;
+    height: 6.5em;
 }
 
 a .archive {

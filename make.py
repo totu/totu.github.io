@@ -122,9 +122,10 @@ class Generator():
 
         # Prep archive index
         archive_index = self.header + \
-            "<a class='post' href='archive.html'><img class='archive logo' src='img/archive-logo.png' alt='archive'></a>" + \
-            "<a class='ext' href='https://github.com/totu'><img class='github logo' src='img/github-logo.png' alt='github logo'></a>" + \
-            "<a class='ext' href='https://addons.mozilla.org/en-US/firefox/user/15008081/'><img class='firefox logo' src='img/firefox-logo.png' alt='firefox logo'></a>" + \
+            "<a class='post' href='archive.html'><img class='archive logo' title='open archive' src='img/archive-logo.png' alt='archive'></a>" + \
+            "<a class='ext' href='https://github.com/totu'><img class='github logo' title='github repos' src='img/github-logo.png' alt='github logo'></a>" + \
+            "<a class='ext' href='https://addons.mozilla.org/en-US/firefox/user/15008081/'><img class='firefox logo' title='firefox addons' src='img/firefox-logo.png' alt='firefox logo'></a>" + \
+            "<a class='post' href='dither.html'><img class='dither-tool logo' title='tools/dither-tool' src='img/dither-tool-icon.png' alt='dither-tool'></a>" + \
             f"<title>{base_title} archives</title><div class=window><span class=title>archive</span> <span class=body> "
 
 
@@ -142,7 +143,10 @@ class Generator():
 
         # Close list and add footer
         archives_html += "</ul>"
-        archive_index += archives_html + "</span></div><script src='js/ui.js'></script> " + self.footer
+        archive_index += archives_html + \
+        "</span></div><script src='js/ui.js'></script> " + \
+        self.footer
+
 
         # Minimize HTML
         archive_index = htmlmin.minify(archive_index, remove_empty_space=True)

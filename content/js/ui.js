@@ -1,3 +1,4 @@
+const tools = [];
 const ui = {
     "wins": [],
     "activates": [],
@@ -28,14 +29,36 @@ const createWindow = function(title, content) {
     const win = document.createElement('div');
     const titleElement = document.createElement('span');
     const body = document.createElement('div');
+
     // Add classes
     win.classList.add('window');
     titleElement.classList.add('title');
-    body.classList.add('body');
-    // Add content
     titleElement.innerHTML = title;
-    body.innerHTML = content;
-    // Add to ui
+
+    body.classList.add('body');
+
+    // Extract scripts from content
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = content;
+
+    const scripts = tempDiv.querySelectorAll('script');
+    scripts.forEach(script => {
+        const newScript = document.createElement('script');
+        if (script.src) {
+            newScript.src = script.src;
+        } else {
+            newScript.textContent = script.textContent;
+        }
+        document.body.appendChild(newScript); // or `win` if scripts are meant to be scoped
+    });
+
+    // Remove scripts from content to avoid duplication
+    scripts.forEach(s => s.remove());
+
+    // Set sanitized content
+    body.innerHTML = tempDiv.innerHTML;
+
+    // Assemble and activate window
     win.appendChild(titleElement);
     win.appendChild(body);
     document.body.appendChild(win);
@@ -47,11 +70,12 @@ const createWindow = function(title, content) {
     win.addEventListener('wheel', function(event) {
         const delta = event.wheelDeltaY;
         if (delta > 0) {
-            win.scrollBy(0, -100);
+            win.scrollBy(0, -1);
         } else {
-            win.scrollBy(0, 100);
+            win.scrollBy(0, 1);
         }
     });
+
     hijackLinks();
 }
 
@@ -214,11 +238,15 @@ const openWindow = async function(e) {
     if (href == null) {
         href = link.parentElement.getAttribute('href');
     }
+    console.log(link)
     const resp = await fetch(href)
     const text = await resp.text()
-    let title = href.split('.')[0];
-    if (title != "archive") {
-        title = "archive" + title;
+    let title = link.getAttribute('title');
+    if (title == null) {
+	title = href.split('.')[0];
+        if (title != "archive") {
+            title = "archive" + title;
+        }
     }
     createWindow(title, text);
 }

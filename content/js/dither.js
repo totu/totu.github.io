@@ -1,4 +1,5 @@
-// run on page load
+var ditherLoaded = false;
+
 function init() {
     const size_input = document.getElementById('size');
     size = size_input.value;
@@ -119,10 +120,12 @@ function dither(data, width, height) {
     return data
 }
 
-window.onload = function() {
-    const upload = document.getElementById('upload');
+function ditherToolOnLoad() {
+    if (ditherLoaded) { return } else {ditherLoaded = true }
+    console.log("dither tool loaded");
+    const dither_img = document.getElementById('dither_img');
     const img = document.getElementById('img');
-    upload.onchange = function (evt) {
+    dither_img.onchange = function (evt) {
         var tgt = evt.target || window.event.srcElement,
             files = tgt.files;
         // FileReader support
@@ -149,8 +152,8 @@ window.onload = function() {
 function setup() {
     const controls = document.getElementById('controls');
     controls.style.display = 'block';
-    const upload_label = document.getElementById('upload_label');
-    upload_label.style.display = 'none';
+    const dither_img_label = document.getElementById('dither_img_label');
+    dither_img_label.style.display = 'none';
 
     init();
     const dither_amount = document.getElementById('dither_amount');
@@ -166,3 +169,9 @@ function setup() {
         canvas.style.filter = checked ? 'invert(100%)' : 'invert(0%)';
     }
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    ditherToolOnLoad()
+})
+
+if (ditherToolOnLoad) ditherToolOnLoad();
